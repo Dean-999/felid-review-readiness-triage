@@ -1,5 +1,4 @@
-data/raw/
-data/interim/
+data/
 outputs/
 *.DS_Store
 *.zip
