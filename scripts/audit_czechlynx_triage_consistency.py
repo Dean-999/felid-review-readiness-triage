@@ -55,6 +55,7 @@ REQUIRED_LABELED_FIELDS = [
     "camera_angle",
     "reviewer_confidence",
     "uncertainty_flag",
+    "exclusion_reason",
 ]
 
 ALLOWED_VALUES = {
@@ -84,8 +85,9 @@ ALLOWED_VALUES = {
     "reviewer_confidence": {"high", "medium", "low"},
     "uncertainty_flag": {"yes", "no"},
     "exclusion_reason": {
-        "",
+        "none",
         "severe_blur",
+        "moderate_blur",
         "too_far",
         "too_small",
         "major_occlusion",
@@ -95,114 +97,116 @@ ALLOWED_VALUES = {
         "night_ir_artifact",
         "silhouette_only",
         "non_target_species",
+        "overexposed",
+        "low_contrast",
+        "partial_body",
+        "frontal_or_rear_view",
         "other",
     },
 }
 
 RULES = [
     (
-        "Rule 4",
-        "triage_label == review-ready and exclusion_reason is not blank",
-        ["triage_label", "exclusion_reason"],
-        lambda row: row["triage_label"] == "review-ready" and row["exclusion_reason"] != "",
-    ),
-    (
-        "Rule 5",
+        "Rule 1",
         "triage_label == review-ready and uncertainty_flag == yes",
         ["triage_label", "uncertainty_flag"],
         lambda row: row["triage_label"] == "review-ready" and row["uncertainty_flag"] == "yes",
     ),
     (
-        "Rule 6",
+        "Rule 2",
         "triage_label == review-ready and pattern_visibility is low or none",
         ["triage_label", "pattern_visibility"],
         lambda row: row["triage_label"] == "review-ready"
         and row["pattern_visibility"] in {"low", "none"},
     ),
     (
-        "Rule 7",
+        "Rule 3",
         "triage_label == review-ready and side_comparability is low or none",
         ["triage_label", "side_comparability"],
         lambda row: row["triage_label"] == "review-ready"
         and row["side_comparability"] in {"low", "none"},
     ),
     (
-        "Rule 8",
-        "triage_label == unidentifiable and exclusion_reason is blank",
+        "Rule 4",
+        "triage_label == unidentifiable and exclusion_reason == none",
         ["triage_label", "exclusion_reason"],
-        lambda row: row["triage_label"] == "unidentifiable" and row["exclusion_reason"] == "",
+        lambda row: row["triage_label"] == "unidentifiable"
+        and row["exclusion_reason"] == "none",
     ),
     (
-        "Rule 9",
-        "visible_region == full_body and body_fraction_visible is 0-25",
+        "Rule 5",
+        "visible_region == full_body and body_fraction_visible == 0-25",
         ["visible_region", "body_fraction_visible"],
         lambda row: row["visible_region"] == "full_body"
         and row["body_fraction_visible"] == "0-25",
     ),
     (
-        "Rule 10",
-        "visible_region in head, tail, legs and body_fraction_visible is 75-100",
+        "Rule 6",
+        "visible_region in head, tail, legs and body_fraction_visible == 75-100",
         ["visible_region", "body_fraction_visible"],
         lambda row: row["visible_region"] in {"head", "tail", "legs"}
         and row["body_fraction_visible"] == "75-100",
     ),
     (
-        "Rule 11",
+        "Rule 7",
         "pattern_visibility == none and triage_label == review-ready",
         ["pattern_visibility", "triage_label"],
         lambda row: row["pattern_visibility"] == "none" and row["triage_label"] == "review-ready",
     ),
     (
-        "Rule 12",
+        "Rule 8",
         "blur_level == severe and triage_label == review-ready",
         ["blur_level", "triage_label"],
         lambda row: row["blur_level"] == "severe" and row["triage_label"] == "review-ready",
     ),
     (
-        "Rule 13",
+        "Rule 9",
         "night_ir_artifact != not_applicable when lighting_condition is not night_ir",
         ["night_ir_artifact", "lighting_condition"],
         lambda row: row["lighting_condition"] != "night_ir"
         and row["night_ir_artifact"] != "not_applicable",
     ),
     (
-        "Rule 14",
+        "Rule 10",
         "night_ir_artifact == not_applicable when lighting_condition == night_ir",
         ["night_ir_artifact", "lighting_condition"],
         lambda row: row["lighting_condition"] == "night_ir"
         and row["night_ir_artifact"] == "not_applicable",
     ),
     (
-        "Rule 15",
+        "Rule 11",
         "exclusion_reason == severe_blur but blur_level is none or mild",
         ["exclusion_reason", "blur_level"],
         lambda row: row["exclusion_reason"] == "severe_blur"
         and row["blur_level"] in {"none", "mild"},
     ),
     (
-        "Rule 16",
+        "Rule 12",
         "exclusion_reason == body_fragment_only but visible_region == full_body",
         ["exclusion_reason", "visible_region"],
         lambda row: row["exclusion_reason"] == "body_fragment_only"
         and row["visible_region"] == "full_body",
     ),
     (
-        "Rule 17",
-        "notes are blank where uncertainty_flag == yes",
-        ["uncertainty_flag", "notes"],
-        lambda row: row["uncertainty_flag"] == "yes" and row["notes"] == "",
+        "Rule 13",
+        "triage_label == review-ready and exclusion_reason != none",
+        ["triage_label", "exclusion_reason"],
+        lambda row: row["triage_label"] == "review-ready"
+        and row["exclusion_reason"] != "none",
     ),
     (
-        "Rule 18",
-        "notes are blank for review-limited rows",
-        ["triage_label", "notes"],
-        lambda row: row["triage_label"] == "review-limited" and row["notes"] == "",
+        "Rule 14",
+        "triage_label == review-limited and exclusion_reason == none",
+        ["triage_label", "exclusion_reason"],
+        lambda row: row["triage_label"] == "review-limited"
+        and row["exclusion_reason"] == "none",
     ),
     (
-        "Rule 19",
-        "notes are blank for unidentifiable rows",
-        ["triage_label", "notes"],
-        lambda row: row["triage_label"] == "unidentifiable" and row["notes"] == "",
+        "Rule 15",
+        "triage_label == unidentifiable and reviewer_confidence == low",
+        ["triage_label", "reviewer_confidence"],
+        lambda row: row["triage_label"] == "unidentifiable"
+        and row["reviewer_confidence"] == "low",
     ),
 ]
 
