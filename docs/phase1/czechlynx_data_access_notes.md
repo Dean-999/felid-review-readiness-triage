@@ -157,22 +157,33 @@ If the dataset includes exact camera locations or sensitive conservation locatio
 
 ## Dataset Version Log
 
-Fill this table once the dataset is downloaded.
-
 | Field | Entry |
 |---|---|
-| Access date | pending |
-| Source URL or platform | pending |
-| Dataset version | pending |
-| Download method | pending |
-| Number of image files found | pending |
-| Number of unique individual IDs found | pending |
-| Number of metadata rows | pending |
+| Access date | 2026-06-01 |
+| Source URL or platform | Kaggle CzechLynx dataset |
+| Download method | Kaggle dataset download |
+| Local raw data path | data/raw/czechlynx/ |
+| Total local files found | 79,762 |
+| Total image files found | 79,760 |
+| Real metadata file | CzechLynxDataset-Metadata-Real.csv |
+| Synthetic metadata file | CzechLynxDataset-Metadata-Synthetic.csv |
+| Real metadata rows | 39,760 |
+| Synthetic metadata rows | 40,000 |
+| Main validation file | CzechLynxDataset-Metadata-Real.csv |
+| Synthetic data use | Not used for primary Q1/Q2 validation |
+| Working individual ID field | unique_name |
+| Unique working individual IDs | 319 |
+| Unique encounters | 18,782 |
+| Unique locations | 86 |
+| Unique trap IDs | 659 |
+| Metadata path check | First 1,000 real metadata paths checked; 1,000 existed locally |
+| Image readability check | First 100 real images checked; 100 readable, 0 bad |
+| Split fields found | split-geo_aware, split-time_open, split-time_closed, split-pose |
 | License name | pending |
 | Citation | pending |
 | Public image display allowed? | pending |
 | Redistribution allowed? | pending |
-| Notes | pending |
+| Current decision | Conditional Go for internal sampling; No public display until license/display permission is confirmed |
 
 ## Initial Sanity Checks
 
@@ -253,3 +264,15 @@ This document is complete only when:
 - individual ID availability is confirmed;
 - public display permissions are known;
 - a Go / Conditional Go / No-Go decision is made.
+
+## Current CzechLynx Access Decision
+
+CzechLynx is technically available for internal Phase 1 sampling.
+
+The real metadata file contains 39,760 rows and 319 unique `unique_name` values. The `unique_name` column will be treated as the working individual ID field for sampling and later same/different pair construction, pending final confirmation from dataset documentation.
+
+The first 1,000 metadata paths were checked and all existed locally. The first 100 real images were checked with PIL and all were readable.
+
+The main validation will use `CzechLynxDataset-Metadata-Real.csv` only. Synthetic images will not be used for the primary Q1/Q2 validation because the project studies real camera-trap review-readiness.
+
+This is a Conditional Go, not a full Go, because license, citation, redistribution, and public image display permissions are still pending.
