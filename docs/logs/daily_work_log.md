@@ -552,3 +552,108 @@ Generated local outputs, not committed:
 - Prepare a mentor-facing results update summarizing Phase 1, Phase 2, and Phase 3.
 - Begin a paper-style project report draft with conservative interpretation.
 - Consider a future wildlife-specialized embedding baseline comparison, such as a MegaDescriptor / WildlifeDatasets-based baseline.
+
+
+## 2026-06-06 — Colab MegaDescriptor Baseline Integration and Phase 3B Analysis
+
+### Work Completed
+
+- Exported a sanitized Colab package for the CzechLynx wildlife-specialized baseline extension.
+- Uploaded the sanitized package to Colab and ran fixed pretrained MegaDescriptor-S-224 inference.
+- Extracted MegaDescriptor-S-224 embeddings for all 200 CzechLynx pilot images.
+- Computed MegaDescriptor-S-224 cosine similarities for all 400 pilot pairs.
+- Compared the generic ResNet-50 ImageNet baseline with the wildlife-specialized MegaDescriptor-S-224 baseline.
+- Copied Colab outputs back into the local repository under `outputs/`.
+- Created and ran a local audit script for the Colab MegaDescriptor outputs.
+- Ran Phase 3B MegaDescriptor-specific risk–coverage analysis.
+- Created local Phase 3B output tables, reports, and figures.
+- Prepared mentor-facing interpretation for the new MegaDescriptor results.
+
+### Problem Encountered
+
+- Google Colab initially had runtime and Google Drive mount issues.
+- The Colab workflow required switching from Drive-mounted package loading to direct package upload and output download.
+- Colab outputs needed local audit because notebook execution is less reproducible than a pure local script.
+- MegaDescriptor cosine values used a different embedding scale than ResNet-50, so ResNet-50 thresholds could not be reused.
+
+### Repair / Decision
+
+- Used a sanitized Colab package instead of uploading the full CzechLynx dataset.
+- Avoided using raw paths, `unique_name`, location metadata, trap IDs, cell codes, and second-review mapping in the Colab package.
+- Treated MegaDescriptor outputs as local generated outputs and kept them uncommitted.
+- Added a local audit step for Colab output completeness and consistency.
+- Used MegaDescriptor-specific quantile thresholds for Phase 3B.
+- Interpreted MegaDescriptor as a fixed wildlife-specialized measurement baseline, not as an identity-decision model.
+- Decided that MegaDescriptor strengthens Q1 from partial / mixed support to moderate pilot-level support.
+- Decided that Phase 3B strengthens the tiered workflow interpretation.
+
+### Files Changed
+
+Scripts:
+
+- `scripts/audit_czechlynx_colab_megadescriptor_outputs.py`
+- `scripts/analyze_czechlynx_phase3_risk_coverage_megadescriptor.py`
+
+Documentation:
+
+- `docs/phase2/baseline_comparison_results_summary.md`
+- `docs/phase3/phase3_megadescriptor_risk_coverage_plan.md`
+- `docs/phase3/phase3_megadescriptor_risk_coverage_results_summary.md`
+- `docs/mentor_updates/mentor_progress_update_003.md`
+- `docs/logs/daily_work_log.md`
+
+Generated local outputs, not committed:
+
+- `outputs/czechlynx/colab_megadescriptor/czechlynx_wildlife_baseline_outputs/czechlynx_pilot_embeddings_megadescriptor_s224.parquet`
+- `outputs/czechlynx/colab_megadescriptor/czechlynx_wildlife_baseline_outputs/czechlynx_pair_similarities_megadescriptor_s224.csv`
+- `outputs/czechlynx/colab_megadescriptor/czechlynx_wildlife_baseline_outputs/phase2_baseline_comparison.csv`
+- `outputs/czechlynx/colab_megadescriptor/czechlynx_wildlife_baseline_outputs/phase2_baseline_readiness_group_comparison.csv`
+- `outputs/czechlynx/colab_megadescriptor/czechlynx_wildlife_baseline_outputs/phase2_baseline_comparison_report.txt`
+- `outputs/czechlynx/qc/megadescriptor_colab_output_audit.txt`
+- `outputs/czechlynx/qc/phase3_megadescriptor_risk_coverage_report.txt`
+- `outputs/czechlynx/analysis/phase3_megadescriptor_policy_comparison.csv`
+- `outputs/czechlynx/analysis/phase3_megadescriptor_threshold_policy_summary.csv`
+- `outputs/czechlynx/figures/phase3_megadescriptor_policy_retained_evidence_bar_chart.png`
+- `outputs/czechlynx/figures/phase3_megadescriptor_policy_false_positive_proxy_bar_chart.png`
+
+### Evidence / Source Notes
+
+- Colab MegaDescriptor output audit result: `PASS`.
+- MegaDescriptor pair similarity rows: 400.
+- MegaDescriptor same-individual pairs: 100.
+- MegaDescriptor different-individual pairs: 300.
+- MegaDescriptor embeddings: 200 pilot images.
+- ResNet-50 ROC-AUC: 0.618667.
+- MegaDescriptor-S-224 ROC-AUC: 0.690400.
+- ResNet-50 same-minus-different gap: 0.085966.
+- MegaDescriptor-S-224 same-minus-different gap: 0.117479.
+- MegaDescriptor AUC gain: 0.071733.
+- MegaDescriptor gap gain: 0.031513.
+- Relative gap increase: approximately 36.7%.
+- MegaDescriptor Phase 3B no-filter gap: 0.117479.
+- MegaDescriptor Phase 3B balanced-filter gap: 0.108253.
+- MegaDescriptor Phase 3B strict-filter gap: 0.207133.
+- MegaDescriptor-specific thresholds:
+  - 0.50 quantile: 0.116324
+  - 0.75 quantile: 0.194070
+  - 0.90 quantile: 0.348698
+  - 0.95 quantile: 0.459079
+
+### Remaining Risk
+
+- The pilot still uses only 200 images.
+- The `ready_ready` group remains sparse.
+- Strict filtering still retains only 3 same-individual pairs.
+- MegaDescriptor may still capture background or encounter-level similarity.
+- Colab inference requires careful local audit documentation for reproducibility.
+- Thresholds are model-specific and pilot-specific.
+- The result is not a real-world false-match rate.
+- The result does not prove true individual identification or field deployment readiness.
+
+### Next Action
+
+- Commit scripts and documentation only.
+- Do not commit `outputs/`, `data/`, embeddings, pair similarities, generated figures, or Colab packages.
+- Update the paper-style project report draft with MegaDescriptor Phase 2B and Phase 3B results.
+- Update the mentor package index to include the new MegaDescriptor documents.
+- Plan a larger-pair or larger-image extension to stabilize the `ready_ready` result.

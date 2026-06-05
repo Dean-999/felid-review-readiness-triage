@@ -4,6 +4,8 @@
 
 This is a working paper-style project report draft.
 
+It is intended for mentor review, project planning, and later development into a formal student research report.
+
 Current status:
 
 - Phase 1 manual triage completed.
@@ -11,13 +13,14 @@ Current status:
 - Phase 2 fixed-baseline similarity reliability analysis completed.
 - Phase 3 risk–coverage policy analysis completed.
 - Interpretation remains pilot-level and conservative.
-- This draft should not be treated as a final paper or final scientific claim.
+
+This draft should not be treated as a final paper or final scientific claim.
 
 ---
 
 ## Abstract
 
-Camera-trap monitoring produces large volumes of wildlife imagery, but not every species-identifiable image is reliable enough for individual-level re-identification review. This problem is especially important for felids, where individual recognition often depends on visible body-side coat patterns, flank markings, limb patterns, and comparable viewpoints.
+Camera-trap monitoring produces large volumes of wildlife imagery, but not every species-identifiable image is reliable enough for individual-level re-identification review. This issue is especially important for felids, where individual recognition often depends on visible body-side coat patterns, flank markings, limb patterns, and comparable viewpoints.
 
 This project evaluates a pre-Re-ID review-readiness triage workflow for felid camera-trap images. The workflow classifies images into three categories: `review-ready`, `review-limited`, and `unidentifiable`. The project does not identify individual animals directly and does not train a new Re-ID model. Instead, it tests whether a rubric-based image-readiness gate can support more reliable downstream review decisions.
 
@@ -149,7 +152,9 @@ However, Re-ID is sensitive to image quality and viewpoint. A photo may contain 
 
 ### 4.2 Camera-Trap Image Review
 
-Camera-trap workflows often involve large-scale image review, species tagging, and filtering. Species-level tagging is usually less demanding than individual-level review. A workflow gap exists between:
+Camera-trap workflows often involve large-scale image review, species tagging, and filtering. Species-level tagging is usually less demanding than individual-level review.
+
+A workflow gap exists between:
 
 1. species-level usable image;
 2. individual-level Re-ID-ready image.
@@ -414,6 +419,28 @@ Interpretation:
 
 Q1 receives partial / mixed support. The results suggest that review-readiness captures some reliability-relevant image quality signal, but the current evidence is not strong enough for a final claim.
 
+## 6.2B Wildlife-Specialized Baseline Results
+
+After the generic ResNet-50 baseline, a wildlife-specialized fixed pretrained baseline was added to test whether the weak-to-moderate Phase 2 result was partly caused by the generic ImageNet feature extractor.
+
+The added baseline was:
+
+```text
+BVRA/MegaDescriptor-S-224
+
+This model was used only as a fixed embedding baseline. No model training or fine-tuning was performed.
+
+The same 200 CzechLynx pilot images and the same 400 pair comparisons were used.
+
+Baseline Comparison
+Baseline	Same Mean	Different Mean	Gap	ROC-AUC
+ResNet-50 ImageNet	0.579955	0.493990	0.085966	0.618667
+MegaDescriptor-S-224	0.235992	0.118512	0.117479	0.690400
+
+MegaDescriptor-S-224 improved ROC-AUC by 0.071733 and improved the same-minus-different mean gap by 0.031513. The relative gap increase was approximately 36.7%.
+
+Absolute cosine similarity values should not be compared directly across models because embedding spaces have different similarity scales. The meaningful comparisons are AUC, same-minus-different gap, readiness-group behavior, and within-model threshold behavior.
+
 6.3 Phase 3 Results
 
 Policy comparison:
@@ -453,6 +480,48 @@ Triage Label	Recommended Role
 review-ready	High-confidence candidate Re-ID review
 review-limited	Secondary or cautious manual review
 unidentifiable	Excluded from individual-level Re-ID review
+
+## 6.3B MegaDescriptor Risk–Coverage Results
+
+Because MegaDescriptor-S-224 uses a different embedding space from ResNet-50, the ResNet-50 thresholds were not reused. Phase 3B used MegaDescriptor-specific quantile thresholds.
+
+| Quantile | Threshold |
+|---:|---:|
+| 0.50 | 0.116324 |
+| 0.75 | 0.194070 |
+| 0.90 | 0.348698 |
+| 0.95 | 0.459079 |
+
+### Policy Comparison
+
+| Policy | Retained Pairs | Retained Same Pairs | Retained Different Pairs | Same Mean | Different Mean | Gap |
+|---|---:|---:|---:|---:|---:|---:|
+| `no_filter` | 400 | 100 | 300 | 0.235992 | 0.118512 | 0.117479 |
+| `balanced_filter` | 212 | 55 | 157 | 0.257496 | 0.149243 | 0.108253 |
+| `strict_filter` | 10 | 3 | 7 | 0.533246 | 0.326113 | 0.207133 |
+
+Compared with ResNet-50, MegaDescriptor improved the separation gap under all three policies:
+
+| Policy | ResNet-50 Gap | MegaDescriptor Gap | Change |
+|---|---:|---:|---:|
+| `no_filter` | 0.085966 | 0.117479 | +0.031513 |
+| `balanced_filter` | 0.056663 | 0.108253 | +0.051590 |
+| `strict_filter` | 0.119379 | 0.207133 | +0.087754 |
+
+### Interpretation
+
+Phase 3B strengthens the tiered workflow interpretation.
+
+Strict filtering still reduces pairwise false-positive proxy counts most strongly, but it retains too little known matching evidence to serve as the only general workflow policy. Balanced filtering is more defensible under MegaDescriptor than it was under ResNet-50 because it preserves substantially more evidence while showing clearer mid-threshold proxy-risk reduction.
+
+The best current workflow interpretation remains:
+
+| Triage Label | Recommended Role |
+|---|---|
+| `review-ready` | High-confidence candidate Re-ID review |
+| `review-limited` | Secondary or cautious manual review |
+| `unidentifiable` | Excluded from individual-level Re-ID review |
+
 7. Discussion
 7.1 Main Finding
 
