@@ -1,4 +1,18 @@
-# Review-Readiness Triage for Felid Re-ID in Conservation Camera-Trap Images
+# Historical Draft: Review-Readiness Triage for Felid Re-ID in Conservation Camera-Trap Images
+
+## Supersession Note
+
+This draft predates the Phase 6 PF-ERI Control redesign, the Phase 9 PF-ERI Evidence Utility Model revision, the Phase 13 metric-learning diagnosis, and the Phase 14 same-genus wild-to-urban reframing. It should be treated as historical project background, not the final project framing.
+
+The current project title is:
+
+**PF-ERI for Same-Genus Wild-to-Urban Lynx Re-ID Evidence Reliability**
+
+The current main contribution being developed is PF-ERI as a same-genus Lynx pair-level evidence reliability model. CzechLynx / Eurasian lynx is the known-ID wild validation carrier; UWIN bobcat is the same-genus urban field-readiness and review-readiness stress context. Metric learning is diagnostic/optional after Phase 13D, not the current main contribution. PF-ERI / `visual_only_eri` remains the primary visual evidence gate. Descriptor support, reciprocal/margin confidence, and disagreement signals are fixed support signals. `hybrid_eri` is secondary prioritization, not a standalone safety score.
+
+Do not cite this draft as the final manuscript until it is rewritten around the Phase 14 same-genus wild-to-urban reliability framing.
+
+Phase 8 post-3E-R update: the current evidence does not support a robust fixed-descriptor Re-ID accuracy-improvement claim. Held-out query-level evaluation showed that PF-ERI-selected policies reduced false-candidate review burden relative to repeated random same-size controls, but did not robustly improve mAP. Phase 13D later showed that the current projection-head training route is diagnostic rather than a positive metric-learning result. No claim that PF-ERI improves metric learning is allowed unless PF-ERI-informed training consistently beats random matched and quality-proxy matched controls under held-out identity splits.
 
 ## Draft Status
 
@@ -89,13 +103,13 @@ After filtering low-readiness images, does pairwise false-positive proxy risk de
 This project does not claim to:
 
 - identify true individual animals in field deployment;
-- train a new animal Re-ID model;
+- train a new Re-ID model;
 - improve state-of-the-art Re-ID performance;
 - estimate population size;
 - produce real-world false-match rates;
 - define universal felid Re-ID thresholds;
 - validate WildTrax/UWIN individual IDs;
-- validate Marbled Cat Re-ID in the current study.
+- validate Mainland Clouded Leopard or Marbled Cat Re-ID in the current study.
 
 Instead, this project evaluates a pre-Re-ID review-readiness workflow using known-ID CzechLynx data as a pilot validation carrier.
 
@@ -134,19 +148,19 @@ UWIN/WildTrax data are used as field motivation and field-readiness context only
 
 They are relevant because they reflect real field tagging conditions, including blurry images, partial bodies, repeated animal appearances, and uncertainty in individual-level review. However, they do not currently provide verified individual IDs for strict validation in this project.
 
-### 3.3 Marbled Cat
+### 3.3 Future Patterned-Felid Application
 
-Marbled Cat is treated as a future application scenario only.
+Mainland Clouded Leopard is now the main future patterned-felid conservation motivation. Marbled Cat is treated as a secondary future application scenario only.
 
-The current study does not validate Marbled Cat individual Re-ID.
+The current study does not validate Mainland Clouded Leopard or Marbled Cat individual Re-ID.
 
 ---
 
 ## 4. Related Work and Motivation
 
-### 4.1 Animal Re-Identification
+### 4.1 Patterned-Felid Re-Identification
 
-Animal Re-ID uses visual traits to recognize individual animals across images. For felids, visual evidence may include coat patterns, spots, stripes, flank markings, limb patterns, body-side markings, and other stable features.
+Animal Re-ID uses visual traits to recognize individual animals across images, but the current project is not framed as general animal Re-ID. For patterned felids, visual evidence may include coat patterns, spots, stripes, flank markings, limb patterns, body-side markings, and other stable features.
 
 However, Re-ID is sensitive to image quality and viewpoint. A photo may contain the correct species but lack the visual evidence required for reliable individual matching.
 
