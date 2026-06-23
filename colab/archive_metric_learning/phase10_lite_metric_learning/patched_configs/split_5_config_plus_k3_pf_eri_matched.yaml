@@ -1,0 +1,32 @@
+project_root: /content/drive/MyDrive/felid_phase10_lite_plus
+experiment_group: D3_pf_eri_matched_identity
+phase10_lite_plus_group: D3_pf_eri_matched_identity
+split_id: 5
+images_per_identity_k: 3
+expected_identity_count: 75
+manifest_path: /content/drive/MyDrive/felid_phase10_lite_plus/phase10_lite/phase10_lite_plus_matched_training_manifest_k3.csv
+evaluation_manifest_path: /content/drive/MyDrive/felid_phase10_lite_plus/phase9d_image_training_manifest_internal.csv
+embedding_path: /content/drive/MyDrive/felid_phase10_lite_plus/czechlynx_phase4c_megadescriptor_embeddings.csv
+output_dir: /content/drive/MyDrive/felid_phase10_lite_plus/metric_learning_plus_results/split_5/D3_pf_eri_matched_identity
+descriptor: megadescriptor
+training_rule: use_preselected_phase10_lite_plus_group
+random_seed: 20260615
+sampler:
+  type: identity_balanced_pk
+  p_identities_per_batch: 16
+  k_images_per_identity_per_batch: 3
+model:
+  input_dim: 768
+  hidden_dim: 256
+  projection_dim: 128
+  learning_rate: 0.0003
+  epochs: 1
+loss:
+  name: weighted_supervised_contrastive
+  temperature: 0.07
+  use_sample_weight: false
+evaluation:
+  top_k: 5
+  retrieval_roles:
+    query: test
+    gallery: test

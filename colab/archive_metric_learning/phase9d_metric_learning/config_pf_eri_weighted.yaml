@@ -1,0 +1,26 @@
+experiment_group: E_pf_eri_weighted_training
+manifest_path: outputs/czechlynx/phase9/pf_eri_metric_learning_prep/phase9d_image_training_manifest_internal.csv
+embedding_path: outputs/czechlynx/phase4/czechlynx_phase4c_megadescriptor_embeddings.csv
+output_dir: outputs/czechlynx/phase9/pf_eri_metric_learning_results/pf_eri_weighted
+split_id: 1
+descriptor: megadescriptor
+training_rule: all_train_role_images
+sample_weight_mode: pf_eri_weight
+sample_weight:
+  formula: 0.25 + 0.75 * pf_eri_image_score
+model:
+  input_dim: 768
+  projection_dim: 128
+  hidden_dim: 256
+  epochs: 30
+  batch_identities: 16
+  images_per_identity: 4
+  learning_rate: 0.0003
+loss:
+  name: weighted_supervised_contrastive
+  temperature: 0.07
+evaluation:
+  top_k: 5
+  retrieval_roles:
+    query: test
+    gallery: test
