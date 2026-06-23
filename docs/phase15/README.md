@@ -24,6 +24,9 @@ Current interpretation:
   wild-to-urban transfer stress test without bobcat identity-accuracy claims.
 - Phase 15F packages a 250-pair bobcat manual audit set to validate
   review-routing actions and pair comparability.
+- Phase 16 is the next PF-ERI modeling phase, with data-governance safeguards
+  for laterality-aware sampling/pair audit, background/site leakage-pressure
+  diagnostics, and strong-model benchmark preparation.
 
 Output structure:
 
