@@ -1,0 +1,268 @@
+{
+  "queries": [
+    "Neofelis nebulosa",
+    "Pardofelis marmorata",
+    "Shinisaurus crocodilurus",
+    "Sacalia bealei",
+    "Goniurosaurus liboensis",
+    "Goniurosaurus hainanensis"
+  ],
+  "search_results": {
+    "Neofelis nebulosa": {
+      "header": {
+        "type": "esearch",
+        "version": "0.3"
+      },
+      "esearchresult": {
+        "count": "1",
+        "retmax": "1",
+        "retstart": "0",
+        "idlist": [
+          "61452"
+        ],
+        "translationset": [],
+        "translationstack": [
+          {
+            "term": "Neofelis nebulosa[Scientific Name]",
+            "field": "Scientific Name",
+            "count": "1",
+            "explode": "N"
+          },
+          "GROUP"
+        ],
+        "querytranslation": "Neofelis nebulosa[Scientific Name]"
+      }
+    },
+    "Pardofelis marmorata": {
+      "header": {
+        "type": "esearch",
+        "version": "0.3"
+      },
+      "esearchresult": {
+        "count": "1",
+        "retmax": "1",
+        "retstart": "0",
+        "idlist": [
+          "61410"
+        ],
+        "translationset": [],
+        "translationstack": [
+          {
+            "term": "Pardofelis marmorata[Scientific Name]",
+            "field": "Scientific Name",
+            "count": "1",
+            "explode": "N"
+          },
+          "GROUP"
+        ],
+        "querytranslation": "Pardofelis marmorata[Scientific Name]"
+      }
+    },
+    "Shinisaurus crocodilurus": {
+      "header": {
+        "type": "esearch",
+        "version": "0.3"
+      },
+      "esearchresult": {
+        "count": "1",
+        "retmax": "1",
+        "retstart": "0",
+        "idlist": [
+          "52224"
+        ],
+        "translationset": [],
+        "translationstack": [
+          {
+            "term": "Shinisaurus crocodilurus[Scientific Name]",
+            "field": "Scientific Name",
+            "count": "1",
+            "explode": "N"
+          },
+          "GROUP"
+        ],
+        "querytranslation": "Shinisaurus crocodilurus[Scientific Name]"
+      }
+    },
+    "Sacalia bealei": {
+      "header": {
+        "type": "esearch",
+        "version": "0.3"
+      },
+      "esearchresult": {
+        "count": "1",
+        "retmax": "1",
+        "retstart": "0",
+        "idlist": [
+          "204942"
+        ],
+        "translationset": [],
+        "translationstack": [
+          {
+            "term": "Sacalia bealei[Scientific Name]",
+            "field": "Scientific Name",
+            "count": "1",
+            "explode": "N"
+          },
+          "GROUP"
+        ],
+        "querytranslation": "Sacalia bealei[Scientific Name]"
+      }
+    },
+    "Goniurosaurus liboensis": {
+      "header": {
+        "type": "esearch",
+        "version": "0.3"
+      },
+      "esearchresult": {
+        "count": "1",
+        "retmax": "1",
+        "retstart": "0",
+        "idlist": [
+          "1341130"
+        ],
+        "translationset": [],
+        "translationstack": [
+          {
+            "term": "Goniurosaurus liboensis[Scientific Name]",
+            "field": "Scientific Name",
+            "count": "1",
+            "explode": "N"
+          },
+          "GROUP"
+        ],
+        "querytranslation": "Goniurosaurus liboensis[Scientific Name]"
+      }
+    },
+    "Goniurosaurus hainanensis": {
+      "header": {
+        "type": "esearch",
+        "version": "0.3"
+      },
+      "esearchresult": {
+        "count": "1",
+        "retmax": "1",
+        "retstart": "0",
+        "idlist": [
+          "1341131"
+        ],
+        "translationset": [],
+        "translationstack": [
+          {
+            "term": "Goniurosaurus hainanensis[Scientific Name]",
+            "field": "Scientific Name",
+            "count": "1",
+            "explode": "N"
+          },
+          "GROUP"
+        ],
+        "querytranslation": "Goniurosaurus hainanensis[Scientific Name]"
+      }
+    }
+  },
+  "summary": {
+    "header": {
+      "type": "esummary",
+      "version": "0.3"
+    },
+    "result": {
+      "uids": [
+        "61452",
+        "61410",
+        "52224",
+        "204942",
+        "1341130",
+        "1341131"
+      ],
+      "61452": {
+        "uid": "61452",
+        "status": "active",
+        "rank": "species",
+        "division": "carnivores",
+        "scientificname": "Neofelis nebulosa",
+        "commonname": "Clouded leopard",
+        "taxid": 61452,
+        "akataxid": "",
+        "genus": "",
+        "species": "",
+        "subsp": "",
+        "modificationdate": "2017/06/14 00:00",
+        "genbankdivision": "Mammals"
+      },
+      "61410": {
+        "uid": "61410",
+        "status": "active",
+        "rank": "species",
+        "division": "carnivores",
+        "scientificname": "Pardofelis marmorata",
+        "commonname": "marbled cat",
+        "taxid": 61410,
+        "akataxid": "",
+        "genus": "",
+        "species": "",
+        "subsp": "",
+        "modificationdate": "2017/06/14 00:00",
+        "genbankdivision": "Mammals"
+      },
+      "52224": {
+        "uid": "52224",
+        "status": "active",
+        "rank": "species",
+        "division": "lizards & snakes",
+        "scientificname": "Shinisaurus crocodilurus",
+        "commonname": "Chinese crocodile lizard",
+        "taxid": 52224,
+        "akataxid": "",
+        "genus": "",
+        "species": "",
+        "subsp": "",
+        "modificationdate": "2025/07/09 00:00",
+        "genbankdivision": "Vertebrates"
+      },
+      "204942": {
+        "uid": "204942",
+        "status": "active",
+        "rank": "species",
+        "division": "turtles",
+        "scientificname": "Sacalia bealei",
+        "commonname": "Beal's-eyed turtle",
+        "taxid": 204942,
+        "akataxid": "",
+        "genus": "",
+        "species": "",
+        "subsp": "",
+        "modificationdate": "2017/06/14 00:00",
+        "genbankdivision": "Vertebrates"
+      },
+      "1341130": {
+        "uid": "1341130",
+        "status": "active",
+        "rank": "species",
+        "division": "lizards & snakes",
+        "scientificname": "Goniurosaurus liboensis",
+        "commonname": "",
+        "taxid": 1341130,
+        "akataxid": "",
+        "genus": "",
+        "species": "",
+        "subsp": "",
+        "modificationdate": "2020/06/03 00:00",
+        "genbankdivision": "Vertebrates"
+      },
+      "1341131": {
+        "uid": "1341131",
+        "status": "active",
+        "rank": "species",
+        "division": "lizards & snakes",
+        "scientificname": "Goniurosaurus hainanensis",
+        "commonname": "",
+        "taxid": 1341131,
+        "akataxid": "",
+        "genus": "",
+        "species": "",
+        "subsp": "",
+        "modificationdate": "2018/10/31 00:00",
+        "genbankdivision": "Vertebrates"
+      }
+    }
+  }
+}
