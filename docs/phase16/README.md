@@ -54,6 +54,25 @@ weaken the definition of high-confidence evidence. First run targeted manual
 audit, then rebuild or top up only the failing evidence categories.
 ```
 
+## High-Confidence Quality + Viewpoint Rescore
+
+If high-confidence quadrants fail the foundation gate, rescore candidates with
+pretrained quality and viewpoint models before rebuilding Dataset v1:
+
+```text
+python3 scripts/package_phase16_high_confidence_quality_viewpoint_rescore.py
+```
+
+Design note:
+
+```text
+docs/phase16/phase16b_high_confidence_quality_viewpoint_plan_cn.md
+```
+
+This step uses pretrained no-reference IQA and CLIP-style viewpoint scoring as
+cloud-side prefilters. It does not replace manual calibration and does not prove
+identity evidence by itself.
+
 ## Active Plan
 
 Use:
