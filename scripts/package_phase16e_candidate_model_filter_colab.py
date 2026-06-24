@@ -288,11 +288,11 @@ def resolve_image(row: pd.Series, tmp_dir: Path) -> tuple[Path | None, str]:
             return download_url(str(row["image_uri"]), tmp_dir, str(row["candidate_id"])), ""
         except Exception as exc:
             return None, f"url_download_failed:{exc}"
-    if mode == "drive_path":
+    if mode in {"drive_path", "drive_extracted_path", "packaged_local"}:
         path = Path(str(row["image_uri"]))
         if path.exists():
             return path, ""
-        return None, "drive_path_not_found"
+        return None, f"{mode}_not_found"
     if mode == "unavailable_local_path":
         return None, "source_not_cloud_accessible"
     return None, f"unsupported_source_mode:{mode}"
@@ -562,6 +562,7 @@ python run_phase16e_candidate_model_filter_colab.py \\
 
 - `url`: Colab 逐张下载图片到临时目录，跑完后立即删除。
 - `drive_path`: Colab 直接读取 Google Drive / cloud-readable path。
+- `drive_extracted_path` / `packaged_local`: 用 CzechLynx split zip 解压后的路径读取。
 - `unavailable_local_path`: 只有本机 `/Users/deanshen/...` 路径，不上传、不复制；runner 记录 `image_load_success=False` 和 `rejection_reason=source_not_cloud_accessible`。
 
 ## 输出文件
@@ -582,6 +583,34 @@ outputs/phase16/phase16e_candidate_model_filter/debug_samples/
 ```text
 quality + animal completeness + viewpoint/laterality + PF-ERI gate + manual calibration
 ```
+
+## CzechLynx direct split zip 使用方式
+
+如果使用：
+
+```text
+outputs/phase16/phase16e_czechlynx_direct_zips/phase16e_czechlynx_images_part_*.zip
+outputs/phase16/phase16e_czechlynx_direct_zips/phase16e_czechlynx_direct_zip_manifest.csv
+```
+
+Colab 解压：
+
+```bash
+mkdir -p /content/phase16e_work/extracted_images
+for z in /content/drive/MyDrive/phase16e_czechlynx_direct_zips/phase16e_czechlynx_images_part_*.zip; do
+  unzip -q "$z" -d /content/phase16e_work/extracted_images
+done
+```
+
+然后把 CzechLynx rows 从 `source_mode=unavailable_local_path` 映射为
+`source_mode=drive_extracted_path` 或 `packaged_local`，并用
+zip manifest 的 `zip_internal_path` 拼接：
+
+```text
+/content/phase16e_work/extracted_images/{{zip_internal_path}}
+```
+
+这仍然只是 streaming/model filtering，不冻结 final 3000，不做 simple top-3000。
 
 """,
         encoding="utf-8",
