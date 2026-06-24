@@ -91,6 +91,28 @@ whenever possible. Use external clean Re-ID datasets mainly for selector
 training, viewpoint calibration, and benchmark context.
 ```
 
+## Expanded High-Confidence Candidate Pool
+
+The high-confidence clean sets should be selected from larger same-domain pools,
+not repaired only from the current 3000-image working labels:
+
+```text
+python3 scripts/package_phase16_expanded_high_confidence_candidate_pool.py
+```
+
+Design note:
+
+```text
+docs/phase16/phase16d_expanded_high_candidate_pool_cn.md
+```
+
+Current candidate counts:
+
+```text
+urban_bobcat_high_confidence: 6412 FCF bobcat candidates passing LILA MegaDetector high-geometry prefilter
+wild_czechlynx_high_confidence: 39760 CzechLynx real-image candidates
+```
+
 ## Active Plan
 
 Use:
