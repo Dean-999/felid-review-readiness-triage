@@ -21,11 +21,38 @@ strong descriptor retrieval
 Phase 16 does not replace the PF-ERI main line. It adds safeguards that make the
 model harder to criticize:
 
-1. laterality-aware sampling and pair audit;
-2. background/site leakage-pressure diagnostics;
-3. strong-model benchmark preparation;
-4. optional later extensions for ecological priors, augmentation robustness, and
+1. dataset-foundation audit before core model claims;
+2. laterality-aware sampling and pair audit;
+3. background/site leakage-pressure diagnostics;
+4. strong-model benchmark preparation;
+5. optional later extensions for ecological priors, augmentation robustness, and
    captive calibration.
+
+## Dataset Foundation Gate
+
+The current 3000 x 4 image foundation must pass a conservative readiness audit
+before it is treated as a clean training or clean comparison base. Use:
+
+```text
+python3 scripts/build_phase16_dataset_foundation_audit.py
+```
+
+Primary outputs:
+
+```text
+outputs/phase16/dataset_foundation_audit/phase16_dataset_foundation_quadrant_summary.csv
+outputs/phase16/dataset_foundation_audit/phase16_dataset_foundation_issue_detail.csv
+outputs/phase16/dataset_foundation_audit/phase16_dataset_foundation_manual_audit_candidates.csv
+outputs/phase16/dataset_foundation_audit/phase16_dataset_foundation_audit_report_cn.md
+```
+
+Interpretation rule:
+
+```text
+If high-confidence quadrants do not reach the 90% readiness target, do not
+weaken the definition of high-confidence evidence. First run targeted manual
+audit, then rebuild or top up only the failing evidence categories.
+```
 
 ## Active Plan
 
