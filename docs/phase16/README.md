@@ -73,6 +73,24 @@ This step uses pretrained no-reference IQA and CLIP-style viewpoint scoring as
 cloud-side prefilters. It does not replace manual calibration and does not prove
 identity evidence by itself.
 
+## External Clean Dataset Strategy
+
+Curated external Re-ID datasets can help train or calibrate high-confidence
+quality/viewpoint selectors, but they should not silently enter the final
+wild-vs-urban comparison:
+
+```text
+docs/phase16/phase16c_external_clean_dataset_source_strategy_cn.md
+```
+
+Operating rule:
+
+```text
+Use same-domain Lynx/bobcat images for the final 3000-per-quadrant datasets
+whenever possible. Use external clean Re-ID datasets mainly for selector
+training, viewpoint calibration, and benchmark context.
+```
+
 ## Active Plan
 
 Use:
