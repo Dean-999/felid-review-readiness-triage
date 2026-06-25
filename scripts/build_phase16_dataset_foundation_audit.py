@@ -21,7 +21,7 @@ OUTPUT_DIR = PROJECT_ROOT / "outputs/phase16/dataset_foundation_audit"
 SUMMARY_CSV = OUTPUT_DIR / "phase16_dataset_foundation_quadrant_summary.csv"
 ISSUE_CSV = OUTPUT_DIR / "phase16_dataset_foundation_issue_detail.csv"
 AUDIT_CANDIDATES_CSV = OUTPUT_DIR / "phase16_dataset_foundation_manual_audit_candidates.csv"
-REPORT_MD = OUTPUT_DIR / "phase16_dataset_foundation_audit_report_cn.md"
+REPORT_MD = OUTPUT_DIR / "phase16_dataset_foundation_audit_report.md"
 AUDIT_JSON = OUTPUT_DIR / "phase16_dataset_foundation_audit.json"
 
 EXPECTED_ROWS_PER_QUADRANT = 3000
@@ -396,35 +396,35 @@ def write_report(summary: pd.DataFrame, audit: pd.DataFrame) -> None:
     report = [
         "# Phase 16 Dataset Foundation Audit Report",
         "",
-        "## 结论",
+        "## Conclusion",
         "",
-        "这份报告检查当前 3000 x 4 影像基础是否足以支撑后续 PF-ERI、strong-model benchmark 和 wild-vs-urban 对比。它不是最终人工标签，也不会修改原始标签；它是一个保守的数据根基风险审计。",
+        "This report checks whether the current 3000 x 4 image foundation can support later PF-ERI, strong-model benchmark, and wild-vs-urban comparison work. It is not final human labeling and does not modify labels. It is a conservative data-foundation risk audit.",
         "",
-        "关键原则：如果 high-confidence precision 或 low-evidence stress purity 不够，应该 targeted top-up 或人工复核，而不是放松规则或直接进入模型主结果。",
+        "Rule: if high-confidence precision or low-evidence stress purity is weak, use targeted top-up or manual review. Do not relax rules or jump to main model claims.",
         "",
         "## Quadrant Readiness",
         "",
         dataframe_to_markdown(summary),
         "",
-        "## 自动审计解释",
+        "## Automatic Audit Interpretation",
         "",
-        "- high-confidence proxy pass 要求：图像存在、MegaDetector 确认、检测置信度和框大小足够、非明显边缘裁切、utility 足够高、当前标签为 review_ready/high。",
-        "- low-evidence stress proxy pass 要求：图像存在，并且具有小目标、边缘裁切、低 utility、species-level/uncertain 等低证据压力信号，同时不能像 clear review-ready high-evidence 图。",
-        "- 这些 proxy 是风险筛查，不是人工真值；失败样本进入人工审计候选，不自动删除。",
+        "- High-confidence proxy pass requires existing image, detector support, sufficient confidence/box size, no severe edge crop, high utility, and current review-ready/high label.",
+        "- Low-evidence stress proxy pass requires existing image plus low-evidence pressure signals such as small target, edge crop, low utility, species-level, or uncertain labels; it must not look like clear review-ready high evidence.",
+        "- These proxies are risk screens, not human truth. Failed rows enter manual-audit candidates; they are not auto-deleted.",
         "",
-        "## 当前行动建议",
+        "## Recommended Action",
         "",
     ]
     if len(not_ready):
-        report.append("至少一个 quadrant 被标记为 `not_ready_rebuild_or_topup_required`。下一步应优先人工复核候选表，并针对失败原因补图或重筛。")
+        report.append("At least one quadrant is `not_ready_rebuild_or_topup_required`. Review manual-audit candidates first, then top up or rescreen by failure reason.")
     elif len(conditional):
-        report.append("至少一个 quadrant 处于 conditional 状态。下一步应先复核候选表，再决定是否 targeted top-up。")
+        report.append("At least one quadrant is conditional. Review candidates before deciding whether targeted top-up is needed.")
     else:
-        report.append("四个 quadrant 均达到自动审计通过或接近通过状态。下一步可以进入 strong-model benchmark，同时保留 spot audit。")
+        report.append("All quadrants pass or nearly pass the automatic audit. Proceed to strong-model benchmark while keeping spot audit.")
     report.extend(
         [
             "",
-            "## 输出文件",
+            "## Output Files",
             "",
             f"- quadrant summary: `{SUMMARY_CSV}`",
             f"- issue detail: `{ISSUE_CSV}`",
@@ -432,7 +432,7 @@ def write_report(summary: pd.DataFrame, audit: pd.DataFrame) -> None:
             "",
             "## Claim Boundary",
             "",
-            "这份审计只能说明数据基础风险和人工复核优先级，不能替代专家人工标签，不能直接证明模型性能，也不能证明 urbanization 因果影响。",
+            "This audit only reports data-foundation risk and manual-review priority. It does not replace expert labels, prove model performance, or prove urbanization causality.",
             "",
         ]
     )

@@ -22,13 +22,13 @@ INPUT = (
 )
 PHASE16E_README = (
     PROJECT_ROOT
-    / "outputs/phase16/phase16e_candidate_model_filter_colab_package/README_PHASE16E_COLAB_CN.md"
+    / "outputs/phase16/phase16e_candidate_model_filter_colab_package/README_PHASE16E_COLAB.md"
 )
 OUTPUT_DIR = PROJECT_ROOT / "outputs/phase16/phase16e_czechlynx_direct_zips"
 ZIP_PREFIX = "phase16e_czechlynx_images_part"
 ZIP_MANIFEST = OUTPUT_DIR / "phase16e_czechlynx_direct_zip_manifest.csv"
 AUDIT_JSON = OUTPUT_DIR / "phase16e_czechlynx_direct_zip_audit.json"
-README = OUTPUT_DIR / "README_PHASE16E_CZECHLYNX_ZIPS_CN.md"
+README = OUTPUT_DIR / "README_PHASE16E_CZECHLYNX_ZIPS.md"
 
 TARGET_QUADRANT = "wild_czechlynx_high_confidence"
 EXPECTED_ROWS = 39_760
@@ -150,7 +150,7 @@ def verify_zip_integrity(manifest: pd.DataFrame) -> tuple[bool, dict[str, int | 
 def append_phase16e_colab_readme() -> None:
     if not PHASE16E_README.exists():
         return
-    marker = "## CzechLynx direct split zip 使用方式"
+    marker = "## CzechLynx Direct Split Zip Usage"
     text = PHASE16E_README.read_text(encoding="utf-8")
     if marker in text:
         return
@@ -158,14 +158,14 @@ def append_phase16e_colab_readme() -> None:
 
 {marker}
 
-CzechLynx 当前不再要求复制到 staging，也不要求上传一个巨大 zip。使用：
+CzechLynx no longer requires a staging copy or one huge zip. Use:
 
 ```text
 outputs/phase16/phase16e_czechlynx_direct_zips/phase16e_czechlynx_images_part_*.zip
 outputs/phase16/phase16e_czechlynx_direct_zips/phase16e_czechlynx_direct_zip_manifest.csv
 ```
 
-Colab 流程：
+Colab flow:
 
 ```bash
 mkdir -p /content/phase16e_work/extracted_images
@@ -174,15 +174,15 @@ for z in /content/drive/MyDrive/phase16e_czechlynx_direct_zips/phase16e_czechlyn
 done
 ```
 
-然后把 CzechLynx rows 从 `source_mode=unavailable_local_path` 映射为
-`source_mode=drive_extracted_path` 或 `packaged_local`，并用
-`zip_internal_path` 拼接：
+Map CzechLynx rows from `source_mode=unavailable_local_path` to
+`source_mode=drive_extracted_path` or `packaged_local`, then build paths from
+`zip_internal_path`:
 
 ```text
 /content/phase16e_work/extracted_images/{{zip_internal_path}}
 ```
 
-这一步仍然只是 streaming/model filtering，不冻结 final 3000，不做 simple top-3000。
+This remains streaming/model filtering only. No final 3000 freeze. No simple top-3000.
 """
     PHASE16E_README.write_text(text.rstrip() + addition + "\n", encoding="utf-8")
 
@@ -192,12 +192,12 @@ def write_readme(audit: dict) -> None:
     README.write_text(
         f"""# Phase 16E CzechLynx Direct Split Zips
 
-## 目标
+## Goal
 
-把 CzechLynx high-confidence candidate images 以 split zip 形式提供给 Colab，
-但不创建本地 staging 图片目录，不复制 39760 张图片。
+Provide CzechLynx high-confidence candidate images to Colab as split zips,
+without creating a local staging image directory or copying 39760 images.
 
-## 输出
+## Outputs
 
 ```text
 phase16e_czechlynx_images_part_*.zip
@@ -215,16 +215,16 @@ Zip sizes GB:
 {json.dumps(zip_sizes, indent=2)}
 ```
 
-## Colab 使用方式
+## Colab Usage
 
-上传这些文件到 Google Drive：
+Upload these files to Google Drive:
 
 ```text
 phase16e_czechlynx_images_part_*.zip
 phase16e_czechlynx_direct_zip_manifest.csv
 ```
 
-解压：
+Extract:
 
 ```bash
 mkdir -p /content/phase16e_work/extracted_images
@@ -233,19 +233,19 @@ for z in /content/drive/MyDrive/phase16e_czechlynx_direct_zips/phase16e_czechlyn
 done
 ```
 
-图片路径：
+Image path:
 
 ```text
 /content/phase16e_work/extracted_images/images/czechlynx/{{candidate_id}}.jpg
 ```
 
-更稳的方式是读取 `phase16e_czechlynx_direct_zip_manifest.csv` 的
-`zip_internal_path` 列。
+Safer path mapping: read `zip_internal_path` from
+`phase16e_czechlynx_direct_zip_manifest.csv`.
 
-## 边界
+## Boundary
 
-这只是让 CzechLynx 图片在 Colab 可访问。Phase 16E 仍然只做 streaming
-model filtering，不冻结 final 3000，不做 simple top-3000。
+This only makes CzechLynx images accessible in Colab. Phase 16E still only runs
+streaming model filtering. No final 3000 freeze. No simple top-3000.
 """,
         encoding="utf-8",
     )
