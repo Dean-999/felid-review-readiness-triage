@@ -1,0 +1,43 @@
+project_root: /content/felid-review-readiness-triage
+experiment_group: P11DR2_target10_floor040
+base_group_name: H3_pf_eri_quality_hybrid_matched_identity
+split_id: 1
+expected_identity_count: 75
+manifest_path: outputs/czechlynx/phase10_lite/phase10_lite_plus_matched_training_manifest_k3.csv
+evaluation_manifest_path: outputs/czechlynx/phase9/pf_eri_metric_learning_prep/phase9d_image_training_manifest_internal.csv
+pair_table_path: outputs/czechlynx/phase11/phase11_pair_level_pf_eri_table.csv
+embedding_path: outputs/czechlynx/phase4/czechlynx_phase4c_megadescriptor_embeddings.csv
+output_dir: outputs/czechlynx/phase11d/target_rate_positive_rescue/split_1/P11DR2_target10_floor040
+descriptor: megadescriptor
+training_rule: use_phase11_pair_level_pf_eri_weights
+random_seed: 20260615
+sampler:
+  type: identity_balanced_pk
+  p_identities_per_batch: 16
+  k_images_per_identity_per_batch: 3
+model:
+  input_dim: 768
+  hidden_dim: 256
+  projection_dim: 128
+  learning_rate: 0.0003
+  epochs: 1
+loss:
+  name: pair_weighted_supervised_contrastive
+  pair_weight_mode: positive_pair_weighting
+  positive_weight_transform: sqrt_target_rate_rescue
+  positive_rescue_enabled: false
+  target_rescue_enabled: true
+  target_rescue_fraction: 0.10
+  target_rescue_reliability_max: 0.55
+  target_rescue_floor: 0.40
+  target_rescue_score: descriptor_times_one_minus_reliability
+  soft_negative_enabled: false
+  soft_negative_similarity_quantile: 0.95
+  soft_negative_reliability_max: 0.40
+  soft_negative_weight: 1.0
+  temperature: 0.07
+evaluation:
+  top_k: 5
+  retrieval_roles:
+    query: test
+    gallery: test

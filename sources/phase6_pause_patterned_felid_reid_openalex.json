@@ -1,0 +1,2931 @@
+{
+  "meta": {
+    "count": 3,
+    "db_response_time_ms": 6531,
+    "page": 1,
+    "per_page": 25,
+    "groups_count": null,
+    "x_query": {
+      "oql": "works where full text contains (tiger leopard lynx clouded leopard marbled cat individual re-identification coat pattern camera trap)\nsort by citation count desc\nreturn id, DOI, title, year, date, type, citation count, authorships, primary location, open access, abstract inverted index, ids",
+      "oqo": {
+        "get_rows": "works",
+        "filter_rows": [
+          {
+            "column_id": "default.search",
+            "value": "tiger leopard lynx clouded leopard marbled cat individual re-identification coat pattern camera trap",
+            "operator": "contains"
+          }
+        ],
+        "sort_by": [
+          {
+            "column_id": "cited_by_count",
+            "direction": "desc"
+          }
+        ],
+        "select": [
+          "id",
+          "doi",
+          "title",
+          "publication_year",
+          "publication_date",
+          "type",
+          "cited_by_count",
+          "authorships",
+          "primary_location",
+          "open_access",
+          "abstract_inverted_index",
+          "ids"
+        ],
+        "per_page": 25
+      },
+      "url": "/works?filter=default.search:tiger leopard lynx clouded leopard marbled cat individual re-identification coat pattern camera trap&sort=cited_by_count:desc&select=id,doi,title,publication_year,publication_date,type,cited_by_count,authorships,primary_location,open_access,abstract_inverted_index,ids&per_page=25"
+    },
+    "cost_usd": 0.001
+  },
+  "results": [
+    {
+      "id": "https://openalex.org/W4382136950",
+      "doi": "https://doi.org/10.1111/mam.12320",
+      "title": "Sampling variables and their thresholds for the precise estimation of wild felid population density with camera traps and spatial capture\u2013recapture methods",
+      "publication_year": 2023,
+      "publication_date": "2023-06-25",
+      "type": "article",
+      "cited_by_count": 20,
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5032611587",
+            "display_name": "S. Palmero",
+            "orcid": "https://orcid.org/0000-0002-2755-1297"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161046081",
+              "display_name": "University of Freiburg",
+              "ror": "https://ror.org/0245cg223",
+              "country_code": "DE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161046081"
+              ]
+            }
+          ],
+          "countries": [
+            "DE"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Stefano Palmero",
+          "raw_affiliation_strings": [
+            "Chair of Wildlife Ecology and Wildlife Management, Faculty of Environment and Natural Resources University of Freiburg  Tennenbacher Stra\u00dfe 4 79106 Freiburg Germany"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-2755-1297",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Chair of Wildlife Ecology and Wildlife Management, Faculty of Environment and Natural Resources University of Freiburg  Tennenbacher Stra\u00dfe 4 79106 Freiburg Germany",
+              "institution_ids": [
+                "https://openalex.org/I161046081"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5004926728",
+            "display_name": "Joe Premier",
+            "orcid": "https://orcid.org/0000-0003-3225-6038"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161046081",
+              "display_name": "University of Freiburg",
+              "ror": "https://ror.org/0245cg223",
+              "country_code": "DE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161046081"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I2800389101",
+              "display_name": "Bavarian Forest National Park",
+              "ror": "https://ror.org/05b2t8s27",
+              "country_code": "DE",
+              "type": "archive",
+              "lineage": [
+                "https://openalex.org/I2800389101"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210154298",
+              "display_name": "Leibniz Institute for Zoo and Wildlife Research",
+              "ror": "https://ror.org/05nywn832",
+              "country_code": "DE",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I315704651",
+                "https://openalex.org/I4210154298"
+              ]
+            }
+          ],
+          "countries": [
+            "DE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Joe Premier",
+          "raw_affiliation_strings": [
+            "Chair of Wildlife Ecology and Wildlife Management, Faculty of Environment and Natural Resources University of Freiburg  Tennenbacher Stra\u00dfe 4 79106 Freiburg Germany",
+            "Department of Ecological Dynamics Leibniz Institute for Zoo and Wildlife Research (IZW)  Alfred\u2010Kowalke\u2010Str. 17 10315 Berlin Germany",
+            "Department of Visitor Management and National Park Monitoring Bavarian Forest National Park  Freyunger Str. 2 Grafenau 94481 Germany",
+            "Department of Visitor Management and National Park Monitoring, Bavarian Forest National Park, Freyunger Str. 2, Grafenau, 94481 Germany",
+            "Chair of Wildlife Ecology and Wildlife Management, Faculty of Environment and Natural Resources University of Freiburg Tennenbacher Stra\u00dfe 4 79106 Freiburg Germany"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Chair of Wildlife Ecology and Wildlife Management, Faculty of Environment and Natural Resources University of Freiburg  Tennenbacher Stra\u00dfe 4 79106 Freiburg Germany",
+              "institution_ids": [
+                "https://openalex.org/I161046081"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Ecological Dynamics Leibniz Institute for Zoo and Wildlife Research (IZW)  Alfred\u2010Kowalke\u2010Str. 17 10315 Berlin Germany",
+              "institution_ids": [
+                "https://openalex.org/I4210154298"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Visitor Management and National Park Monitoring Bavarian Forest National Park  Freyunger Str. 2 Grafenau 94481 Germany",
+              "institution_ids": [
+                "https://openalex.org/I2800389101"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Visitor Management and National Park Monitoring, Bavarian Forest National Park, Freyunger Str. 2, Grafenau, 94481 Germany",
+              "institution_ids": [
+                "https://openalex.org/I2800389101"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Chair of Wildlife Ecology and Wildlife Management, Faculty of Environment and Natural Resources University of Freiburg Tennenbacher Stra\u00dfe 4 79106 Freiburg Germany",
+              "institution_ids": [
+                "https://openalex.org/I161046081"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5087028147",
+            "display_name": "Stephanie Kramer\u2010Schadt",
+            "orcid": "https://orcid.org/0000-0002-9269-4446"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210154298",
+              "display_name": "Leibniz Institute for Zoo and Wildlife Research",
+              "ror": "https://ror.org/05nywn832",
+              "country_code": "DE",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I315704651",
+                "https://openalex.org/I4210154298"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4577782",
+              "display_name": "Technische Universit\u00e4t Berlin",
+              "ror": "https://ror.org/03v4gjf40",
+              "country_code": "DE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4577782"
+              ]
+            }
+          ],
+          "countries": [
+            "DE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Stephanie Kramer\u2010Schadt",
+          "raw_affiliation_strings": [
+            "Department of Ecological Dynamics Leibniz Institute for Zoo and Wildlife Research (IZW)  Alfred\u2010Kowalke\u2010Str. 17 10315 Berlin Germany",
+            "Institute of Ecology Technische Universit\u00e4t Berlin  Rothenburgstr. 12 12165 Berlin Germany",
+            "Department of Ecological Dynamics, Leibniz Institute for Zoo and Wildlife Research (IZW), Alfred-Kowalke-Str. 17, 10315 Berlin, Germany"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-9269-4446",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Ecological Dynamics Leibniz Institute for Zoo and Wildlife Research (IZW)  Alfred\u2010Kowalke\u2010Str. 17 10315 Berlin Germany",
+              "institution_ids": [
+                "https://openalex.org/I4210154298"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Institute of Ecology Technische Universit\u00e4t Berlin  Rothenburgstr. 12 12165 Berlin Germany",
+              "institution_ids": [
+                "https://openalex.org/I4577782"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Ecological Dynamics, Leibniz Institute for Zoo and Wildlife Research (IZW), Alfred-Kowalke-Str. 17, 10315 Berlin, Germany",
+              "institution_ids": [
+                "https://openalex.org/I4210154298"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5023328017",
+            "display_name": "Pedro Monterroso",
+            "orcid": "https://orcid.org/0000-0002-7911-3651"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I1336432201",
+              "display_name": "South African National Parks",
+              "ror": "https://ror.org/037adk771",
+              "country_code": "ZA",
+              "type": "government",
+              "lineage": [
+                "https://openalex.org/I1336432201",
+                "https://openalex.org/I2800683076"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I182534213",
+              "display_name": "Universidade do Porto",
+              "ror": "https://ror.org/043pwc612",
+              "country_code": "PT",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I182534213"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210140438",
+              "display_name": "African Explosives (South Africa)",
+              "ror": "https://ror.org/03pr1st25",
+              "country_code": "ZA",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I4210140438"
+              ]
+            }
+          ],
+          "countries": [
+            "PT",
+            "ZA"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Pedro Monterroso",
+          "raw_affiliation_strings": [
+            "African Parks, Wickham House, Fairway Office Park  52 Grosvenor Road, Bryanston, 12 Johannesburg 2191 South Africa",
+            "BIOPOLIS Program in Genomics, Biodiversity and Land Planning CIBIO  Campus de Vair\u00e3o 4485\u2010661 Vair\u00e3o Portugal",
+            "CIBIO, Centro de Investiga\u00e7\u00e3o em Biodiversidade e Recursos Gen\u00e9ticos, InBIO Laborat\u00f3rio Associado  Campus de Vair\u00e3o, Universidade do Porto 4485\u2010661 Vair\u00e3o Portugal",
+            "African Parks, Wickham House, Fairway Office Park, 52 Grosvenor Road, Bryanston, 12, Johannesburg, 2191 South Africa"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-7911-3651",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "African Parks, Wickham House, Fairway Office Park  52 Grosvenor Road, Bryanston, 12 Johannesburg 2191 South Africa",
+              "institution_ids": [
+                "https://openalex.org/I4210140438"
+              ]
+            },
+            {
+              "raw_affiliation_string": "BIOPOLIS Program in Genomics, Biodiversity and Land Planning CIBIO  Campus de Vair\u00e3o 4485\u2010661 Vair\u00e3o Portugal",
+              "institution_ids": []
+            },
+            {
+              "raw_affiliation_string": "CIBIO, Centro de Investiga\u00e7\u00e3o em Biodiversidade e Recursos Gen\u00e9ticos, InBIO Laborat\u00f3rio Associado  Campus de Vair\u00e3o, Universidade do Porto 4485\u2010661 Vair\u00e3o Portugal",
+              "institution_ids": [
+                "https://openalex.org/I182534213"
+              ]
+            },
+            {
+              "raw_affiliation_string": "African Parks, Wickham House, Fairway Office Park, 52 Grosvenor Road, Bryanston, 12, Johannesburg, 2191 South Africa",
+              "institution_ids": [
+                "https://openalex.org/I1336432201"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5006620203",
+            "display_name": "Marco Heurich",
+            "orcid": "https://orcid.org/0000-0003-0051-2930"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I161046081",
+              "display_name": "University of Freiburg",
+              "ror": "https://ror.org/0245cg223",
+              "country_code": "DE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I161046081"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I2800389101",
+              "display_name": "Bavarian Forest National Park",
+              "ror": "https://ror.org/05b2t8s27",
+              "country_code": "DE",
+              "type": "archive",
+              "lineage": [
+                "https://openalex.org/I2800389101"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210116649",
+              "display_name": "University of Inland Norway",
+              "ror": "https://ror.org/02dx4dc92",
+              "country_code": "NO",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4210116649"
+              ]
+            }
+          ],
+          "countries": [
+            "DE",
+            "NO"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Marco Heurich",
+          "raw_affiliation_strings": [
+            "Chair of Wildlife Ecology and Wildlife Management, Faculty of Environment and Natural Resources University of Freiburg  Tennenbacher Stra\u00dfe 4 79106 Freiburg Germany",
+            "Department of Visitor Management and National Park Monitoring Bavarian Forest National Park  Freyunger Str. 2 Grafenau 94481 Germany",
+            "Inland Norway University of Applied Science Institute for Forest and Wildlife Management  Campus Evenstad NO\u20102480 Koppang Norway",
+            "Department of Visitor Management and National Park Monitoring, Bavarian Forest National Park, Freyunger Str. 2, Grafenau, 94481 Germany",
+            "Chair of Wildlife Ecology and Wildlife Management, Faculty of Environment and Natural Resources University of Freiburg Tennenbacher Stra\u00dfe 4 79106 Freiburg Germany"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Chair of Wildlife Ecology and Wildlife Management, Faculty of Environment and Natural Resources University of Freiburg  Tennenbacher Stra\u00dfe 4 79106 Freiburg Germany",
+              "institution_ids": [
+                "https://openalex.org/I161046081"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Visitor Management and National Park Monitoring Bavarian Forest National Park  Freyunger Str. 2 Grafenau 94481 Germany",
+              "institution_ids": [
+                "https://openalex.org/I2800389101"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Inland Norway University of Applied Science Institute for Forest and Wildlife Management  Campus Evenstad NO\u20102480 Koppang Norway",
+              "institution_ids": [
+                "https://openalex.org/I4210116649"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Visitor Management and National Park Monitoring, Bavarian Forest National Park, Freyunger Str. 2, Grafenau, 94481 Germany",
+              "institution_ids": [
+                "https://openalex.org/I2800389101"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Chair of Wildlife Ecology and Wildlife Management, Faculty of Environment and Natural Resources University of Freiburg Tennenbacher Stra\u00dfe 4 79106 Freiburg Germany",
+              "institution_ids": [
+                "https://openalex.org/I161046081"
+              ]
+            }
+          ]
+        }
+      ],
+      "primary_location": {
+        "id": "doi:10.1111/mam.12320",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.1111/mam.12320",
+        "pdf_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/mam.12320",
+        "source": {
+          "id": "https://openalex.org/S175935889",
+          "display_name": "Mammal Review",
+          "issn_l": "0305-1838",
+          "issn": [
+            "0305-1838",
+            "1365-2907"
+          ],
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310320595",
+          "host_organization_name": "Wiley",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320595"
+          ],
+          "host_organization_lineage_names": [
+            "Wiley"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nc-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Mammal Review",
+        "raw_type": "journal-article"
+      },
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "hybrid",
+        "oa_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/mam.12320",
+        "any_repository_has_fulltext": true
+      },
+      "abstract_inverted_index": {
+        "ABSTRACT": [
+          0
+        ],
+        "Robust": [
+          1
+        ],
+        "monitoring,": [
+          2
+        ],
+        "providing": [
+          3
+        ],
+        "information": [
+          4
+        ],
+        "on": [
+          5,
+          112,
+          194,
+          232,
+          245
+        ],
+        "population": [
+          6,
+          81,
+          132,
+          198,
+          241
+        ],
+        "status,": [
+          7
+        ],
+        "is": [
+          8,
+          98
+        ],
+        "fundamental": [
+          9
+        ],
+        "for": [
+          10,
+          21,
+          60,
+          145,
+          252,
+          269
+        ],
+        "successful": [
+          11
+        ],
+        "conservation": [
+          12
+        ],
+        "planning.": [
+          13
+        ],
+        "However,": [
+          14
+        ],
+        "this": [
+          15,
+          84
+        ],
+        "can": [
+          16,
+          53,
+          67
+        ],
+        "be": [
+          17,
+          54,
+          68,
+          108
+        ],
+        "hard": [
+          18
+        ],
+        "to": [
+          19,
+          75,
+          101,
+          188,
+          258
+        ],
+        "achieve": [
+          20
+        ],
+        "species": [
+          22,
+          52
+        ],
+        "that": [
+          23,
+          139,
+          208,
+          229,
+          256
+        ],
+        "are": [
+          24,
+          35,
+          42
+        ],
+        "elusive": [
+          25,
+          51
+        ],
+        "and": [
+          26,
+          41,
+          47,
+          118,
+          142,
+          167,
+          184,
+          201,
+          215,
+          272,
+          279,
+          284
+        ],
+        "occur": [
+          27
+        ],
+        "at": [
+          28,
+          234
+        ],
+        "low": [
+          29
+        ],
+        "densities,": [
+          30
+        ],
+        "such": [
+          31,
+          79,
+          160
+        ],
+        "as": [
+          32,
+          80,
+          161,
+          172,
+          174
+        ],
+        "felids.": [
+          33,
+          261
+        ],
+        "These": [
+          34
+        ],
+        "often": [
+          36
+        ],
+        "keystones": [
+          37
+        ],
+        "of": [
+          38,
+          65,
+          96,
+          131,
+          154,
+          164,
+          170,
+          192,
+          197,
+          211,
+          281
+        ],
+        "functioning": [
+          39
+        ],
+        "ecosystems": [
+          40
+        ],
+        "threatened": [
+          43
+        ],
+        "by": [
+          44,
+          57
+        ],
+        "habitat": [
+          45
+        ],
+        "loss": [
+          46
+        ],
+        "human": [
+          48
+        ],
+        "persecution.": [
+          49
+        ],
+        "When": [
+          50
+        ],
+        "individually": [
+          55
+        ],
+        "identified": [
+          56
+        ],
+        "visible": [
+          58
+        ],
+        "characteristics,": [
+          59
+        ],
+        "example": [
+          61
+        ],
+        "via": [
+          62
+        ],
+        "camera\u2010trapping,": [
+          63
+        ],
+        "observations": [
+          64
+        ],
+        "individuals": [
+          66,
+          165,
+          228
+        ],
+        "used": [
+          69
+        ],
+        "in": [
+          70,
+          115,
+          125,
+          286
+        ],
+        "combination": [
+          71
+        ],
+        "with": [
+          72
+        ],
+        "capture\u2013recapture": [
+          73,
+          87
+        ],
+        "methods": [
+          74,
+          144,
+          187
+        ],
+        "calculate": [
+          76
+        ],
+        "demographic": [
+          77
+        ],
+        "parameters": [
+          78,
+          153
+        ],
+        "density.": [
+          82
+        ],
+        "In": [
+          83
+        ],
+        "context,": [
+          85
+        ],
+        "spatial": [
+          86
+        ],
+        "(SCR)": [
+          88
+        ],
+        "outperforms": [
+          89
+        ],
+        "conventional": [
+          90
+        ],
+        "non\u2010spatial": [
+          91
+        ],
+        "methods,": [
+          92
+        ],
+        "but": [
+          93
+        ],
+        "the": [
+          94,
+          102,
+          121,
+          126,
+          129,
+          162,
+          168,
+          190,
+          195,
+          209,
+          219,
+          238
+        ],
+        "precision": [
+          95,
+          130,
+          196
+        ],
+        "results": [
+          97,
+          275
+        ],
+        "inherently": [
+          99
+        ],
+        "related": [
+          100
+        ],
+        "sampling": [
+          103,
+          122,
+          156,
+          290
+        ],
+        "design,": [
+          104
+        ],
+        "which": [
+          105
+        ],
+        "should": [
+          106
+        ],
+        "therefore": [
+          107
+        ],
+        "optimised.": [
+          109
+        ],
+        "We": [
+          110,
+          135,
+          178
+        ],
+        "focussed": [
+          111
+        ],
+        "territorial": [
+          113,
+          260
+        ],
+        "felids": [
+          114
+        ],
+        "different": [
+          116
+        ],
+        "habitats": [
+          117
+        ],
+        "investigated": [
+          119
+        ],
+        "how": [
+          120
+        ],
+        "designs": [
+          123
+        ],
+        "implemented": [
+          124
+        ],
+        "field": [
+          127
+        ],
+        "affected": [
+          128
+        ],
+        "density": [
+          133,
+          146,
+          199,
+          242
+        ],
+        "estimates.": [
+          134,
+          243
+        ],
+        "examined": [
+          136
+        ],
+        "137": [
+          137
+        ],
+        "studies": [
+          138,
+          255,
+          283
+        ],
+        "combined": [
+          140
+        ],
+        "camera\u2010trapping": [
+          141
+        ],
+        "SCR": [
+          143,
+          175,
+          254,
+          282
+        ],
+        "estimation.": [
+          147
+        ],
+        "From": [
+          148
+        ],
+        "these,": [
+          149
+        ],
+        "we": [
+          150,
+          248,
+          263
+        ],
+        "collected": [
+          151
+        ],
+        "spatiotemporal": [
+          152
+        ],
+        "their": [
+          155
+        ],
+        "designs,": [
+          157
+        ],
+        "monitoring": [
+          158
+        ],
+        "results,": [
+          159
+        ],
+        "number": [
+          163,
+          169,
+          210
+        ],
+        "captured": [
+          166,
+          227
+        ],
+        "recaptures,": [
+          171
+        ],
+        "well": [
+          173
+        ],
+        "detection": [
+          176
+        ],
+        "parameters.": [
+          177
+        ],
+        "applied": [
+          179
+        ],
+        "generalised": [
+          180
+        ],
+        "linear": [
+          181
+        ],
+        "mixed\u2010effects": [
+          182
+        ],
+        "models": [
+          183
+        ],
+        "tree\u2010based": [
+          185
+        ],
+        "regression": [
+          186
+        ],
+        "investigate": [
+          189
+        ],
+        "influence": [
+          191
+        ],
+        "variables": [
+          193
+        ],
+        "estimates": [
+          200
+        ],
+        "provide": [
+          202,
+          249
+        ],
+        "numerical": [
+          203
+        ],
+        "thresholds.": [
+          204
+        ],
+        "Our": [
+          205,
+          274
+        ],
+        "analysis": [
+          206
+        ],
+        "shows": [
+          207
+        ],
+        "individuals,": [
+          212
+        ],
+        "recapture": [
+          213
+        ],
+        "frequency,": [
+          214
+        ],
+        "capture": [
+          216
+        ],
+        "probability": [
+          217
+        ],
+        "play": [
+          218
+        ],
+        "most": [
+          220,
+          239
+        ],
+        "crucial": [
+          221
+        ],
+        "roles.": [
+          222
+        ],
+        "Surveys": [
+          223
+        ],
+        "yielding": [
+          224
+        ],
+        "over": [
+          225
+        ],
+        "20": [
+          226
+        ],
+        "were": [
+          230
+        ],
+        "recaptured": [
+          231
+        ],
+        "average": [
+          233
+        ],
+        "least": [
+          235
+        ],
+        "once": [
+          236
+        ],
+        "obtain": [
+          237
+        ],
+        "precise": [
+          240
+        ],
+        "Based": [
+          244
+        ],
+        "our": [
+          246
+        ],
+        "findings,": [
+          247
+        ],
+        "practical": [
+          250
+        ],
+        "guidelines": [
+          251
+        ],
+        "future": [
+          253
+        ],
+        "apply": [
+          257
+        ],
+        "all": [
+          259
+        ],
+        "Furthermore,": [
+          262
+        ],
+        "present": [
+          264
+        ],
+        "a": [
+          265
+        ],
+        "standardised": [
+          266
+        ],
+        "reporting": [
+          267,
+          278
+        ],
+        "protocol": [
+          268
+        ],
+        "study": [
+          270
+        ],
+        "transparency": [
+          271
+        ],
+        "comparability.": [
+          273
+        ],
+        "will": [
+          276
+        ],
+        "improve": [
+          277
+        ],
+        "reproducibility": [
+          280
+        ],
+        "aid": [
+          285
+        ],
+        "setting": [
+          287
+        ],
+        "up": [
+          288
+        ],
+        "optimised": [
+          289
+        ],
+        "designs.": [
+          291
+        ]
+      },
+      "ids": {
+        "openalex": "https://openalex.org/W4382136950",
+        "doi": "https://doi.org/10.1111/mam.12320"
+      }
+    },
+    {
+      "id": "https://openalex.org/W4401083910",
+      "doi": "https://doi.org/10.3390/ani14152188",
+      "title": "Unveiling the Biodiversity and Conservation Significance of Medog: A Camera-Trapping Survey on Mammals in the Southeastern Tibetan Mountains",
+      "publication_year": 2024,
+      "publication_date": "2024-07-27",
+      "type": "article",
+      "cited_by_count": 4,
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5054233901",
+            "display_name": "Qianqian Wang",
+            "orcid": "https://orcid.org/0000-0001-9906-7624"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I25254941",
+              "display_name": "Beijing Normal University",
+              "ror": "https://ror.org/022k4wk35",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I25254941"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Qianqian Wang",
+          "raw_affiliation_strings": [
+            "Key Laboratory of Biodiversity and Ecological Engineering, Ministry of Education, College of Life Sciences, Beijing Normal University, Beijing 100875, China"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0001-9906-7624",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Key Laboratory of Biodiversity and Ecological Engineering, Ministry of Education, College of Life Sciences, Beijing Normal University, Beijing 100875, China",
+              "institution_ids": [
+                "https://openalex.org/I25254941"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5078621339",
+            "display_name": "Biao Yang",
+            "orcid": "https://orcid.org/0000-0002-2181-8640"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I16351329",
+              "display_name": "China West Normal University",
+              "ror": "https://ror.org/04s99y476",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I16351329"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210102385",
+              "display_name": "Leping Social Entrepreneur Foundation",
+              "ror": "https://ror.org/00rwqqw10",
+              "country_code": "CN",
+              "type": "nonprofit",
+              "lineage": [
+                "https://openalex.org/I4210102385"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Biao Yang",
+          "raw_affiliation_strings": [
+            "College of Life Sciences, China West Normal University, Nanchong 637001, China",
+            "Society of Entrepreneurs and Ecology (SEE) Foundation, Beijing 100020, China"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-2181-8640",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "College of Life Sciences, China West Normal University, Nanchong 637001, China",
+              "institution_ids": [
+                "https://openalex.org/I16351329"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Society of Entrepreneurs and Ecology (SEE) Foundation, Beijing 100020, China",
+              "institution_ids": [
+                "https://openalex.org/I4210102385"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5106104511",
+            "display_name": "Ruifeng Zhu",
+            "orcid": "https://orcid.org/0009-0007-2337-7125"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210104944",
+              "display_name": "Sichuan Animal Science Academy",
+              "ror": "https://ror.org/01pahbn61",
+              "country_code": "CN",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I4210104944"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Ruifeng Zhu",
+          "raw_affiliation_strings": [
+            "Sichuan Zoological Society, Chengdu 610065, China"
+          ],
+          "raw_orcid": "https://orcid.org/0009-0007-2337-7125",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Sichuan Zoological Society, Chengdu 610065, China",
+              "institution_ids": [
+                "https://openalex.org/I4210104944"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5103875409",
+            "display_name": "Xin Wang",
+            "orcid": "https://orcid.org/0009-0005-0062-0968"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210104944",
+              "display_name": "Sichuan Animal Science Academy",
+              "ror": "https://ror.org/01pahbn61",
+              "country_code": "CN",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I4210104944"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Xin Wang",
+          "raw_affiliation_strings": [
+            "Sichuan Zoological Society, Chengdu 610065, China"
+          ],
+          "raw_orcid": "https://orcid.org/0009-0005-0062-0968",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Sichuan Zoological Society, Chengdu 610065, China",
+              "institution_ids": [
+                "https://openalex.org/I4210104944"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5019358265",
+            "display_name": "shui Li",
+            "orcid": "https://orcid.org/0009-0006-7282-0050"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210104944",
+              "display_name": "Sichuan Animal Science Academy",
+              "ror": "https://ror.org/01pahbn61",
+              "country_code": "CN",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I4210104944"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Shilin Li",
+          "raw_affiliation_strings": [
+            "Sichuan Zoological Society, Chengdu 610065, China"
+          ],
+          "raw_orcid": "https://orcid.org/0009-0006-7282-0050",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Sichuan Zoological Society, Chengdu 610065, China",
+              "institution_ids": [
+                "https://openalex.org/I4210104944"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5100425660",
+            "display_name": "Li Zhang",
+            "orcid": "https://orcid.org/0000-0002-9006-9970"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I25254941",
+              "display_name": "Beijing Normal University",
+              "ror": "https://ror.org/022k4wk35",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I25254941"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Li Zhang",
+          "raw_affiliation_strings": [
+            "Key Laboratory of Biodiversity and Ecological Engineering, Ministry of Education, College of Life Sciences, Beijing Normal University, Beijing 100875, China"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-9006-9970",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Key Laboratory of Biodiversity and Ecological Engineering, Ministry of Education, College of Life Sciences, Beijing Normal University, Beijing 100875, China",
+              "institution_ids": [
+                "https://openalex.org/I25254941"
+              ]
+            }
+          ]
+        }
+      ],
+      "primary_location": {
+        "id": "doi:10.3390/ani14152188",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.3390/ani14152188",
+        "pdf_url": "https://www.mdpi.com/2076-2615/14/15/2188/pdf?version=1723194250",
+        "source": {
+          "id": "https://openalex.org/S4210168508",
+          "display_name": "Animals",
+          "issn_l": "2076-2615",
+          "issn": [
+            "2076-2615"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310310987",
+          "host_organization_name": "Multidisciplinary Digital Publishing Institute",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310310987"
+          ],
+          "host_organization_lineage_names": [
+            "Multidisciplinary Digital Publishing Institute"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Animals",
+        "raw_type": "journal-article"
+      },
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "gold",
+        "oa_url": "https://www.mdpi.com/2076-2615/14/15/2188/pdf?version=1723194250",
+        "any_repository_has_fulltext": true
+      },
+      "abstract_inverted_index": {
+        "The": [
+          0,
+          35,
+          78,
+          144,
+          245
+        ],
+        "Medog": [
+          1
+        ],
+        "in": [
+          2,
+          31,
+          52,
+          56,
+          70,
+          169
+        ],
+        "southeastern": [
+          3,
+          72
+        ],
+        "Tibet": [
+          4
+        ],
+        "is": [
+          5
+        ],
+        "home": [
+          6
+        ],
+        "to": [
+          7,
+          42,
+          84,
+          211,
+          277,
+          303
+        ],
+        "a": [
+          8,
+          39,
+          249
+        ],
+        "diverse": [
+          9
+        ],
+        "range": [
+          10
+        ],
+        "of": [
+          11,
+          49,
+          64,
+          132,
+          164,
+          179,
+          251,
+          266,
+          294
+        ],
+        "wild": [
+          12
+        ],
+        "animals.": [
+          13
+        ],
+        "However,": [
+          14
+        ],
+        "research": [
+          15,
+          299
+        ],
+        "on": [
+          16,
+          115,
+          128
+        ],
+        "these": [
+          17,
+          268
+        ],
+        "mammals\u2019": [
+          18
+        ],
+        "species": [
+          19,
+          95,
+          227
+        ],
+        "directories,": [
+          20
+        ],
+        "distribution,": [
+          21
+        ],
+        "and": [
+          22,
+          46,
+          61,
+          99,
+          135,
+          171,
+          186,
+          201,
+          240,
+          254,
+          270,
+          281
+        ],
+        "conservation": [
+          23,
+          69,
+          275,
+          305,
+          316
+        ],
+        "status": [
+          24
+        ],
+        "remains": [
+          25
+        ],
+        "insufficient,": [
+          26
+        ],
+        "despite": [
+          27
+        ],
+        "their": [
+          28,
+          53,
+          279,
+          287
+        ],
+        "crucial": [
+          29
+        ],
+        "role": [
+          30
+        ],
+        "maintaining": [
+          32,
+          290
+        ],
+        "ecological": [
+          33,
+          292
+        ],
+        "balance.": [
+          34
+        ],
+        "study": [
+          36,
+          66,
+          156
+        ],
+        "carried": [
+          37
+        ],
+        "out": [
+          38
+        ],
+        "camera-trapping": [
+          40
+        ],
+        "survey": [
+          41
+        ],
+        "assess": [
+          43
+        ],
+        "mammal": [
+          44,
+          50
+        ],
+        "biodiversity": [
+          45
+        ],
+        "the": [
+          47,
+          65,
+          71,
+          116,
+          129,
+          148,
+          155,
+          158,
+          162,
+          176,
+          180,
+          193,
+          198,
+          215,
+          224,
+          230,
+          237,
+          264,
+          272,
+          291,
+          295,
+          298
+        ],
+        "significance": [
+          48,
+          302
+        ],
+        "protection": [
+          51
+        ],
+        "natural": [
+          54
+        ],
+        "habitats": [
+          55,
+          280
+        ],
+        "Gedang,": [
+          57
+        ],
+        "Medog.": [
+          58
+        ],
+        "Future": [
+          59
+        ],
+        "directions": [
+          60
+        ],
+        "application": [
+          62
+        ],
+        "prospects": [
+          63
+        ],
+        "for": [
+          67,
+          197,
+          208,
+          274,
+          307,
+          313
+        ],
+        "wildlife": [
+          68,
+          315
+        ],
+        "Tibetan": [
+          73
+        ],
+        "mountains": [
+          74
+        ],
+        "were": [
+          75,
+          121,
+          137
+        ],
+        "also": [
+          76,
+          202,
+          247
+        ],
+        "discussed.": [
+          77
+        ],
+        "survey,": [
+          79
+        ],
+        "spanning": [
+          80
+        ],
+        "from": [
+          81
+        ],
+        "April": [
+          82
+        ],
+        "2023": [
+          83
+        ],
+        "May": [
+          85
+        ],
+        "2024,": [
+          86
+        ],
+        "with": [
+          87
+        ],
+        "19,754": [
+          88
+        ],
+        "camera": [
+          89,
+          222
+        ],
+        "trap": [
+          90
+        ],
+        "days,": [
+          91
+        ],
+        "revealed": [
+          92
+        ],
+        "25": [
+          93
+        ],
+        "mammalian": [
+          94,
+          308
+        ],
+        "across": [
+          96
+        ],
+        "five": [
+          97,
+          108
+        ],
+        "orders": [
+          98
+        ],
+        "14": [
+          100
+        ],
+        "families.": [
+          101
+        ],
+        "Among": [
+          102
+        ],
+        "these,": [
+          103
+        ],
+        "four": [
+          104,
+          209
+        ],
+        "classified": [
+          105
+        ],
+        "as": [
+          106,
+          109,
+          112,
+          123,
+          256,
+          258
+        ],
+        "Endangered,": [
+          107
+        ],
+        "Vulnerable,": [
+          110
+        ],
+        "two": [
+          111
+        ],
+        "Near": [
+          113
+        ],
+        "Threatened": [
+          114
+        ],
+        "IUCN": [
+          117,
+          170
+        ],
+        "Red": [
+          118,
+          130
+        ],
+        "List,": [
+          119
+        ],
+        "nine": [
+          120
+        ],
+        "categorized": [
+          122
+        ],
+        "Critically": [
+          124
+        ],
+        "Endangered": [
+          125,
+          127
+        ],
+        "or": [
+          126
+        ],
+        "List": [
+          131
+        ],
+        "China\u2019s": [
+          133,
+          138
+        ],
+        "Vertebrates,": [
+          134
+        ],
+        "seven": [
+          136
+        ],
+        "national": [
+          139
+        ],
+        "first-class": [
+          140
+        ],
+        "key": [
+          141
+        ],
+        "protected": [
+          142
+        ],
+        "wildlife.": [
+          143
+        ],
+        "order": [
+          145
+        ],
+        "Carnivora": [
+          146
+        ],
+        "exhibited": [
+          147
+        ],
+        "highest": [
+          149
+        ],
+        "diversity,": [
+          150,
+          309
+        ],
+        "comprising": [
+          151
+        ],
+        "12": [
+          152
+        ],
+        "species.": [
+          153,
+          213
+        ],
+        "Furthermore,": [
+          154
+        ],
+        "filled": [
+          157
+        ],
+        "knowledge": [
+          159
+        ],
+        "gap": [
+          160
+        ],
+        "regarding": [
+          161
+        ],
+        "underrepresentation": [
+          163
+        ],
+        "Gongshan": [
+          165,
+          238
+        ],
+        "muntjac": [
+          166,
+          239
+        ],
+        "Muntiacus": [
+          167
+        ],
+        "gongshanensis": [
+          168
+        ],
+        "provided": [
+          172
+        ],
+        "new": [
+          173,
+          204
+        ],
+        "insights": [
+          174
+        ],
+        "into": [
+          175
+        ],
+        "recorded": [
+          177
+        ],
+        "coexistence": [
+          178
+        ],
+        "Himalayan": [
+          181,
+          241
+        ],
+        "red": [
+          182,
+          188
+        ],
+        "panda": [
+          183,
+          189
+        ],
+        "Ailurus": [
+          184,
+          190
+        ],
+        "fulgens": [
+          185
+        ],
+        "Chinese": [
+          187
+        ],
+        "styani": [
+          191
+        ],
+        "along": [
+          192
+        ],
+        "Yarlung": [
+          194
+        ],
+        "Zangbo": [
+          195
+        ],
+        "River": [
+          196
+        ],
+        "first": [
+          199
+        ],
+        "time,": [
+          200
+        ],
+        "documented": [
+          203
+        ],
+        "upper": [
+          205
+        ],
+        "elevation": [
+          206
+        ],
+        "limits": [
+          207
+        ],
+        "large": [
+          210
+        ],
+        "medium-sized": [
+          212
+        ],
+        "Regarding": [
+          214
+        ],
+        "relative": [
+          216
+        ],
+        "abundance": [
+          217
+        ],
+        "indices": [
+          218
+        ],
+        "(RAI)": [
+          219
+        ],
+        "captured": [
+          220,
+          248
+        ],
+        "by": [
+          221,
+          236
+        ],
+        "traps,": [
+          223
+        ],
+        "most": [
+          225
+        ],
+        "prevalent": [
+          226
+        ],
+        "identified": [
+          228
+        ],
+        "was": [
+          229
+        ],
+        "White-cheeked": [
+          231
+        ],
+        "macaque": [
+          232
+        ],
+        "Macaca": [
+          233
+        ],
+        "leucogenys,": [
+          234
+        ],
+        "followed": [
+          235
+        ],
+        "serow": [
+          242
+        ],
+        "Capricornis": [
+          243
+        ],
+        "thar.": [
+          244
+        ],
+        "monitoring": [
+          246
+        ],
+        "number": [
+          250
+        ],
+        "domestic": [
+          252
+        ],
+        "dogs": [
+          253
+        ],
+        "livestock,": [
+          255
+        ],
+        "well": [
+          257
+        ],
+        "human": [
+          259,
+          283
+        ],
+        "disturbances.": [
+          260
+        ],
+        "These": [
+          261
+        ],
+        "findings": [
+          262
+        ],
+        "underscore": [
+          263
+        ],
+        "importance": [
+          265
+        ],
+        "conserving": [
+          267
+        ],
+        "mammals": [
+          269
+        ],
+        "emphasize": [
+          271
+        ],
+        "need": [
+          273
+        ],
+        "efforts": [
+          276,
+          306
+        ],
+        "protect": [
+          278
+        ],
+        "reduce": [
+          282
+        ],
+        "activities": [
+          284
+        ],
+        "that": [
+          285
+        ],
+        "threaten": [
+          286
+        ],
+        "survival,": [
+          288
+        ],
+        "thereby": [
+          289
+        ],
+        "balance": [
+          293
+        ],
+        "region.": [
+          296
+        ],
+        "Additionally,": [
+          297
+        ],
+        "highlighted": [
+          300
+        ],
+        "Gedang\u2019s": [
+          301
+        ],
+        "global": [
+          304
+        ],
+        "providing": [
+          310
+        ],
+        "essential": [
+          311
+        ],
+        "data": [
+          312
+        ],
+        "effective": [
+          314
+        ],
+        "strategies.": [
+          317
+        ]
+      },
+      "ids": {
+        "openalex": "https://openalex.org/W4401083910",
+        "doi": "https://doi.org/10.3390/ani14152188"
+      }
+    },
+    {
+      "id": "https://openalex.org/W39123714",
+      "doi": "https://doi.org/10.3390/ani14152188",
+      "title": "\u793e\u4f1a\u4eba\u6559\u80b2\u306e\u73fe\u72b6\u3068\u8ab2\u984c--\u4fee\u58eb\u8ab2\u7a0b\u3092\u4e2d\u5fc3\u306b (\u7279\u96c6 \u5927\u5b66\u30fb\u77e5\u8b58\u30fb\u5e02\u5834)",
+      "publication_year": 2001,
+      "publication_date": "2001-01-01",
+      "type": "article",
+      "cited_by_count": 0,
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5078820370",
+            "display_name": "\u7531\u7d00 \u672c\u7530",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": true,
+          "raw_author_name": "\u7531\u7d00 \u672c\u7530",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        }
+      ],
+      "primary_location": {
+        "id": "mag:39123714",
+        "is_oa": false,
+        "landing_page_url": "https://ci.nii.ac.jp/naid/40005203707",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306560412",
+          "display_name": "\u9ad8\u7b49\u6559\u80b2\u7814\u7a76",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "journal"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "\u9ad8\u7b49\u6559\u80b2\u7814\u7a76",
+        "raw_type": null
+      },
+      "open_access": {
+        "is_oa": false,
+        "oa_status": "closed",
+        "oa_url": null,
+        "any_repository_has_fulltext": false
+      },
+      "abstract_inverted_index": {
+        "The": [
+          0,
+          35,
+          78,
+          144,
+          245
+        ],
+        "Medog": [
+          1
+        ],
+        "in": [
+          2,
+          31,
+          52,
+          56,
+          70,
+          169
+        ],
+        "southeastern": [
+          3,
+          72
+        ],
+        "Tibet": [
+          4
+        ],
+        "is": [
+          5
+        ],
+        "home": [
+          6
+        ],
+        "to": [
+          7,
+          42,
+          84,
+          211,
+          277,
+          303
+        ],
+        "a": [
+          8,
+          39,
+          249
+        ],
+        "diverse": [
+          9
+        ],
+        "range": [
+          10
+        ],
+        "of": [
+          11,
+          49,
+          64,
+          132,
+          164,
+          179,
+          251,
+          266,
+          294
+        ],
+        "wild": [
+          12
+        ],
+        "animals.": [
+          13
+        ],
+        "However,": [
+          14
+        ],
+        "research": [
+          15,
+          299
+        ],
+        "on": [
+          16,
+          115,
+          128
+        ],
+        "these": [
+          17,
+          268
+        ],
+        "mammals'": [
+          18
+        ],
+        "species": [
+          19,
+          95,
+          227
+        ],
+        "directories,": [
+          20
+        ],
+        "distribution,": [
+          21
+        ],
+        "and": [
+          22,
+          46,
+          61,
+          99,
+          135,
+          171,
+          186,
+          201,
+          240,
+          254,
+          270,
+          281
+        ],
+        "conservation": [
+          23,
+          69,
+          275,
+          305,
+          316
+        ],
+        "status": [
+          24
+        ],
+        "remains": [
+          25
+        ],
+        "insufficient,": [
+          26
+        ],
+        "despite": [
+          27
+        ],
+        "their": [
+          28,
+          53,
+          279,
+          287
+        ],
+        "crucial": [
+          29
+        ],
+        "role": [
+          30
+        ],
+        "maintaining": [
+          32,
+          290
+        ],
+        "ecological": [
+          33,
+          292
+        ],
+        "balance.": [
+          34
+        ],
+        "study": [
+          36,
+          66,
+          156
+        ],
+        "carried": [
+          37
+        ],
+        "out": [
+          38
+        ],
+        "camera-trapping": [
+          40
+        ],
+        "survey": [
+          41
+        ],
+        "assess": [
+          43
+        ],
+        "mammal": [
+          44,
+          50
+        ],
+        "biodiversity": [
+          45
+        ],
+        "the": [
+          47,
+          65,
+          71,
+          116,
+          129,
+          148,
+          155,
+          158,
+          162,
+          176,
+          180,
+          193,
+          198,
+          215,
+          224,
+          230,
+          237,
+          264,
+          272,
+          291,
+          295,
+          298
+        ],
+        "significance": [
+          48,
+          302
+        ],
+        "protection": [
+          51
+        ],
+        "natural": [
+          54
+        ],
+        "habitats": [
+          55,
+          280
+        ],
+        "Gedang,": [
+          57
+        ],
+        "Medog.": [
+          58
+        ],
+        "Future": [
+          59
+        ],
+        "directions": [
+          60
+        ],
+        "application": [
+          62
+        ],
+        "prospects": [
+          63
+        ],
+        "for": [
+          67,
+          197,
+          208,
+          274,
+          307,
+          313
+        ],
+        "wildlife": [
+          68,
+          315
+        ],
+        "Tibetan": [
+          73
+        ],
+        "mountains": [
+          74
+        ],
+        "were": [
+          75,
+          121,
+          137
+        ],
+        "also": [
+          76,
+          202,
+          247
+        ],
+        "discussed.": [
+          77
+        ],
+        "survey,": [
+          79
+        ],
+        "spanning": [
+          80
+        ],
+        "from": [
+          81
+        ],
+        "April": [
+          82
+        ],
+        "2023": [
+          83
+        ],
+        "May": [
+          85
+        ],
+        "2024,": [
+          86
+        ],
+        "with": [
+          87
+        ],
+        "19,754": [
+          88
+        ],
+        "camera": [
+          89,
+          222
+        ],
+        "trap": [
+          90
+        ],
+        "days,": [
+          91
+        ],
+        "revealed": [
+          92
+        ],
+        "25": [
+          93
+        ],
+        "mammalian": [
+          94,
+          308
+        ],
+        "across": [
+          96
+        ],
+        "five": [
+          97,
+          108
+        ],
+        "orders": [
+          98
+        ],
+        "14": [
+          100
+        ],
+        "families.": [
+          101
+        ],
+        "Among": [
+          102
+        ],
+        "these,": [
+          103
+        ],
+        "four": [
+          104,
+          209
+        ],
+        "classified": [
+          105
+        ],
+        "as": [
+          106,
+          109,
+          112,
+          123,
+          256,
+          258
+        ],
+        "Endangered,": [
+          107
+        ],
+        "Vulnerable,": [
+          110
+        ],
+        "two": [
+          111
+        ],
+        "Near": [
+          113
+        ],
+        "Threatened": [
+          114
+        ],
+        "IUCN": [
+          117,
+          170
+        ],
+        "Red": [
+          118,
+          130
+        ],
+        "List,": [
+          119
+        ],
+        "nine": [
+          120
+        ],
+        "categorized": [
+          122
+        ],
+        "Critically": [
+          124
+        ],
+        "Endangered": [
+          125,
+          127
+        ],
+        "or": [
+          126
+        ],
+        "List": [
+          131
+        ],
+        "China's": [
+          133,
+          138
+        ],
+        "Vertebrates,": [
+          134
+        ],
+        "seven": [
+          136
+        ],
+        "national": [
+          139
+        ],
+        "first-class": [
+          140
+        ],
+        "key": [
+          141
+        ],
+        "protected": [
+          142
+        ],
+        "wildlife.": [
+          143
+        ],
+        "order": [
+          145
+        ],
+        "Carnivora": [
+          146
+        ],
+        "exhibited": [
+          147
+        ],
+        "highest": [
+          149
+        ],
+        "diversity,": [
+          150,
+          309
+        ],
+        "comprising": [
+          151
+        ],
+        "12": [
+          152
+        ],
+        "species.": [
+          153,
+          213
+        ],
+        "Furthermore,": [
+          154
+        ],
+        "filled": [
+          157
+        ],
+        "knowledge": [
+          159
+        ],
+        "gap": [
+          160
+        ],
+        "regarding": [
+          161
+        ],
+        "underrepresentation": [
+          163
+        ],
+        "Gongshan": [
+          165,
+          238
+        ],
+        "muntjac": [
+          166,
+          239
+        ],
+        "<i>Muntiacus": [
+          167
+        ],
+        "gongshanensis</i>": [
+          168
+        ],
+        "provided": [
+          172
+        ],
+        "new": [
+          173,
+          204
+        ],
+        "insights": [
+          174
+        ],
+        "into": [
+          175
+        ],
+        "recorded": [
+          177
+        ],
+        "coexistence": [
+          178
+        ],
+        "Himalayan": [
+          181,
+          241
+        ],
+        "red": [
+          182,
+          188
+        ],
+        "panda": [
+          183,
+          189
+        ],
+        "<i>Ailurus": [
+          184,
+          190
+        ],
+        "fulgens</i>": [
+          185
+        ],
+        "Chinese": [
+          187
+        ],
+        "styani</i>": [
+          191
+        ],
+        "along": [
+          192
+        ],
+        "Yarlung": [
+          194
+        ],
+        "Zangbo": [
+          195
+        ],
+        "River": [
+          196
+        ],
+        "first": [
+          199
+        ],
+        "time,": [
+          200
+        ],
+        "documented": [
+          203
+        ],
+        "upper": [
+          205
+        ],
+        "elevation": [
+          206
+        ],
+        "limits": [
+          207
+        ],
+        "large": [
+          210
+        ],
+        "medium-sized": [
+          212
+        ],
+        "Regarding": [
+          214
+        ],
+        "relative": [
+          216
+        ],
+        "abundance": [
+          217
+        ],
+        "indices": [
+          218
+        ],
+        "(RAI)": [
+          219
+        ],
+        "captured": [
+          220,
+          248
+        ],
+        "by": [
+          221,
+          236
+        ],
+        "traps,": [
+          223
+        ],
+        "most": [
+          225
+        ],
+        "prevalent": [
+          226
+        ],
+        "identified": [
+          228
+        ],
+        "was": [
+          229
+        ],
+        "White-cheeked": [
+          231
+        ],
+        "macaque": [
+          232
+        ],
+        "<i>Macaca": [
+          233
+        ],
+        "leucogenys</i>,": [
+          234
+        ],
+        "followed": [
+          235
+        ],
+        "serow": [
+          242
+        ],
+        "<i>Capricornis": [
+          243
+        ],
+        "thar</i>.": [
+          244
+        ],
+        "monitoring": [
+          246
+        ],
+        "number": [
+          250
+        ],
+        "domestic": [
+          252
+        ],
+        "dogs": [
+          253
+        ],
+        "livestock,": [
+          255
+        ],
+        "well": [
+          257
+        ],
+        "human": [
+          259,
+          283
+        ],
+        "disturbances.": [
+          260
+        ],
+        "These": [
+          261
+        ],
+        "findings": [
+          262
+        ],
+        "underscore": [
+          263
+        ],
+        "importance": [
+          265
+        ],
+        "conserving": [
+          267
+        ],
+        "mammals": [
+          269
+        ],
+        "emphasize": [
+          271
+        ],
+        "need": [
+          273
+        ],
+        "efforts": [
+          276,
+          306
+        ],
+        "protect": [
+          278
+        ],
+        "reduce": [
+          282
+        ],
+        "activities": [
+          284
+        ],
+        "that": [
+          285
+        ],
+        "threaten": [
+          286
+        ],
+        "survival,": [
+          288
+        ],
+        "thereby": [
+          289
+        ],
+        "balance": [
+          293
+        ],
+        "region.": [
+          296
+        ],
+        "Additionally,": [
+          297
+        ],
+        "highlighted": [
+          300
+        ],
+        "Gedang's": [
+          301
+        ],
+        "global": [
+          304
+        ],
+        "providing": [
+          310
+        ],
+        "essential": [
+          311
+        ],
+        "data": [
+          312
+        ],
+        "effective": [
+          314
+        ],
+        "strategies.": [
+          317
+        ]
+      },
+      "ids": {
+        "openalex": "https://openalex.org/W39123714",
+        "doi": "https://doi.org/10.3390/ani14152188",
+        "mag": "39123714"
+      }
+    }
+  ],
+  "group_by": [],
+  "_query": "tiger leopard lynx clouded leopard marbled cat individual re-identification coat pattern camera trap",
+  "_endpoint": "https://api.openalex.org/works?search=tiger+leopard+lynx+clouded+leopard+marbled+cat+individual+re-identification+coat+pattern+camera+trap&per_page=25&sort=cited_by_count%3Adesc&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cpublication_date%2Ctype%2Ccited_by_count%2Cauthorships%2Cprimary_location%2Copen_access%2Cabstract_inverted_index%2Cids"
+}

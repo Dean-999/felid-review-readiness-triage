@@ -1,0 +1,2526 @@
+{
+  "meta": {
+    "count": 4,
+    "db_response_time_ms": 5866,
+    "page": 1,
+    "per_page": 15,
+    "groups_count": null,
+    "x_query": {
+      "oql": "works where full text contains (Amur tiger giant panda turtle gecko animal re-identification individual identification)",
+      "oqo": {
+        "get_rows": "works",
+        "filter_rows": [
+          {
+            "column_id": "default.search",
+            "value": "Amur tiger giant panda turtle gecko animal re-identification individual identification",
+            "operator": "contains"
+          }
+        ],
+        "select": [
+          "id",
+          "doi",
+          "title",
+          "publication_year",
+          "publication_date",
+          "cited_by_count",
+          "primary_location",
+          "authorships",
+          "abstract_inverted_index",
+          "open_access"
+        ],
+        "per_page": 15
+      },
+      "url": "/works?filter=default.search:Amur tiger giant panda turtle gecko animal re-identification individual identification&select=id,doi,title,publication_year,publication_date,cited_by_count,primary_location,authorships,abstract_inverted_index,open_access&per_page=15"
+    },
+    "cost_usd": 0.001
+  },
+  "results": [
+    {
+      "id": "https://openalex.org/W3012393922",
+      "doi": "https://doi.org/10.2981/wlb.00607",
+      "title": "Towards more compassionate wildlife research through the 3Rs principles: moving from invasive to non-invasive methods",
+      "publication_year": 2020,
+      "publication_date": "2020-03-17",
+      "cited_by_count": 147,
+      "primary_location": {
+        "id": "doi:10.2981/wlb.00607",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.2981/wlb.00607",
+        "pdf_url": "https://bioone.org/journals/wildlife-biology/volume-2020/issue-1/wlb.00607/Towards-more-compassionate-wildlife-research-through-the-3Rs-principles/10.2981/wlb.00607.pdf",
+        "source": {
+          "id": "https://openalex.org/S175034139",
+          "display_name": "Wildlife Biology",
+          "issn_l": "0909-6396",
+          "issn": [
+            "0909-6396",
+            "1903-220X"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310320297",
+          "host_organization_name": "BioOne",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320297"
+          ],
+          "host_organization_lineage_names": [
+            "BioOne"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Wildlife Biology",
+        "raw_type": "journal-article"
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5064281231",
+            "display_name": "Miriam A. Zemanova",
+            "orcid": "https://orcid.org/0000-0002-5002-3388"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I114017466",
+              "display_name": "University of Technology Sydney",
+              "ror": "https://ror.org/03f0f6041",
+              "country_code": "AU",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I114017466"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I1850255",
+              "display_name": "University of Basel",
+              "ror": "https://ror.org/02s6k3f65",
+              "country_code": "CH",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I1850255"
+              ]
+            }
+          ],
+          "countries": [
+            "AU",
+            "CH"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Miriam A. Zemanova",
+          "raw_affiliation_strings": [
+            "M. A. Zemanova (https://orcid.org/0000-0002-5002-3388) \u2709 (miriam.andela.zemanova@gmail.com), Dept of Philosophy, Univ. of Basel, Steinengraben 5, CH-4051 Basel, Switzerland",
+            "Centre for Compassionate Conservation, Univ. of Technology Sydney, 15 Broadway, Ultimo NSW 2007, Australia"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "M. A. Zemanova (https://orcid.org/0000-0002-5002-3388) \u2709 (miriam.andela.zemanova@gmail.com), Dept of Philosophy, Univ. of Basel, Steinengraben 5, CH-4051 Basel, Switzerland",
+              "institution_ids": [
+                "https://openalex.org/I1850255"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Centre for Compassionate Conservation, Univ. of Technology Sydney, 15 Broadway, Ultimo NSW 2007, Australia",
+              "institution_ids": [
+                "https://openalex.org/I114017466"
+              ]
+            }
+          ]
+        }
+      ],
+      "abstract_inverted_index": {
+        "Research": [
+          0
+        ],
+        "in": [
+          1,
+          18,
+          75,
+          180
+        ],
+        "ecology": [
+          2
+        ],
+        "and": [
+          3,
+          12,
+          16,
+          44,
+          50,
+          56,
+          61,
+          83,
+          127,
+          132,
+          159,
+          190
+        ],
+        "wildlife": [
+          4,
+          152,
+          181
+        ],
+        "biology": [
+          5
+        ],
+        "remains": [
+          6
+        ],
+        "crucial": [
+          7
+        ],
+        "for": [
+          8,
+          116
+        ],
+        "increasing": [
+          9
+        ],
+        "our": [
+          10
+        ],
+        "knowledge": [
+          11
+        ],
+        "improving": [
+          13
+        ],
+        "species": [
+          14
+        ],
+        "management": [
+          15
+        ],
+        "conservation": [
+          17
+        ],
+        "the": [
+          19,
+          22,
+          68,
+          84,
+          87,
+          112,
+          144,
+          148,
+          176
+        ],
+        "midst": [
+          20
+        ],
+        "of": [
+          21,
+          36,
+          40,
+          54,
+          86,
+          105,
+          137,
+          146,
+          175
+        ],
+        "current": [
+          23
+        ],
+        "biodiversity": [
+          24
+        ],
+        "crisis.": [
+          25
+        ],
+        "However,": [
+          26,
+          143
+        ],
+        "obtaining": [
+          27
+        ],
+        "information": [
+          28
+        ],
+        "on": [
+          29,
+          187
+        ],
+        "population": [
+          30,
+          88
+        ],
+        "status": [
+          31
+        ],
+        "often": [
+          32
+        ],
+        "involves": [
+          33
+        ],
+        "invasive": [
+          34
+        ],
+        "sampling": [
+          35,
+          45
+        ],
+        "a": [
+          37,
+          76,
+          135
+        ],
+        "certain": [
+          38
+        ],
+        "number": [
+          39
+        ],
+        "individual": [
+          41,
+          80
+        ],
+        "animals.": [
+          42
+        ],
+        "Marking": [
+          43
+        ],
+        "practices": [
+          46,
+          99,
+          179
+        ],
+        "include": [
+          47
+        ],
+        "taking": [
+          48
+        ],
+        "blood": [
+          49
+        ],
+        "tissue": [
+          51
+        ],
+        "samples,": [
+          52
+        ],
+        "toe-clipping": [
+          53
+        ],
+        "amphibians": [
+          55
+        ],
+        "rodents,": [
+          57
+        ],
+        "or": [
+          58,
+          89
+        ],
+        "using": [
+          59
+        ],
+        "implants": [
+          60
+        ],
+        "radio-transmitters": [
+          62
+        ],
+        "-techniques": [
+          63
+        ],
+        "that": [
+          64
+        ],
+        "can": [
+          65
+        ],
+        "negatively": [
+          66
+        ],
+        "affect": [
+          67
+        ],
+        "animal.": [
+          69
+        ],
+        "Wildlife": [
+          70
+        ],
+        "research": [
+          71,
+          98,
+          118,
+          153
+        ],
+        "may": [
+          72
+        ],
+        "then": [
+          73
+        ],
+        "result": [
+          74
+        ],
+        "fundamental": [
+          77
+        ],
+        "conflict": [
+          78
+        ],
+        "between": [
+          79
+        ],
+        "animal": [
+          81,
+          117,
+          139,
+          188
+        ],
+        "welfare": [
+          82,
+          85
+        ],
+        "ecosystem,": [
+          90
+        ],
+        "which": [
+          91,
+          122
+        ],
+        "could": [
+          92,
+          108
+        ],
+        "be": [
+          93,
+          109
+        ],
+        "significantly": [
+          94
+        ],
+        "reduced": [
+          95
+        ],
+        "if": [
+          96
+        ],
+        "non-invasive": [
+          97,
+          106,
+          193
+        ],
+        "were": [
+          100,
+          123
+        ],
+        "more": [
+          101
+        ],
+        "broadly": [
+          102
+        ],
+        "implemented.": [
+          103
+        ],
+        "Implementation": [
+          104
+        ],
+        "methods": [
+          107
+        ],
+        "guided": [
+          110
+        ],
+        "by": [
+          111,
+          125
+        ],
+        "so-called": [
+          113
+        ],
+        "3Rs": [
+          114,
+          149
+        ],
+        "principles": [
+          115,
+          150
+        ],
+        "(replace,": [
+          119
+        ],
+        "reduce,": [
+          120
+        ],
+        "refine),": [
+          121
+        ],
+        "proposed": [
+          124
+        ],
+        "Russell": [
+          126
+        ],
+        "Burch": [
+          128
+        ],
+        "60": [
+          129
+        ],
+        "years": [
+          130
+        ],
+        "ago": [
+          131
+        ],
+        "have": [
+          133
+        ],
+        "become": [
+          134
+        ],
+        "part": [
+          136
+        ],
+        "many": [
+          138
+        ],
+        "protection": [
+          140
+        ],
+        "legislations": [
+          141
+        ],
+        "worldwide.": [
+          142
+        ],
+        "process": [
+          145
+        ],
+        "incorporating": [
+          147
+        ],
+        "into": [
+          151
+        ],
+        "has": [
+          154
+        ],
+        "been": [
+          155
+        ],
+        "unfortunately": [
+          156
+        ],
+        "rather": [
+          157
+        ],
+        "slow": [
+          158
+        ],
+        "their": [
+          160,
+          184
+        ],
+        "importance": [
+          161
+        ],
+        "overlooked.": [
+          162
+        ],
+        "In": [
+          163
+        ],
+        "order": [
+          164
+        ],
+        "to": [
+          165
+        ],
+        "help": [
+          166
+        ],
+        "alleviate": [
+          167
+        ],
+        "this": [
+          168
+        ],
+        "situation,": [
+          169
+        ],
+        "here": [
+          170
+        ],
+        "I": [
+          171
+        ],
+        "provide": [
+          172
+        ],
+        "an": [
+          173
+        ],
+        "overview": [
+          174
+        ],
+        "most": [
+          177
+        ],
+        "common": [
+          178
+        ],
+        "research,": [
+          182
+        ],
+        "discuss": [
+          183
+        ],
+        "potential": [
+          185
+        ],
+        "impact": [
+          186
+        ],
+        "welfare,": [
+          189
+        ],
+        "present": [
+          191
+        ],
+        "available": [
+          192
+        ],
+        "alternatives.": [
+          194
+        ]
+      },
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "gold",
+        "oa_url": "https://bioone.org/journals/wildlife-biology/volume-2020/issue-1/wlb.00607/Towards-more-compassionate-wildlife-research-through-the-3Rs-principles/10.2981/wlb.00607.pdf",
+        "any_repository_has_fulltext": false
+      }
+    },
+    {
+      "id": "https://openalex.org/W4242763148",
+      "doi": "https://doi.org/10.1046/j.1365-3008.2000.00125.x",
+      "title": "Briefly",
+      "publication_year": 2000,
+      "publication_date": "2000-07-01",
+      "cited_by_count": 1,
+      "primary_location": {
+        "id": "doi:10.1046/j.1365-3008.2000.00125.x",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.1046/j.1365-3008.2000.00125.x",
+        "pdf_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2138CB226AC34FEC4F81D66866826979/S003060530003115Xa.pdf/div-class-title-briefly-div.pdf",
+        "source": {
+          "id": "https://openalex.org/S173884034",
+          "display_name": "Oryx",
+          "issn_l": "0030-6053",
+          "issn": [
+            "0030-6053",
+            "1365-3008"
+          ],
+          "is_oa": false,
+          "is_in_doaj": true,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310311721",
+          "host_organization_name": "Cambridge University Press",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310311721",
+            "https://openalex.org/P4310311702"
+          ],
+          "host_organization_lineage_names": [
+            "Cambridge University Press",
+            "University of Cambridge"
+          ],
+          "type": "journal"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Oryx",
+        "raw_type": "journal-article"
+      },
+      "authorships": [],
+      "abstract_inverted_index": {
+        "Biodiversity": [
+          0
+        ],
+        "'hotspot'": [
+          1
+        ],
+        "site": [
+          2
+        ],
+        "controversyAccording": [
+          3
+        ],
+        "to": [
+          4,
+          31,
+          64,
+          138
+        ],
+        "a": [
+          5
+        ],
+        "recent": [
+          6
+        ],
+        "study": [
+          7
+        ],
+        "by": [
+          8,
+          132
+        ],
+        "Norman": [
+          9
+        ],
+        "Myers": [
+          10
+        ],
+        "et": [
+          11,
+          40
+        ],
+        "ah,": [
+          12
+        ],
+        "25": [
+          13,
+          66,
+          69
+        ],
+        "fragments": [
+          14
+        ],
+        "of": [
+          15,
+          35,
+          51,
+          59,
+          89,
+          119,
+          141
+        ],
+        "land": [
+          16,
+          60
+        ],
+        "that": [
+          17,
+          47,
+          100
+        ],
+        "together": [
+          18
+        ],
+        "cover": [
+          19
+        ],
+        "just": [
+          20
+        ],
+        "2.1": [
+          21
+        ],
+        "million": [
+          22
+        ],
+        "sq": [
+          23
+        ],
+        "km": [
+          24
+        ],
+        "contain": [
+          25
+        ],
+        "the": [
+          26,
+          36,
+          68,
+          82,
+          86,
+          92,
+          97,
+          113,
+          120,
+          129,
+          139,
+          142
+        ],
+        "remaining": [
+          27
+        ],
+        "habitats": [
+          28,
+          122
+        ],
+        "for": [
+          29,
+          102,
+          115
+        ],
+        "up": [
+          30
+        ],
+        "50": [
+          32
+        ],
+        "per": [
+          33,
+          49,
+          57
+        ],
+        "cent": [
+          34,
+          50,
+          58
+        ],
+        "planet's": [
+          37
+        ],
+        "terrestrial": [
+          38
+        ],
+        "species.Myers": [
+          39
+        ],
+        "ah": [
+          41
+        ],
+        "(Nature": [
+          42
+        ],
+        "(2000),": [
+          43
+        ],
+        "403,": [
+          44
+        ],
+        "853-858)": [
+          45
+        ],
+        "suggest": [
+          46
+        ],
+        "44": [
+          48
+        ],
+        "all": [
+          52
+        ],
+        "plant": [
+          53
+        ],
+        "species": [
+          54,
+          125
+        ],
+        "and": [
+          55,
+          76,
+          80,
+          94,
+          123,
+          135
+        ],
+        "35": [
+          56
+        ],
+        "vertebrates": [
+          61
+        ],
+        "are": [
+          62,
+          72,
+          78
+        ],
+        "endemic": [
+          63
+        ],
+        "these": [
+          65,
+          107
+        ],
+        "hotspots.Of": [
+          67
+        ],
+        "hotspots,": [
+          70
+        ],
+        "15": [
+          71
+        ],
+        "tropical": [
+          73
+        ],
+        "rain": [
+          74
+        ],
+        "forests": [
+          75,
+          88
+        ],
+        "9": [
+          77
+        ],
+        "islands,": [
+          79
+        ],
+        "include": [
+          81
+        ],
+        "Andes": [
+          83
+        ],
+        "Mountains,": [
+          84
+        ],
+        "Madagascar,": [
+          85
+        ],
+        "Atlantic": [
+          87
+        ],
+        "eastern": [
+          90
+        ],
+        "Brazil,": [
+          91
+        ],
+        "Philippines": [
+          93
+        ],
+        "New": [
+          95
+        ],
+        "Caledonia.Controversially,": [
+          96
+        ],
+        "authors": [
+          98
+        ],
+        "argue": [
+          99
+        ],
+        "funding": [
+          101
+        ],
+        "biodiversity": [
+          103
+        ],
+        "conservation": [
+          104
+        ],
+        "should": [
+          105
+        ],
+        "target": [
+          106
+        ],
+        "hotspots.Many": [
+          108
+        ],
+        "other": [
+          109
+        ],
+        "conservationists,": [
+          110
+        ],
+        "however,": [
+          111
+        ],
+        "make": [
+          112
+        ],
+        "case": [
+          114
+        ],
+        "conserving": [
+          116
+        ],
+        "representative": [
+          117
+        ],
+        "samples": [
+          118
+        ],
+        "world's": [
+          121
+        ],
+        "associated": [
+          124
+        ],
+        "as": [
+          126,
+          128
+        ],
+        "well": [
+          127
+        ],
+        "hotspots": [
+          130
+        ],
+        "characterized": [
+          131
+        ],
+        "high": [
+          133
+        ],
+        "endemism": [
+          134
+        ],
+        "major": [
+          136
+        ],
+        "threats": [
+          137
+        ],
+        "integrity": [
+          140
+        ],
+        "habitat.": [
+          143
+        ]
+      },
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "bronze",
+        "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2138CB226AC34FEC4F81D66866826979/S003060530003115Xa.pdf/div-class-title-briefly-div.pdf",
+        "any_repository_has_fulltext": false
+      }
+    },
+    {
+      "id": "https://openalex.org/W7134226568",
+      "doi": "https://doi.org/10.3389/fevo.2026.1780453",
+      "title": "Wild vs. captive: a multidimensional review of biological differences and conservation implications",
+      "publication_year": 2026,
+      "publication_date": "2026-03-09",
+      "cited_by_count": 0,
+      "primary_location": {
+        "id": "doi:10.3389/fevo.2026.1780453",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.3389/fevo.2026.1780453",
+        "pdf_url": "https://public-pages-files-2025.frontiersin.org/journals/ecology-and-evolution/articles/10.3389/fevo.2026.1780453/pdf",
+        "source": {
+          "id": "https://openalex.org/S2597028195",
+          "display_name": "Frontiers in Ecology and Evolution",
+          "issn_l": "2296-701X",
+          "issn": [
+            "2296-701X"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310320527",
+          "host_organization_name": "Frontiers Media",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320527"
+          ],
+          "host_organization_lineage_names": [
+            "Frontiers Media"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Frontiers in Ecology and Evolution",
+        "raw_type": "journal-article"
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5128431733",
+            "display_name": "Xiwei Jin",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I2801871972",
+              "display_name": "Chengdu Research Base of Giant Panda Breeding",
+              "ror": "https://ror.org/0168fvh11",
+              "country_code": "CN",
+              "type": "nonprofit",
+              "lineage": [
+                "https://openalex.org/I2801871972"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Xiwei Jin",
+          "raw_affiliation_strings": [
+            "China Conservation and Research Center for the Giant Panda, Key Laboratory of State Forestry and Grassland Administration (SFGA) on the Giant Panda"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "China Conservation and Research Center for the Giant Panda, Key Laboratory of State Forestry and Grassland Administration (SFGA) on the Giant Panda",
+              "institution_ids": [
+                "https://openalex.org/I2801871972"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5080416058",
+            "display_name": "Rengui Li",
+            "orcid": "https://orcid.org/0000-0002-8099-0934"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I2801871972",
+              "display_name": "Chengdu Research Base of Giant Panda Breeding",
+              "ror": "https://ror.org/0168fvh11",
+              "country_code": "CN",
+              "type": "nonprofit",
+              "lineage": [
+                "https://openalex.org/I2801871972"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Rengui Li",
+          "raw_affiliation_strings": [
+            "China Conservation and Research Center for the Giant Panda, Key Laboratory of State Forestry and Grassland Administration (SFGA) on the Giant Panda"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "China Conservation and Research Center for the Giant Panda, Key Laboratory of State Forestry and Grassland Administration (SFGA) on the Giant Panda",
+              "institution_ids": [
+                "https://openalex.org/I2801871972"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5065531775",
+            "display_name": "Shijie Mou",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I2801871972",
+              "display_name": "Chengdu Research Base of Giant Panda Breeding",
+              "ror": "https://ror.org/0168fvh11",
+              "country_code": "CN",
+              "type": "nonprofit",
+              "lineage": [
+                "https://openalex.org/I2801871972"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Shijie Mou",
+          "raw_affiliation_strings": [
+            "China Conservation and Research Center for the Giant Panda, Key Laboratory of State Forestry and Grassland Administration (SFGA) on the Giant Panda"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "China Conservation and Research Center for the Giant Panda, Key Laboratory of State Forestry and Grassland Administration (SFGA) on the Giant Panda",
+              "institution_ids": [
+                "https://openalex.org/I2801871972"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5128572614",
+            "display_name": "Zhiguo Cui",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I2801871972",
+              "display_name": "Chengdu Research Base of Giant Panda Breeding",
+              "ror": "https://ror.org/0168fvh11",
+              "country_code": "CN",
+              "type": "nonprofit",
+              "lineage": [
+                "https://openalex.org/I2801871972"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Zhiguo Cui",
+          "raw_affiliation_strings": [
+            "China Conservation and Research Center for the Giant Panda, Key Laboratory of State Forestry and Grassland Administration (SFGA) on the Giant Panda"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "China Conservation and Research Center for the Giant Panda, Key Laboratory of State Forestry and Grassland Administration (SFGA) on the Giant Panda",
+              "institution_ids": [
+                "https://openalex.org/I2801871972"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5044234724",
+            "display_name": "D. S. Li",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I2801871972",
+              "display_name": "Chengdu Research Base of Giant Panda Breeding",
+              "ror": "https://ror.org/0168fvh11",
+              "country_code": "CN",
+              "type": "nonprofit",
+              "lineage": [
+                "https://openalex.org/I2801871972"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Desheng Li",
+          "raw_affiliation_strings": [
+            "China Conservation and Research Center for the Giant Panda, Key Laboratory of State Forestry and Grassland Administration (SFGA) on the Giant Panda"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "China Conservation and Research Center for the Giant Panda, Key Laboratory of State Forestry and Grassland Administration (SFGA) on the Giant Panda",
+              "institution_ids": [
+                "https://openalex.org/I2801871972"
+              ]
+            }
+          ]
+        }
+      ],
+      "abstract_inverted_index": {
+        "The": [
+          0
+        ],
+        "conservation": [
+          1,
+          160,
+          183,
+          205
+        ],
+        "of": [
+          2
+        ],
+        "endangered": [
+          3
+        ],
+        "species": [
+          4,
+          24,
+          204
+        ],
+        "increasingly": [
+          5
+        ],
+        "relies": [
+          6
+        ],
+        "on": [
+          7,
+          34
+        ],
+        "captive": [
+          8,
+          15,
+          41,
+          53,
+          79,
+          112,
+          152,
+          193
+        ],
+        "breeding": [
+          9,
+          194
+        ],
+        "programs,": [
+          10
+        ],
+        "yet": [
+          11
+        ],
+        "fundamental": [
+          12
+        ],
+        "differences": [
+          13,
+          37,
+          188
+        ],
+        "between": [
+          14,
+          38
+        ],
+        "and": [
+          16,
+          26,
+          40,
+          47,
+          60,
+          97,
+          119,
+          131,
+          144,
+          175,
+          196,
+          206
+        ],
+        "wild": [
+          17,
+          39,
+          85
+        ],
+        "environments": [
+          18
+        ],
+        "create": [
+          19
+        ],
+        "complex": [
+          20
+        ],
+        "challenges": [
+          21
+        ],
+        "for": [
+          22,
+          159,
+          165
+        ],
+        "successful": [
+          23,
+          182
+        ],
+        "management": [
+          25
+        ],
+        "reintroduction.": [
+          27
+        ],
+        "This": [
+          28
+        ],
+        "comprehensive": [
+          29
+        ],
+        "review": [
+          30
+        ],
+        "synthesizes": [
+          31
+        ],
+        "current": [
+          32
+        ],
+        "knowledge": [
+          33
+        ],
+        "the": [
+          35,
+          163
+        ],
+        "multidimensional": [
+          36,
+          187
+        ],
+        "animals": [
+          42,
+          113
+        ],
+        "across": [
+          43
+        ],
+        "physiological,": [
+          44
+        ],
+        "genetic,": [
+          45
+        ],
+        "microbial,": [
+          46
+        ],
+        "ecological": [
+          48,
+          207
+        ],
+        "domains.": [
+          49
+        ],
+        "We": [
+          50,
+          179
+        ],
+        "examine": [
+          51
+        ],
+        "how": [
+          52
+        ],
+        "conditions": [
+          54
+        ],
+        "alter": [
+          55
+        ],
+        "metabolic": [
+          56
+        ],
+        "regulation,": [
+          57
+        ],
+        "immune": [
+          58
+        ],
+        "function,": [
+          59
+        ],
+        "reproductive": [
+          61
+        ],
+        "physiology,": [
+          62
+        ],
+        "often": [
+          63
+        ],
+        "resulting": [
+          64
+        ],
+        "in": [
+          65,
+          107
+        ],
+        "more": [
+          66,
+          191
+        ],
+        "stable": [
+          67
+        ],
+        "but": [
+          68
+        ],
+        "potentially": [
+          69
+        ],
+        "less": [
+          70
+        ],
+        "adaptive": [
+          71
+        ],
+        "phenotypes.": [
+          72
+        ],
+        "Genetic": [
+          73
+        ],
+        "analyses": [
+          74
+        ],
+        "reveal": [
+          75
+        ],
+        "that": [
+          76,
+          122,
+          147,
+          168,
+          181
+        ],
+        "while": [
+          77
+        ],
+        "some": [
+          78
+        ],
+        "populations": [
+          80
+        ],
+        "maintain": [
+          81
+        ],
+        "diversity": [
+          82,
+          117
+        ],
+        "comparable": [
+          83
+        ],
+        "to": [
+          84,
+          127,
+          150,
+          189
+        ],
+        "counterparts": [
+          86
+        ],
+        "through": [
+          87,
+          139
+        ],
+        "careful": [
+          88
+        ],
+        "management,": [
+          89,
+          172
+        ],
+        "many": [
+          90
+        ],
+        "suffer": [
+          91
+        ],
+        "from": [
+          92
+        ],
+        "founder": [
+          93
+        ],
+        "effects,": [
+          94
+        ],
+        "genetic": [
+          95,
+          171
+        ],
+        "drift,": [
+          96
+        ],
+        "reduced": [
+          98
+        ],
+        "functional": [
+          99,
+          120
+        ],
+        "gene": [
+          100
+        ],
+        "diversity.": [
+          101
+        ],
+        "Microbiome": [
+          102
+        ],
+        "studies": [
+          103
+        ],
+        "demonstrate": [
+          104
+        ],
+        "systematic": [
+          105
+        ],
+        "shifts": [
+          106
+        ],
+        "gut": [
+          108
+        ],
+        "microbial": [
+          109
+        ],
+        "communities,": [
+          110
+        ],
+        "with": [
+          111
+        ],
+        "typically": [
+          114
+        ],
+        "showing": [
+          115
+        ],
+        "altered": [
+          116
+        ],
+        "patterns": [
+          118
+        ],
+        "capabilities": [
+          121
+        ],
+        "may": [
+          123
+        ],
+        "compromise": [
+          124
+        ],
+        "their": [
+          125
+        ],
+        "ability": [
+          126
+        ],
+        "process": [
+          128
+        ],
+        "natural": [
+          129
+        ],
+        "diets": [
+          130
+        ],
+        "resist": [
+          132
+        ],
+        "pathogens": [
+          133
+        ],
+        "upon": [
+          134
+        ],
+        "release.": [
+          135
+        ],
+        "Ecological": [
+          136
+        ],
+        "adaptations": [
+          137
+        ],
+        "manifest": [
+          138
+        ],
+        "morphological": [
+          140
+        ],
+        "plasticity,": [
+          141
+        ],
+        "cognitive": [
+          142
+        ],
+        "changes,": [
+          143
+        ],
+        "behavioral": [
+          145
+        ],
+        "modifications": [
+          146
+        ],
+        "reflect": [
+          148
+        ],
+        "responses": [
+          149
+        ],
+        "simplified": [
+          151
+        ],
+        "environments.": [
+          153
+        ],
+        "These": [
+          154
+        ],
+        "findings": [
+          155
+        ],
+        "have": [
+          156
+        ],
+        "profound": [
+          157
+        ],
+        "implications": [
+          158
+        ],
+        "strategies,": [
+          161
+        ],
+        "highlighting": [
+          162
+        ],
+        "need": [
+          164
+        ],
+        "integrative": [
+          166
+        ],
+        "approaches": [
+          167
+        ],
+        "combine": [
+          169
+        ],
+        "rigorous": [
+          170
+        ],
+        "environmental": [
+          173
+        ],
+        "enrichment,": [
+          174
+        ],
+        "species-specific": [
+          176
+        ],
+        "reintroduction": [
+          177,
+          198
+        ],
+        "protocols.": [
+          178
+        ],
+        "conclude": [
+          180
+        ],
+        "requires": [
+          184
+        ],
+        "understanding": [
+          185
+        ],
+        "these": [
+          186
+        ],
+        "develop": [
+          190
+        ],
+        "effective": [
+          192
+        ],
+        "programs": [
+          195
+        ],
+        "optimize": [
+          197
+        ],
+        "success": [
+          199
+        ],
+        "rates,": [
+          200
+        ],
+        "ultimately": [
+          201
+        ],
+        "advancing": [
+          202
+        ],
+        "long-term": [
+          203
+        ],
+        "restoration": [
+          208
+        ],
+        "efforts.": [
+          209
+        ]
+      },
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "gold",
+        "oa_url": "https://public-pages-files-2025.frontiersin.org/journals/ecology-and-evolution/articles/10.3389/fevo.2026.1780453/pdf",
+        "any_repository_has_fulltext": true
+      }
+    },
+    {
+      "id": "https://openalex.org/W7128158127",
+      "doi": "https://doi.org/10.3390/d18020104",
+      "title": "Identifying Core Habitats and Connectivity Patterns for the Endangered Black Muntjac in a Subtropical Montane Reserve",
+      "publication_year": 2026,
+      "publication_date": "2026-02-06",
+      "cited_by_count": 0,
+      "primary_location": {
+        "id": "doi:10.3390/d18020104",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.3390/d18020104",
+        "pdf_url": "https://www.mdpi.com/1424-2818/18/2/104/pdf?version=1770392239",
+        "source": {
+          "id": "https://openalex.org/S130273055",
+          "display_name": "Diversity",
+          "issn_l": "1424-2818",
+          "issn": [
+            "1424-2818"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310310987",
+          "host_organization_name": "Multidisciplinary Digital Publishing Institute",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310310987"
+          ],
+          "host_organization_lineage_names": [
+            "Multidisciplinary Digital Publishing Institute"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Diversity",
+        "raw_type": "journal-article"
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5125262952",
+            "display_name": "Jie Yao",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210119674",
+              "display_name": "East China University of Technology",
+              "ror": "https://ror.org/027385r44",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4210119674"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Jie Yao",
+          "raw_affiliation_strings": [
+            "Institute of Natural Reserve Planning and Research, East China University of Technology, Nanchang 330000, China",
+            "School of Earth and Planetary Sciences, East China University of Technology, Nanchang 330000, China"
+          ],
+          "raw_orcid": "https://orcid.org/0009-0002-0065-7419",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Institute of Natural Reserve Planning and Research, East China University of Technology, Nanchang 330000, China",
+              "institution_ids": [
+                "https://openalex.org/I4210119674"
+              ]
+            },
+            {
+              "raw_affiliation_string": "School of Earth and Planetary Sciences, East China University of Technology, Nanchang 330000, China",
+              "institution_ids": [
+                "https://openalex.org/I4210119674"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5125258944",
+            "display_name": "Feiyan Lv",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210119674",
+              "display_name": "East China University of Technology",
+              "ror": "https://ror.org/027385r44",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4210119674"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Feiyan Lv",
+          "raw_affiliation_strings": [
+            "Institute of Natural Reserve Planning and Research, East China University of Technology, Nanchang 330000, China",
+            "School of Earth and Planetary Sciences, East China University of Technology, Nanchang 330000, China"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Institute of Natural Reserve Planning and Research, East China University of Technology, Nanchang 330000, China",
+              "institution_ids": [
+                "https://openalex.org/I4210119674"
+              ]
+            },
+            {
+              "raw_affiliation_string": "School of Earth and Planetary Sciences, East China University of Technology, Nanchang 330000, China",
+              "institution_ids": [
+                "https://openalex.org/I4210119674"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5125258947",
+            "display_name": "Jiancheng Zhai",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210119674",
+              "display_name": "East China University of Technology",
+              "ror": "https://ror.org/027385r44",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4210119674"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Jiancheng Zhai",
+          "raw_affiliation_strings": [
+            "Institute of Natural Reserve Planning and Research, East China University of Technology, Nanchang 330000, China",
+            "School of Earth and Planetary Sciences, East China University of Technology, Nanchang 330000, China"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Institute of Natural Reserve Planning and Research, East China University of Technology, Nanchang 330000, China",
+              "institution_ids": [
+                "https://openalex.org/I4210119674"
+              ]
+            },
+            {
+              "raw_affiliation_string": "School of Earth and Planetary Sciences, East China University of Technology, Nanchang 330000, China",
+              "institution_ids": [
+                "https://openalex.org/I4210119674"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5066021588",
+            "display_name": "Jun Tian",
+            "orcid": "https://orcid.org/0000-0002-8783-9938"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210119674",
+              "display_name": "East China University of Technology",
+              "ror": "https://ror.org/027385r44",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4210119674"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Jun Tian",
+          "raw_affiliation_strings": [
+            "Institute of Natural Reserve Planning and Research, East China University of Technology, Nanchang 330000, China",
+            "School of Earth and Planetary Sciences, East China University of Technology, Nanchang 330000, China"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Institute of Natural Reserve Planning and Research, East China University of Technology, Nanchang 330000, China",
+              "institution_ids": [
+                "https://openalex.org/I4210119674"
+              ]
+            },
+            {
+              "raw_affiliation_string": "School of Earth and Planetary Sciences, East China University of Technology, Nanchang 330000, China",
+              "institution_ids": [
+                "https://openalex.org/I4210119674"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5102530319",
+            "display_name": "Ruijie Yang",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210119674",
+              "display_name": "East China University of Technology",
+              "ror": "https://ror.org/027385r44",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I4210119674"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Ruijie Yang",
+          "raw_affiliation_strings": [
+            "Institute of Natural Reserve Planning and Research, East China University of Technology, Nanchang 330000, China",
+            "School of Earth and Planetary Sciences, East China University of Technology, Nanchang 330000, China"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Institute of Natural Reserve Planning and Research, East China University of Technology, Nanchang 330000, China",
+              "institution_ids": [
+                "https://openalex.org/I4210119674"
+              ]
+            },
+            {
+              "raw_affiliation_string": "School of Earth and Planetary Sciences, East China University of Technology, Nanchang 330000, China",
+              "institution_ids": [
+                "https://openalex.org/I4210119674"
+              ]
+            }
+          ]
+        }
+      ],
+      "abstract_inverted_index": {
+        "Habitat": [
+          0
+        ],
+        "loss": [
+          1
+        ],
+        "and": [
+          2,
+          17,
+          27,
+          57,
+          64,
+          72,
+          121,
+          138,
+          147,
+          163,
+          169,
+          177
+        ],
+        "fragmentation": [
+          3
+        ],
+        "threaten": [
+          4
+        ],
+        "forest-dependent": [
+          5
+        ],
+        "ungulates": [
+          6
+        ],
+        "in": [
+          7,
+          39,
+          167
+        ],
+        "subtropical": [
+          8
+        ],
+        "mountain": [
+          9
+        ],
+        "systems,": [
+          10
+        ],
+        "yet": [
+          11
+        ],
+        "integrative": [
+          12
+        ],
+        "assessments": [
+          13
+        ],
+        "linking": [
+          14
+        ],
+        "habitat": [
+          15,
+          25,
+          30,
+          152
+        ],
+        "quality": [
+          16
+        ],
+        "landscape": [
+          18,
+          58
+        ],
+        "configuration": [
+          19
+        ],
+        "remain": [
+          20
+        ],
+        "limited.": [
+          21
+        ],
+        "Here,": [
+          22
+        ],
+        "we": [
+          23
+        ],
+        "evaluated": [
+          24
+        ],
+        "suitability": [
+          26,
+          70
+        ],
+        "identified": [
+          28
+        ],
+        "core": [
+          29,
+          123
+        ],
+        "patches": [
+          31,
+          137
+        ],
+        "for": [
+          32,
+          77,
+          181
+        ],
+        "the": [
+          33,
+          68,
+          80,
+          157
+        ],
+        "endangered": [
+          34
+        ],
+        "black": [
+          35
+        ],
+        "muntjac": [
+          36
+        ],
+        "(Muntiacus": [
+          37
+        ],
+        "crinifrons)": [
+          38
+        ],
+        "Tongboshan": [
+          40
+        ],
+        "National": [
+          41
+        ],
+        "Nature": [
+          42
+        ],
+        "Reserve": [
+          43
+        ],
+        "using": [
+          44
+        ],
+        "an": [
+          45
+        ],
+        "Analytic": [
+          46
+        ],
+        "Hierarchy": [
+          47
+        ],
+        "Process\u2013Habitat": [
+          48
+        ],
+        "Suitability": [
+          49
+        ],
+        "Index": [
+          50
+        ],
+        "(AHP\u2013HSI)": [
+          51
+        ],
+        "framework": [
+          52
+        ],
+        "integrated": [
+          53
+        ],
+        "with": [
+          54,
+          89,
+          101
+        ],
+        "camera-trap": [
+          55
+        ],
+        "validation": [
+          56
+        ],
+        "pattern": [
+          59
+        ],
+        "analysis.": [
+          60
+        ],
+        "Vegetation-related": [
+          61
+        ],
+        "indicators": [
+          62
+        ],
+        "(NDVI": [
+          63
+        ],
+        "vegetation": [
+          65
+        ],
+        "type)": [
+          66
+        ],
+        "were": [
+          67
+        ],
+        "dominant": [
+          69
+        ],
+        "drivers,": [
+          71
+        ],
+        "highly": [
+          73
+        ],
+        "suitable": [
+          74,
+          107
+        ],
+        "habitats": [
+          75,
+          120
+        ],
+        "accounted": [
+          76
+        ],
+        "62.9%": [
+          78
+        ],
+        "of": [
+          79,
+          159
+        ],
+        "reserve": [
+          81
+        ],
+        "(8646.97": [
+          82
+        ],
+        "ha),": [
+          83
+        ],
+        "forming": [
+          84
+        ],
+        "three": [
+          85
+        ],
+        "major": [
+          86
+        ],
+        "forest": [
+          87,
+          182
+        ],
+        "blocks": [
+          88
+        ],
+        "low": [
+          90
+        ],
+        "disturbance": [
+          91
+        ],
+        "levels.": [
+          92
+        ],
+        "Camera-trap": [
+          93
+        ],
+        "detections": [
+          94
+        ],
+        "(n": [
+          95
+        ],
+        "=": [
+          96
+        ],
+        "58)": [
+          97
+        ],
+        "showed": [
+          98
+        ],
+        "strong": [
+          99
+        ],
+        "concordance": [
+          100
+        ],
+        "model": [
+          102
+        ],
+        "predictions": [
+          103
+        ],
+        "(98.28%": [
+          104
+        ],
+        "within": [
+          105,
+          132
+        ],
+        "moderately": [
+          106
+        ],
+        "or": [
+          108
+        ],
+        "higher": [
+          109
+        ],
+        "classes).": [
+          110
+        ],
+        "Landscape": [
+          111
+        ],
+        "metrics": [
+          112
+        ],
+        "revealed": [
+          113
+        ],
+        "contrasting": [
+          114
+        ],
+        "spatial": [
+          115
+        ],
+        "configurations": [
+          116
+        ],
+        "between": [
+          117
+        ],
+        "overall": [
+          118
+        ],
+        "high-suitability": [
+          119
+        ],
+        "optimal": [
+          122
+        ],
+        "patches,": [
+          124
+        ],
+        "indicating": [
+          125
+        ],
+        "that": [
+          126
+        ],
+        "demographic": [
+          127
+        ],
+        "source": [
+          128
+        ],
+        "areas": [
+          129
+        ],
+        "are": [
+          130
+        ],
+        "embedded": [
+          131
+        ],
+        "fragmented": [
+          133
+        ],
+        "peripheral": [
+          134
+        ],
+        "mosaics.": [
+          135
+        ],
+        "Medium": [
+          136
+        ],
+        "forested": [
+          139
+        ],
+        "ridges": [
+          140
+        ],
+        "may": [
+          141
+        ],
+        "function": [
+          142
+        ],
+        "as": [
+          143
+        ],
+        "potential": [
+          144
+        ],
+        "stepping": [
+          145
+        ],
+        "stones": [
+          146
+        ],
+        "corridors": [
+          148
+        ],
+        "facilitating": [
+          149
+        ],
+        "movement": [
+          150
+        ],
+        "across": [
+          151
+        ],
+        "clusters.": [
+          153
+        ],
+        "These": [
+          154
+        ],
+        "findings": [
+          155
+        ],
+        "highlight": [
+          156
+        ],
+        "importance": [
+          158
+        ],
+        "maintaining": [
+          160
+        ],
+        "functional": [
+          161
+        ],
+        "connectivity": [
+          162
+        ],
+        "mitigating": [
+          164
+        ],
+        "edge": [
+          165
+        ],
+        "disturbances": [
+          166
+        ],
+        "buffer": [
+          168
+        ],
+        "experimental": [
+          170
+        ],
+        "zones": [
+          171
+        ],
+        "to": [
+          172
+        ],
+        "ensure": [
+          173
+        ],
+        "long-term": [
+          174
+        ],
+        "population": [
+          175
+        ],
+        "persistence": [
+          176
+        ],
+        "effective": [
+          178
+        ],
+        "protected-area": [
+          179
+        ],
+        "management": [
+          180
+        ],
+        "ungulates.": [
+          183
+        ]
+      },
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "gold",
+        "oa_url": "https://www.mdpi.com/1424-2818/18/2/104/pdf?version=1770392239",
+        "any_repository_has_fulltext": false
+      }
+    }
+  ],
+  "group_by": []
+}

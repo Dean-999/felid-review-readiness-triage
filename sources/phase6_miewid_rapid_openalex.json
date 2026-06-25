@@ -1,0 +1,670 @@
+{
+  "meta": {
+    "count": 1,
+    "db_response_time_ms": 169,
+    "page": 1,
+    "per_page": 15,
+    "groups_count": null,
+    "x_query": {
+      "oql": "works where full text contains (MiewID RAPID animal re-identification patterned animal open source)",
+      "oqo": {
+        "get_rows": "works",
+        "filter_rows": [
+          {
+            "column_id": "default.search",
+            "value": "MiewID RAPID animal re-identification patterned animal open source",
+            "operator": "contains"
+          }
+        ],
+        "select": [
+          "id",
+          "doi",
+          "title",
+          "publication_year",
+          "publication_date",
+          "cited_by_count",
+          "primary_location",
+          "authorships",
+          "abstract_inverted_index",
+          "open_access"
+        ],
+        "per_page": 15
+      },
+      "url": "/works?filter=default.search:MiewID RAPID animal re-identification patterned animal open source&select=id,doi,title,publication_year,publication_date,cited_by_count,primary_location,authorships,abstract_inverted_index,open_access&per_page=15"
+    },
+    "cost_usd": 0.001
+  },
+  "results": [
+    {
+      "id": "https://openalex.org/W7124227575",
+      "doi": null,
+      "title": "Near-perfect photo-ID of the Hula painted frog with zero-shot deep local-feature matching",
+      "publication_year": 2026,
+      "publication_date": "2026-01-13",
+      "cited_by_count": 0,
+      "primary_location": {
+        "id": "pmh:oai:arXiv.org:2601.08798",
+        "is_oa": true,
+        "landing_page_url": "http://arxiv.org/abs/2601.08798",
+        "pdf_url": "https://arxiv.org/pdf/2601.08798",
+        "source": {
+          "id": "https://openalex.org/S4393918464",
+          "display_name": "ArXiv.org",
+          "issn_l": "2331-8422",
+          "issn": [
+            "2331-8422"
+          ],
+          "is_oa": true,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": "cc-by-sa",
+        "license_id": "https://openalex.org/licenses/cc-by-sa",
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": null,
+        "raw_type": "text"
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5123004011",
+            "display_name": "Maayan Yesharim",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Yesharim, Maayan",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5123001081",
+            "display_name": "R. G. Bina Perl",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Perl, R. G. Bina",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5046021941",
+            "display_name": "Uri Roll",
+            "orcid": "https://orcid.org/0000-0002-5418-1164"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Roll, Uri",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5041735995",
+            "display_name": "Sarig Gafny",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Gafny, Sarig",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5123029145",
+            "display_name": "Eli Geffen",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Geffen, Eli",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5123043159",
+            "display_name": "Yoav Ram",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Ram, Yoav",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        }
+      ],
+      "abstract_inverted_index": {
+        "Accurate": [
+          0
+        ],
+        "individual": [
+          1
+        ],
+        "identification": [
+          2,
+          67,
+          171
+        ],
+        "is": [
+          3,
+          12,
+          111
+        ],
+        "essential": [
+          4
+        ],
+        "for": [
+          5,
+          15,
+          24,
+          146,
+          163,
+          195
+        ],
+        "monitoring": [
+          6,
+          175
+        ],
+        "rare": [
+          7
+        ],
+        "amphibians,": [
+          8
+        ],
+        "yet": [
+          9
+        ],
+        "invasive": [
+          10
+        ],
+        "marking": [
+          11
+        ],
+        "often": [
+          13
+        ],
+        "unsuitable": [
+          14
+        ],
+        "critically": [
+          16
+        ],
+        "endangered": [
+          17
+        ],
+        "species.": [
+          18
+        ],
+        "We": [
+          19,
+          46,
+          155
+        ],
+        "evaluate": [
+          20
+        ],
+        "state-of-the-art": [
+          21
+        ],
+        "computer-vision": [
+          22
+        ],
+        "methods": [
+          23
+        ],
+        "photographic": [
+          25
+        ],
+        "re-identification": [
+          26
+        ],
+        "of": [
+          27,
+          136,
+          152
+        ],
+        "the": [
+          28,
+          75,
+          132
+        ],
+        "Hula": [
+          29
+        ],
+        "painted": [
+          30
+        ],
+        "frog": [
+          31
+        ],
+        "(Latonia": [
+          32
+        ],
+        "nigriventer)": [
+          33
+        ],
+        "using": [
+          34
+        ],
+        "1,233": [
+          35
+        ],
+        "ventral": [
+          36
+        ],
+        "images": [
+          37
+        ],
+        "from": [
+          38,
+          119
+        ],
+        "191": [
+          39
+        ],
+        "individuals": [
+          40
+        ],
+        "collected": [
+          41
+        ],
+        "during": [
+          42
+        ],
+        "2013-2020": [
+          43
+        ],
+        "capture-recapture": [
+          44,
+          177
+        ],
+        "surveys.": [
+          45
+        ],
+        "compare": [
+          47
+        ],
+        "deep": [
+          48,
+          56,
+          184
+        ],
+        "local-feature": [
+          49,
+          61,
+          114,
+          185
+        ],
+        "matching": [
+          50,
+          186
+        ],
+        "in": [
+          51,
+          99,
+          180
+        ],
+        "a": [
+          52,
+          96,
+          101,
+          106,
+          160,
+          192
+        ],
+        "zero-shot": [
+          53,
+          183
+        ],
+        "setting": [
+          54
+        ],
+        "with": [
+          55,
+          92
+        ],
+        "global-feature": [
+          57,
+          71,
+          77,
+          103,
+          188
+        ],
+        "embedding": [
+          58,
+          189
+        ],
+        "models.": [
+          59
+        ],
+        "The": [
+          60
+        ],
+        "pipeline": [
+          62,
+          158
+        ],
+        "achieves": [
+          63
+        ],
+        "98%": [
+          64
+        ],
+        "top-1": [
+          65,
+          81,
+          128
+        ],
+        "closed-set": [
+          66,
+          129
+        ],
+        "accuracy,": [
+          68,
+          93
+        ],
+        "outperforming": [
+          69
+        ],
+        "all": [
+          70
+        ],
+        "models;": [
+          72
+        ],
+        "fine-tuning": [
+          73
+        ],
+        "improves": [
+          74
+        ],
+        "best": [
+          76
+        ],
+        "model": [
+          78,
+          104
+        ],
+        "to": [
+          79,
+          122,
+          172
+        ],
+        "60%": [
+          80
+        ],
+        "(91%": [
+          82
+        ],
+        "top-10)": [
+          83
+        ],
+        "but": [
+          84
+        ],
+        "remains": [
+          85
+        ],
+        "below": [
+          86
+        ],
+        "local": [
+          87
+        ],
+        "matching.": [
+          88
+        ],
+        "To": [
+          89
+        ],
+        "combine": [
+          90
+        ],
+        "scalability": [
+          91
+        ],
+        "we": [
+          94
+        ],
+        "implement": [
+          95
+        ],
+        "two-stage": [
+          97
+        ],
+        "workflow": [
+          98
+        ],
+        "which": [
+          100
+        ],
+        "fine-tuned": [
+          102
+        ],
+        "retrieves": [
+          105
+        ],
+        "short": [
+          107
+        ],
+        "candidate": [
+          108
+        ],
+        "list": [
+          109
+        ],
+        "that": [
+          110
+        ],
+        "re-ranked": [
+          112
+        ],
+        "by": [
+          113
+        ],
+        "matching,": [
+          115
+        ],
+        "reducing": [
+          116
+        ],
+        "end-to-end": [
+          117
+        ],
+        "runtime": [
+          118
+        ],
+        "6.5-7.8": [
+          120
+        ],
+        "hours": [
+          121
+        ],
+        "~38": [
+          123
+        ],
+        "minutes": [
+          124
+        ],
+        "while": [
+          125
+        ],
+        "maintaining": [
+          126
+        ],
+        "~96%": [
+          127
+        ],
+        "accuracy": [
+          130
+        ],
+        "on": [
+          131
+        ],
+        "labeled": [
+          133
+        ],
+        "dataset.": [
+          134
+        ],
+        "Separation": [
+          135
+        ],
+        "match": [
+          137
+        ],
+        "scores": [
+          138
+        ],
+        "between": [
+          139
+        ],
+        "same-": [
+          140
+        ],
+        "and": [
+          141,
+          176,
+          190
+        ],
+        "different-individual": [
+          142
+        ],
+        "pairs": [
+          143
+        ],
+        "supports": [
+          144
+        ],
+        "thresholding": [
+          145
+        ],
+        "open-set": [
+          147
+        ],
+        "identification,": [
+          148
+        ],
+        "enabling": [
+          149
+        ],
+        "practical": [
+          150
+        ],
+        "handling": [
+          151
+        ],
+        "novel": [
+          153
+        ],
+        "individuals.": [
+          154
+        ],
+        "deploy": [
+          156
+        ],
+        "this": [
+          157,
+          181
+        ],
+        "as": [
+          159
+        ],
+        "web": [
+          161
+        ],
+        "application": [
+          162
+        ],
+        "routine": [
+          164
+        ],
+        "field": [
+          165
+        ],
+        "use,": [
+          166
+        ],
+        "providing": [
+          167
+        ],
+        "rapid,": [
+          168
+        ],
+        "standardized,": [
+          169
+        ],
+        "non-invasive": [
+          170
+        ],
+        "support": [
+          173
+        ],
+        "conservation": [
+          174
+        ],
+        "analyses.": [
+          178
+        ],
+        "Overall,": [
+          179
+        ],
+        "species,": [
+          182
+        ],
+        "outperformed": [
+          187
+        ],
+        "provides": [
+          191
+        ],
+        "strong": [
+          193
+        ],
+        "default": [
+          194
+        ],
+        "photo-identification.": [
+          196
+        ]
+      },
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://arxiv.org/pdf/2601.08798",
+        "any_repository_has_fulltext": true
+      }
+    }
+  ],
+  "group_by": []
+}

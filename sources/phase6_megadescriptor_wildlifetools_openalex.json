@@ -1,0 +1,541 @@
+{
+  "meta": {
+    "count": 1,
+    "db_response_time_ms": 141,
+    "page": 1,
+    "per_page": 15,
+    "groups_count": null,
+    "x_query": {
+      "oql": "works where full text contains (WildlifeDatasets MegaDescriptor WildlifeTools animal re-identification)",
+      "oqo": {
+        "get_rows": "works",
+        "filter_rows": [
+          {
+            "column_id": "default.search",
+            "value": "WildlifeDatasets MegaDescriptor WildlifeTools animal re-identification",
+            "operator": "contains"
+          }
+        ],
+        "select": [
+          "id",
+          "doi",
+          "title",
+          "publication_year",
+          "publication_date",
+          "cited_by_count",
+          "primary_location",
+          "authorships",
+          "abstract_inverted_index",
+          "open_access"
+        ],
+        "per_page": 15
+      },
+      "url": "/works?filter=default.search:WildlifeDatasets MegaDescriptor WildlifeTools animal re-identification&select=id,doi,title,publication_year,publication_date,cited_by_count,primary_location,authorships,abstract_inverted_index,open_access&per_page=15"
+    },
+    "cost_usd": 0.001
+  },
+  "results": [
+    {
+      "id": "https://openalex.org/W4388748410",
+      "doi": "https://doi.org/10.48550/arxiv.2311.09118",
+      "title": "WildlifeDatasets: An open-source toolkit for animal re-identification",
+      "publication_year": 2023,
+      "publication_date": "2023-11-15",
+      "cited_by_count": 5,
+      "primary_location": {
+        "id": "pmh:oai:arXiv.org:2311.09118",
+        "is_oa": true,
+        "landing_page_url": "http://arxiv.org/abs/2311.09118",
+        "pdf_url": "https://arxiv.org/pdf/2311.09118",
+        "source": {
+          "id": "https://openalex.org/S4306400194",
+          "display_name": "arXiv (Cornell University)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": true,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I205783295",
+          "host_organization_name": "Cornell University",
+          "host_organization_lineage": [
+            "https://openalex.org/I205783295"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": "cc-by-nc-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "",
+        "raw_type": "text"
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5031460668",
+            "display_name": "Vojt\u011bch \u010cerm\u00e1k",
+            "orcid": "https://orcid.org/0000-0001-9466-3654"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "\u010cerm\u00e1k, Vojt\u011bch",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5050433566",
+            "display_name": "Luk\u00e1\u0161 Picek",
+            "orcid": "https://orcid.org/0000-0002-6041-9722"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Picek, Lukas",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5030525746",
+            "display_name": "Luk\u00e1\u0161 Adam",
+            "orcid": "https://orcid.org/0000-0001-8748-4308"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Adam, Luk\u00e1\u0161",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5033749693",
+            "display_name": "Kostas Papafitsoros",
+            "orcid": "https://orcid.org/0000-0001-9691-4576"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Papafitsoros, Kostas",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        }
+      ],
+      "abstract_inverted_index": {
+        "In": [
+          0
+        ],
+        "this": [
+          1
+        ],
+        "paper,": [
+          2
+        ],
+        "we": [
+          3,
+          87,
+          147
+        ],
+        "present": [
+          4
+        ],
+        "WildlifeDatasets": [
+          5,
+          21
+        ],
+        "(https://github.com/WildlifeDatasets/wildlife-datasets)": [
+          6
+        ],
+        "-": [
+          7,
+          102,
+          104
+        ],
+        "an": [
+          8
+        ],
+        "open-source": [
+          9
+        ],
+        "toolkit": [
+          10,
+          52
+        ],
+        "intended": [
+          11
+        ],
+        "primarily": [
+          12
+        ],
+        "for": [
+          13,
+          41,
+          75,
+          93
+        ],
+        "ecologists": [
+          14
+        ],
+        "and": [
+          15,
+          34,
+          46,
+          56,
+          73,
+          82,
+          113,
+          121,
+          136,
+          155
+        ],
+        "computer-vision": [
+          16
+        ],
+        "/": [
+          17
+        ],
+        "machine-learning": [
+          18
+        ],
+        "researchers.": [
+          19
+        ],
+        "The": [
+          20
+        ],
+        "is": [
+          22
+        ],
+        "written": [
+          23
+        ],
+        "in": [
+          24,
+          53
+        ],
+        "Python,": [
+          25
+        ],
+        "allows": [
+          26
+        ],
+        "straightforward": [
+          27
+        ],
+        "access": [
+          28
+        ],
+        "to": [
+          29,
+          60,
+          132,
+          137
+        ],
+        "publicly": [
+          30
+        ],
+        "available": [
+          31,
+          131
+        ],
+        "wildlife": [
+          32,
+          76,
+          144
+        ],
+        "datasets,": [
+          33
+        ],
+        "provides": [
+          35,
+          106
+        ],
+        "a": [
+          36,
+          97,
+          124
+        ],
+        "wide": [
+          37,
+          98
+        ],
+        "variety": [
+          38
+        ],
+        "of": [
+          39,
+          63,
+          71,
+          100
+        ],
+        "methods": [
+          40,
+          74
+        ],
+        "dataset": [
+          42
+        ],
+        "pre-processing,": [
+          43
+        ],
+        "performance": [
+          44,
+          108
+        ],
+        "analysis,": [
+          45
+        ],
+        "model": [
+          47,
+          92,
+          130
+        ],
+        "fine-tuning.": [
+          48
+        ],
+        "We": [
+          49
+        ],
+        "showcase": [
+          50
+        ],
+        "the": [
+          51,
+          61,
+          66,
+          89,
+          129,
+          133,
+          158
+        ],
+        "various": [
+          54
+        ],
+        "scenarios": [
+          55
+        ],
+        "baseline": [
+          57
+        ],
+        "experiments,": [
+          58
+        ],
+        "including,": [
+          59
+        ],
+        "best": [
+          62
+        ],
+        "our": [
+          64
+        ],
+        "knowledge,": [
+          65
+        ],
+        "most": [
+          67
+        ],
+        "comprehensive": [
+          68
+        ],
+        "experimental": [
+          69
+        ],
+        "comparison": [
+          70
+        ],
+        "datasets": [
+          72,
+          112
+        ],
+        "re-identification,": [
+          77
+        ],
+        "including": [
+          78
+        ],
+        "both": [
+          79
+        ],
+        "local": [
+          80
+        ],
+        "descriptors": [
+          81
+        ],
+        "deep": [
+          83
+        ],
+        "learning": [
+          84
+        ],
+        "approaches.": [
+          85
+        ],
+        "Furthermore,": [
+          86
+        ],
+        "provide": [
+          88,
+          148
+        ],
+        "first-ever": [
+          90
+        ],
+        "foundation": [
+          91
+        ],
+        "individual": [
+          94
+        ],
+        "re-identification": [
+          95,
+          111
+        ],
+        "within": [
+          96
+        ],
+        "range": [
+          99
+        ],
+        "species": [
+          101
+        ],
+        "MegaDescriptor": [
+          103,
+          150
+        ],
+        "that": [
+          105
+        ],
+        "state-of-the-art": [
+          107
+        ],
+        "on": [
+          109
+        ],
+        "animal": [
+          110
+        ],
+        "outperforms": [
+          114
+        ],
+        "other": [
+          115
+        ],
+        "pre-trained": [
+          116
+        ],
+        "models": [
+          117
+        ],
+        "such": [
+          118
+        ],
+        "as": [
+          119
+        ],
+        "CLIP": [
+          120
+        ],
+        "DINOv2": [
+          122
+        ],
+        "by": [
+          123
+        ],
+        "significant": [
+          125
+        ],
+        "margin.": [
+          126
+        ],
+        "To": [
+          127
+        ],
+        "make": [
+          128
+        ],
+        "general": [
+          134
+        ],
+        "public": [
+          135
+        ],
+        "allow": [
+          138
+        ],
+        "easy": [
+          139
+        ],
+        "integration": [
+          140
+        ],
+        "with": [
+          141
+        ],
+        "any": [
+          142
+        ],
+        "existing": [
+          143
+        ],
+        "monitoring": [
+          145
+        ],
+        "applications,": [
+          146
+        ],
+        "multiple": [
+          149
+        ],
+        "flavors": [
+          151
+        ],
+        "(i.e.,": [
+          152
+        ],
+        "Small,": [
+          153
+        ],
+        "Medium,": [
+          154
+        ],
+        "Large)": [
+          156
+        ],
+        "through": [
+          157
+        ],
+        "HuggingFace": [
+          159
+        ],
+        "hub": [
+          160
+        ],
+        "(https://huggingface.co/BVRA).": [
+          161
+        ]
+      },
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://arxiv.org/pdf/2311.09118",
+        "any_repository_has_fulltext": true
+      }
+    }
+  ],
+  "group_by": []
+}

@@ -1,0 +1,335 @@
+{
+  "database": "NCBI Taxonomy",
+  "records": [
+    {
+      "query": "Lynx lynx",
+      "search_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Lynx+lynx%5BScientific+Name%5D&retmode=json&tool=codex_phase6_pause",
+      "search": {
+        "header": {
+          "type": "esearch",
+          "version": "0.3"
+        },
+        "esearchresult": {
+          "count": "1",
+          "retmax": "1",
+          "retstart": "0",
+          "idlist": [
+            "13125"
+          ],
+          "translationset": [],
+          "translationstack": [
+            {
+              "term": "Lynx lynx[Scientific Name]",
+              "field": "Scientific Name",
+              "count": "1",
+              "explode": "N"
+            },
+            "GROUP"
+          ],
+          "querytranslation": "Lynx lynx[Scientific Name]"
+        }
+      },
+      "summary": {
+        "header": {
+          "type": "esummary",
+          "version": "0.3"
+        },
+        "result": {
+          "uids": [
+            "13125"
+          ],
+          "13125": {
+            "uid": "13125",
+            "status": "active",
+            "rank": "species",
+            "division": "carnivores",
+            "scientificname": "Lynx lynx",
+            "commonname": "Eurasian lynx",
+            "taxid": 13125,
+            "akataxid": "",
+            "genus": "",
+            "species": "",
+            "subsp": "",
+            "modificationdate": "2018/10/29 00:00",
+            "genbankdivision": "Mammals"
+          }
+        }
+      }
+    },
+    {
+      "query": "Neofelis nebulosa",
+      "search_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Neofelis+nebulosa%5BScientific+Name%5D&retmode=json&tool=codex_phase6_pause",
+      "search": {
+        "header": {
+          "type": "esearch",
+          "version": "0.3"
+        },
+        "esearchresult": {
+          "count": "1",
+          "retmax": "1",
+          "retstart": "0",
+          "idlist": [
+            "61452"
+          ],
+          "translationset": [],
+          "translationstack": [
+            {
+              "term": "Neofelis nebulosa[Scientific Name]",
+              "field": "Scientific Name",
+              "count": "1",
+              "explode": "N"
+            },
+            "GROUP"
+          ],
+          "querytranslation": "Neofelis nebulosa[Scientific Name]"
+        }
+      },
+      "summary": {
+        "header": {
+          "type": "esummary",
+          "version": "0.3"
+        },
+        "result": {
+          "uids": [
+            "61452"
+          ],
+          "61452": {
+            "uid": "61452",
+            "status": "active",
+            "rank": "species",
+            "division": "carnivores",
+            "scientificname": "Neofelis nebulosa",
+            "commonname": "Clouded leopard",
+            "taxid": 61452,
+            "akataxid": "",
+            "genus": "",
+            "species": "",
+            "subsp": "",
+            "modificationdate": "2017/06/14 00:00",
+            "genbankdivision": "Mammals"
+          }
+        }
+      }
+    },
+    {
+      "query": "Pardofelis marmorata",
+      "search_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Pardofelis+marmorata%5BScientific+Name%5D&retmode=json&tool=codex_phase6_pause",
+      "search": {
+        "header": {
+          "type": "esearch",
+          "version": "0.3"
+        },
+        "esearchresult": {
+          "count": "1",
+          "retmax": "1",
+          "retstart": "0",
+          "idlist": [
+            "61410"
+          ],
+          "translationset": [],
+          "translationstack": [
+            {
+              "term": "Pardofelis marmorata[Scientific Name]",
+              "field": "Scientific Name",
+              "count": "1",
+              "explode": "N"
+            },
+            "GROUP"
+          ],
+          "querytranslation": "Pardofelis marmorata[Scientific Name]"
+        }
+      },
+      "summary": {
+        "header": {
+          "type": "esummary",
+          "version": "0.3"
+        },
+        "result": {
+          "uids": [
+            "61410"
+          ],
+          "61410": {
+            "uid": "61410",
+            "status": "active",
+            "rank": "species",
+            "division": "carnivores",
+            "scientificname": "Pardofelis marmorata",
+            "commonname": "marbled cat",
+            "taxid": 61410,
+            "akataxid": "",
+            "genus": "",
+            "species": "",
+            "subsp": "",
+            "modificationdate": "2017/06/14 00:00",
+            "genbankdivision": "Mammals"
+          }
+        }
+      }
+    },
+    {
+      "query": "Panthera tigris",
+      "search_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Panthera+tigris%5BScientific+Name%5D&retmode=json&tool=codex_phase6_pause",
+      "search": {
+        "header": {
+          "type": "esearch",
+          "version": "0.3"
+        },
+        "esearchresult": {
+          "count": "1",
+          "retmax": "1",
+          "retstart": "0",
+          "idlist": [
+            "9694"
+          ],
+          "translationset": [],
+          "translationstack": [
+            {
+              "term": "Panthera tigris[Scientific Name]",
+              "field": "Scientific Name",
+              "count": "1",
+              "explode": "N"
+            },
+            "GROUP"
+          ],
+          "querytranslation": "Panthera tigris[Scientific Name]"
+        }
+      },
+      "summary": {
+        "header": {
+          "type": "esummary",
+          "version": "0.3"
+        },
+        "result": {
+          "uids": [
+            "9694"
+          ],
+          "9694": {
+            "uid": "9694",
+            "status": "active",
+            "rank": "species",
+            "division": "carnivores",
+            "scientificname": "Panthera tigris",
+            "commonname": "tiger",
+            "taxid": 9694,
+            "akataxid": "",
+            "genus": "",
+            "species": "",
+            "subsp": "",
+            "modificationdate": "2017/06/14 00:00",
+            "genbankdivision": "Mammals"
+          }
+        }
+      }
+    },
+    {
+      "query": "Panthera pardus",
+      "search_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Panthera+pardus%5BScientific+Name%5D&retmode=json&tool=codex_phase6_pause",
+      "search": {
+        "header": {
+          "type": "esearch",
+          "version": "0.3"
+        },
+        "esearchresult": {
+          "count": "1",
+          "retmax": "1",
+          "retstart": "0",
+          "idlist": [
+            "9691"
+          ],
+          "translationset": [],
+          "translationstack": [
+            {
+              "term": "Panthera pardus[Scientific Name]",
+              "field": "Scientific Name",
+              "count": "1",
+              "explode": "N"
+            },
+            "GROUP"
+          ],
+          "querytranslation": "Panthera pardus[Scientific Name]"
+        }
+      },
+      "summary": {
+        "header": {
+          "type": "esummary",
+          "version": "0.3"
+        },
+        "result": {
+          "uids": [
+            "9691"
+          ],
+          "9691": {
+            "uid": "9691",
+            "status": "active",
+            "rank": "species",
+            "division": "carnivores",
+            "scientificname": "Panthera pardus",
+            "commonname": "leopard",
+            "taxid": 9691,
+            "akataxid": "",
+            "genus": "",
+            "species": "",
+            "subsp": "",
+            "modificationdate": "2018/10/29 00:00",
+            "genbankdivision": "Mammals"
+          }
+        }
+      }
+    },
+    {
+      "query": "Felis catus",
+      "search_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Felis+catus%5BScientific+Name%5D&retmode=json&tool=codex_phase6_pause",
+      "search": {
+        "header": {
+          "type": "esearch",
+          "version": "0.3"
+        },
+        "esearchresult": {
+          "count": "1",
+          "retmax": "1",
+          "retstart": "0",
+          "idlist": [
+            "9685"
+          ],
+          "translationset": [],
+          "translationstack": [
+            {
+              "term": "Felis catus[Scientific Name]",
+              "field": "Scientific Name",
+              "count": "1",
+              "explode": "N"
+            },
+            "GROUP"
+          ],
+          "querytranslation": "Felis catus[Scientific Name]"
+        }
+      },
+      "summary": {
+        "header": {
+          "type": "esummary",
+          "version": "0.3"
+        },
+        "result": {
+          "uids": [
+            "9685"
+          ],
+          "9685": {
+            "uid": "9685",
+            "status": "active",
+            "rank": "species",
+            "division": "carnivores",
+            "scientificname": "Felis catus",
+            "commonname": "domestic cat",
+            "taxid": 9685,
+            "akataxid": "",
+            "genus": "",
+            "species": "",
+            "subsp": "",
+            "modificationdate": "2024/03/03 00:00",
+            "genbankdivision": "Mammals"
+          }
+        }
+      }
+    }
+  ]
+}

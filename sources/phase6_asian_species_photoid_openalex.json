@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "count": 0,
+    "db_response_time_ms": 509,
+    "page": 1,
+    "per_page": 15,
+    "groups_count": null,
+    "x_query": {
+      "oql": "works where full text contains (clouded leopard marbled cat gecko turtle crocodile lizard individual identification photo identification camera trap)",
+      "oqo": {
+        "get_rows": "works",
+        "filter_rows": [
+          {
+            "column_id": "default.search",
+            "value": "clouded leopard marbled cat gecko turtle crocodile lizard individual identification photo identification camera trap",
+            "operator": "contains"
+          }
+        ],
+        "select": [
+          "id",
+          "doi",
+          "title",
+          "publication_year",
+          "publication_date",
+          "cited_by_count",
+          "primary_location",
+          "authorships",
+          "abstract_inverted_index",
+          "open_access"
+        ],
+        "per_page": 15
+      },
+      "url": "/works?filter=default.search:clouded leopard marbled cat gecko turtle crocodile lizard individual identification photo identification camera trap&select=id,doi,title,publication_year,publication_date,cited_by_count,primary_location,authorships,abstract_inverted_index,open_access&per_page=15"
+    },
+    "cost_usd": 0.001
+  },
+  "results": [],
+  "group_by": []
+}

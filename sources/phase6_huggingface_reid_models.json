@@ -1,0 +1,118 @@
+{
+  "BVRA/MegaDescriptor-S-224": {
+    "_id": "6548e2f2b17b77265dc2e3ee",
+    "id": "BVRA/MegaDescriptor-S-224",
+    "private": false,
+    "pipeline_tag": "image-classification",
+    "library_name": "wildlife-datasets",
+    "tags": [
+      "wildlife-datasets",
+      "pytorch",
+      "image-classification",
+      "ecology",
+      "animals",
+      "re-identification",
+      "arxiv:2103.14030",
+      "arxiv:2304.07193",
+      "license:cc-by-nc-4.0",
+      "region:us"
+    ],
+    "downloads": 548,
+    "likes": 1,
+    "modelId": "BVRA/MegaDescriptor-S-224",
+    "author": "BVRA",
+    "sha": "f2a06cb0d093c49ed5fb2640cdf7279e10530ef2",
+    "lastModified": "2024-01-05T01:37:19.000Z",
+    "gated": false,
+    "disabled": false,
+    "model-index": null,
+    "config": {},
+    "cardData": {
+      "tags": [
+        "image-classification",
+        "ecology",
+        "animals",
+        "re-identification"
+      ],
+      "library_name": "wildlife-datasets",
+      "license": "cc-by-nc-4.0"
+    },
+    "siblings": [
+      {
+        "rfilename": ".gitattributes"
+      },
+      {
+        "rfilename": "README.md"
+      },
+      {
+        "rfilename": "config.json"
+      },
+      {
+        "rfilename": "pytorch_model.bin"
+      }
+    ],
+    "spaces": [],
+    "createdAt": "2023-11-06T12:58:26.000Z",
+    "usedStorage": 290066098
+  },
+  "BVRA/MegaDescriptor-T-224": {
+    "_id": "6548dc16eb0ca7187d57a84a",
+    "id": "BVRA/MegaDescriptor-T-224",
+    "private": false,
+    "pipeline_tag": "image-classification",
+    "library_name": "wildlife-datasets",
+    "tags": [
+      "wildlife-datasets",
+      "pytorch",
+      "image-classification",
+      "ecology",
+      "animals",
+      "re-identification",
+      "arxiv:2103.14030",
+      "arxiv:2304.07193",
+      "license:cc-by-nc-4.0",
+      "region:us"
+    ],
+    "downloads": 2396,
+    "likes": 1,
+    "modelId": "BVRA/MegaDescriptor-T-224",
+    "author": "BVRA",
+    "sha": "3ea58ff6c6195bc748bb86c111ff40c32bdddcba",
+    "lastModified": "2024-01-05T01:37:22.000Z",
+    "gated": false,
+    "disabled": false,
+    "model-index": null,
+    "config": {},
+    "cardData": {
+      "tags": [
+        "image-classification",
+        "ecology",
+        "animals",
+        "re-identification"
+      ],
+      "library_name": "wildlife-datasets",
+      "license": "cc-by-nc-4.0"
+    },
+    "siblings": [
+      {
+        "rfilename": ".gitattributes"
+      },
+      {
+        "rfilename": "README.md"
+      },
+      {
+        "rfilename": "config.json"
+      },
+      {
+        "rfilename": "pytorch_model.bin"
+      }
+    ],
+    "spaces": [
+      "elephant-reid/forest-elephant-reid",
+      "ddooooodododoodoooooo/allocate",
+      "ddooooodododoodoooooo/allo-chat"
+    ],
+    "createdAt": "2023-11-06T12:29:10.000Z",
+    "usedStorage": 204267588
+  }
+}
