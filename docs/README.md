@@ -1,27 +1,21 @@
 # Documentation Map
 
-Date: 2026-06-23
+Date: 2026-06-25
 
-This directory is organized as a layered project record. The project has gone
-through several plan iterations; older files are preserved for rationale but no
-longer define the active direction.
+Docs are compact and English-only. Each phase keeps one core `README.md` unless an execution standard is still active.
 
 ## Read Order
 
 1. `../README.md` - project overview and claim boundary.
 2. `../PROJECT_RULES.md` - binding scientific and implementation rules.
-3. `CURRENT_PROJECT_MAP.md` - current phase/layer map and active-vs-archive
-   distinction.
-4. `phase16/README.md` - current Phase 16 strategy entry point.
-5. `superpowers/plans/2026-06-23-phase16-balanced-pf-eri-strategy.md` -
-   executable next-step plan.
-6. `phase15/README.md` - current evidence-routed review layer and model outputs.
-7. `phase14/phase14_output_structure_index.md` - Phase 14 2x2 data and output
-   structure.
-8. `phase14/phase14_implementation_status.md` - Phase 14 data-construction
-   status and caveats.
-9. `structure/csv_and_artifact_inventory.md` - core CSV/output map.
-10. `archive/README.md` - archived plan/spec map.
+3. `CURRENT_PROJECT_MAP.md` - current phase/layer map.
+4. `phase16/README.md` - active Phase 16 strategy.
+5. `phase16/phase16e_colab_batch_execution.md` - Phase 16E runner usage.
+6. `phase16/phase16e_result_acceptance_criteria.md` - Phase 16E result gate.
+7. `superpowers/plans/2026-06-23-phase16-balanced-pf-eri-strategy.md` - compact active plan.
+8. `phase15/README.md` - current evidence-routed review evidence.
+9. `phase14/README.md` - data foundation.
+10. `structure/csv_and_artifact_inventory.md` - core CSV/output map.
 
 ## Current Layering
 
@@ -47,10 +41,7 @@ longer define the active direction.
 
 ### Historical Foundation
 
-- `phase6/`, `phase8/`, `phase9/`, `phase11/`, `phase12/`, `phase13/`: useful
-  evidence history and diagnostic reasoning. These explain why the project moved
-  toward pair-level PF-ERI review routing and away from broad metric-learning
-  claims.
+- `phase6/`, `phase8/`, `phase9/`, `phase11/`, `phase12/`, `phase13/`: compact historical READMEs. Use for rationale only.
 
 ### Archive
 
@@ -72,4 +63,4 @@ PROJECT_RULES.md
 -> historical/archive docs
 ```
 
-Archived docs are evidence of thinking history, not active instructions.
+Archived docs are thinking history, not active instructions.
