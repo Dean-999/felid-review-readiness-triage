@@ -10,12 +10,13 @@ Docs are compact and English-only. Each phase keeps one core `README.md` unless 
 2. `../PROJECT_RULES.md` - binding scientific and implementation rules.
 3. `CURRENT_PROJECT_MAP.md` - current phase/layer map.
 4. `phase16/README.md` - active Phase 16 strategy.
-5. `phase16/phase16e_colab_batch_execution.md` - Phase 16E runner usage.
-6. `phase16/phase16e_result_acceptance_criteria.md` - Phase 16E result gate.
-7. `superpowers/plans/2026-06-23-phase16-balanced-pf-eri-strategy.md` - compact active plan.
-8. `phase15/README.md` - current evidence-routed review evidence.
-9. `phase14/README.md` - data foundation.
-10. `structure/csv_and_artifact_inventory.md` - core CSV/output map.
+5. `phase16/phase16i_gap_rationale.md` - binding gap and claim-direction lock.
+6. `phase16/phase16e_colab_batch_execution.md` - Phase 16E runner usage.
+7. `phase16/phase16e_result_acceptance_criteria.md` - Phase 16E result gate.
+8. `superpowers/plans/2026-06-23-phase16-balanced-pf-eri-strategy.md` - compact active plan.
+9. `phase15/README.md` - current evidence-routed review evidence.
+10. `phase14/README.md` - data foundation.
+11. `structure/csv_and_artifact_inventory.md` - core CSV/output map.
 
 ## Current Layering
 
@@ -24,8 +25,13 @@ Docs are compact and English-only. Each phase keeps one core `README.md` unless 
 - `phase16/`: current next-step strategy. Keeps PF-ERI modeling as the core and
   treats laterality, leakage pressure, strong-model benchmarks, augmentation,
   ecological context, and captive imagery as safeguards or extensions.
+- `phase16/phase16i_gap_rationale.md`: binding rule that PF-ERI is a
+  post-retrieval evidence reliability and review-routing layer, not a descriptor
+  replacement or unsupported top-k ranking-improvement claim.
 - `superpowers/plans/2026-06-23-phase16-balanced-pf-eri-strategy.md`: active
   executable plan.
+- `superpowers/plans/2026-06-29-phase17a-czechlynx-review-utility.md`: active
+  review-utility validation plan for the locked Phase16I gap.
 
 ### Current Evidence
 

@@ -36,7 +36,7 @@ Use these for the active PF-ERI evidence-routed review story:
 
 ### Layer 3: Next Strategy
 
-Phase 16 scripts are planned in:
+Phase 16 scripts are planned and routed through:
 
 ```text
 docs/superpowers/plans/2026-06-23-phase16-balanced-pf-eri-strategy.md
@@ -45,6 +45,74 @@ docs/superpowers/plans/2026-06-23-phase16-balanced-pf-eri-strategy.md
 They should be added only if they support PF-ERI pair-level evidence modeling,
 review routing, risk-controlled evaluation, or necessary data-governance
 safeguards.
+
+Current Phase 16 execution entry points:
+
+- `build_phase16_dataset_foundation_audit.py` - audits whether the 3000 x 4
+  image foundation is ready for clean modeling or requires rebuild/top-up.
+- `build_phase16_laterality_audit_table.py` and
+  `build_phase16_laterality_aware_pair_audit.py` - build laterality audit and
+  pair-comparability diagnostics.
+- `build_phase16_leakage_pressure_audit.py` - estimates path-derived
+  background/site leakage pressure without exposing sensitive locations.
+- `package_phase16_strong_model_benchmark.py` - packages the strong-model
+  benchmark contract.
+- `package_phase16e_candidate_model_filter_colab.py` and
+  `package_phase16e_czechlynx_direct_split_zips.py` - package Phase 16E model
+  scoring inputs.
+- `recalibrate_phase16e_candidate_scores.py` - recomputes strict, balanced, and
+  broad score tiers after Phase 16E.
+- `build_phase16f_czechlynx_constrained_selection.py` - selects the first
+  CzechLynx constrained 3000 candidate set from the balanced recalibrated pool
+  with path-group caps, rejected-pool reporting, and manual-audit samples.
+- `summarize_phase16f_czechlynx_publication_selection.py` - converts the
+  CzechLynx constrained 3000 into compact publication-ready summary tables and
+  a methods snippet.
+- `analyze_phase16e_bobcat_scores.py` - receives returned Bobcat Phase 16E
+  score CSVs, validates handoff columns, runs the existing recalibration tier
+  logic, preserves source-tier metadata, and writes transfer-stress summaries.
+- `build_phase16g_pair_feature_schema.py` - writes the Phase 16G pair-level
+  schema contract used by CzechLynx and later Bobcat pair tables.
+- `build_phase16g_czechlynx_pair_prototype.py` - builds a CzechLynx known-ID
+  pair-table prototype from Phase 16F selected images and descriptor candidate
+  pairs without training a review-router.
+- `run_phase16g_real_czechlynx_pair_table.py` - bridges the real Phase 16F
+  CzechLynx selected 3000 manifest to Phase 15 descriptor candidate pairs,
+  joins optional leakage/laterality flags, and writes the audited Phase 16G
+  CzechLynx real pair-table outputs.
+- `audit_phase16g_pair_table.py` - audits Phase 16G pair tables for required
+  columns, unique pair IDs, self-pairs, split metadata, and Bobcat label-boundary
+  violations.
+- `build_phase16h_czechlynx_readiness_controls.py` - evaluates CzechLynx
+  Phase 16G pair-table readiness before any calibrated review-router training,
+  including descriptor-only, quality-only, evidence-only, random same-size,
+  risk-coverage, confidence-loop, and leakage-sensitivity controls.
+- `build_phase16h_czechlynx_calibrated_router.py` - runs leakage-excluded
+  grouped-split calibrated router validation using descriptor-only, quality-only,
+  no-training diagnostic, logistic, and interaction-logistic policies; outputs a
+  conservative claim gate rather than a performance claim.
+
+Phase 16G prepares pair-level tables and audits for later Phase 16H calibrated
+review-router modeling. It does not train the final model and does not support
+Bobcat identity-accuracy claims without verified labels or audited same/different
+pair labels.
+
+Phase 16H readiness controls are still pre-training diagnostics. They may permit
+grouped-split model design, but they do not by themselves establish a PF-ERI
+ranking improvement claim over descriptor-only.
+
+Phase 16H calibrated-router validation is also claim-gated. A model with ROC-AUC
+or AP signal still cannot be reported as an improvement unless it beats the
+descriptor-only review-queue gate under leakage-excluded grouped splits.
+
+### Layer 4: Phase 17 Review Utility
+
+- `build_phase17a_czechlynx_review_utility.py` - evaluates the locked Phase16I
+  gap on leakage-excluded CzechLynx known-ID pairs. It reports fixed
+  review-budget, fixed positive-retention, abstention/risk-coverage,
+  descriptor-evidence conflict enrichment, and proxy review-action outputs. It
+  is a review-utility validation, not descriptor replacement or automatic
+  identity assignment.
 
 ### Historical / Diagnostic
 

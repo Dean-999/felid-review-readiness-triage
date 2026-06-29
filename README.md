@@ -2,7 +2,7 @@
 
 This project studies whether **PF-ERI** can quantify when same-genus Lynx individual re-identification evidence is reliable. PF-ERI converts visual Re-ID conditions such as pattern visibility, flank/side comparability, blur, occlusion, body visibility, viewpoint compatibility, descriptor support, descriptor-visual conflict, and context shift into reliability signals that can guide candidate filtering, reranking, review-readiness, and risk control.
 
-PF-ERI is not a new Re-ID descriptor and not an automatic identity-assignment system. The current technical goal is to validate pair-level evidence reliability on known-ID wild Eurasian lynx and test whether the calibrated reliability model transfers to urban bobcat monitoring as a same-genus field-readiness stress test.
+PF-ERI is not a new Re-ID descriptor and not an automatic identity-assignment system. It is a post-retrieval evidence reliability and review-routing layer around strong descriptor or matching systems. The current technical goal is to validate pair-level evidence reliability on known-ID wild Eurasian lynx and test whether the calibrated reliability model transfers to urban bobcat monitoring as a same-genus field-readiness stress test.
 
 PF-ERI has four evidence levels:
 
@@ -51,6 +51,12 @@ review. It asks whether a candidate pair should be accepted, reviewed, deferred,
 downgraded to species-level only, or marked non-comparable. This is the missing
 decision layer between "these images look similar" and "this comparison has
 admissible individual Re-ID evidence."
+
+The locked Phase 16I direction is therefore not to beat descriptor-only top-k
+ranking as the main claim. Descriptor-only remains a required strong baseline.
+PF-ERI's primary endpoints are evidence admissibility, descriptor-evidence
+conflict, false-candidate burden, positive retention, review burden,
+abstention/risk coverage, and human-audit agreement.
 
 ## Core Outputs
 
@@ -101,6 +107,11 @@ admissible individual Re-ID evidence."
   descriptor-only ROC-AUC 0.722 and AP 0.334. Top-k queue gains are modest, so
   the strongest current claim is PF-ERI as a calibrated review/risk layer rather
   than a broad Re-ID accuracy breakthrough.
+- Phase 16G/H update: real CzechLynx pair-table and leakage-excluded calibrated
+  router validation found pair-level signal but did not clear the conservative
+  descriptor-only top-k improvement gate. Phase 16I locks the project gap as
+  post-retrieval evidence reliability and review utility, not descriptor
+  replacement or ranking-superiority.
 - Operational routing: Phase 15D exported five-action CzechLynx review-routing
   tables: accept, review, defer, species-level-only, and non-comparable.
   `accept` means high-priority expert-review candidate, not automatic identity
@@ -115,7 +126,16 @@ admissible individual Re-ID evidence."
   data-governance/benchmark safeguards: laterality-aware sampling and pair
   audit, background/site leakage-pressure diagnostics, and strong-model
   benchmark preparation. Generative augmentation, ecological priors, and captive
-  imagery remain later extensions.
+  imagery remain later extensions. The next scientific validation should
+  prioritize review utility and expert-audit agreement rather than another
+  attempt to force descriptor-only ranking improvement.
+- Phase17A review utility: leakage-excluded CzechLynx validation now reports
+  fixed review-budget, fixed positive-retention, abstention/risk-coverage,
+  conflict-enrichment, and proxy review-action outputs under
+  `outputs/phase17/phase17a_czechlynx_review_utility/`. The result keeps the
+  claim boundary intact: descriptor-only remains best on the k=10 ranking-like
+  snapshot, while PF-ERI diagnostic review utility reduces false-pair retention
+  at the 90% positive-retention endpoint.
 
 ## Repository Safety
 

@@ -110,6 +110,124 @@ Phase 16E scores
 -> final 3000 only after calibration
 ```
 
+## Phase 16G Planning Boundary
+
+Phase16G / Phase 16G is planned as a pair-level evidence contract and CzechLynx known-ID
+prototype, not final calibrated model training:
+
+```text
+docs/superpowers/specs/2026-06-28-phase16g-pair-level-contract-design.md
+docs/superpowers/plans/2026-06-28-phase16g-pair-level-contract.md
+docs/phase16/phase16g_pair_level_contract.md
+```
+
+Formal review-router training should be treated as Phase 16H after Bobcat
+Phase 16E/16F outputs and manual audit calibration are available.
+
+## Phase16G Real CzechLynx Run
+
+Run the real CzechLynx pair-table bridge after Phase16F selected images and
+Phase15 descriptor candidate pairs are available:
+
+```text
+python3 scripts/run_phase16g_real_czechlynx_pair_table.py
+outputs/phase16/phase16g_czechlynx_real_pair_table/
+```
+
+This output is an audited pair-level table for Phase16H planning. It is not
+final calibrated model training and does not affect the Bobcat identity claim
+boundary.
+
+## Phase16H Readiness Controls
+
+Before training any calibrated review-router, run the CzechLynx readiness and
+control-baseline gate:
+
+```text
+python3 scripts/build_phase16h_czechlynx_readiness_controls.py
+outputs/phase16/phase16h_czechlynx_readiness_controls/
+```
+
+This produces descriptor-only, quality-only, evidence-only, conflict-penalized,
+diagnostic no-training, random same-size, risk-coverage, and leakage-sensitivity
+controls. A `READY_FOR_DESIGN_NOT_TRAINING_CLAIM` gate means Phase16H may move
+to grouped-split calibrated model design, but it still does not support a claim
+that PF-ERI improves ranking over descriptor-only.
+
+Run the first grouped-split calibrated router validation with:
+
+```text
+python3 scripts/build_phase16h_czechlynx_calibrated_router.py
+outputs/phase16/phase16h_czechlynx_calibrated_router/
+```
+
+Current interpretation: the calibrated router can be used as diagnostic
+evidence if it reports discrimination signal, but it may not support a PF-ERI
+ranking-improvement claim unless it clears the descriptor-only improvement gate
+under leakage-excluded grouped splits.
+
+## Phase16I Gap Rationale
+
+The current gap rationale is:
+
+```text
+docs/phase16/phase16i_gap_rationale.md
+```
+
+This freezes the project-first claim boundary: PF-ERI is a post-retrieval
+evidence reliability and review-routing layer. The next validation should
+prioritize review utility, risk coverage, false-candidate burden, positive
+retention, and expert-audit agreement rather than another attempt to beat
+descriptor-only top-k ranking.
+
+## Phase17A CzechLynx Review Utility
+
+Run the first locked-gap review-utility validation with:
+
+```text
+python3 scripts/build_phase17a_czechlynx_review_utility.py
+outputs/phase17/phase17a_czechlynx_review_utility/
+```
+
+Phase17A uses leakage-excluded CzechLynx known-ID pairs to evaluate fixed review
+budget, fixed positive-retention, abstention/risk coverage,
+descriptor-evidence conflict enrichment, and proxy review actions.
+
+Current interpretation: descriptor-only remains best on the k=10 ranking-like
+snapshot, so Phase17A must not be used as a ranking-improvement claim. At 90%
+positive retention, the diagnostic review-utility policy retains fewer false
+pairs than descriptor-only, supporting the locked Phase16I claim that PF-ERI is
+a review-utility layer rather than a descriptor replacement.
+
+CzechLynx Phase 16F constrained selection now has a first executable output:
+
+```text
+python3 scripts/build_phase16f_czechlynx_constrained_selection.py
+outputs/phase16/phase16f_czechlynx_constrained_selection/
+```
+
+This selects 3000 rows from the recalibrated balanced CzechLynx pool with an
+identity-like path-group cap and audit outputs. It is not simple top-3000 and
+does not finalize the set until manual audit calibration is complete.
+
+Publication-ready CzechLynx selected-set tables are generated with:
+
+```text
+python3 scripts/summarize_phase16f_czechlynx_publication_selection.py
+outputs/phase16/phase16f_czechlynx_publication_summary/
+```
+
+When Bobcat Phase 16E scores finish, receive them with:
+
+```text
+python3 scripts/analyze_phase16e_bobcat_scores.py --input path/to/bobcat_scores.csv
+outputs/phase16/phase16e_bobcat_score_analysis/
+```
+
+The Bobcat analysis is a review-readiness transfer-stress analysis only. It
+does not estimate Bobcat identity accuracy without verified identity labels or
+an audited same/different pair set.
+
 ## Claim Boundary
 
 Phase 16 may claim that PF-ERI evaluates admissible pair evidence and routes
