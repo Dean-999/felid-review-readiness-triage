@@ -29,6 +29,10 @@ PF-ERI is not a new descriptor and not automatic identity assignment. It is a
 pair-level evidence reliability and review-routing layer around strong existing
 Re-ID systems.
 
+Phase 16I locks the current gap: PF-ERI is a post-retrieval evidence
+admissibility and review-utility layer, not a descriptor replacement and not a
+top-k ranking-improvement claim.
+
 ## Phase Layers
 
 ### Layer 0: Historical Foundation
@@ -85,10 +89,28 @@ overclaiming criticism without changing the main contribution.
 - `docs/superpowers/plans/2026-06-23-phase16-balanced-pf-eri-strategy.md`:
   executable next-step plan.
 - `docs/phase16/`: Phase 16 entry point and implementation notes.
+- `docs/phase16/phase16i_gap_rationale.md`: binding gap rationale. Use this to
+  prevent later work from drifting into descriptor-replacement or unsupported
+  top-k improvement claims.
 
 Status: active next direction. The seven advisor-suggested points are data
 governance, benchmark, and robustness safeguards around PF-ERI, not the core
 modeling contribution.
+
+### Layer 4: Locked-Gap Review Utility
+
+Purpose: validate the Phase16I gap directly: PF-ERI should add review utility
+after strong descriptor retrieval, not replace the descriptor.
+
+- `scripts/build_phase17a_czechlynx_review_utility.py`: leakage-excluded
+  CzechLynx review-utility validation.
+- `docs/superpowers/plans/2026-06-29-phase17a-czechlynx-review-utility.md`:
+  executable Phase17A plan.
+- `outputs/phase17/phase17a_czechlynx_review_utility/`: generated fixed-budget,
+  positive-retention, abstention, conflict-enrichment, and proxy-action outputs.
+
+Status: active review-utility evidence. Do not reinterpret it as a descriptor
+replacement or automatic identity-assignment result.
 
 ## Archived Material
 
@@ -130,3 +152,5 @@ Not core, but still useful safeguards:
 - urbanization causality.
 - metric-learning improvement without strong held-out controls.
 - generic image-quality filtering as the main contribution.
+- descriptor-only top-k improvement as the main contribution unless a later
+  leakage-controlled held-out validation directly supports it.

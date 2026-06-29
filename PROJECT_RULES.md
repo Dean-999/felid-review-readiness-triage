@@ -20,6 +20,51 @@ The central project goal is to validate pair-level evidence reliability on known
 
 The project does not identify individual animals. It evaluates whether imperfect Lynx camera-trap evidence can be modeled as pair-level admissibility and used to control retrieval, reranking, review-readiness, or diagnostic analysis in a Re-ID pipeline. The earlier review/defer/exclude policy, fixed-descriptor reranking, and Phase 13D training attempts are supporting foundations, not the final endpoint.
 
+## Binding Gap And Direction Rule
+
+The binding project gap is defined in:
+
+```text
+docs/phase16/phase16i_gap_rationale.md
+```
+
+This gap is now project-level policy. PF-ERI must be framed as a
+post-retrieval evidence reliability and review-routing layer that sits after a
+strong descriptor or matching platform and before expert review or downstream
+use.
+
+Use this locked direction:
+
+```text
+strong descriptor / matching platform
+-> candidate queue
+-> PF-ERI pair-level evidence admissibility
+-> descriptor-evidence conflict and risk estimate
+-> evidence-routed review action
+-> cautious downstream use
+```
+
+The project must not be reframed as:
+
+```text
+PF-ERI beats MegaDescriptor/MiewID/WildlifeTools as a descriptor
+PF-ERI is a replacement Re-ID model
+PF-ERI's main claim is top-k identity-ranking improvement
+PF-ERI validates Bobcat identity accuracy without labels
+PF-ERI is generic image quality filtering
+```
+
+If a result shows discrimination signal but does not beat descriptor-only top-k
+ranking, the correct response is not to force a ranking-improvement claim. The
+correct response is to evaluate review utility: evidence admissibility,
+descriptor-evidence conflict, false-candidate burden, positive retention, review
+burden, abstention/risk coverage, and expert-audit agreement.
+
+Any future "tool 2.0" or open-source integration must preserve this direction:
+PF-ERI may wrap, audit, and route outputs from Wildbook/WBIA, MegaDescriptor,
+MiewID, WildlifeTools, WildFusion, or equivalent systems, but it must not be
+presented as replacing their descriptor or identity-database role.
+
 ## Wild-to-Urban Evidence Propagation Rule
 
 The wild-to-urban comparison must be framed as a three-layer evidence-risk propagation problem, not as a simple image-quality comparison.
@@ -111,6 +156,9 @@ while controlling false-comparison or training-contamination risk
 - Do not claim this project identifies true individual animals.
 - Do not claim a new Re-ID model.
 - Do not claim a new Re-ID descriptor.
+- Do not claim descriptor replacement or top-k identity-ranking improvement as
+  the main contribution unless a later leakage-controlled, grouped or
+  identity-aware held-out analysis directly supports that exact claim.
 - Do not claim population estimation.
 - Do not claim a universal threshold across felid species, patterned animals, or general animal Re-ID.
 - Do not claim PF-ERI improves metric learning unless PF-ERI-informed training beats relevant random matched and quality-proxy matched controls under held-out identity-split evaluation for the stated metric family.
@@ -174,7 +222,8 @@ Primary comparison set:
 
 ```text
 raw descriptor retrieval
-PF-ERI-aware reranking
+PF-ERI evidence-routed review utility
+PF-ERI-aware reranking only as a diagnostic or secondary endpoint
 quality-only filtering/reranking
 random same-size and same-coverage controls
 uniform supervised contrastive learning
@@ -190,7 +239,7 @@ UWIN bobcat human-audited same/different/uncertain/non-comparable pair set
 accept/review/defer/species-level-only policy transfer
 ```
 
-Success is layered. RQ1 may succeed by showing PF-ERI is a valid evidence signal in known-ID CzechLynx. RQ2 may succeed by identifying a descriptor-evidence conflict mechanism. RQ3 may succeed by showing measurable UWIN bobcat evidence-risk distribution shift relative to CzechLynx. RQ4 may succeed if PF-ERI predicts human-audited urban bobcat review judgements better than descriptor similarity or quality-only controls. RQ5 is optional and requires verified UWIN bobcat identity labels. Primary metrics are false-candidate burden, positive retention, review-readiness policy proportions, descriptor-evidence conflict enrichment, human-audit agreement, mAP/MRR/top-k only when identity labels exist, and query coverage.
+Success is layered. RQ1 may succeed by showing PF-ERI is a valid evidence signal in known-ID CzechLynx. RQ2 may succeed by identifying a descriptor-evidence conflict mechanism. RQ3 may succeed by showing measurable UWIN bobcat evidence-risk distribution shift relative to CzechLynx. RQ4 may succeed if PF-ERI predicts human-audited urban bobcat review judgements better than descriptor similarity or quality-only controls. RQ5 is optional and requires verified UWIN bobcat identity labels. Primary metrics are false-candidate burden, positive retention, review-readiness policy proportions, descriptor-evidence conflict enrichment, human-audit agreement, review burden, abstention/risk coverage, and query coverage. mAP/MRR/top-k are allowed only when identity labels exist, and they are not the main Phase 16/17 claim unless PF-ERI clears descriptor-only controls under the required split discipline.
 
 Current interpretation:
 
@@ -367,6 +416,17 @@ The active Phase 16 claim is:
 PF-ERI 2.0 models whether strong Re-ID candidate pairs contain admissible identity evidence and routes them into risk-controlled review actions under cross-context evidence shift.
 ```
 
+The active Phase 16/17 claim is not:
+
+```text
+PF-ERI 2.0 improves top-k identity ranking over descriptor-only
+```
+
+That stronger claim is currently unsupported and must remain blocked unless a
+future leakage-controlled, grouped or identity-aware held-out validation clears
+the descriptor-only improvement gate. Until then, Phase 16/17 should optimize
+and report review utility rather than ranking lift.
+
 This means the project must no longer be framed as only:
 
 ```text
@@ -498,7 +558,8 @@ main contribution.
 - Phase 13: learned candidate utility and RQ4 training diagnostics. Phase 13D showed plain projection-head training does not pass the raw fixed-embedding reference gate and is diagnostic, not the main next path.
 - Phase 14: same-genus wild-to-urban Lynx reliability reframing. CzechLynx remains the known-ID validation carrier; UWIN bobcat becomes the active urban field-readiness stress context with a preferred small human-audited pair set.
 - Phase 15: PF-ERI Evidence-Routed Review Layer. CzechLynx known-ID candidate pairs validate query-level descriptor baselines, calibrated ranker signal, repeated risk-coverage behavior, and five-action review routing. Phase 15D action tables are operational routing exports; Phase 15C repeated query splits remain the validation evidence. `accept` means high-priority expert-review candidate, not automatic identity assignment. Phase 15E transfers the CzechLynx-calibrated review-routing policy to bobcat as a wild-to-urban stress test only; bobcat outputs measure review-readiness, ambiguity/defer pressure, species-level-only pressure, non-comparability, and descriptor-evidence conflict, not identity accuracy. Phase 15F packages a small human-audited bobcat pair set to validate review-routing and pair comparability, not bobcat identity accuracy.
-- Phase 16: Balanced PF-ERI 2.0 strategy. Phase 16 keeps PF-ERI modeling as the core: pair-level admissible-evidence estimation, descriptor-evidence conflict, calibrated review routing, and risk-controlled evaluation. The seven advisor-suggested dimensions are treated as data-governance, sampling, benchmark, and robustness safeguards around that model, not as a replacement main line. Laterality is a sampling/pair-audit rule; background/site leakage is a leakage-pressure diagnostic; strong-model benchmarking is an external comparison requirement. Wild-to-urban remains a transfer-stress axis, not a bobcat identity-accuracy claim. Optional generative augmentation, ecological priors, and captive calibration are deferred until Phase 16A data-governance gates pass.
+- Phase 16: Balanced PF-ERI 2.0 strategy. Phase 16 keeps PF-ERI modeling as the core: pair-level admissible-evidence estimation, descriptor-evidence conflict, calibrated review routing, and risk-controlled evaluation. Phase 16G/H showed that PF-ERI features have pair-level signal but do not currently support a descriptor-only top-k improvement claim. Phase 16I therefore locks the project gap as post-retrieval evidence reliability and review utility, not descriptor replacement. The seven advisor-suggested dimensions are treated as data-governance, sampling, benchmark, and robustness safeguards around that model, not as a replacement main line. Laterality is a sampling/pair-audit rule; background/site leakage is a leakage-pressure diagnostic; strong-model benchmarking is an external comparison requirement. Wild-to-urban remains a transfer-stress axis, not a bobcat identity-accuracy claim. Optional generative augmentation, ecological priors, and captive calibration are deferred until Phase 16A data-governance gates pass.
+- Phase 17: review-utility validation, if opened, must evaluate evidence admissibility, descriptor-evidence conflict, false-candidate burden, positive retention, review burden, abstention/risk coverage, and expert-audit agreement. It must not revive descriptor-replacement, automatic identity assignment, or unlabeled Bobcat identity-accuracy claims.
 - Do not make final scientific claims before the relevant validation step is complete.
 
 Graph-based reliability network remains a diagnostic visualization layer, not identity clustering.

@@ -57,7 +57,8 @@ scripts/package_phase15f_bobcat_pair_audit.py
 ## Claims Allowed
 
 - PF-ERI can support calibrated review/risk routing after descriptor retrieval.
-- PF-ERI features add signal beyond descriptor-only ranking in held-out CzechLynx validation.
+- PF-ERI features add pair-level discrimination signal beyond descriptor-only
+  features in held-out CzechLynx validation.
 - Bobcat transfer shows review-readiness, ambiguity, defer, species-level-only, and non-comparability pressure.
 
 ## Claims Not Allowed
@@ -65,6 +66,9 @@ scripts/package_phase15f_bobcat_pair_audit.py
 - No automatic identity assignment.
 - No bobcat identity accuracy without verified labels.
 - No claim that PF-ERI replaces MegaDescriptor.
+- No claim that PF-ERI's main contribution is descriptor-only top-k ranking
+  improvement unless later leakage-controlled held-out validation directly
+  supports that exact claim.
 - No broad Re-ID breakthrough claim from modest top-k gains.
 
 ## Current Role
