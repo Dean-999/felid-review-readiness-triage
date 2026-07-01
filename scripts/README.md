@@ -39,7 +39,10 @@ Current freeze builder:
   review-router policies.
 - `build_phase18f_bobcat_transfer_readiness.py` - applies transfer-readiness
   routing to unlabeled Bobcat nearest-neighbor pairs without identity claims.
-- `run_phase18_all.py` - runs Phase18A-F in dependency order.
+- `build_phase18g_strong_baseline_claim_gate.py` - writes the strong-baseline
+  handoff package and blocks final claims until strong descriptor artifacts
+  exist.
+- `run_phase18_all.py` - runs Phase18A-G in dependency order.
 
 ## Current Script Layers
 
@@ -241,7 +244,9 @@ reproducibility references must be checked first. Treat
   evaluation and threshold curves.
 - `build_phase18f_bobcat_transfer_readiness.py` - Bobcat transfer-readiness
   application without Bobcat identity validation.
-- `run_phase18_all.py` - one-command Phase18A-F automation.
+- `build_phase18g_strong_baseline_claim_gate.py` - strong-baseline handoff and
+  final-claim gate.
+- `run_phase18_all.py` - one-command Phase18A-G automation.
 
 ## Top-Level Core
 

@@ -27,6 +27,7 @@ PHASE18D_DIR = PROJECT_ROOT / "outputs/phase18/phase18d_pf_eri_pair_features"
 PHASE18D_FEATURES = PHASE18D_DIR / "phase18d_pf_eri_pair_features.csv"
 PHASE18E_DIR = PROJECT_ROOT / "outputs/phase18/phase18e_review_router"
 PHASE18F_DIR = PROJECT_ROOT / "outputs/phase18/phase18f_bobcat_transfer_readiness"
+PHASE18G_DIR = PROJECT_ROOT / "outputs/phase18/phase18g_strong_baseline_claim_gate"
 
 
 def now_utc() -> str:

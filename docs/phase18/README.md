@@ -27,6 +27,8 @@ strong descriptor / matching platform
 5. Phase18E trains/calibrates conservative review routers.
 6. Phase18F applies transfer-stress/readiness scoring to Bobcat without identity
    accuracy claims.
+7. Phase18G packages strong-baseline handoff inputs and blocks final claims
+   until credible strong descriptor artifacts are returned.
 
 ## Automated Local-Control Pipeline
 
@@ -39,7 +41,7 @@ scripts/run_phase18_all.py
 It runs:
 
 ```text
-Phase18A -> Phase18B -> Phase18C -> Phase18D -> Phase18E -> Phase18F
+Phase18A -> Phase18B -> Phase18C -> Phase18D -> Phase18E -> Phase18F -> Phase18G
 ```
 
 Current outputs:
@@ -50,6 +52,7 @@ Current outputs:
 - `outputs/phase18/phase18d_pf_eri_pair_features/`
 - `outputs/phase18/phase18e_review_router/`
 - `outputs/phase18/phase18f_bobcat_transfer_readiness/`
+- `outputs/phase18/phase18g_strong_baseline_claim_gate/`
 - `outputs/phase18/phase18_all_pipeline/`
 
 Current run summary:
@@ -64,6 +67,8 @@ Current run summary:
 - Phase18E router policies: 5 deterministic local-control policies.
 - Phase18F Bobcat transfer-readiness rows: 30,000 pair rows over 3,000 unlabeled
   Bobcat images.
+- Phase18G status: `BLOCKED_STRONG_BASELINE_NOT_RUN` until strong descriptor
+  embeddings or pair scores are supplied.
 
 ## Baseline Boundary
 
@@ -80,6 +85,10 @@ MegaDescriptor / WildlifeTools
 DINOv2 or another strong foundation descriptor
 optional WildFusion/local matching scores
 ```
+
+Phase18G is the guardrail for this boundary. If strong descriptor artifacts are
+absent, Phase18G still writes a handoff manifest but keeps the scientific claim
+gate blocked.
 
 ## Claim Boundary
 

@@ -86,7 +86,8 @@ identity labels or audited same/different pair labels.
 | Phase18D | `scripts/build_phase18d_pf_eri_pair_features.py` | Add PF-ERI 2.0 admissibility, geometry, conflict, and review-score features. | `tests/test_phase18_pipeline.py` |
 | Phase18E | `scripts/build_phase18e_review_router.py` | Evaluate deterministic local-control review-router policies and threshold curves. | `tests/test_phase18_pipeline.py` |
 | Phase18F | `scripts/build_phase18f_bobcat_transfer_readiness.py` | Apply unlabeled Bobcat transfer-readiness routing without identity-accuracy claims. | `tests/test_phase18_pipeline.py` |
-| Phase18 all | `scripts/run_phase18_all.py` | Run Phase18A-F in dependency order and write an all-step audit. | Script exit + audit JSON |
+| Phase18G | `scripts/build_phase18g_strong_baseline_claim_gate.py` | Package strong-baseline handoff inputs and block final claims until strong artifacts exist. | `tests/test_phase18_pipeline.py` |
+| Phase18 all | `scripts/run_phase18_all.py` | Run Phase18A-G in dependency order and write an all-step audit. | Script exit + audit JSON |
 
 ## Current Generated Outputs
 
@@ -120,6 +121,7 @@ Key local output roots:
 - `outputs/phase18/phase18d_pf_eri_pair_features/`
 - `outputs/phase18/phase18e_review_router/`
 - `outputs/phase18/phase18f_bobcat_transfer_readiness/`
+- `outputs/phase18/phase18g_strong_baseline_claim_gate/`
 - `outputs/phase18/phase18_all_pipeline/`
 
 ## Current Data/Artifact Status

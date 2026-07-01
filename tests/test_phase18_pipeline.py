@@ -11,6 +11,7 @@ from scripts.build_phase18c_czechlynx_pair_contract import build_phase18c
 from scripts.build_phase18d_pf_eri_pair_features import build_phase18d
 from scripts.build_phase18e_review_router import build_phase18e
 from scripts.build_phase18f_bobcat_transfer_readiness import build_phase18f
+from scripts.build_phase18g_strong_baseline_claim_gate import build_phase18g
 
 
 def write_csv(path: Path, rows: list[dict[str, object]], fieldnames: list[str]) -> None:
@@ -166,6 +167,41 @@ class Phase18PipelineTests(unittest.TestCase):
             self.assertEqual(audit["bobcat_image_count"], 3)
             self.assertEqual(audit["pair_rows"], 6)
             self.assertIn("individual identity claim", audit["claim_boundary"].lower())
+
+    def test_phase18g_blocks_claims_without_strong_baseline_artifacts(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            manifest = root / "phase18a.csv"
+            rows = [
+                {
+                    "phase18_image_id": "phase18a_czechlynx_0001",
+                    "species": "czechlynx",
+                    "modeling_role": "czechlynx_known_id",
+                    "train_eval_eligible": "yes",
+                    "has_known_identity": "yes",
+                    "identity_label": "lynx_a",
+                    "frozen_image_path": "image_a.jpg",
+                    "sha256": "hash_a",
+                },
+                {
+                    "phase18_image_id": "phase18a_bobcat_0001",
+                    "species": "bobcat",
+                    "modeling_role": "bobcat_unlabeled_transfer",
+                    "train_eval_eligible": "no",
+                    "has_known_identity": "no",
+                    "identity_label": "",
+                    "frozen_image_path": "image_b.jpg",
+                    "sha256": "hash_b",
+                },
+            ]
+            write_csv(manifest, rows, list(rows[0].keys()))
+
+            audit = build_phase18g(manifest, root / "g")
+
+            self.assertEqual(audit["image_rows"], 2)
+            self.assertEqual(audit["phase18g_status"], "BLOCKED_STRONG_BASELINE_NOT_RUN")
+            self.assertTrue((root / "g/phase18g_strong_baseline_handoff_manifest.csv").exists())
+            self.assertTrue((root / "g/phase18g_claim_gate.csv").exists())
 
 
 if __name__ == "__main__":

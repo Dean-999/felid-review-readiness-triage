@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run Phase18A-F in dependency order."""
+"""Run Phase18A-G in dependency order."""
 
 from __future__ import annotations
 
@@ -26,6 +26,7 @@ STEPS = [
     ("phase18d", "scripts/build_phase18d_pf_eri_pair_features.py"),
     ("phase18e", "scripts/build_phase18e_review_router.py"),
     ("phase18f", "scripts/build_phase18f_bobcat_transfer_readiness.py"),
+    ("phase18g", "scripts/build_phase18g_strong_baseline_claim_gate.py"),
 ]
 
 
@@ -60,15 +61,16 @@ def run_pipeline(stop_on_failure: bool = True) -> dict[str, Any]:
         "results": results,
         "status": "PASS" if len(results) == len(STEPS) and all(row["exit_code"] == 0 for row in results) else "FAIL",
         "claim_boundary": (
-            "Automated Phase18 local-control pipeline. Strong descriptor baselines "
-            "must still be added before final scientific claims."
+            "Automated Phase18 local-control pipeline plus Phase18G strong-baseline "
+            "claim gate. Final scientific claims remain blocked until strong "
+            "descriptor artifacts are supplied."
         ),
     }
     write_json(AUDIT_JSON, audit)
     (OUTPUT_DIR / "README.md").write_text(
-        "# Phase18 All Pipeline\n\nRuns Phase18A-F in dependency order and records "
-        "each step exit code. This pipeline is local-control until strong descriptor "
-        "dependencies are installed.\n",
+        "# Phase18 All Pipeline\n\nRuns Phase18A-G in dependency order and records "
+        "each step exit code. Phase18G blocks final claims until strong descriptor "
+        "artifacts are available.\n",
         encoding="utf-8",
     )
     return audit

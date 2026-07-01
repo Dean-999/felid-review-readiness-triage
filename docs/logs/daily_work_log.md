@@ -2090,6 +2090,7 @@ Verification:
 - Phase18D: 60,000 PF-ERI pair-feature rows.
 - Phase18E: 5 deterministic router policies, 10 metric rows.
 - Phase18F: 3,000 Bobcat images, 30,000 transfer-readiness pair rows.
+- Phase18G: added strong-baseline handoff and claim gate.
 
 Scientific decision:
 
@@ -2099,3 +2100,6 @@ Scientific decision:
 - These outputs are valid for pipeline/schema debugging and first-pass review
   utility diagnostics, but not for final claims against MegaDescriptor,
   WildFusion, or modern foundation-model baselines.
+- Phase18G is the explicit repair: it writes the strong-baseline handoff package
+  and blocks final scientific claims until strong descriptor embeddings or pair
+  scores are returned.

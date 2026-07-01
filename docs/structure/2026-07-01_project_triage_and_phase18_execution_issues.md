@@ -79,10 +79,16 @@ This keeps provenance but tells Phase18 to use the freeze manifest.
    - Current implementation: `scripts/build_phase18f_bobcat_transfer_readiness.py`.
 
 7. **Phase18 all-step automation**
-   - Blocked by: Phase18A-F scripts.
+   - Blocked by: Phase18A-G scripts.
    - User stories covered: as a maintainer, I can run one command and regenerate
-     the whole local-control Phase18 chain in dependency order.
+     the whole local-control Phase18 chain plus claim gate in dependency order.
    - Current implementation: `scripts/run_phase18_all.py`.
+
+8. **Phase18G strong-baseline claim gate**
+   - Blocked by: Phase18A and the current Phase18B local-control audit.
+   - User stories covered: as a scientist, I cannot accidentally treat the local
+     descriptor-control run as a final strong-baseline comparison.
+   - Current implementation: `scripts/build_phase18g_strong_baseline_claim_gate.py`.
 
 ## Confidence Loop
 
@@ -96,7 +102,7 @@ The strategy is high-confidence only under these repairs:
 
 ## Current Automated Run
 
-`scripts/run_phase18_all.py` has executed all six Phase18 steps with status
+`scripts/run_phase18_all.py` has executed Phase18A-F with status
 `PASS`.
 
 Important counts:
@@ -106,6 +112,9 @@ Important counts:
 - Phase18D: 60,000 PF-ERI pair-feature rows.
 - Phase18E: 5 local-control router policies, 10 metric rows.
 - Phase18F: 3,000 Bobcat unlabeled images, 30,000 transfer-readiness pair rows.
+- Phase18G: strong-baseline handoff and claim gate; current gate is expected to
+  be `BLOCKED_STRONG_BASELINE_NOT_RUN` until strong embeddings/scores are
+  supplied.
 
 Claim boundary:
 
