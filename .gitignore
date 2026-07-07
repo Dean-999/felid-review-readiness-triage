@@ -9,5 +9,6 @@ outputs/
 *.pth
 *.ckpt
 .env
+.codegraph/
 
 colab_exports/

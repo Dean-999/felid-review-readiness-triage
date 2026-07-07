@@ -1,11 +1,48 @@
 # Scripts Map
 
-Date: 2026-06-23
+Date: 2026-07-01
 
 Use this file as a script routing map. The repository contains many historical
 scripts because the project direction evolved. The current execution path is
 Phase 14 data foundation -> Phase 15 evidence-routed review -> Phase 16
-strategy safeguards.
+strategy safeguards -> Phase 17 review-utility validation -> strict
+Bobcat/CzechLynx image-entry gates.
+
+For the current executable chain, use:
+
+```text
+docs/structure/current_pipeline_manifest.md
+```
+
+Current freeze builder:
+
+- `freeze_phase17_modeling_dataset.py` - validates the Bobcat and CzechLynx
+  strict 3,000 final-entry manifests, downloads/copies all image files into one
+  local modeling package, and writes combined manifests, checksums, evidence
+  copies, and a freeze audit.
+- `check_codegraph_project_contract.py` - verifies the repository CodeGraph
+  contract and records that CodeGraph is a code-navigation helper, not a data
+  truth source.
+- `build_project_artifact_consolidation_index.py` - builds a non-destructive
+  Phase16/17 output index so selection-condition experiments are not confused
+  with current Phase18 inputs.
+- `build_phase18a_frozen_feature_manifest.py` - builds the first Phase18
+  algorithm-entry image manifest from the frozen strict 3,000 x 2 package.
+- `build_phase18b_local_descriptor_control.py` - builds a local
+  pixel/histogram descriptor-control embedding table when strong model
+  dependencies are unavailable.
+- `build_phase18c_czechlynx_pair_contract.py` - builds CzechLynx known-ID top-k
+  pair contracts from Phase18B embeddings.
+- `build_phase18d_pf_eri_pair_features.py` - adds PF-ERI 2.0 admissibility,
+  geometry, conflict, and review-score features.
+- `build_phase18e_review_router.py` - evaluates deterministic local-control
+  review-router policies.
+- `build_phase18f_bobcat_transfer_readiness.py` - applies transfer-readiness
+  routing to unlabeled Bobcat nearest-neighbor pairs without identity claims.
+- `build_phase18g_strong_baseline_claim_gate.py` - writes the strong-baseline
+  handoff package and blocks final claims until strong descriptor artifacts
+  exist.
+- `run_phase18_all.py` - runs Phase18A-G in dependency order.
 
 ## Current Script Layers
 
@@ -113,6 +150,54 @@ descriptor-only review-queue gate under leakage-excluded grouped splits.
   descriptor-evidence conflict enrichment, and proxy review-action outputs. It
   is a review-utility validation, not descriptor replacement or automatic
   identity assignment.
+- `build_phase17b_bobcat_transfer_stress.py` - evaluates completed Bobcat
+  Phase16E scores as unsupervised transfer-stress and manual-audit routing
+  evidence. It reports source-tier distribution diagnostics, non-parametric
+  effect sizes, bootstrap intervals, routing summaries, and a stratified
+  manual-audit sheet. It does not evaluate Bobcat identity accuracy.
+- `build_phase17c_bobcat_provisional_3000.py` - builds the provisional Bobcat
+  3000 algorithm-prep manifest from Phase16E/Phase17B scores. It selects a
+  Tier 1 clean backbone plus capped Tier 2 transfer sentinels, writes rejected
+  pools, balance summaries, and a manual-audit expansion sheet. It is not a
+  final identity-labeled high-confidence set.
+- `prototypes/prototype_phase17c_bobcat_3000_logic.py` - throwaway logic
+  explorer for Phase17C quota choices. Delete or absorb it after the selection
+  policy is accepted.
+- `build_phase17d_bobcat_manual_audit_gate.py` - converts filled Phase17C
+  manual-audit outcomes into `BLOCKED_PENDING_AUDIT`, `PASS`,
+  `PASS_WITH_SPLIT`, or `REVISE` final-freeze recommendations. It is a
+  review-readiness gate only and does not evaluate Bobcat identity accuracy.
+- `streamlit_phase17d_bobcat_manual_audit_app.py` - local Streamlit image-review
+  tool for filling the Phase17D Bobcat manual-audit working CSV from public
+  `image_uri` links.
+- `prototypes/prototype_phase17d_manual_audit_gate.py` - throwaway logic
+  explorer for Phase17D final-freeze state transitions. Delete or absorb it
+  after the gate policy is accepted.
+- `build_phase17k_bobcat_clarity_gate.py` - builds the Bobcat clarity-first
+  review pool. It exists because metadata/source-discovery rows were not stable
+  enough for algorithm-entry quality.
+- `build_phase17n_bobcat_final3000_seed_from_human_clear.py` - collects prior
+  human-confirmed Bobcat clear rows into the locked final-3000 seed manifest.
+- `prototypes/prototype_bobcat_photo_selection_subject40_gate.py` - strict
+  subject-size/clarity prototype used to build high-quality Bobcat rescue
+  queues.
+- `prototypes/prototype_phase17o_bobcat_strict_final902_rescue.py` - final
+  strict Bobcat rescue prototype used to complete the 3,000 clear seed.
+
+### Layer 5: CzechLynx Strict 3000 Final-Ready Set
+
+- `prototypes/prototype_czechlynx_high3000_strict_audit.py` - audits older
+  CzechLynx high3000 artifacts under the Bobcat-style clarity standard.
+- `prototypes/prototype_czechlynx_strict3000_supplement.py` - rebuilds a strict
+  3,000-row CzechLynx review queue from local strict-pass rows and Phase16E
+  detector/IQA re-scoring.
+- `prototypes/prototype_czechlynx_strict3000_clarity_augmentation.py` - writes
+  full-frame mild clarity-enhanced copies and the final confirmed CzechLynx
+  manifest.
+
+The CzechLynx strict 3,000 is currently a visual-quality-first final-freeze
+candidate. It is not automatically an identity-balanced training/evaluation
+split.
 
 ### Historical / Diagnostic
 
@@ -120,6 +205,10 @@ descriptor-only review-queue gate under leakage-excluded grouped splits.
   explaining the modeling direction.
 - `scripts/legacy/` contains earlier annotation, CzechLynx, and retrieval
   utilities. Use only when reproducing historical outputs.
+- `scripts/prototypes/` contains throwaway logic/data prototypes. Some are
+  currently important because they generated final-entry manifests; treat the
+  documentation and output audits as the durable record, not the prototype
+  location as a long-term architecture decision.
 
 ## Do Not Treat As Current Main Path
 
@@ -128,7 +217,36 @@ descriptor-only review-queue gate under leakage-excluded grouped splits.
 - old second-review or expanded-pilot package builders;
 - scripts under `scripts/legacy/` unless a historical result must be reproduced.
 
-Top-level `scripts/` now contains current core scripts and one direct dependency needed by active reranking code. Historical phase scripts were moved to `scripts/legacy/`.
+Top-level `scripts/` contains current core scripts plus older support and
+historical scripts that have not yet been moved because imports, docs, and
+reproducibility references must be checked first. Treat
+`docs/structure/current_pipeline_manifest.md` as the current-script boundary.
+
+### Layer 6: Phase18 Algorithm Entry And Pair-Level Modeling
+
+- `check_codegraph_project_contract.py` - run when CodeGraph behavior is in
+  doubt; exact paths and artifact audits remain the current-state authority.
+- `build_project_artifact_consolidation_index.py` - run before structural
+  cleanup discussions; it classifies Phase16/17 directories without moving or
+  deleting them.
+- `build_phase18a_frozen_feature_manifest.py` - the Phase18A entry script. It
+  verifies frozen image hashes, bytes, decode status, dimensions, modeling role,
+  and known-identity boundary.
+- `build_phase18b_local_descriptor_control.py` - local-control descriptor
+  extraction. This is not a strong descriptor baseline; use it to keep the
+  Phase18 chain executable until MegaDescriptor/WildFusion dependencies are
+  installed.
+- `build_phase18c_czechlynx_pair_contract.py` - CzechLynx known-ID top-k pair
+  contract.
+- `build_phase18d_pf_eri_pair_features.py` - pair-level PF-ERI 2.0 feature
+  table.
+- `build_phase18e_review_router.py` - no-training deterministic router
+  evaluation and threshold curves.
+- `build_phase18f_bobcat_transfer_readiness.py` - Bobcat transfer-readiness
+  application without Bobcat identity validation.
+- `build_phase18g_strong_baseline_claim_gate.py` - strong-baseline handoff and
+  final-claim gate.
+- `run_phase18_all.py` - one-command Phase18A-G automation.
 
 ## Top-Level Core
 
