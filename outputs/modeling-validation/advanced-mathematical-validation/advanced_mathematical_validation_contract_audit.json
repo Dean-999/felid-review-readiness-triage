@@ -1,0 +1,22 @@
+{
+  "authoritative_inputs_csv": "outputs/modeling-validation/advanced-mathematical-validation/advanced_validation_authoritative_inputs.csv",
+  "authoritative_inputs_present": true,
+  "blocked_claims": [
+    "blocked_new_descriptor",
+    "blocked_automatic_identity_assignment",
+    "blocked_bobcat_identity_metrics",
+    "blocked_unqualified_distribution_free_domain_shift"
+  ],
+  "built_at_utc": "2026-07-07T14:25:16+00:00",
+  "claim_boundaries_csv": "outputs/modeling-validation/advanced-mathematical-validation/advanced_validation_claim_boundaries.csv",
+  "claim_boundary_status": "PASS",
+  "contract_md": "outputs/modeling-validation/advanced-mathematical-validation/advanced_mathematical_validation_contract.md",
+  "label_semantics": {
+    "0": "review-ready",
+    "1": "not-ready-or-uncertain"
+  },
+  "mathematical_target": "maximize accepted-pair coverage subject to selective evidence risk <= alpha",
+  "missing_required_inputs": [],
+  "output_contract_json": "outputs/modeling-validation/advanced-mathematical-validation/advanced_validation_output_contract.json",
+  "status": "PASS"
+}

@@ -7,6 +7,7 @@ Current contents:
 
 ```text
 final-modeling-bootstrap/
+advanced-mathematical-validation/
 pair-construction/
 evidence-feature-extraction/
 known-id-evidence-sufficiency-validation/
@@ -22,6 +23,9 @@ Current formal modeling entry:
 
 - `final-modeling-bootstrap/` builds the image-level modeling contract and
   claim gates.
+- `advanced-mathematical-validation/` defines the formal selective evidence
+  inference contract, authoritative inputs, advanced output schema, and claim
+  boundaries for the high-confidence mathematical validation layer.
 - `pair-construction/` builds CzechLynx known-ID pairs and Bobcat unlabeled
   transfer-stress pairs for the PF-ERI Selective Evidence Sufficiency Model.
 - `evidence-feature-extraction/` computes prespecified PF-ERI pair-level
