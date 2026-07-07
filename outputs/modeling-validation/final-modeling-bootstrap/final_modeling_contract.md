@@ -29,6 +29,10 @@ under `outputs/final_freeze/<scope>/images/`.
 - Bobcat identity accuracy, Bobcat false-match accuracy, and descriptor-training
   improvement claims remain blocked unless verified Bobcat identity labels or
   audited same/different Bobcat pair labels are added later.
+- The machine-readable image entry point is
+  `outputs/modeling-validation/final-modeling-bootstrap/final_modeling_image_index.csv`.
+- The machine-readable blocked/allowed claim gate is
+  `outputs/modeling-validation/final-modeling-bootstrap/final_modeling_claim_gates.json`.
 - `lynx-urban` is not a required 3000-image modeling cell; it is an optional
   auxiliary heterogeneity note only.
 
