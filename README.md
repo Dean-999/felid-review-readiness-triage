@@ -52,7 +52,7 @@ downgraded to species-level only, or marked non-comparable. This is the missing
 decision layer between "these images look similar" and "this comparison has
 admissible individual Re-ID evidence."
 
-The locked Phase 16I direction is therefore not to beat descriptor-only top-k
+The locked claim direction is therefore not to beat descriptor-only top-k
 ranking as the main claim. Descriptor-only remains a required strong baseline.
 PF-ERI's primary endpoints are evidence admissibility, descriptor-evidence
 conflict, false-candidate burden, positive retention, review burden,
@@ -94,45 +94,45 @@ abstention/risk coverage, and human-audit agreement.
 - Historical foundation: Phase 5/6/8/9/11/12/13 are preserved as evidence
   history and diagnostic reasoning. They explain why the project moved away from
   generic quality filtering and broad metric-learning claims.
-- Data foundation: Phase 14 built the current 2x2 evidence design with four
+- Data foundation: the wild-urban evidence foundation built the current 2x2 evidence design with four
   working-final evidence sets: CzechLynx high-confidence, CzechLynx low-evidence
   stress, bobcat high-confidence, and bobcat low-evidence stress. Fixed
   MegaDescriptor embeddings, pair comparability tables, descriptor-evidence
   conflict tables, image-level statistical analysis, and initial
   risk-controlled review-policy outputs are available locally under
-  `outputs/phase14/`.
-- Current model evidence: Phase 15 completed the evidence-routed review layer.
-  Phase 15C repeated query-split validation showed model-level signal across 20
+  `outputs/data-foundation/wild-urban-evidence-foundation/`.
+- Current model evidence: the evidence-routed review layer is complete.
+  Repeated query-split validation showed model-level signal across 20
   held-out CzechLynx query splits: HGB mean ROC-AUC 0.851 and AP 0.599 versus
   descriptor-only ROC-AUC 0.722 and AP 0.334. Top-k queue gains are modest, so
   the strongest current claim is PF-ERI as a calibrated review/risk layer rather
   than a broad Re-ID accuracy breakthrough.
-- Phase 16G/H update: real CzechLynx pair-table and leakage-excluded calibrated
+- Safeguards update: the real CzechLynx pair table and leakage-excluded calibrated
   router validation found pair-level signal but did not clear the conservative
-  descriptor-only top-k improvement gate. Phase 16I locks the project gap as
+  descriptor-only top-k improvement gate. The claim lock defines the project gap as
   post-retrieval evidence reliability and review utility, not descriptor
   replacement or ranking-superiority.
-- Operational routing: Phase 15D exported five-action CzechLynx review-routing
+- Operational routing: the all-data action export provides five-action CzechLynx review-routing
   tables: accept, review, defer, species-level-only, and non-comparable.
   `accept` means high-priority expert-review candidate, not automatic identity
   assignment.
-- Transfer stress: Phase 15E applied the CzechLynx-calibrated policy to
+- Transfer stress: the transfer-stress analysis applied the CzechLynx-calibrated policy to
   urban/peri-urban bobcat candidate pairs. Bobcat identity labels are
   unavailable, so this is a review-readiness and ambiguity-pressure stress test,
   not bobcat identity-accuracy validation.
-- Human audit: Phase 15F prepared a 250-pair bobcat manual-audit package with 50
+- Human audit: the bobcat pair-audit package contains 250 pairs with 50
   pairs from each review action.
-- Active next direction: Phase 16 keeps PF-ERI modeling as the core and adds
+- Active next direction: the safeguards layer keeps PF-ERI modeling as the core and adds
   data-governance/benchmark safeguards: laterality-aware sampling and pair
   audit, background/site leakage-pressure diagnostics, and strong-model
   benchmark preparation. Generative augmentation, ecological priors, and captive
   imagery remain later extensions. The next scientific validation should
   prioritize review utility and expert-audit agreement rather than another
   attempt to force descriptor-only ranking improvement.
-- Phase17A review utility: leakage-excluded CzechLynx validation now reports
+- Review utility: leakage-excluded CzechLynx validation now reports
   fixed review-budget, fixed positive-retention, abstention/risk-coverage,
   conflict-enrichment, and proxy review-action outputs under
-  `outputs/phase17/phase17a_czechlynx_review_utility/`. The result keeps the
+  `outputs/photo-selection/photo-entry-gates/czechlynx-review-utility/`. The result keeps the
   claim boundary intact: descriptor-only remains best on the k=10 ranking-like
   snapshot, while PF-ERI diagnostic review utility reduces false-pair retention
   at the 90% positive-retention endpoint.
@@ -147,27 +147,36 @@ abstention/risk coverage, and human-audit agreement.
 
 ## Folder Structure
 
-- `docs/CURRENT_PROJECT_MAP.md`: current phase/layer map and active-vs-archive
-  distinction.
-- `docs/phase16/`: active next strategy layer.
-- `docs/phase15/`: current Evidence-Routed Review Layer and calibrated
-  review-routing evidence.
-- `docs/phase14/`: current data foundation for 2x2 wild/urban x high/low
-  evidence sets.
-- `docs/phase6/`, `docs/phase8/`, `docs/phase9/`, `docs/phase11/`,
-  `docs/phase12/`, `docs/phase13/`: historical evidence and diagnostic
-  foundation.
-- `docs/archive/`: superseded plans/specs retained for historical rationale.
-- `docs/superpowers/plans/`: active executable plan location; currently Phase
-  16.
-- `docs/structure/`: repository and CSV/artifact maps.
+- `docs/project-governance/`: current rules, structure maps, logs, executable
+  plans, and claim-lock documentation.
+- `docs/data-foundation/`: data-foundation docs, including the former
+  `docs/data-foundation/wild-urban-evidence-foundation` evidence foundation.
+- `docs/photo-freeze/`: strict photo-entry and freeze docs, including the
+  former `docs/phase17` compatibility path.
+- `docs/pair-evidence/`: pair-level evidence research-question and contract
+  docs.
+- `docs/review-routing/`: evidence-routed review policy docs, including the
+  former `docs/phase15` compatibility path.
+- `docs/modeling-validation/`: strong-baseline, reviewability, and
+  identity-balanced validation docs, including the former `docs/phase18` compatibility path.
+- `docs/candidate-reservoirs/`: exploratory source-selection and candidate-pool
+  docs, including the former `docs/phase19` compatibility path.
+- `docs/archive/`: superseded plans/specs and historical phase rationale.
 - `scripts/`: active and recent phase scripts; see `scripts/README.md` for the
   current routing map.
 - `scripts/legacy/`: old phase scripts, annotation utilities, packaging scripts,
   preview scripts, and historical audits.
-- `colab/`: active cloud scripts plus archived metric-learning diagnostics.
-- `data/`: local raw/interim/label CSVs and images; not committed. See `data/README.md`.
-- `outputs/`: generated reports, audits, tables, packages, and review artifacts; not committed. See `outputs/README.md`.
+- `colab/`: cloud helpers organized by content area.
+- `data/`: local manifests, audits, labels, provenance records, mappings, and
+  intermediate CSV/JSON artifacts; not committed. Current image files are not
+  stored here. See `data/README.md`.
+- `outputs/`: generated reports, audits, tables, packages, and review artifacts
+  organized by content area; not committed. See `outputs/README.md`.
+
+Current navigation should use the content-based folders and
+`docs/project-governance/structure/content_directory_migration_map.csv`.
+Historical phase-number paths and alias-style compatibility directories are not
+part of the active structure.
 
 ## Claim Status
 

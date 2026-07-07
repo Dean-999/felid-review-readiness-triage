@@ -113,12 +113,16 @@ def build_gate_rows(
     strong_manifest_present = bool(strong_embedding_manifest and strong_embedding_manifest.exists())
     strong_scores_present = bool(strong_pair_scores and strong_pair_scores.exists())
     strong_runtime_ready = bool(deps["torch"] and deps["timm"])
+    external_artifacts_ready = strong_manifest_present and strong_scores_present
     return [
         {
             "gate_id": "strong_descriptor_runtime",
-            "gate_status": "PASS" if strong_runtime_ready else "BLOCKED",
+            "gate_status": "PASS" if strong_runtime_ready or external_artifacts_ready else "BLOCKED",
             "evidence": f"torch={deps['torch']} timm={deps['timm']} wildlife_tools={deps['wildlife_tools']}",
-            "required_repair": "Install torch+timm and run MegaDescriptor/WildlifeTools, or return strong embeddings from GPU/Colab.",
+            "required_repair": (
+                "Install torch+timm and run MegaDescriptor/WildlifeTools, or "
+                "return audited strong embeddings and pair scores from GPU/Colab."
+            ),
         },
         {
             "gate_id": "strong_embedding_artifact",

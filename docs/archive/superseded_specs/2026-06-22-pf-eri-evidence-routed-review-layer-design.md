@@ -4,7 +4,7 @@ Date: 2026-06-22
 
 ## Purpose
 
-This design upgrades Phase 14 from evidence analysis into a reviewer-useful reliability layer. The target is not a new Re-ID descriptor and not an identity-assignment platform. The target is a decision layer that could sit after strong descriptor retrieval and before expert review.
+This design upgrades legacy-code14 from evidence analysis into a reviewer-useful reliability layer. The target is not a new Re-ID descriptor and not an identity-assignment platform. The target is a decision layer that could sit after strong descriptor retrieval and before expert review.
 
 Best-product migration test:
 
@@ -21,7 +21,7 @@ accept, review, defer, species-level only, or non-comparable.
 
 ## Current Evidence Base
 
-Phase 14 now has the required 2x2 evidence pool:
+legacy-code14 now has the required 2x2 evidence pool:
 
 - wild CzechLynx high-confidence evidence: 3,000 images;
 - wild CzechLynx low-evidence stress: 3,000 images;
@@ -87,7 +87,7 @@ A result is not strong unless it beats or clarifies the best realistic alternati
 
 The main benchmark is CzechLynx because it has known IDs. Bobcat remains a same-genus urban/peri-urban transfer stress test unless individual IDs or audited same/different pair labels become available.
 
-## Phase 15 Work Units
+## legacy-code15 Work Units
 
 ### Unit 1: Candidate Query Benchmark
 
