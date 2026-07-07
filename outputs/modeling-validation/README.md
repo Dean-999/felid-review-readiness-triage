@@ -13,6 +13,7 @@ known-id-evidence-sufficiency-validation/
 risk-calibrated-evidence-admission/
 evidence-risk-decomposition/
 bobcat-wild-urban-transfer-stress/
+review-budget-routing/
 pair-level-validation/
 ```
 
@@ -33,3 +34,6 @@ Current formal modeling entry:
 - `bobcat-wild-urban-transfer-stress/` applies the calibrated evidence router
   to unlabeled Bobcat wild/urban transfer-stress pairs without making identity,
   false-match, mAP, MRR, or top-k retrieval claims.
+- `review-budget-routing/` compares PF-ERI selective review queues against a
+  descriptor-rank-only queue under fixed human review budgets and emits Bobcat
+  budget-allocation diagnostics without identity claims.
