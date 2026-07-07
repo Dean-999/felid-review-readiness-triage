@@ -1,0 +1,31 @@
+{
+  "built_at_utc": "2026-07-07T12:01:34+00:00",
+  "claim_gates_csv": "outputs/modeling-validation/robustness-and-claim-gates/final_claim_gate_table.csv",
+  "claim_status_counts": {
+    "allowed": 5,
+    "blocked": 5,
+    "exploratory": 2
+  },
+  "descriptor_counts": {
+    "dinov2_vitl14": 200,
+    "megadescriptor_l_384": 200
+  },
+  "final_frame": "PF-ERI is a pair-level evidence governance layer after strong descriptor retrieval.",
+  "identity_counts": {
+    "no": 200,
+    "yes": 200
+  },
+  "input_bobcat_audit_json": "outputs/modeling-validation/bobcat-wild-urban-transfer-stress/bobcat_transfer_stress_audit.json",
+  "input_budget_audit_json": "outputs/modeling-validation/review-budget-routing/review_budget_routing_audit.json",
+  "input_decomposition_audit_json": "outputs/modeling-validation/evidence-risk-decomposition/evidence_risk_decomposition_audit.json",
+  "input_routes_csv": "outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_pair_routes.csv",
+  "input_validation_table_csv": "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv",
+  "pair_rows": 400,
+  "reliability_csv": "outputs/modeling-validation/robustness-and-claim-gates/reliability_curve_checks.csv",
+  "sensitivity_csv": "outputs/modeling-validation/robustness-and-claim-gates/robustness_sensitivity_checks.csv",
+  "source_ablation_csv": "outputs/modeling-validation/robustness-and-claim-gates/source_shortcut_ablation.csv",
+  "source_domain_shift_values": [
+    "0.1"
+  ],
+  "status": "PASS"
+}

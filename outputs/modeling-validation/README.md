@@ -14,6 +14,7 @@ risk-calibrated-evidence-admission/
 evidence-risk-decomposition/
 bobcat-wild-urban-transfer-stress/
 review-budget-routing/
+robustness-and-claim-gates/
 pair-level-validation/
 ```
 
@@ -37,3 +38,6 @@ Current formal modeling entry:
 - `review-budget-routing/` compares PF-ERI selective review queues against a
   descriptor-rank-only queue under fixed human review budgets and emits Bobcat
   budget-allocation diagnostics without identity claims.
+- `robustness-and-claim-gates/` runs descriptor, identity, fold, calibration,
+  source-ablation, and final claim-gating checks to lock allowed, exploratory,
+  and blocked scientific claims.
