@@ -1,0 +1,5 @@
+risk_family,pair_count,not_ready_or_uncertain_count,mean_component_risk,human_supported_count
+image_evidence_deficit,400,125,0.2319999999999994,0
+pair_non_comparability,400,125,0.3587585124999999,0
+descriptor_evidence_conflict,400,125,0.3371018599999998,0
+domain_source_stress,400,125,0.10000000000000074,0

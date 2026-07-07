@@ -11,6 +11,7 @@ pair-construction/
 evidence-feature-extraction/
 known-id-evidence-sufficiency-validation/
 risk-calibrated-evidence-admission/
+evidence-risk-decomposition/
 pair-level-validation/
 ```
 
@@ -26,3 +27,5 @@ Current formal modeling entry:
   reviewability validation models with group-aware image splits.
 - `risk-calibrated-evidence-admission/` calibrates selective evidence-risk
   thresholds and emits accept/cautious/defer/conflict review routes.
+- `evidence-risk-decomposition/` decomposes risk into observable component
+  families and flags reason-label enrichment needs.
