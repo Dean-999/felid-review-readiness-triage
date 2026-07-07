@@ -1,14 +1,25 @@
 {
-  "built_at_utc": "2026-07-07T09:26:49+00:00",
+  "blocked_claim_count": 5,
+  "built_at_utc": "2026-07-07T10:44:31+00:00",
   "claim_boundary": "Readiness for PF-ERI pair-level evidence-governance modeling only; not descriptor training and not Bobcat identity accuracy.",
+  "claim_gates_json": "outputs/modeling-validation/final-modeling-bootstrap/final_modeling_claim_gates.json",
   "contract_md": "outputs/modeling-validation/final-modeling-bootstrap/final_modeling_contract.md",
   "core_scopes": [
     "bobcat-urban",
     "bobcat-wild",
     "lynx-wild"
   ],
+  "duplicate_image_ids": 0,
   "fail_count": 0,
   "final_freeze_root": "outputs/final_freeze",
+  "image_index_csv": "outputs/modeling-validation/final-modeling-bootstrap/final_modeling_image_index.csv",
+  "image_index_missing_files": 0,
+  "image_index_rows": 12000,
+  "image_index_scope_counts": {
+    "bobcat-urban": 6000,
+    "bobcat-wild": 3000,
+    "lynx-wild": 3000
+  },
   "index_csv": "outputs/modeling-validation/final-modeling-bootstrap/final_modeling_freeze_index.csv",
   "optional_scopes": [
     "lynx-urban"
@@ -18,6 +29,7 @@
       "final_freeze_image_path_nonempty": 3000,
       "identity_column": "source_identity_label",
       "identity_nonempty": 3000,
+      "identity_unique_count": 235,
       "identity_validation_allowed": true,
       "manifest_path": "outputs/final_freeze/lynx-wild/manifest.csv",
       "missing_image_files": 0,
@@ -25,6 +37,7 @@
       "notes": "",
       "permitted_endpoint": "same/different pair validation, reviewability, risk routing",
       "required": true,
+      "required_columns_missing": "",
       "row_count": 3000,
       "scope": "lynx-wild",
       "status": "PASS"
@@ -33,6 +46,7 @@
       "final_freeze_image_path_nonempty": 3000,
       "identity_column": "",
       "identity_nonempty": "",
+      "identity_unique_count": "",
       "identity_validation_allowed": false,
       "manifest_path": "outputs/final_freeze/bobcat-wild/manifest.csv",
       "missing_image_files": 0,
@@ -40,6 +54,7 @@
       "notes": "",
       "permitted_endpoint": "review-readiness, comparability, evidence-risk transfer",
       "required": true,
+      "required_columns_missing": "",
       "row_count": 3000,
       "scope": "bobcat-wild",
       "status": "PASS"
@@ -48,6 +63,7 @@
       "final_freeze_image_path_nonempty": 6000,
       "identity_column": "",
       "identity_nonempty": "",
+      "identity_unique_count": "",
       "identity_validation_allowed": false,
       "manifest_path": "outputs/final_freeze/bobcat-urban/manifest.csv",
       "missing_image_files": 0,
@@ -55,6 +71,7 @@
       "notes": "",
       "permitted_endpoint": "review-readiness, comparability, domain-shift pressure",
       "required": true,
+      "required_columns_missing": "",
       "row_count": 6000,
       "scope": "bobcat-urban",
       "status": "PASS"
@@ -63,6 +80,7 @@
       "final_freeze_image_path_nonempty": 0,
       "identity_column": "",
       "identity_nonempty": "",
+      "identity_unique_count": "",
       "identity_validation_allowed": false,
       "manifest_path": "outputs/final_freeze/lynx-urban/manifest.csv",
       "missing_image_files": 0,
@@ -70,6 +88,7 @@
       "notes": "manifest.csv is absent",
       "permitted_endpoint": "qualitative/exploratory context; not a 3000-image core",
       "required": false,
+      "required_columns_missing": "",
       "row_count": 0,
       "scope": "lynx-urban",
       "status": "OPTIONAL_MISSING"

@@ -1,0 +1,64 @@
+{
+  "feature_names": [
+    "descriptor_similarity_percentile",
+    "visible_pattern_area_score",
+    "viewpoint_side_compatibility",
+    "body_part_overlap_score",
+    "night_or_motion_blur_risk",
+    "cross_descriptor_agreement_score",
+    "source_domain_shift_score"
+  ],
+  "model_family": "descriptor_plus_pf_eri",
+  "thresholds": [
+    {
+      "alpha": 0.05,
+      "calibration_accepted_count": 12,
+      "calibration_coverage": 0.0851063829787234,
+      "calibration_empirical_risk": 0.0,
+      "evaluation_accepted_count": 29,
+      "evaluation_coverage": 0.11196911196911197,
+      "evaluation_empirical_risk": 0.0,
+      "threshold": 0.9356005718653658
+    },
+    {
+      "alpha": 0.1,
+      "calibration_accepted_count": 32,
+      "calibration_coverage": 0.22695035460992907,
+      "calibration_empirical_risk": 0.09375,
+      "evaluation_accepted_count": 70,
+      "evaluation_coverage": 0.2702702702702703,
+      "evaluation_empirical_risk": 0.04285714285714286,
+      "threshold": 0.8348553549011708
+    },
+    {
+      "alpha": 0.15,
+      "calibration_accepted_count": 48,
+      "calibration_coverage": 0.3404255319148936,
+      "calibration_empirical_risk": 0.14583333333333334,
+      "evaluation_accepted_count": 81,
+      "evaluation_coverage": 0.3127413127413127,
+      "evaluation_empirical_risk": 0.037037037037037035,
+      "threshold": 0.8087924306080564
+    },
+    {
+      "alpha": 0.2,
+      "calibration_accepted_count": 70,
+      "calibration_coverage": 0.49645390070921985,
+      "calibration_empirical_risk": 0.2,
+      "evaluation_accepted_count": 121,
+      "evaluation_coverage": 0.4671814671814672,
+      "evaluation_empirical_risk": 0.06611570247933884,
+      "threshold": 0.7315089982858451
+    },
+    {
+      "alpha": 0.3,
+      "calibration_accepted_count": 102,
+      "calibration_coverage": 0.723404255319149,
+      "calibration_empirical_risk": 0.29411764705882354,
+      "evaluation_accepted_count": 187,
+      "evaluation_coverage": 0.722007722007722,
+      "evaluation_empirical_risk": 0.12299465240641712,
+      "threshold": 0.567049488976266
+    }
+  ]
+}

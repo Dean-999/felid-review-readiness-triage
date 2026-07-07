@@ -1,0 +1,84 @@
+{
+  "claim_boundary": "Nonlinear sensitivity is CzechLynx reviewability evidence only; no identity matching or Bobcat transfer guarantee.",
+  "contract_issue": null,
+  "descriptor_counts": {
+    "dinov2_vitl14": 200,
+    "megadescriptor_l_384": 200
+  },
+  "feature_variation": {
+    "body_part_overlap_score": {
+      "estimability_status": "estimable_binned_sensitivity",
+      "expected_direction": "increasing_review_ready",
+      "max": 0.78,
+      "min": 0.141993,
+      "most_common_count": 4,
+      "most_common_value": 0.492958,
+      "unique_values": 315
+    },
+    "cross_descriptor_agreement_score": {
+      "estimability_status": "estimable_binned_sensitivity",
+      "expected_direction": "increasing_review_ready",
+      "max": 0.989782,
+      "min": 0.355781,
+      "most_common_count": 247,
+      "most_common_value": 0.5,
+      "unique_values": 117
+    },
+    "night_or_motion_blur_risk": {
+      "estimability_status": "not_estimable_constant_feature",
+      "expected_direction": "decreasing_review_ready",
+      "max": 0.18,
+      "min": 0.18,
+      "most_common_count": 400,
+      "most_common_value": 0.18,
+      "unique_values": 1
+    },
+    "source_domain_shift_score": {
+      "estimability_status": "not_estimable_constant_feature",
+      "expected_direction": "diagnostic_only",
+      "max": 0.1,
+      "min": 0.1,
+      "most_common_count": 400,
+      "most_common_value": 0.1,
+      "unique_values": 1
+    },
+    "viewpoint_side_compatibility": {
+      "estimability_status": "not_estimable_constant_feature",
+      "expected_direction": "increasing_review_ready",
+      "max": 0.7,
+      "min": 0.7,
+      "most_common_count": 400,
+      "most_common_value": 0.7,
+      "unique_values": 1
+    },
+    "visible_pattern_area_score": {
+      "estimability_status": "not_estimable_constant_feature",
+      "expected_direction": "increasing_review_ready",
+      "max": 0.74,
+      "min": 0.74,
+      "most_common_count": 400,
+      "most_common_value": 0.74,
+      "unique_values": 1
+    }
+  },
+  "generated_at": "2026-07-07T15:23:28+00:00",
+  "input_files": {
+    "conformal_routes": "outputs/modeling-validation/advanced-mathematical-validation/conformal_selective_pair_routes.csv",
+    "contract_audit": "outputs/modeling-validation/advanced-mathematical-validation/advanced_mathematical_validation_contract_audit.json",
+    "model_metrics": "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_model_metrics.csv",
+    "validation_table": "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
+  },
+  "method": {
+    "binning": "tie_aware_quantile_bins_for_features_with_at_least_4_unique_values",
+    "constant_feature_policy": "report_not_estimable_do_not_fit_or_interpolate",
+    "monotonic_check": "consecutive_bin_review_ready_rate_violations_against_prespecified_direction",
+    "quality_guardrail": "compare PF-ERI evidence-only and descriptor+PF-ERI AUROC against image-quality-only AUROC"
+  },
+  "output_files": {
+    "audit": "outputs/modeling-validation/advanced-mathematical-validation/feature_effect_monotonicity_audit.json",
+    "family_comparison": "outputs/modeling-validation/advanced-mathematical-validation/nonlinear_evidence_family_comparison.csv",
+    "report": "outputs/modeling-validation/advanced-mathematical-validation/nonlinear_evidence_sensitivity_README.md",
+    "sensitivity": "outputs/modeling-validation/advanced-mathematical-validation/nonlinear_evidence_sensitivity.csv"
+  },
+  "row_count": 400
+}

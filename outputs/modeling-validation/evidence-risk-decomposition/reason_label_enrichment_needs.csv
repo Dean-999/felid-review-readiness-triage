@@ -1,0 +1,5 @@
+reason_family,needed,available_support_count,notes
+image_evidence_deficit,yes,0,Add explicit not-ready reason labels if support is sparse.
+pair_non_comparability,yes,0,Add explicit not-ready reason labels if support is sparse.
+descriptor_evidence_conflict,yes,0,Add explicit not-ready reason labels if support is sparse.
+domain_source_stress,yes,0,Add explicit not-ready reason labels if support is sparse.

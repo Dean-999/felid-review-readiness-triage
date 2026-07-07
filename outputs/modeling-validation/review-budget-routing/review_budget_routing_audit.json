@@ -1,0 +1,67 @@
+{
+  "bobcat_budget_csv": "outputs/modeling-validation/review-budget-routing/bobcat_budget_allocation.csv",
+  "bobcat_budgets": [
+    50,
+    100,
+    250,
+    500,
+    1000,
+    2500,
+    5000
+  ],
+  "bobcat_descriptor_baseline_status": "not_estimable_without_bobcat_returned_pair_descriptor_scores",
+  "bobcat_pair_rows": 54000,
+  "built_at_utc": "2026-07-07T15:32:31+00:00",
+  "claim_boundary": "Review-budget allocation only; not identity accuracy or descriptor performance.",
+  "cluster_uncertainty_reference": {
+    "bootstrap_iterations_requested": "500",
+    "bootstrap_iterations_used": "500",
+    "ci_lower": "0.0362206585096886",
+    "ci_upper": "0.13048020667122556",
+    "claim_boundary": "Cluster-aware uncertainty for CzechLynx reviewability only; not a Bobcat identity metric.",
+    "cluster_count": "221",
+    "cluster_family": "query_image_cluster",
+    "metric": "alpha_0_15_selective_risk",
+    "point_estimate": "0.07751937984496124",
+    "row_count": "400",
+    "scope": "all",
+    "skipped_reason": "",
+    "uncertainty_status": "cluster_interval_reportable"
+  },
+  "conformal_thresholds_seen": [
+    "0.05",
+    "0.1",
+    "0.15",
+    "0.2",
+    "0.3"
+  ],
+  "czech_budget_csv": "outputs/modeling-validation/review-budget-routing/czechlynx_budget_risk_coverage.csv",
+  "czech_budgets": [
+    25,
+    50,
+    100,
+    150,
+    200,
+    300,
+    400
+  ],
+  "czech_pair_rows": 400,
+  "input_bobcat_routed_csv": "outputs/modeling-validation/bobcat-wild-urban-transfer-stress/bobcat_transfer_stress_routed_pairs.csv",
+  "input_cluster_intervals_csv": "outputs/modeling-validation/advanced-mathematical-validation/cluster_bootstrap_metric_intervals.csv",
+  "input_conformal_thresholds_csv": "outputs/modeling-validation/advanced-mathematical-validation/conformal_selective_thresholds.csv",
+  "input_routes_csv": "outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_pair_routes.csv",
+  "input_validation_table_csv": "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv",
+  "objective": "maximize sum evidence_admission_score with selected_count<=B and mean predicted evidence_risk_score<=alpha",
+  "recommendations_md": "outputs/modeling-validation/review-budget-routing/review_budget_routing_recommendations.md",
+  "selection_leakage_guard": "Human review labels are not used for selection; they are used only for post-selection empirical risk reporting.",
+  "status": "PASS",
+  "strategies": [
+    "pferi_risk_constrained_queue",
+    "descriptor_rank_risk_checked_queue",
+    "descriptor_rank_fixed_budget_unconstrained"
+  ],
+  "target_alphas": [
+    0.15,
+    0.3
+  ]
+}

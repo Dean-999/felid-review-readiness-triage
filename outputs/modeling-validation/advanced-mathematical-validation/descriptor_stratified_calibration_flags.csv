@@ -1,0 +1,9 @@
+descriptor_name,flag_id,severity,status,evidence,recommended_interpretation
+megadescriptor_l_384,primary_model_calibration_status,info,pass,AUROC=0.8166580041580042; ECE=0.05451371918485433; pair_count=200,Report descriptor-family-specific results; do not rely only on pooled metrics.
+megadescriptor_l_384,any_model_weak_calibration_ece,warning,warning,quality_only:ECE=0.1079796701765586,"Calibration weakness in any comparator model should be reported as model-family nuance, not hidden by the primary model."
+megadescriptor_l_384,alpha_0_15_calibration_selective_risk,info,pass,calibration_selective_risk=0.05; coverage=0.28169014084507044,Pooled alpha threshold may not control every descriptor family separately; report descriptor-specific calibration risk.
+megadescriptor_l_384,alpha_0_15_evaluation_selective_risk,info,pass,evaluation_selective_risk=0.0; coverage=0.3643410852713178,Evaluation risk is reported separately and was not used to choose the threshold.
+dinov2_vitl14,primary_model_calibration_status,info,pass,AUROC=0.8054147341171395; ECE=0.04520239330033935; pair_count=200,Report descriptor-family-specific results; do not rely only on pooled metrics.
+dinov2_vitl14,any_model_weak_calibration_ece,info,pass,none,"Calibration weakness in any comparator model should be reported as model-family nuance, not hidden by the primary model."
+dinov2_vitl14,alpha_0_15_calibration_selective_risk,warning,risk_gt_alpha_or_not_estimable,calibration_selective_risk=0.21428571428571427; coverage=0.4,Pooled alpha threshold may not control every descriptor family separately; report descriptor-specific calibration risk.
+dinov2_vitl14,alpha_0_15_evaluation_selective_risk,info,pass,evaluation_selective_risk=0.08823529411764706; coverage=0.26153846153846155,Evaluation risk is reported separately and was not used to choose the threshold.

@@ -54,6 +54,46 @@ class FinalModelingBootstrapTests(unittest.TestCase):
             finally:
                 bootstrap.FINAL_FREEZE_ROOT = original_root
 
+    def test_image_index_rows_encode_claim_boundaries(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            original_root = bootstrap.PROJECT_ROOT
+            try:
+                bootstrap.PROJECT_ROOT = Path(tmp)
+                scope_dir = Path(tmp) / "outputs/final_freeze/bobcat-wild"
+                image_dir = scope_dir / "images"
+                image_dir.mkdir(parents=True)
+                image = image_dir / "bobcat.jpg"
+                image.write_bytes(b"fake")
+                manifest = scope_dir / "manifest.csv"
+                manifest.write_text(
+                    "final_freeze_image_path,candidate_id,final_freeze_sha256,final_freeze_bytes\n"
+                    "outputs/final_freeze/bobcat-wild/images/bobcat.jpg,bobcat_001,abc,4\n",
+                    encoding="utf-8",
+                )
+
+                rows = bootstrap.build_image_index_rows(
+                    "bobcat-wild",
+                    bootstrap.CORE_SCOPES["bobcat-wild"],
+                    manifest,
+                )
+
+                self.assertEqual(rows[0]["image_id"], "pferi_bobcat_wild_00001")
+                self.assertEqual(rows[0]["scope"], "bobcat-wild")
+                self.assertFalse(rows[0]["identity_validation_allowed"])
+                self.assertEqual(rows[0]["identity_label_status"], "not_applicable")
+                self.assertTrue(rows[0]["local_image_exists"])
+                self.assertIn("identity accuracy claims are blocked", rows[0]["claim_boundary"])
+            finally:
+                bootstrap.PROJECT_ROOT = original_root
+
+    def test_claim_gates_block_bobcat_identity_metrics(self) -> None:
+        gates = bootstrap.build_claim_gates()
+        blocked_claims = {item["claim"] for item in gates["blocked_claims"]}
+
+        self.assertIn("Bobcat identity accuracy", blocked_claims)
+        self.assertIn("Bobcat false-match accuracy", blocked_claims)
+        self.assertIn("Bobcat mAP/MRR/top-k identity retrieval performance", blocked_claims)
+
 
 if __name__ == "__main__":
     unittest.main()

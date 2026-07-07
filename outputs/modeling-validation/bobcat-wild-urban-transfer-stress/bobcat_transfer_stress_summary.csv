@@ -1,0 +1,5 @@
+pair_scope,pair_count,mean_evidence_admission_score,mean_evidence_risk_score,accept_review_rate,cautious_review_rate,defer_low_evidence_rate,conflict_review_rate,expected_human_review_burden_rate,calibration_drift_mean_score_vs_czechlynx,claim_boundary
+bobcat-urban,18000,0.0,1.0,0.0,0.0,1.0,0.0,1.0,-0.6824616509949815,Transfer-stress evidence burden only; no Bobcat identity metric.
+bobcat-urban_to_bobcat-wild,18000,0.0,1.0,0.0,0.0,1.0,0.0,1.0,-0.6824616509949815,Transfer-stress evidence burden only; no Bobcat identity metric.
+bobcat-wild,9000,0.0071111111111111115,0.9928888888888889,0.0071111111111111115,0.0,0.9928888888888889,0.0,0.9928888888888889,-0.6753505398838704,Transfer-stress evidence burden only; no Bobcat identity metric.
+bobcat-wild_to_bobcat-urban,9000,0.0,1.0,0.0,0.0,1.0,0.0,1.0,-0.6824616509949815,Transfer-stress evidence burden only; no Bobcat identity metric.

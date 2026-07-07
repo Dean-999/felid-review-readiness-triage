@@ -1,0 +1,24 @@
+{
+  "built_at_utc": "2026-07-07T15:08:17+00:00",
+  "claim_boundary": "PF-ERI is evaluated after descriptor retrieval; descriptor-stratified diagnostics do not claim descriptor replacement.",
+  "descriptor_scopes": [
+    "megadescriptor_l_384",
+    "dinov2_vitl14"
+  ],
+  "descriptor_stratified_calibration_csv": "outputs/modeling-validation/advanced-mathematical-validation/descriptor_stratified_calibration.csv",
+  "descriptor_stratified_flags_csv": "outputs/modeling-validation/advanced-mathematical-validation/descriptor_stratified_calibration_flags.csv",
+  "descriptor_stratified_reliability_csv": "outputs/modeling-validation/advanced-mathematical-validation/descriptor_stratified_reliability.csv",
+  "descriptor_stratified_risk_coverage_csv": "outputs/modeling-validation/advanced-mathematical-validation/descriptor_stratified_risk_coverage.csv",
+  "input_calibration_bins_csv": "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_calibration_bins.csv",
+  "input_cluster_intervals_csv": "outputs/modeling-validation/advanced-mathematical-validation/cluster_bootstrap_metric_intervals.csv",
+  "input_conformal_routes_csv": "outputs/modeling-validation/advanced-mathematical-validation/conformal_selective_pair_routes.csv",
+  "input_model_metrics_csv": "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_model_metrics.csv",
+  "model_families": [
+    "descriptor_only",
+    "quality_only",
+    "pf_eri_evidence_only",
+    "descriptor_plus_pf_eri"
+  ],
+  "status": "PASS",
+  "warning_count": 2
+}

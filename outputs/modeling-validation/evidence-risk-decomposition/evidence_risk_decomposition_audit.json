@@ -1,0 +1,19 @@
+{
+  "built_at_utc": "2026-07-07T11:45:55+00:00",
+  "claim_boundary": "Component risk attribution; latent reason classes require human reason-label support.",
+  "decomposition_csv": "outputs/modeling-validation/evidence-risk-decomposition/pair_evidence_risk_decomposition.csv",
+  "dominant_risk_family_counts": {
+    "descriptor_evidence_conflict": 186,
+    "pair_non_comparability": 214
+  },
+  "enrichment_csv": "outputs/modeling-validation/evidence-risk-decomposition/reason_label_enrichment_needs.csv",
+  "input_routes_csv": "outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_pair_routes.csv",
+  "input_validation_table_csv": "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv",
+  "pair_rows": 400,
+  "reason_label_enrichment_needed": true,
+  "reason_support_counts": {
+    "component_attribution_only": 400
+  },
+  "status": "PASS",
+  "summary_csv": "outputs/modeling-validation/evidence-risk-decomposition/risk_family_summary.csv"
+}

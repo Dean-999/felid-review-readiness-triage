@@ -1,0 +1,35 @@
+{
+  "allowed_claims": [
+    "CzechLynx reviewed-pair evidence sufficiency can be evaluated with human reviewability labels.",
+    "Model-family comparisons are exploratory unless robustness/claim gates pass later."
+  ],
+  "blocked_claims": [
+    "Bobcat identity accuracy",
+    "Bobcat false-match accuracy",
+    "mAP/MRR/top-k identity retrieval improvement",
+    "Automatic individual identification"
+  ],
+  "bobcat_rows": 0,
+  "built_at_utc": "2026-07-07T11:36:57+00:00",
+  "calibration_csv": "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_calibration_bins.csv",
+  "claim_boundary": "Known-ID CzechLynx reviewability validation only.",
+  "coefficient_csv": "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_model_coefficients.csv",
+  "descriptor_counts": {
+    "dinov2_vitl14": 200,
+    "megadescriptor_l_384": 200
+  },
+  "direct_overlap_with_issue7_pair_feature_table": 54,
+  "image_fold_leakage_count": 0,
+  "input_feature_table_csv": "outputs/modeling-validation/evidence-feature-extraction/pair_evidence_features.csv",
+  "input_majority_labels_csv": "outputs/modeling-validation/pair-level-validation/identity-balanced-analysis/legacy-code18m_pair_majority_labels.csv",
+  "metrics_csv": "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_model_metrics.csv",
+  "model_metric_rows": 12,
+  "review_ready_counts": {
+    "0": 125,
+    "1": 275
+  },
+  "reviewability_rows": 400,
+  "status": "PASS",
+  "unique_images_in_validation": 397,
+  "validation_table_csv": "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
+}
