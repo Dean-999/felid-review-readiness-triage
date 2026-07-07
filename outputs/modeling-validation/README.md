@@ -10,6 +10,7 @@ final-modeling-bootstrap/
 pair-construction/
 evidence-feature-extraction/
 known-id-evidence-sufficiency-validation/
+risk-calibrated-evidence-admission/
 pair-level-validation/
 ```
 
@@ -23,3 +24,5 @@ Current formal modeling entry:
   evidence components and records predictor/label/diagnostic field roles.
 - `known-id-evidence-sufficiency-validation/` trains interpretable CzechLynx
   reviewability validation models with group-aware image splits.
+- `risk-calibrated-evidence-admission/` calibrates selective evidence-risk
+  thresholds and emits accept/cautious/defer/conflict review routes.
