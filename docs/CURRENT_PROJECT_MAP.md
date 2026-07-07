@@ -1,128 +1,147 @@
 # Current Project Map
 
-Date: 2026-06-23
+Date: 2026-07-07
 
-This file is the current navigation layer for the repository. It separates the
-active PF-ERI modeling line from historical experiments, superseded plans, and
-data-construction work.
+This is the current navigation layer after the repository slimming. The active
+project is no longer organized around the old Phase16/17/18 directory names.
+Those folders remain provenance, diagnostics, or legacy reproduction material.
 
-## Active Core
-
-The current project is:
+## Core Claim
 
 ```text
-PF-ERI for Same-Genus Wild-to-Urban Lynx Re-ID Evidence Reliability
+PF-ERI is a post-retrieval, pair-level evidence governance layer for patterned
+felid Re-ID candidate review.
 ```
 
-The active modeling chain is:
+PF-ERI is not a new descriptor, not automatic individual recognition, and not a
+primary top-k/mAP improvement claim. The active question is whether a candidate
+pair returned by a strong descriptor queue is evidence-admissible,
+review-ready, should be deferred, or carries evidence risk.
+
+## Current Data Entry Point
+
+Use this folder for final modeling inputs:
+
+```text
+outputs/final_freeze/
+```
+
+Current frozen scopes:
+
+| Scope | Status | Rows | Role |
+| --- | --- | ---: | --- |
+| `lynx-wild` | frozen | 3,000 | known-ID CzechLynx validation core |
+| `bobcat-wild` | frozen | 3,000 | wild Bobcat transfer/evidence stress core |
+| `bobcat-urban` | frozen | 6,000 | urban/peri-urban Bobcat stress and pair-contamination core |
+| `lynx-urban` | auxiliary only | no 3000-image manifest | small heterogeneity note; not a forced core cell |
+
+Rules:
+
+- final modeling must read `outputs/final_freeze/<scope>/manifest.csv`;
+- final modeling must use copied files in `outputs/final_freeze/<scope>/images/`;
+- candidate reservoirs and historical phase outputs are provenance, not the
+  modeling entry point;
+- Bobcat rows do not provide verified individual identity labels;
+- Bobcat identity accuracy and Bobcat false-match accuracy remain blocked unless
+  verified individual labels or audited same/different Bobcat pair labels are
+  created later;
+- do not force a symmetric CzechLynx urban 3000 cell.
+
+## Current Evidence Status
+
+Phase18L and Phase18M establish the current pair-level mechanism.
+
+Phase18L descriptor-controlled result:
+
+```text
+PASS
+```
+
+Phase18M identity-balanced result:
+
+```text
+BLIND_CONFIRMED_IDENTITY_BALANCED_PASS
+```
+
+Interpretation:
+
+```text
+Low PF-ERI admissibility remains enriched for human uncertain/not-ready
+reviewability labels after descriptor family, descriptor similarity, and known
+same/different identity stratum are controlled.
+```
+
+This supports PF-ERI as a pair-level reviewability and evidence-admissibility
+signal. It does not support a claim that PF-ERI is an identity classifier.
+
+## Active Modeling Direction
+
+The next active layer is:
+
+```text
+PF-ERI Selective Evidence Sufficiency Model
+```
+
+The formal modeling chain is:
 
 ```text
 strong descriptor retrieval
--> PF-ERI pair-level evidence utility
--> descriptor-evidence conflict
--> calibrated review routing
--> risk-controlled evaluation
--> wild-to-urban transfer stress
+-> candidate pair queue
+-> pair-level evidence sufficiency scoring
+-> calibrated selective evidence admission
+-> risk-coverage and review-budget routing
+-> Bobcat wild/urban transfer-stress evaluation
 ```
 
-PF-ERI is not a new descriptor and not automatic identity assignment. It is a
-pair-level evidence reliability and review-routing layer around strong existing
-Re-ID systems.
+Scientific subtitle:
 
-Phase 16I locks the current gap: PF-ERI is a post-retrieval evidence
-admissibility and review-utility layer, not a descriptor replacement and not a
-top-k ranking-improvement claim.
+```text
+A risk-calibrated selective inference layer for wildlife Re-ID candidate pairs
+```
 
-## Phase Layers
+The first modeling bootstrap is:
 
-### Layer 0: Historical Foundation
+```text
+scripts/build_final_modeling_bootstrap.py
+outputs/modeling-validation/final-modeling-bootstrap/
+```
 
-Purpose: preserve why the project moved away from generic review-readiness and
-simple metric-learning claims.
+Run this before final algorithm work. It verifies that the physical freeze is
+usable and writes the modeling contract that downstream scripts should consume.
 
-- `docs/phase6/`: PF-ERI Control history, validation digests, annotation
-  workflow, and claim boundaries.
-- `docs/phase8/`: retrieval-control evidence and boundary interpretation.
-- `docs/phase9/`: no-training PF-ERI reranking results.
-- `docs/phase11/`: pair-reliability math and early pair-level learning
-  implementation.
-- `docs/phase12/`: RQ1-RQ4 pairwise evidence foundation and confidence maps.
-- `docs/phase13/`: learned utility and metric-learning failure diagnostics.
+Active work after this point must be named by module purpose, not by new phase
+numbers. Examples: `modeling-contract`, `evidence-feature-extraction`,
+`known-id-evidence-sufficiency-validation`,
+`risk-calibrated-evidence-admission`, `bobcat-wild-urban-transfer-stress`,
+and `review-budget-routing`.
 
-Status: historical evidence. Use for citations, rationale, and cautionary
-lessons. Do not treat these as the current main roadmap.
+## Current Folder Roles
 
-### Layer 1: Data Construction and Evidence Design
+Active:
 
-Purpose: construct the 2x2 wild/urban x high/low evidence dataset and detector-
-first evidence gates.
+- `outputs/final_freeze/`: current physical photo freeze and manifest entry.
+- `outputs/modeling-validation/final-modeling-bootstrap/`: generated readiness
+  contract for final modeling.
+- `outputs/modeling-validation/pair-level-validation/`: completed pair-level
+  validation evidence, strong descriptor controls, and reviewability analyses.
+- `docs/modeling-validation/pair-level-validation/`: scientific interpretation
+  and claim boundaries for completed validation and the transition into
+  selective evidence sufficiency modeling.
+- `docs/photo-freeze/`: photo-freeze rules and provenance map.
+- `docs/project-governance/`: structure maps, logs, project rules, and
+  executable plans.
+- `PROJECT_RULES.md`: binding scientific claim boundaries.
+- `AGENTS.md`: CodeGraph and project-specific tool guardrails.
 
-- `docs/phase14/`: same-genus wild-to-urban reliability design, 2x2 evidence
-  sets, MegaDetector screening, manual audit logic, and output structure.
-- `scripts/*phase14*`: manifests, detector-first selection, evidence tables,
-  descriptor packages, pair comparability, and conflict tables.
-- `colab/phase14_megadetector_selection/`: cloud MegaDetector helper.
+Legacy/provenance:
 
-Status: active data foundation. Keep these available because Phase 15 and Phase
-16 depend on their outputs.
+- old `outputs/phase16`, `outputs/phase17`, and `outputs/phase18` paths;
+- old `docs/phase*` paths;
+- archived metric-learning and candidate-selection scripts;
+- candidate source pools under `data/` or historical output folders.
 
-### Layer 2: Current Modeling Results
-
-Purpose: validate PF-ERI as an evidence-routed review/risk layer on known-ID
-CzechLynx and transfer the policy to bobcat as a stress test.
-
-- `docs/phase15/`: query benchmark, calibrated ranker results, repeated
-  validation, review policy, wild-to-urban stress analysis, and bobcat pair
-  audit package.
-- `scripts/build_phase15*.py`: current modeling and review-routing scripts.
-- `colab/phase15_calibrated_ranker_colab.py`: optional cloud ranker training.
-
-Status: current evidence base. Phase 15C repeated validation and Phase 15D/E/F
-are the main empirical story right now.
-
-### Layer 3: Next Strategy
-
-Purpose: protect the current model against weak-baseline, data-bias, and
-overclaiming criticism without changing the main contribution.
-
-- `PROJECT_RULES.md`: current scientific rules and claim boundaries.
-- `docs/superpowers/plans/2026-06-23-phase16-balanced-pf-eri-strategy.md`:
-  executable next-step plan.
-- `docs/phase16/`: Phase 16 entry point and implementation notes.
-- `docs/phase16/phase16i_gap_rationale.md`: binding gap rationale. Use this to
-  prevent later work from drifting into descriptor-replacement or unsupported
-  top-k improvement claims.
-
-Status: active next direction. The seven advisor-suggested points are data
-governance, benchmark, and robustness safeguards around PF-ERI, not the core
-modeling contribution.
-
-### Layer 4: Locked-Gap Review Utility
-
-Purpose: validate the Phase16I gap directly: PF-ERI should add review utility
-after strong descriptor retrieval, not replace the descriptor.
-
-- `scripts/build_phase17a_czechlynx_review_utility.py`: leakage-excluded
-  CzechLynx review-utility validation.
-- `docs/superpowers/plans/2026-06-29-phase17a-czechlynx-review-utility.md`:
-  executable Phase17A plan.
-- `outputs/phase17/phase17a_czechlynx_review_utility/`: generated fixed-budget,
-  positive-retention, abstention, conflict-enrichment, and proxy-action outputs.
-
-Status: active review-utility evidence. Do not reinterpret it as a descriptor
-replacement or automatic identity-assignment result.
-
-## Archived Material
-
-- `docs/archive/superseded_plans/`: older executable plans replaced by the
-  Phase 16 strategy.
-- `docs/archive/superseded_specs/`: older design specs whose conclusions were
-  merged into Phase 14/15/16.
-- `colab/archive_metric_learning/`: metric-learning cloud scripts from earlier
-  diagnostic phases. They are preserved because they explain why metric learning
-  is not the current main path.
-- `scripts/legacy/`: historical scripts needed only for reproducing older
-  analyses.
+Legacy material can explain how a dataset was constructed, but it must not
+override `outputs/final_freeze` or current claim rules.
 
 ## What Counts As Core Now
 
@@ -130,27 +149,18 @@ Core:
 
 - pair-level PF-ERI evidence utility;
 - descriptor-evidence conflict;
-- calibrated review routing;
-- risk-coverage and review-burden evaluation;
+- review-readiness and evidence-admissibility routing;
+- calibrated selective evidence admission;
+- risk coverage, positive retention, and review burden;
+- review-budget routing;
 - CzechLynx known-ID validation;
-- bobcat wild-to-urban review-readiness stress testing.
+- Bobcat wild/urban transfer and evidence-risk stress testing;
+- strong-descriptor-controlled comparison.
 
-Not core, but still useful safeguards:
+Not core:
 
-- laterality-aware sampling and pair audit;
-- background/site leakage-pressure diagnostics;
-- strong-model benchmark packaging;
-- generative or augmentation robustness;
-- captive imagery as a future calibration ceiling;
-- ecological/spatiotemporal plausibility priors.
-
-## Do Not Revive As Main Claims
-
-- PF-ERI as a new descriptor.
-- automatic identity assignment.
-- bobcat identity accuracy without verified labels.
-- urbanization causality.
-- metric-learning improvement without strong held-out controls.
-- generic image-quality filtering as the main contribution.
-- descriptor-only top-k improvement as the main contribution unless a later
-  leakage-controlled held-out validation directly supports it.
+- training a new descriptor as the main contribution;
+- claiming automatic Bobcat individual recognition;
+- claiming Bobcat identity accuracy without verified Bobcat identities;
+- forcing a 4x3000 design when the fourth cell is scientifically weak;
+- using old candidate-selection folders as final modeling inputs.

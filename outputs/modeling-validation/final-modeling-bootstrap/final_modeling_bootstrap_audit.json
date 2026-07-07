@@ -1,0 +1,79 @@
+{
+  "built_at_utc": "2026-07-07T09:26:49+00:00",
+  "claim_boundary": "Readiness for PF-ERI pair-level evidence-governance modeling only; not descriptor training and not Bobcat identity accuracy.",
+  "contract_md": "outputs/modeling-validation/final-modeling-bootstrap/final_modeling_contract.md",
+  "core_scopes": [
+    "bobcat-urban",
+    "bobcat-wild",
+    "lynx-wild"
+  ],
+  "fail_count": 0,
+  "final_freeze_root": "outputs/final_freeze",
+  "index_csv": "outputs/modeling-validation/final-modeling-bootstrap/final_modeling_freeze_index.csv",
+  "optional_scopes": [
+    "lynx-urban"
+  ],
+  "rows": [
+    {
+      "final_freeze_image_path_nonempty": 3000,
+      "identity_column": "source_identity_label",
+      "identity_nonempty": 3000,
+      "identity_validation_allowed": true,
+      "manifest_path": "outputs/final_freeze/lynx-wild/manifest.csv",
+      "missing_image_files": 0,
+      "modeling_role": "known-ID CzechLynx validation core",
+      "notes": "",
+      "permitted_endpoint": "same/different pair validation, reviewability, risk routing",
+      "required": true,
+      "row_count": 3000,
+      "scope": "lynx-wild",
+      "status": "PASS"
+    },
+    {
+      "final_freeze_image_path_nonempty": 3000,
+      "identity_column": "",
+      "identity_nonempty": "",
+      "identity_validation_allowed": false,
+      "manifest_path": "outputs/final_freeze/bobcat-wild/manifest.csv",
+      "missing_image_files": 0,
+      "modeling_role": "wild Bobcat transfer/evidence stress core",
+      "notes": "",
+      "permitted_endpoint": "review-readiness, comparability, evidence-risk transfer",
+      "required": true,
+      "row_count": 3000,
+      "scope": "bobcat-wild",
+      "status": "PASS"
+    },
+    {
+      "final_freeze_image_path_nonempty": 6000,
+      "identity_column": "",
+      "identity_nonempty": "",
+      "identity_validation_allowed": false,
+      "manifest_path": "outputs/final_freeze/bobcat-urban/manifest.csv",
+      "missing_image_files": 0,
+      "modeling_role": "urban/peri-urban Bobcat stress and pair contamination core",
+      "notes": "",
+      "permitted_endpoint": "review-readiness, comparability, domain-shift pressure",
+      "required": true,
+      "row_count": 6000,
+      "scope": "bobcat-urban",
+      "status": "PASS"
+    },
+    {
+      "final_freeze_image_path_nonempty": 0,
+      "identity_column": "",
+      "identity_nonempty": "",
+      "identity_validation_allowed": false,
+      "manifest_path": "outputs/final_freeze/lynx-urban/manifest.csv",
+      "missing_image_files": 0,
+      "modeling_role": "small auxiliary heterogeneity note only",
+      "notes": "manifest.csv is absent",
+      "permitted_endpoint": "qualitative/exploratory context; not a 3000-image core",
+      "required": false,
+      "row_count": 0,
+      "scope": "lynx-urban",
+      "status": "OPTIONAL_MISSING"
+    }
+  ],
+  "status": "PASS_READY_FOR_FINAL_MODELING_BOOTSTRAP"
+}

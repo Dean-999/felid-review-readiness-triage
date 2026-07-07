@@ -65,6 +65,198 @@ PF-ERI may wrap, audit, and route outputs from Wildbook/WBIA, MegaDescriptor,
 MiewID, WildlifeTools, WildFusion, or equivalent systems, but it must not be
 presented as replacing their descriptor or identity-database role.
 
+## Daily Log And Direction-Change Rule
+
+The project must keep a tracked daily work log at:
+
+```text
+docs/logs/daily_work_log.md
+```
+
+Every project day should record:
+
+1. date and local timezone;
+2. files, scripts, docs, or outputs changed;
+3. generated artifacts or external results received;
+4. the scientific decision made that day;
+5. any change in project direction, claim boundary, or priority;
+6. the next action.
+
+If a day is reconstructed from git history, file modification times, or generated
+output timestamps rather than written live, mark it as `reconstructed`. Do not
+rewrite uncertainty as certainty. If the evidence only supports "local cleanup"
+or "no committed change visible," record that plainly.
+
+Important direction changes must be reflected in all three places:
+
+```text
+PROJECT_RULES.md
+docs/CURRENT_PROJECT_MAP.md
+docs/logs/daily_work_log.md
+```
+
+## Documentation Hygiene Rule
+
+Do not create a new Markdown report for every operational task.
+
+Default behavior:
+
+```text
+update the existing README / manifest / audit / daily log
+```
+
+Create a new `.md` document only when it is one of these durable artifacts:
+
+1. a project-level decision, claim boundary, or protocol;
+2. a reusable method/specification;
+3. a final scientific result or manuscript-facing report;
+4. an onboarding or navigation document that replaces several scattered notes.
+
+Do not keep one-off cleanup reports, temporary path audits, deletion plans,
+large hash indexes, or exploratory scratch summaries in `docs/` after the task
+is complete. If a temporary audit is needed for safety, use JSON/CSV during the
+operation, then delete it once final counts are verified and the durable state is
+reflected in an existing README, audit, or daily log.
+
+For storage cleanup, photo freeze materialization, path migration, and similar
+operations, the durable record should be limited to:
+
+```text
+the affected manifest/audit file
+the relevant README if user-facing behavior changed
+docs/project-governance/logs/daily_work_log.md
+```
+
+Avoid placing large generated inventories in `docs/`. If a large generated file
+is truly needed, put it under an ignored temporary or output location and remove
+it after review.
+
+## CodeGraph Use Boundary Rule
+
+CodeGraph is required for code-structure orientation in this indexed repository,
+but it is not evidence for scientific data state.
+
+Use CodeGraph for:
+
+```text
+locating scripts
+understanding functions
+tracing code paths
+checking implementation blast radius
+```
+
+Do not use CodeGraph as the source of truth for:
+
+```text
+CSV contents
+photo validity
+image clarity
+phase completion status
+final candidate counts
+scientific claim boundaries
+human review decisions
+```
+
+For Bobcat/CzechLynx phase decisions, the source of truth is the concrete
+artifact layer:
+
+```text
+CSV manifests
+JSON audit files
+review working sheets
+generated reports
+direct row counts
+project rules and docs
+```
+
+If a broad CodeGraph query about Bobcat photo selection returns old CzechLynx
+legacy scripts or otherwise irrelevant files, treat that as a retrieval miss,
+not as a project direction signal. Narrow the query or inspect the known artifact
+paths directly.
+
+Observed failure mode, 2026-07-01:
+
+```text
+CodeGraph queries for CzechLynx strict3000 supplement/augmentation returned a
+mixture of the current supplement script, older Bobcat strict-clarity prototype
+files, and legacy CzechLynx scripts. This is acceptable for locating possible
+code, but it is not acceptable for deciding dataset state.
+```
+
+Required response:
+
+```text
+Use CodeGraph to locate the candidate code file.
+Then verify all data claims from concrete CSV/JSON/report artifacts and direct
+row/file counts.
+Do not let a broad CodeGraph result redirect CzechLynx/Bobcat phase decisions
+to an older legacy path.
+```
+
+Operational check:
+
+```text
+scripts/check_codegraph_project_contract.py
+```
+
+Run this when CodeGraph behavior is questioned. It verifies the root index,
+records `codegraph status`, and checks the exact docs/scripts that define the
+current project. If CodeGraph returns legacy/prototype paths for a current data
+question, use the exact paths in `docs/structure/current_pipeline_manifest.md`
+and verify the corresponding CSV/JSON artifacts directly.
+
+Binding rule:
+
+```text
+CodeGraph can answer "where is the code?"
+It cannot answer "which photos are valid?" or "what phase is scientifically correct?"
+```
+
+## Phase18M Highest-Confidence Closure Rule
+
+Phase18M is the current highest-confidence CzechLynx pair-level reviewability
+validation layer. It directly addresses the Phase18L identity-confounding
+vulnerability by balancing:
+
+```text
+same-ID + high PF-ERI admissibility
+same-ID + low PF-ERI admissibility
+different-ID + high PF-ERI admissibility
+different-ID + low PF-ERI admissibility
+```
+
+Current completed empirical status:
+
+```text
+BLIND_CONFIRMED_IDENTITY_BALANCED_PASS
+```
+
+The completed Phase18M blind-confirmed identity-balanced result supports the
+claim that low PF-ERI admissibility enriches human uncertain/not-ready
+reviewability labels after controlling descriptor family, descriptor similarity,
+and known same/different identity stratum.
+
+Blind confirmation condition:
+
+```text
+The blind confirmation artifacts exist, the same 400 Phase18M pairs were
+reviewed under the blind-review condition, and the Phase18M analysis gate has
+been rerun with PASS status.
+```
+
+Permitted status wording:
+
+```text
+BLIND_CONFIRMED_IDENTITY_BALANCED_PASS
+```
+
+Final claim rule:
+
+```text
+Phase18M may be described as blind-confirmed because the rerun claim gate passes
+all four descriptor x identity-stratum cells and the reviewer-reliability floor.
+```
+
 ## Wild-to-Urban Evidence Propagation Rule
 
 The wild-to-urban comparison must be framed as a three-layer evidence-risk propagation problem, not as a simple image-quality comparison.
@@ -96,6 +288,248 @@ Urban bobcat identity validation is allowed only if verified individual labels o
 ```
 
 Do not reduce the urban/wild comparison to "urban images are lower quality." The stronger claim is that context changes the structure by which image evidence becomes pair evidence and then Re-ID/review risk.
+
+## Active Work Naming Rule
+
+New active work must be named by what it does, not by a Phase number.
+
+Use content-based names such as:
+
+```text
+final-photo-freeze
+pair-level-validation
+selective-evidence-sufficiency-modeling
+risk-calibrated-evidence-admission
+bobcat-wild-urban-transfer-stress
+review-budget-routing
+```
+
+Do not create new active plans, folders, docs, or claims whose primary meaning
+is only `Phase19`, `Phase20`, `PhaseA`, `PhaseB`, or similar chronological
+labels. Phase labels may appear only when citing historical artifacts that
+already exist, such as completed validation packets or legacy output paths.
+
+## Selective Evidence Sufficiency Modeling Rule
+
+The active modeling program is:
+
+```text
+PF-ERI Selective Evidence Sufficiency Model
+```
+
+Scientific subtitle:
+
+```text
+A risk-calibrated selective inference layer for wildlife Re-ID candidate pairs
+```
+
+This modeling program replaces the older "Evidence Risk Decomposition" plan as
+the active algorithmic direction. It must build a risk-calibrated, pair-level
+selective evidence admission system, not a new descriptor, not a full Re-ID
+model, not a generic photo-quality filter, and not a forced identity-accuracy
+benchmark.
+
+The core mathematical formulation is:
+
+```text
+Given a strong descriptor candidate queue, select the largest subset of
+candidate pairs whose evidence risk is controlled below a target level.
+```
+
+In pair notation:
+
+```text
+pair p = (x_i, x_j)
+descriptor similarity: s_d(p)
+evidence sufficiency: S(p)
+evidence risk: R(p)
+selective gate: g_tau(p) = 1 if R(p) <= tau
+
+coverage(tau) = P(g_tau(p)=1)
+selective risk(tau) = P(not_ready | g_tau(p)=1)
+
+objective:
+maximize coverage(tau)
+subject to selective risk(tau) <= alpha
+```
+
+The active dataset design is content-based:
+
+```text
+lynx-wild-known-id-core: 3000 known-ID CzechLynx images
+bobcat-wild-transfer-stress: 3000 Bobcat wild/free-roaming images
+bobcat-urban-transfer-stress: 6000 Bobcat urban/peri-urban images
+lynx-urban-auxiliary: optional heterogeneity note only, not a 3000-image core
+```
+
+Do not force a symmetric `CzechLynx-urban 3000` cell. External Lynx lynx
+heterogeneous/captive images are not the same dataset, not the same identity
+label regime, and not necessarily the same Czech wild population. They may be
+used only as auxiliary sensitivity unless a true audited CzechLynx urban/captive
+source with sufficient quality and provenance is obtained.
+
+The model must decompose evidence sufficiency and evidence risk into these
+observable components:
+
+```text
+image evidence
+pair comparability
+descriptor-evidence conflict
+domain/source stress
+selective routing risk
+```
+
+The highest-priority prespecified factors are:
+
+```text
+visible_pattern_area_score
+viewpoint_side_compatibility
+body_part_overlap_score
+night_or_motion_blur_risk
+cross_descriptor_agreement_score
+source_domain_shift_score
+```
+
+The core model should start with interpretable and calibratable methods:
+
+```text
+regularized logistic evidence-sufficiency model
+monotonic GAM sensitivity model
+conformal or split-calibrated selective-risk thresholding
+cluster/group-aware bootstrap or validation
+```
+
+The mathematical wrapper is selective inference / selective classification:
+
+```text
+accept the largest admissible pair subset under a target evidence-risk level
+defer or route pairs whose calibrated evidence risk exceeds that level
+report risk-coverage, calibration, defer concentration, and review budget
+```
+
+Do not make a full Bayesian latent-variable model the primary claim unless
+identifiability, prior sensitivity, and sample-size adequacy are explicitly
+validated. Latent-style risk decomposition may be used as an explanatory
+framing only when supported by observable component scores or enriched reason
+labels.
+
+Allowed model inputs must be prespecified visual-evidence, pair-comparability,
+descriptor-control, and source/domain diagnostic features. Forbidden model
+inputs include:
+
+```text
+same_identity_known_id
+identity_label
+review_pair_id
+evidence_group
+human final decision labels as predictors
+dataset/source shortcuts in the core CzechLynx reviewability model
+Bobcat identity labels unless independently verified
+```
+
+Source/domain variables may be used for transfer-stress reporting, calibration
+drift, subgroup diagnostics, and review-budget analysis. They must not become
+shortcuts that replace pair-level visual evidence in the core CzechLynx
+evidence-sufficiency model.
+
+The program may report Bobcat wild-vs-urban evidence-risk and review-readiness
+transfer pressure. It must not report Bobcat identity accuracy, false-match
+accuracy, mAP, MRR, or top-k identity performance unless verified Bobcat
+individual IDs or audited Bobcat same/different pair labels exist.
+
+The primary evaluation language is:
+
+```text
+evidence sufficiency
+evidential admissibility
+selective risk
+risk-coverage
+calibrated evidence admission
+defer concentration
+review budget
+groupwise transfer stability
+```
+
+The strongest admissible claim is not "PF-ERI beats strong Re-ID models." The
+strongest admissible claim is:
+
+```text
+Given strong descriptor candidate queues, PF-ERI estimates whether candidate
+pairs contain sufficient, comparable visual identity evidence; calibrates a
+selective gate to control admitted evidence risk; and routes low-evidence,
+non-comparable, or descriptor-conflict pairs before downstream use.
+```
+
+## Selective Evidence Modeling Work Plan
+
+The active modeling plan is organized by module purpose:
+
+```text
+modeling-contract:
+  build the final pair-level input contract from outputs/final_freeze
+
+evidence-feature-extraction:
+  compute image evidence, pair comparability, descriptor conflict, and
+  domain/source stress features
+
+known-id-evidence-sufficiency-validation:
+  train and validate the evidence sufficiency model on known-ID CzechLynx pairs
+
+risk-calibrated-evidence-admission:
+  calibrate selective-risk thresholds and report risk-coverage behavior
+
+evidence-risk-decomposition:
+  explain not-ready risk by observable evidence components and reason labels
+
+bobcat-wild-urban-transfer-stress:
+  evaluate evidence-risk shift and review burden under Bobcat wild/urban data
+  without identity-accuracy claims
+
+review-budget-routing:
+  select pair subsets under fixed review budget and target evidence-risk levels
+
+robustness-and-claim-gates:
+  run group-aware splits, descriptor-family stratification, ablations,
+  calibration checks, and blocked-claim audits
+```
+
+## Final Modeling Entry Rule
+
+Final algorithm/modeling work must start from the physical final freeze:
+
+```text
+outputs/final_freeze/
+```
+
+The required bootstrap gate is:
+
+```text
+scripts/build_final_modeling_bootstrap.py
+outputs/modeling-validation/final-modeling-bootstrap/
+```
+
+The current modeling cells are:
+
+```text
+lynx-wild: 3000 known-ID CzechLynx validation images
+bobcat-wild: 3000 Bobcat transfer/evidence-stress images
+bobcat-urban: 6000 Bobcat urban/peri-urban stress images
+lynx-urban: optional auxiliary only, not a 3000-image core cell
+```
+
+Do not use the many Phase16/17/18 candidate-selection directories directly as
+algorithm input. They are provenance and diagnostics. Downstream modeling must
+consume the bootstrap contract or `outputs/final_freeze/<scope>/manifest.csv`.
+
+Final modeling remains pair-level evidence reliability modeling. Descriptor
+baselines must be strong enough to be credible, and PF-ERI must be evaluated as
+review utility, admissibility, conflict/risk control, and routing behavior
+unless a direct descriptor-ranking improvement is actually shown.
+
+Bobcat rows do not provide verified individual identity labels. Bobcat identity
+accuracy, false-match accuracy, mAP, MRR, or top-k identity performance remain
+blocked unless verified Bobcat individual IDs or audited Bobcat same/different
+pair labels are added later.
 
 ## 2x2 Risk-Controlled Evidence Design Rule
 
@@ -135,6 +569,37 @@ Do not discard uncertainty; route it.
 Do not train on low-evidence noise; stress-test with it.
 Do not compare only clean data; report full-pool, clean-set, and stress-set behavior.
 ```
+
+## Bobcat Algorithm-Entry Clarity Gate Rule
+
+The Bobcat algorithm-entry 3000 must be clarity-first, not metadata-first.
+
+For Bobcat, `research_grade`, `organism`, `alive`, source tier, place label, and
+source score are only source-discovery filters. They are not sufficient evidence
+that a photograph is usable for algorithm entry. Before any Bobcat image enters
+the final algorithm-entry 3000, it must pass a manual clarity gate:
+
+```text
+phase17k_clarity_gate_decision = clear
+```
+
+Use this hard standard:
+
+```text
+CLEAR only if the bobcat is visibly sharp enough for individual-review
+comparison: not a tiny/far subject, not severe blur or motion smear, not severe
+occlusion, not dead/sign-only evidence, and not merely species-level presence.
+When uncertain, reject as NOT CLEAR.
+```
+
+Rows that fail this gate are not scientific waste. They may be retained as
+low-evidence stress-test material, source-diagnosis evidence, or review-burden
+evidence, but they must not silently enter core training, clean comparison, or
+algorithm-entry 3000.
+
+The final Bobcat 3000 may not be frozen until at least 3000 rows have passed the
+clarity gate. Earlier Phase17H/Phase17J metadata-selected 3000-row manifests are
+diagnostic candidate pools only, not final algorithm-entry manifests.
 
 The mathematical framing is:
 
@@ -325,6 +790,134 @@ This means every recommendation should consider:
 Do not present an improvement as strong merely because it beats a basic
 baseline. A strong contribution must survive comparison with the best available
 workflow for the same problem and must explain why a serious user would adopt it.
+
+## Phase18K Trustworthy Claim Rule
+
+Phase18K must not be driven by patching weak claims after the fact. It must be
+driven by one prespecified, maximally trustworthy scientific statement, and all
+new analyses must either support that statement under defined controls or
+explicitly fail it.
+
+Use this locked primary claim:
+
+```text
+PF-ERI is a descriptor-agnostic, post-retrieval pair-level evidence governance
+layer for patterned-felid Re-ID candidate review. Given a strong descriptor
+candidate queue, PF-ERI estimates whether a candidate pair has admissible visual
+identity evidence for human review, and whether that pair should be accepted for
+review, reviewed cautiously, deferred as low evidence, or treated as
+non-comparable. Its first-round validation target is reviewability and evidence
+admissibility, not automatic identity assignment or descriptor-ranking
+superiority.
+```
+
+The required Phase18K proof contract is:
+
+```text
+strong descriptor queue
+-> known-ID CzechLynx same/different pair contract
+-> blinded multi-reviewer pair reviewability reference labels
+-> PF-ERI pair-level evidence scores and routes
+-> descriptor-only, quality-only, and descriptor-plus-quality controls
+-> query-cluster bootstrap and disagreement/adjudication sensitivity
+-> claim state: supported / mixed / not supported under this contract
+```
+
+The primary endpoint is:
+
+```text
+human pair reviewability / evidential admissibility
+```
+
+The primary comparison is:
+
+```text
+PF-ERI reviewability utility beyond descriptor similarity and image-quality
+controls, evaluated at the pair level.
+```
+
+The primary claim is allowed only if all of the following hold:
+
+1. blinded multi-reviewer labels exist for the evaluation set;
+2. reviewer agreement and disagreement handling are reported;
+3. PF-ERI review score or admissibility aligns with reviewability in both strong
+   descriptor queues or the descriptor-specific exception is stated plainly;
+4. PF-ERI is tested against descriptor similarity, weakest-image quality, and
+   descriptor-plus-quality controls;
+5. row dependence is checked with query-level clustered resampling or a stricter
+   documented sensitivity;
+6. same-ID retention and false-candidate burden are reported as review-utility
+   outcomes, not as automatic identity claims;
+7. low-evidence and non-comparable routes are reported separately;
+8. Bobcat outputs remain unlabeled transfer/readiness stress tests unless
+   audited identity labels become available.
+
+Use this confidence standard:
+
+```text
+There is no literal 100% certainty in empirical science. In this project,
+"factually 100% confident" means every reasonable alternative explanation
+needed to reject the primary claim has a prespecified control, audit, sensitivity
+analysis, or claim-failure rule. If any required control fails, the claim fails
+or becomes mixed; it must not be silently rewritten into success.
+```
+
+Do not use the Phase18K evidence to claim:
+
+```text
+PF-ERI is a new descriptor
+PF-ERI automatically identifies individual animals
+PF-ERI has Bobcat identity accuracy
+PF-ERI universally improves top-k/mAP
+PF-ERI has one universal threshold across species or camera contexts
+PF-ERI proves non-comparability unless non-comparable labels are actually elicited
+```
+
+## Phase18K Forward Assumption Rule
+
+For Phase18K planning, the project may temporarily treat the following two
+items as forward-working assumptions rather than active blockers:
+
+```text
+non-comparable labels will be obtainable in a future enriched review packet
+Bobcat identity labels or audited Bobcat same/different pair labels will become
+available in a later validation layer
+```
+
+These assumptions are allowed only for roadmap design, tool design, schema
+design, and future-proofing analysis outputs. They must not be reported as
+current empirical results until concrete review or identity-label artifacts are
+present and audited.
+
+This means:
+
+1. Phase18K does not need to treat the current absence of non-comparable labels
+   as a blocker for testing PF-ERI's main reviewability/admissibility claim.
+2. Phase18K does not need to treat the current absence of Bobcat identity labels
+   as a blocker for CzechLynx known-ID validation or Bobcat transfer/readiness
+   stress-test schema design.
+3. Any final claim involving non-comparable routing must cite the future
+   non-comparable review artifact that supports it.
+4. Any final claim involving Bobcat identity accuracy, same-ID retention,
+   false-candidate burden, mAP, MRR, or top-k identity performance must cite the
+   future Bobcat identity-label or audited same/different-pair artifact that
+   supports it.
+
+Use this distinction:
+
+```text
+Planning assumption: allowed for designing the next layer.
+Current empirical claim: forbidden until the supporting artifact exists.
+```
+
+Therefore, for the active Phase18K self-grill, vulnerabilities 7 and 8 are no
+longer priority blockers for the immediate CzechLynx pair-level reviewability
+claim. The immediate priority remains:
+
+```text
+PF-ERI incremental reviewability utility beyond descriptor similarity and image
+quality controls.
+```
 
 ## Evidence-Routed Review Layer Rule
 
