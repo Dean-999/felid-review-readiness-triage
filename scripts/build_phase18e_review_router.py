@@ -112,7 +112,7 @@ def evaluate_group(rows: list[dict[str, str]], policy_id: str, split_role: str) 
         "positive_present_top5_rate": float(np.mean(top5_positive)) if top5_positive else 0.0,
         "mean_false_candidates_top5": float(np.mean(false_top5)) if false_top5 else 0.0,
         "mean_review_ready_pairs_top5": float(np.mean(review_ready_top5)) if review_ready_top5 else 0.0,
-        "claim_boundary": "No-training deterministic router evaluation on local descriptor-control pairs.",
+        "claim_boundary": "No-training deterministic router evaluation on Phase18 pair features.",
     }
 
 
@@ -171,7 +171,7 @@ def build_phase18e(input_features: Path, output_dir: Path) -> dict[str, Any]:
         "metric_rows": len(metrics),
         "threshold_rows": len(thresholds),
         "best_evaluation_policy_by_mAP": best_by_map,
-        "claim_boundary": "Router metrics are local-control diagnostics and not final strong-baseline claims.",
+        "claim_boundary": "Router metrics are pair-level review-utility diagnostics, not final identity-assignment claims.",
     }
     write_json(output_dir / "phase18e_review_router_audit.json", audit)
     (output_dir / "README.md").write_text(

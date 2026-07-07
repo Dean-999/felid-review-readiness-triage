@@ -87,13 +87,13 @@ If the model cannot reach the 75% target under held-out audit evaluation, it mus
 The implementation should create:
 
 ```text
-outputs/phase14/phase14_detector_first_admission/
-  phase14_detector_first_training_table.csv
-  phase14_detector_first_model_evaluation.json
-  phase14_detector_first_candidate_scores.csv
-  phase14_detector_first_auto_high_candidates.csv
-  phase14_detector_first_auto_stress_candidates.csv
-  phase14_detector_first_human_review_required.csv
+outputs/legacy-code14/legacy-code14_detector_first_admission/
+  legacy-code14_detector_first_training_table.csv
+  legacy-code14_detector_first_model_evaluation.json
+  legacy-code14_detector_first_candidate_scores.csv
+  legacy-code14_detector_first_auto_high_candidates.csv
+  legacy-code14_detector_first_auto_stress_candidates.csv
+  legacy-code14_detector_first_human_review_required.csv
 ```
 
 ## Claim Boundary
