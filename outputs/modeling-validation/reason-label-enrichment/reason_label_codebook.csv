@@ -1,0 +1,12 @@
+reason_label,description
+low_image_evidence,Single-image evidence is too weak for individual review.
+motion_or_blur,Animal body or markings are blurred/moving/soft.
+night_or_low_light,"Night, IR, glare, or low exposure blocks reliable comparison."
+subject_too_small,Animal is too small in frame even if visible.
+partial_body,Body is incomplete or critical pattern area is absent.
+occlusion,Occlusion blocks comparable body/marking evidence.
+non_comparable_viewpoint,Pair viewpoints/poses are not meaningfully comparable.
+non_overlapping_body_region,The two images show different body regions.
+descriptor_evidence_conflict,Descriptor similarity is high but visual evidence is weak/conflicting.
+source_domain_stress,Source/context shift creates review risk.
+other,Reason exists but is outside the predefined schema.
