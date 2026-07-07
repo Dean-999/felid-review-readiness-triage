@@ -1,0 +1,96 @@
+{
+  "blocked_predictor_fields": [
+    "same_identity_label",
+    "query_identity_label",
+    "candidate_identity_label",
+    "reviewer_label",
+    "human_final_decision",
+    "source_dataset",
+    "dataset_name"
+  ],
+  "built_at_utc": "2026-07-07T11:29:21+00:00",
+  "core_model_predictors": [
+    "visible_pattern_area_score",
+    "viewpoint_side_compatibility",
+    "body_part_overlap_score",
+    "night_or_motion_blur_risk",
+    "cross_descriptor_agreement_score",
+    "source_domain_shift_score"
+  ],
+  "fields": {
+    "body_part_overlap_score": {
+      "description": "Prespecified PF-ERI evidence component.",
+      "range": "0..1",
+      "role": "core_model_predictor"
+    },
+    "candidate_domain_label": {
+      "leakage_rule": "Not part of the core prespecified model unless used in explicit sensitivity analysis.",
+      "role": "groupwise_diagnostic_or_sensitivity"
+    },
+    "candidate_identity_label": {
+      "leakage_rule": "Must not be used as model input.",
+      "role": "target_or_label_not_predictor"
+    },
+    "candidate_scope": {
+      "leakage_rule": "Not part of the core prespecified model unless used in explicit sensitivity analysis.",
+      "role": "groupwise_diagnostic_or_sensitivity"
+    },
+    "construction_rule": {
+      "leakage_rule": "Not part of the core prespecified model unless used in explicit sensitivity analysis.",
+      "role": "groupwise_diagnostic_or_sensitivity"
+    },
+    "cross_descriptor_agreement_score": {
+      "description": "Prespecified PF-ERI evidence component.",
+      "range": "0..1",
+      "role": "core_model_predictor"
+    },
+    "descriptor_score_source": {
+      "leakage_rule": "Not part of the core prespecified model unless used in explicit sensitivity analysis.",
+      "role": "groupwise_diagnostic_or_sensitivity"
+    },
+    "night_or_motion_blur_risk": {
+      "description": "Prespecified PF-ERI evidence component.",
+      "range": "0..1",
+      "role": "core_model_predictor"
+    },
+    "pair_family": {
+      "leakage_rule": "Not part of the core prespecified model unless used in explicit sensitivity analysis.",
+      "role": "groupwise_diagnostic_or_sensitivity"
+    },
+    "pair_scope": {
+      "leakage_rule": "Not part of the core prespecified model unless used in explicit sensitivity analysis.",
+      "role": "groupwise_diagnostic_or_sensitivity"
+    },
+    "query_domain_label": {
+      "leakage_rule": "Not part of the core prespecified model unless used in explicit sensitivity analysis.",
+      "role": "groupwise_diagnostic_or_sensitivity"
+    },
+    "query_identity_label": {
+      "leakage_rule": "Must not be used as model input.",
+      "role": "target_or_label_not_predictor"
+    },
+    "query_scope": {
+      "leakage_rule": "Not part of the core prespecified model unless used in explicit sensitivity analysis.",
+      "role": "groupwise_diagnostic_or_sensitivity"
+    },
+    "same_identity_label": {
+      "leakage_rule": "Must not be used as model input.",
+      "role": "target_or_label_not_predictor"
+    },
+    "source_domain_shift_score": {
+      "description": "Prespecified PF-ERI evidence component.",
+      "range": "0..1",
+      "role": "core_model_predictor"
+    },
+    "viewpoint_side_compatibility": {
+      "description": "Prespecified PF-ERI evidence component.",
+      "range": "0..1",
+      "role": "core_model_predictor"
+    },
+    "visible_pattern_area_score": {
+      "description": "Prespecified PF-ERI evidence component.",
+      "range": "0..1",
+      "role": "core_model_predictor"
+    }
+  }
+}

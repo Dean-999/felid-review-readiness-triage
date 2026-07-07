@@ -1,0 +1,56 @@
+{
+  "blocked_predictor_intersections": [],
+  "built_at_utc": "2026-07-07T11:29:21+00:00",
+  "claim_boundary": "Core feature table supports evidence sufficiency modeling. Same/different labels, review labels, and source names are excluded from the core predictor set.",
+  "construction_rule_counts": {
+    "cross_scope_unlabeled": 27000,
+    "different_known_id": 9000,
+    "same_known_id": 8695,
+    "within_scope_unlabeled": 27000
+  },
+  "descriptor_score_source_counts": {
+    "descriptor_pair_not_in_returned_topk_scores": 25472,
+    "descriptor_scores_unavailable_for_current_scope": 45000,
+    "megadescriptor_and_dinov2_returned_pair_scores": 1223
+  },
+  "failures": [],
+  "input_image_index_csv": "outputs/modeling-validation/final-modeling-bootstrap/final_modeling_image_index.csv",
+  "input_pair_index_csv": "outputs/modeling-validation/pair-construction/pair_construction_index.csv",
+  "missing_by_core_feature": {
+    "body_part_overlap_score": 0,
+    "cross_descriptor_agreement_score": 0,
+    "night_or_motion_blur_risk": 0,
+    "source_domain_shift_score": 0,
+    "viewpoint_side_compatibility": 0,
+    "visible_pattern_area_score": 0
+  },
+  "output_feature_table_csv": "outputs/modeling-validation/evidence-feature-extraction/pair_evidence_features.csv",
+  "output_schema_json": "outputs/modeling-validation/evidence-feature-extraction/pair_evidence_feature_schema.json",
+  "pair_family_counts": {
+    "known_id_validation": 17695,
+    "transfer_stress": 54000
+  },
+  "pair_rows": 71695,
+  "range_violations_by_core_feature": {
+    "body_part_overlap_score": 0,
+    "cross_descriptor_agreement_score": 0,
+    "night_or_motion_blur_risk": 0,
+    "source_domain_shift_score": 0,
+    "viewpoint_side_compatibility": 0,
+    "visible_pattern_area_score": 0
+  },
+  "rows_with_label_fields_present": 17695,
+  "status": "PASS",
+  "visible_pattern_area_source_counts": {
+    "query:czechlynx_strict_freeze_proxy|candidate:czechlynx_strict_freeze_proxy": 17695,
+    "query:detector_and_phase14_evidence_fields|candidate:detector_and_phase14_evidence_fields": 18000,
+    "query:detector_and_phase14_evidence_fields|candidate:human_clear_strict_freeze_proxy": 12900,
+    "query:detector_and_phase14_evidence_fields|candidate:phase19_area10_and_clarity_fields": 5100,
+    "query:human_clear_strict_freeze_proxy|candidate:detector_and_phase14_evidence_fields": 6450,
+    "query:human_clear_strict_freeze_proxy|candidate:human_clear_strict_freeze_proxy": 6444,
+    "query:human_clear_strict_freeze_proxy|candidate:phase19_area10_and_clarity_fields": 6,
+    "query:phase19_area10_and_clarity_fields|candidate:detector_and_phase14_evidence_fields": 2550,
+    "query:phase19_area10_and_clarity_fields|candidate:human_clear_strict_freeze_proxy": 6,
+    "query:phase19_area10_and_clarity_fields|candidate:phase19_area10_and_clarity_fields": 2544
+  }
+}
