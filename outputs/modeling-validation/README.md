@@ -12,6 +12,7 @@ evidence-feature-extraction/
 known-id-evidence-sufficiency-validation/
 risk-calibrated-evidence-admission/
 evidence-risk-decomposition/
+bobcat-wild-urban-transfer-stress/
 pair-level-validation/
 ```
 
@@ -29,3 +30,6 @@ Current formal modeling entry:
   thresholds and emits accept/cautious/defer/conflict review routes.
 - `evidence-risk-decomposition/` decomposes risk into observable component
   families and flags reason-label enrichment needs.
+- `bobcat-wild-urban-transfer-stress/` applies the calibrated evidence router
+  to unlabeled Bobcat wild/urban transfer-stress pairs without making identity,
+  false-match, mAP, MRR, or top-k retrieval claims.
