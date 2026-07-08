@@ -1,0 +1,33 @@
+{
+  "binary_disagreement_rows": 24,
+  "built_at_utc": "2026-07-08T14:10:24+00:00",
+  "claim_gate": "BLIND_RELIABILITY_STRONG_SUPPORT",
+  "disagreement_rows": 67,
+  "master_rows": 280,
+  "outputs": {
+    "agreement_csv": "outputs/modeling-validation/blind-reliability-packet/agreement-analysis/blind_reliability_agreement_summary.csv",
+    "audit_json": "outputs/modeling-validation/blind-reliability-packet/agreement-analysis/blind_reliability_analysis_audit.json",
+    "detail_csv": "outputs/modeling-validation/blind-reliability-packet/agreement-analysis/blind_reliability_label_detail.csv",
+    "disagreement_appendix_csv": "outputs/modeling-validation/blind-reliability-packet/agreement-analysis/blind_reliability_disagreement_appendix.csv",
+    "readme_md": "outputs/modeling-validation/blind-reliability-packet/agreement-analysis/README.md",
+    "reason_family_summary_csv": "outputs/modeling-validation/blind-reliability-packet/agreement-analysis/blind_reliability_reason_family_summary.csv"
+  },
+  "overall_agreement": {
+    "binary_cohen_kappa": 0.785098,
+    "binary_percent_agreement": 0.914286,
+    "pair_count": 280,
+    "primary_reason_agreement_on_nonready": 0.736318,
+    "reviewer_id": "all",
+    "scope": "overall",
+    "source_packet": "all",
+    "three_class_percent_agreement": 0.914286
+  },
+  "raw_review_rows": 280,
+  "reason_family_summary_rows": 12,
+  "review_root": "outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/blind_reliability_review_working.csv",
+  "reviewer_counts": {
+    "external_reviewer_2": 280
+  },
+  "status": "PASS",
+  "usable_review_rows": 280
+}

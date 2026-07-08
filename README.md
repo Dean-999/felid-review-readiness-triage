@@ -89,6 +89,28 @@ abstention/risk coverage, and human-audit agreement.
 - Phase 4C similarity table completed with fixed ResNet50 and MegaDescriptor signals.
 - Phase 4D-4I mechanism, policy, and uncertainty outputs completed.
 
+## Final Modeling Freeze
+
+As of 2026-07-08, the final PF-ERI modeling and claim package is frozen for
+paper/report writing. The frozen frame is:
+
+- PF-ERI is a post-retrieval selective evidence and reviewability layer, not a
+  new descriptor and not automatic identity assignment.
+- CzechLynx known-ID pairs carry the quantitative reviewability validation.
+- Bobcat wild/urban outputs are unlabeled same-genus transfer-stress and
+  workflow-allocation diagnostics, not Bobcat identity metrics.
+- Two independent external blind reviewers support the final reviewability
+  labels: Reviewer 1 binary kappa 0.859305 and reason agreement 0.805970;
+  Reviewer 2 binary kappa 0.785098 and reason agreement 0.736318.
+- The paper-ready main result table, final claim narrative, and confidence /
+  limitations appendix are under
+  `outputs/modeling-validation/advanced-mathematical-validation/paper-ready/`.
+
+The authoritative freeze note is
+`docs/modeling-validation/2026-07-08_final_modeling_freeze.md`. It records the
+allowed claims, blocked claims, reviewer provenance correction, reproducibility
+commands, and tests.
+
 ## Current Pending Status
 
 - Historical foundation: Phase 5/6/8/9/11/12/13 are preserved as evidence

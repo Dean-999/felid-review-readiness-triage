@@ -1,0 +1,16 @@
+{
+  "built_at_utc": "2026-07-08T14:37:24+00:00",
+  "changed_reviewer_notes_rows": 280,
+  "claim_boundary": "Corrected copy changes only reviewer_notes metadata. Review labels remain unchanged, and the original CSV is preserved as the raw received file.",
+  "corrected_csv": "outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/blind_reliability_review_working.corrected.csv",
+  "corrected_reviewer_notes": "metadata correction: independent external blind review confirmed; see provenance_correction.md",
+  "correction_json": "outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/provenance_correction.json",
+  "correction_md": "outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/provenance_correction.md",
+  "labels_changed": false,
+  "original_csv": "outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/blind_reliability_review_working.csv",
+  "original_label_columns_present": [],
+  "reviewer_id": "external_reviewer_2",
+  "row_count": 280,
+  "stale_not_independent_note_rows": 280,
+  "status": "PASS"
+}

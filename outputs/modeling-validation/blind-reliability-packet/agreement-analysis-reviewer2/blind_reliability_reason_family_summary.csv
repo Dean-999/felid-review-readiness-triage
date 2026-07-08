@@ -1,0 +1,13 @@
+scope,source_packet,reviewer_id,reason_family,original_count,reviewer_count,matched_count,original_nonready_count,family_agreement_rate_on_original_nonready
+overall,all,all,descriptor_evidence_conflict,10,4,4,10,0.4
+overall,all,all,image_evidence_deficit,139,120,103,127,0.811024
+overall,all,all,pair_non_comparability,35,47,27,32,0.84375
+overall,all,all,source_domain_stress,32,34,14,32,0.4375
+source_packet_by_reviewer,feature_varied,external_reviewer_2,descriptor_evidence_conflict,10,4,4,10,0.4
+source_packet_by_reviewer,feature_varied,external_reviewer_2,image_evidence_deficit,48,41,24,48,0.5
+source_packet_by_reviewer,feature_varied,external_reviewer_2,pair_non_comparability,10,25,5,10,0.5
+source_packet_by_reviewer,feature_varied,external_reviewer_2,source_domain_stress,32,34,14,32,0.4375
+source_packet_by_reviewer,internal_reason,external_reviewer_2,image_evidence_deficit,53,53,53,53,1.0
+source_packet_by_reviewer,internal_reason,external_reviewer_2,pair_non_comparability,13,13,13,13,1.0
+source_packet_by_reviewer,online_supplement,external_reviewer_2,image_evidence_deficit,38,26,26,26,1.0
+source_packet_by_reviewer,online_supplement,external_reviewer_2,pair_non_comparability,12,9,9,9,1.0
