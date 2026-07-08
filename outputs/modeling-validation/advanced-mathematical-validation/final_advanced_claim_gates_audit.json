@@ -1,14 +1,22 @@
 {
   "claim_boundary": "Methods-ready claim gates for PF-ERI evidence governance; not identity assignment or descriptor replacement.",
   "claim_status_counts": {
-    "allowed": 3,
+    "allowed": 4,
     "allowed_with_caveat": 4,
     "blocked": 6,
     "exploratory": 2
   },
+  "confidence_level_counts": {
+    "blocked": 5,
+    "high": 3,
+    "medium": 5
+  },
   "final_frame": "PF-ERI is a pair-level selective evidence inference layer after strong descriptor retrieval.",
-  "generated_at": "2026-07-07T15:40:46+00:00",
+  "generated_at": "2026-07-08T14:37:25+00:00",
   "input_files": {
+    "blind_reliability": "outputs/modeling-validation/blind-reliability-packet/agreement-analysis/blind_reliability_analysis_audit.json",
+    "blind_reliability_reviewer2": "outputs/modeling-validation/blind-reliability-packet/agreement-analysis-reviewer2/blind_reliability_analysis_audit.json",
+    "blind_reliability_reviewer2_correction": "outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/provenance_correction.json",
     "bobcat": "outputs/modeling-validation/bobcat-wild-urban-transfer-stress/bobcat_transfer_stress_audit.json",
     "budget": "outputs/modeling-validation/review-budget-routing/czechlynx_budget_risk_coverage.csv",
     "cluster_intervals": "outputs/modeling-validation/advanced-mathematical-validation/cluster_bootstrap_metric_intervals.csv",
@@ -23,9 +31,14 @@
     "assumptions": "outputs/modeling-validation/advanced-mathematical-validation/final_methods_assumptions_and_limitations.csv",
     "audit": "outputs/modeling-validation/advanced-mathematical-validation/final_advanced_claim_gates_audit.json",
     "claim_gates": "outputs/modeling-validation/advanced-mathematical-validation/final_advanced_claim_gate_table.csv",
+    "claim_narrative": "outputs/modeling-validation/advanced-mathematical-validation/paper-ready/final_claim_narrative.md",
+    "confidence_limitations_markdown": "outputs/modeling-validation/advanced-mathematical-validation/paper-ready/final_confidence_limitations.md",
+    "confidence_limitations_table": "outputs/modeling-validation/advanced-mathematical-validation/paper-ready/final_confidence_limitations_table.csv",
+    "main_result_table": "outputs/modeling-validation/advanced-mathematical-validation/paper-ready/main_model_result_table.csv",
     "methods_report": "outputs/modeling-validation/advanced-mathematical-validation/final_methods_ready_report.md"
   },
-  "reason_label_enrichment_required": true,
+  "reason_label_boundary": "Blind reliability supports reason-label consistency; mechanism-level explanation remains bounded.",
+  "reason_label_enrichment_required": false,
   "required_blocked_claims": [
     "blocked_automatic_identity_assignment",
     "blocked_bobcat_identity_metrics",

@@ -18,6 +18,10 @@ RISK_ROUTING_DIR = PROJECT_ROOT / "outputs/modeling-validation/risk-calibrated-e
 DECOMPOSITION_DIR = PROJECT_ROOT / "outputs/modeling-validation/evidence-risk-decomposition"
 BOBCAT_DIR = PROJECT_ROOT / "outputs/modeling-validation/bobcat-wild-urban-transfer-stress"
 BUDGET_DIR = PROJECT_ROOT / "outputs/modeling-validation/review-budget-routing"
+BLIND_RELIABILITY_DIR = PROJECT_ROOT / "outputs/modeling-validation/blind-reliability-packet/agreement-analysis"
+BLIND_RELIABILITY_REVIEWER2_DIR = (
+    PROJECT_ROOT / "outputs/modeling-validation/blind-reliability-packet/agreement-analysis-reviewer2"
+)
 
 CONTRACT_AUDIT_JSON = ADVANCED_DIR / "advanced_mathematical_validation_contract_audit.json"
 MODEL_METRICS_CSV = KNOWN_ID_DIR / "known_id_model_metrics.csv"
@@ -31,11 +35,24 @@ DECOMPOSITION_AUDIT_JSON = DECOMPOSITION_DIR / "evidence_risk_decomposition_audi
 BOBCAT_AUDIT_JSON = BOBCAT_DIR / "bobcat_transfer_stress_audit.json"
 BUDGET_CSV = BUDGET_DIR / "czechlynx_budget_risk_coverage.csv"
 BUDGET_AUDIT_JSON = BUDGET_DIR / "review_budget_routing_audit.json"
+BLIND_RELIABILITY_AUDIT_JSON = BLIND_RELIABILITY_DIR / "blind_reliability_analysis_audit.json"
+BLIND_RELIABILITY_DISAGREEMENT_CSV = BLIND_RELIABILITY_DIR / "blind_reliability_disagreement_appendix.csv"
+BLIND_RELIABILITY_REASON_FAMILY_CSV = BLIND_RELIABILITY_DIR / "blind_reliability_reason_family_summary.csv"
+BLIND_RELIABILITY_REVIEWER2_AUDIT_JSON = BLIND_RELIABILITY_REVIEWER2_DIR / "blind_reliability_analysis_audit.json"
+BLIND_RELIABILITY_REVIEWER2_CORRECTION_JSON = (
+    PROJECT_ROOT
+    / "outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/provenance_correction.json"
+)
 
 CLAIM_GATES_CSV = ADVANCED_DIR / "final_advanced_claim_gate_table.csv"
 METHODS_REPORT_MD = ADVANCED_DIR / "final_methods_ready_report.md"
 ASSUMPTIONS_CSV = ADVANCED_DIR / "final_methods_assumptions_and_limitations.csv"
 AUDIT_JSON = ADVANCED_DIR / "final_advanced_claim_gates_audit.json"
+PAPER_READY_DIR = ADVANCED_DIR / "paper-ready"
+MAIN_RESULT_TABLE_CSV = PAPER_READY_DIR / "main_model_result_table.csv"
+CLAIM_NARRATIVE_MD = PAPER_READY_DIR / "final_claim_narrative.md"
+CONFIDENCE_LIMITATIONS_CSV = PAPER_READY_DIR / "final_confidence_limitations_table.csv"
+CONFIDENCE_LIMITATIONS_MD = PAPER_READY_DIR / "final_confidence_limitations.md"
 
 CLAIM_COLUMNS = [
     "claim_id",
@@ -57,6 +74,17 @@ ASSUMPTION_COLUMNS = [
     "statement",
     "why_it_matters",
     "required_wording",
+]
+
+CONFIDENCE_COLUMNS = [
+    "topic_id",
+    "confidence_level",
+    "paper_claim_status",
+    "claim_or_limitation",
+    "supporting_evidence",
+    "safe_paper_wording",
+    "must_not_claim",
+    "why_confidence_is_not_higher",
 ]
 
 
@@ -155,6 +183,9 @@ def claim_gate_rows() -> list[dict[str, Any]]:
     cluster_alpha_015 = cluster_interval("alpha_0_15_selective_risk")
     decomposition = read_json(DECOMPOSITION_AUDIT_JSON)
     bobcat = read_json(BOBCAT_AUDIT_JSON)
+    blind_reliability = read_json(BLIND_RELIABILITY_AUDIT_JSON)
+    blind_reliability_reviewer2 = read_json(BLIND_RELIABILITY_REVIEWER2_AUDIT_JSON)
+    reviewer2_correction = read_json(BLIND_RELIABILITY_REVIEWER2_CORRECTION_JSON)
     budget = budget_row("pferi_risk_constrained_queue", 0.15, 100)
     descriptor_budget = budget_row("descriptor_rank_fixed_budget_unconstrained", 0.15, 100)
     budget_audit = read_json(BUDGET_AUDIT_JSON)
@@ -238,6 +269,32 @@ def claim_gate_rows() -> list[dict[str, Any]]:
             "safe_wording": "Report cluster-aware uncertainty as validation uncertainty for CzechLynx reviewed pairs.",
             "prohibited_wording": "These intervals validate Bobcat identity performance.",
             "remaining_caveat": "Component-group intervals remain sparse and identity-cluster bootstrap is not feasible without identity labels.",
+        },
+        {
+            "claim_id": "allowed_blind_reliability_supported_labels",
+            "status": "allowed",
+            "claim_family": "label_reliability",
+            "claim_text": "The reviewability labels are supported by external blind reliability evidence.",
+            "evidence_artifacts": (
+                f"{project_relative(BLIND_RELIABILITY_AUDIT_JSON)}; "
+                f"{project_relative(BLIND_RELIABILITY_REVIEWER2_AUDIT_JSON)}; "
+                f"{project_relative(BLIND_RELIABILITY_REVIEWER2_CORRECTION_JSON)}; "
+                f"{project_relative(BLIND_RELIABILITY_DISAGREEMENT_CSV)}; "
+                f"{project_relative(BLIND_RELIABILITY_REASON_FAMILY_CSV)}"
+            ),
+            "key_numbers": (
+                f"reviewer1_n={blind_reliability['usable_review_rows']}; "
+                f"reviewer1_binary_kappa={blind_reliability['overall_agreement']['binary_cohen_kappa']}; "
+                f"reviewer1_reason_agreement={blind_reliability['overall_agreement']['primary_reason_agreement_on_nonready']}; "
+                f"reviewer2_n={blind_reliability_reviewer2['usable_review_rows']}; "
+                f"reviewer2_binary_kappa={blind_reliability_reviewer2['overall_agreement']['binary_cohen_kappa']}; "
+                f"reviewer2_reason_agreement={blind_reliability_reviewer2['overall_agreement']['primary_reason_agreement_on_nonready']}; "
+                f"reviewer2_provenance={reviewer2_correction['status']}"
+            ),
+            "rationale": "External blind review supports label reliability and reason consistency for the reviewed-pair target.",
+            "safe_wording": "Use blind reliability-supported reviewability labels for CzechLynx model validation.",
+            "prohibited_wording": "Blind review proves animal identity labels or complete causal mechanism explanations.",
+            "remaining_caveat": "Two independent blind reviewers support reviewability labels; mechanism-level explanation remains bounded by the component-attribution design.",
         },
         {
             "claim_id": "allowed_nonlinear_sensitivity_partial",
@@ -410,13 +467,275 @@ def assumption_rows() -> list[dict[str, str]]:
         },
         {
             "assumption_id": "reason_labels",
-            "status": "required_for_stronger_claim",
+            "status": "blind_reliability_supported_bounded",
             "methods_section": "Risk Decomposition",
-            "statement": "Validated reason classification requires explicit human reason labels.",
-            "why_it_matters": "Current decomposition is component attribution.",
-            "required_wording": "Reason-label enrichment remains future work before stronger explanation claims.",
+            "statement": "External blind review supports primary reason-label consistency, but component risk decomposition is still not a causal mechanism proof.",
+            "why_it_matters": "Keeps reason-label reliability separate from stronger explanatory or causal claims.",
+            "required_wording": "Reason labels are blind reliability-supported for reviewability annotation; mechanistic explanation remains component attribution.",
         },
     ]
+
+
+def main_result_rows() -> list[dict[str, Any]]:
+    rows = []
+    display_names = {
+        "descriptor_only": "Descriptor only",
+        "quality_only": "Image quality only",
+        "pf_eri_evidence_only": "PF-ERI evidence only",
+        "descriptor_plus_pf_eri": "Descriptor + PF-ERI",
+    }
+    for row in read_csv(MODEL_METRICS_CSV):
+        if row["scope"] != "pooled":
+            continue
+        rows.append(
+            {
+                "model_family": row["model_family"],
+                "display_name": display_names.get(row["model_family"], row["model_family"]),
+                "pair_count": row["pair_count"],
+                "review_ready_count": row["positive_review_ready_count"],
+                "not_ready_or_uncertain_count": row["negative_not_ready_or_uncertain_count"],
+                "auroc": row["auroc"],
+                "auroc_ci_lower": row["auroc_ci_lower"],
+                "auroc_ci_upper": row["auroc_ci_upper"],
+                "auprc": row["auprc"],
+                "auprc_ci_lower": row["auprc_ci_lower"],
+                "auprc_ci_upper": row["auprc_ci_upper"],
+                "brier_score": row["brier_score"],
+                "ece_5bin": row["ece_5bin"],
+                "claim_boundary": row["claim_boundary"],
+            }
+        )
+    return rows
+
+
+def confidence_limitation_rows(claims: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    by_id = {row["claim_id"]: row for row in claims}
+    return [
+        {
+            "topic_id": "data_freeze_and_scope",
+            "confidence_level": "high",
+            "paper_claim_status": "supported",
+            "claim_or_limitation": "The final modeling freeze is materialized and scoped to CzechLynx known-ID validation plus Bobcat unlabeled transfer-stress datasets.",
+            "supporting_evidence": "outputs/final_freeze/lynx-wild/manifest.csv; outputs/final_freeze/bobcat-wild/manifest.csv; outputs/final_freeze/bobcat-urban/manifest.csv",
+            "safe_paper_wording": "Use the final freeze as the fixed analysis population and describe Bobcat as unlabeled transfer-stress/workflow data.",
+            "must_not_claim": "Bobcat identity validation from the freeze alone.",
+            "why_confidence_is_not_higher": "Bobcat rows are not audited same/different identity labels.",
+        },
+        {
+            "topic_id": "core_pferi_reviewability_signal",
+            "confidence_level": "high",
+            "paper_claim_status": "supported",
+            "claim_or_limitation": "PF-ERI evidence features support reviewability/admissibility prediction after descriptor retrieval.",
+            "supporting_evidence": by_id["allowed_descriptor_controlled_reviewability_signal"]["key_numbers"],
+            "safe_paper_wording": by_id["allowed_descriptor_controlled_reviewability_signal"]["safe_wording"],
+            "must_not_claim": by_id["allowed_descriptor_controlled_reviewability_signal"]["prohibited_wording"],
+            "why_confidence_is_not_higher": "The target is reviewability, not identity-match correctness.",
+        },
+        {
+            "topic_id": "blind_reliability_supported_labels",
+            "confidence_level": "high",
+            "paper_claim_status": "supported",
+            "claim_or_limitation": "Two independent external blind reviewers support the reviewability labels used for final validation.",
+            "supporting_evidence": by_id["allowed_blind_reliability_supported_labels"]["key_numbers"],
+            "safe_paper_wording": "The labels can be described as blind reliability-supported reviewability labels.",
+            "must_not_claim": "Blind review proves animal identity labels or complete causal mechanism explanations.",
+            "why_confidence_is_not_higher": "Disagreements remain and reason agreement supports annotation consistency rather than causal mechanism proof.",
+        },
+        {
+            "topic_id": "reason_taxonomy_families",
+            "confidence_level": "medium",
+            "paper_claim_status": "supported_with_limits",
+            "claim_or_limitation": "Reason-family reporting is strongest for image evidence deficit and pair non-comparability; descriptor conflict and source-domain stress are weaker.",
+            "supporting_evidence": project_relative(BLIND_RELIABILITY_REASON_FAMILY_CSV),
+            "safe_paper_wording": "Report reason families as reliability-supported annotation families, with family-specific caveats.",
+            "must_not_claim": "All reason families are equally reliable or mechanistically complete.",
+            "why_confidence_is_not_higher": "Reviewer agreement is lower for descriptor-evidence conflict and source-domain stress.",
+        },
+        {
+            "topic_id": "empirical_selective_router",
+            "confidence_level": "medium",
+            "paper_claim_status": "supported_with_limits",
+            "claim_or_limitation": "Selective routing is empirically supported on CzechLynx calibration/evaluation splits.",
+            "supporting_evidence": by_id["allowed_empirical_selective_router"]["key_numbers"],
+            "safe_paper_wording": by_id["allowed_empirical_selective_router"]["safe_wording"],
+            "must_not_claim": by_id["allowed_empirical_selective_router"]["prohibited_wording"],
+            "why_confidence_is_not_higher": by_id["allowed_empirical_selective_router"]["remaining_caveat"],
+        },
+        {
+            "topic_id": "descriptor_stratified_calibration",
+            "confidence_level": "medium",
+            "paper_claim_status": "supported_with_limits",
+            "claim_or_limitation": "Descriptor-family stratified results are reportable, but pooled thresholds do not automatically certify every descriptor family.",
+            "supporting_evidence": by_id["allowed_descriptor_stratified_reporting"]["key_numbers"],
+            "safe_paper_wording": by_id["allowed_descriptor_stratified_reporting"]["safe_wording"],
+            "must_not_claim": by_id["allowed_descriptor_stratified_reporting"]["prohibited_wording"],
+            "why_confidence_is_not_higher": by_id["allowed_descriptor_stratified_reporting"]["remaining_caveat"],
+        },
+        {
+            "topic_id": "cluster_uncertainty",
+            "confidence_level": "medium",
+            "paper_claim_status": "supported_with_limits",
+            "claim_or_limitation": "Query-image cluster bootstrap intervals are reportable for CzechLynx reviewability metrics.",
+            "supporting_evidence": by_id["allowed_cluster_uncertainty_report"]["key_numbers"],
+            "safe_paper_wording": by_id["allowed_cluster_uncertainty_report"]["safe_wording"],
+            "must_not_claim": by_id["allowed_cluster_uncertainty_report"]["prohibited_wording"],
+            "why_confidence_is_not_higher": by_id["allowed_cluster_uncertainty_report"]["remaining_caveat"],
+        },
+        {
+            "topic_id": "feature_sensitivity",
+            "confidence_level": "medium",
+            "paper_claim_status": "partial_support",
+            "claim_or_limitation": "Nonlinear sensitivity is estimable only for features with variation in the current validation set.",
+            "supporting_evidence": by_id["allowed_nonlinear_sensitivity_partial"]["key_numbers"],
+            "safe_paper_wording": by_id["allowed_nonlinear_sensitivity_partial"]["safe_wording"],
+            "must_not_claim": by_id["allowed_nonlinear_sensitivity_partial"]["prohibited_wording"],
+            "why_confidence_is_not_higher": by_id["allowed_nonlinear_sensitivity_partial"]["remaining_caveat"],
+        },
+        {
+            "topic_id": "bobcat_identity_metrics",
+            "confidence_level": "blocked",
+            "paper_claim_status": "not_supported",
+            "claim_or_limitation": by_id["blocked_bobcat_identity_metrics"]["claim_text"],
+            "supporting_evidence": by_id["blocked_bobcat_identity_metrics"]["key_numbers"],
+            "safe_paper_wording": by_id["blocked_bobcat_identity_metrics"]["safe_wording"],
+            "must_not_claim": by_id["blocked_bobcat_identity_metrics"]["prohibited_wording"],
+            "why_confidence_is_not_higher": by_id["blocked_bobcat_identity_metrics"]["remaining_caveat"],
+        },
+        {
+            "topic_id": "automatic_identity_assignment",
+            "confidence_level": "blocked",
+            "paper_claim_status": "not_supported",
+            "claim_or_limitation": by_id["blocked_automatic_identity_assignment"]["claim_text"],
+            "supporting_evidence": by_id["blocked_automatic_identity_assignment"]["key_numbers"],
+            "safe_paper_wording": by_id["blocked_automatic_identity_assignment"]["safe_wording"],
+            "must_not_claim": by_id["blocked_automatic_identity_assignment"]["prohibited_wording"],
+            "why_confidence_is_not_higher": by_id["blocked_automatic_identity_assignment"]["remaining_caveat"],
+        },
+        {
+            "topic_id": "new_descriptor_claim",
+            "confidence_level": "blocked",
+            "paper_claim_status": "not_supported",
+            "claim_or_limitation": by_id["blocked_new_descriptor"]["claim_text"],
+            "supporting_evidence": by_id["blocked_new_descriptor"]["key_numbers"],
+            "safe_paper_wording": by_id["blocked_new_descriptor"]["safe_wording"],
+            "must_not_claim": by_id["blocked_new_descriptor"]["prohibited_wording"],
+            "why_confidence_is_not_higher": by_id["blocked_new_descriptor"]["remaining_caveat"],
+        },
+        {
+            "topic_id": "distribution_free_cross_domain_guarantee",
+            "confidence_level": "blocked",
+            "paper_claim_status": "not_supported",
+            "claim_or_limitation": by_id["blocked_unqualified_distribution_free_claim"]["claim_text"],
+            "supporting_evidence": by_id["blocked_unqualified_distribution_free_claim"]["key_numbers"],
+            "safe_paper_wording": by_id["blocked_unqualified_distribution_free_claim"]["safe_wording"],
+            "must_not_claim": by_id["blocked_unqualified_distribution_free_claim"]["prohibited_wording"],
+            "why_confidence_is_not_higher": by_id["blocked_unqualified_distribution_free_claim"]["remaining_caveat"],
+        },
+        {
+            "topic_id": "source_heldout_causal_generalization",
+            "confidence_level": "blocked",
+            "paper_claim_status": "not_supported",
+            "claim_or_limitation": by_id["blocked_source_heldout_causal_domain_generalization"]["claim_text"],
+            "supporting_evidence": by_id["blocked_source_heldout_causal_domain_generalization"]["key_numbers"],
+            "safe_paper_wording": by_id["blocked_source_heldout_causal_domain_generalization"]["safe_wording"],
+            "must_not_claim": by_id["blocked_source_heldout_causal_domain_generalization"]["prohibited_wording"],
+            "why_confidence_is_not_higher": by_id["blocked_source_heldout_causal_domain_generalization"]["remaining_caveat"],
+        },
+    ]
+
+
+def write_confidence_limitation_markdown(path: Path, rows: list[dict[str, Any]]) -> None:
+    lines = [
+        "# Final Confidence and Limitations Appendix",
+        "",
+        "This table is the paper-writing boundary: high-confidence items can be stated directly, medium-confidence items require the listed caveat, and blocked items should not appear as positive claims.",
+        "",
+        "| Topic | Confidence | Status | Safe wording | Must not claim | Boundary |",
+        "| --- | --- | --- | --- | --- | --- |",
+    ]
+    for row in rows:
+        lines.append(
+            "| {topic_id} | {confidence_level} | {paper_claim_status} | {safe_paper_wording} | {must_not_claim} | {why_confidence_is_not_higher} |".format(
+                **{key: str(value).replace("|", "/") for key, value in row.items()}
+            )
+        )
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def write_paper_ready_outputs(claims: list[dict[str, Any]]) -> None:
+    main_rows = main_result_rows()
+    confidence_rows = confidence_limitation_rows(claims)
+    write_csv(
+        MAIN_RESULT_TABLE_CSV,
+        main_rows,
+        [
+            "model_family",
+            "display_name",
+            "pair_count",
+            "review_ready_count",
+            "not_ready_or_uncertain_count",
+            "auroc",
+            "auroc_ci_lower",
+            "auroc_ci_upper",
+            "auprc",
+            "auprc_ci_lower",
+            "auprc_ci_upper",
+            "brier_score",
+            "ece_5bin",
+            "claim_boundary",
+        ],
+    )
+    write_csv(CONFIDENCE_LIMITATIONS_CSV, confidence_rows, CONFIDENCE_COLUMNS)
+    write_confidence_limitation_markdown(CONFIDENCE_LIMITATIONS_MD, confidence_rows)
+    allowed = [row for row in claims if row["status"].startswith("allowed")]
+    blocked = [row for row in claims if row["status"] == "blocked"]
+    blind = next(row for row in claims if row["claim_id"] == "allowed_blind_reliability_supported_labels")
+    primary = next(row for row in claims if row["claim_id"] == "allowed_descriptor_controlled_reviewability_signal")
+    lines = [
+        "# Final Claim Narrative",
+        "",
+        "## Core Result",
+        "",
+        primary["safe_wording"],
+        "",
+        f"Key model evidence: {primary['key_numbers']}.",
+        "",
+        "## Label Reliability",
+        "",
+        blind["safe_wording"],
+        "",
+        f"Key reliability evidence: {blind['key_numbers']}.",
+        "",
+        "Reviewer 2 provenance correction: `outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/provenance_correction.md`.",
+        "",
+        "## Main Result Table",
+        "",
+        f"Paper-ready CSV: `{project_relative(MAIN_RESULT_TABLE_CSV)}`",
+        "",
+        "## Confidence and Limitations Appendix",
+        "",
+        f"Paper-ready CSV: `{project_relative(CONFIDENCE_LIMITATIONS_CSV)}`",
+        f"Markdown appendix: `{project_relative(CONFIDENCE_LIMITATIONS_MD)}`",
+        "",
+        "## Allowed Claim Wording",
+        "",
+    ]
+    for row in allowed:
+        lines.append(f"- `{row['claim_id']}`: {row['safe_wording']}")
+    lines.extend(["", "## Blocked Claim Wording", ""])
+    for row in blocked:
+        lines.append(f"- `{row['claim_id']}`: do not claim `{row['prohibited_wording']}`.")
+    lines.extend(
+        [
+            "",
+            "## Required Boundary",
+            "",
+            "PF-ERI is evaluated as a post-retrieval evidence-admissibility and review-routing layer. It does not assign identity, replace strong descriptors, validate Bobcat identity accuracy, or provide unqualified distribution-free risk guarantees across domain shift.",
+        ]
+    )
+    CLAIM_NARRATIVE_MD.parent.mkdir(parents=True, exist_ok=True)
+    CLAIM_NARRATIVE_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def write_methods_report(path: Path, claims: list[dict[str, Any]], assumptions: list[dict[str, str]]) -> None:
@@ -455,7 +774,8 @@ def write_methods_report(path: Path, claims: list[dict[str, Any]], assumptions: 
         "4. Choose empirical calibration thresholds for selective evidence routing.",
         "5. Report calibration/evaluation risk-coverage and cluster-aware uncertainty.",
         "6. Allocate review budget by maximizing predicted admissible evidence under a predicted-risk constraint.",
-        "7. Keep Bobcat outputs as unlabeled transfer-stress/workflow diagnostics.",
+        "7. Validate label reliability with an external blind-review packet and report disagreement appendices.",
+        "8. Keep Bobcat outputs as unlabeled transfer-stress/workflow diagnostics.",
         "",
         "## Claim Status Counts",
         "",
@@ -480,7 +800,7 @@ def write_methods_report(path: Path, claims: list[dict[str, Any]], assumptions: 
             "",
             "## Required Limitation Paragraph",
             "",
-            "Current evidence supports PF-ERI as a pair-level evidence governance layer for CzechLynx reviewed candidate pairs. Finite-sample distribution-free claims, Bobcat identity metrics, source-held-out causal domain generalization, and validated reason classification remain blocked until the corresponding labels and calibration designs exist.",
+            "Current evidence supports PF-ERI as a pair-level evidence governance layer for CzechLynx reviewed candidate pairs with blind reliability-supported reviewability labels. Finite-sample distribution-free claims, Bobcat identity metrics, source-held-out causal domain generalization, and complete validated mechanism explanations remain blocked until the corresponding labels and calibration designs exist.",
         ]
     )
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -489,8 +809,10 @@ def write_methods_report(path: Path, claims: list[dict[str, Any]], assumptions: 
 def build() -> dict[str, Any]:
     claims = claim_gate_rows()
     assumptions = assumption_rows()
+    confidence_rows = confidence_limitation_rows(claims)
     write_csv(CLAIM_GATES_CSV, claims, CLAIM_COLUMNS)
     write_csv(ASSUMPTIONS_CSV, assumptions, ASSUMPTION_COLUMNS)
+    write_paper_ready_outputs(claims)
     write_methods_report(METHODS_REPORT_MD, claims, assumptions)
     status_counts = Counter(row["status"] for row in claims)
     required_blocked = {
@@ -515,16 +837,25 @@ def build() -> dict[str, Any]:
             "decomposition": project_relative(DECOMPOSITION_AUDIT_JSON),
             "bobcat": project_relative(BOBCAT_AUDIT_JSON),
             "budget": project_relative(BUDGET_CSV),
+            "blind_reliability": project_relative(BLIND_RELIABILITY_AUDIT_JSON),
+            "blind_reliability_reviewer2": project_relative(BLIND_RELIABILITY_REVIEWER2_AUDIT_JSON),
+            "blind_reliability_reviewer2_correction": project_relative(BLIND_RELIABILITY_REVIEWER2_CORRECTION_JSON),
         },
         "output_files": {
             "claim_gates": project_relative(CLAIM_GATES_CSV),
             "assumptions": project_relative(ASSUMPTIONS_CSV),
             "methods_report": project_relative(METHODS_REPORT_MD),
+            "main_result_table": project_relative(MAIN_RESULT_TABLE_CSV),
+            "confidence_limitations_table": project_relative(CONFIDENCE_LIMITATIONS_CSV),
+            "confidence_limitations_markdown": project_relative(CONFIDENCE_LIMITATIONS_MD),
+            "claim_narrative": project_relative(CLAIM_NARRATIVE_MD),
             "audit": project_relative(AUDIT_JSON),
         },
         "claim_status_counts": dict(sorted(status_counts.items())),
+        "confidence_level_counts": dict(sorted(Counter(row["confidence_level"] for row in confidence_rows).items())),
         "required_blocked_claims": sorted(required_blocked),
-        "reason_label_enrichment_required": True,
+        "reason_label_enrichment_required": False,
+        "reason_label_boundary": "Blind reliability supports reason-label consistency; mechanism-level explanation remains bounded.",
         "final_frame": "PF-ERI is a pair-level selective evidence inference layer after strong descriptor retrieval.",
         "claim_boundary": "Methods-ready claim gates for PF-ERI evidence governance; not identity assignment or descriptor replacement.",
     }

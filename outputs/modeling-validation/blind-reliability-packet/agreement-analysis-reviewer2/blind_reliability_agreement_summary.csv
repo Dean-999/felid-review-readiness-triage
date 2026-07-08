@@ -1,0 +1,6 @@
+scope,source_packet,reviewer_id,pair_count,three_class_percent_agreement,binary_percent_agreement,binary_cohen_kappa,primary_reason_agreement_on_nonready
+overall,all,all,280,0.914286,0.914286,0.785098,0.736318
+reviewer,all,external_reviewer_2,280,0.914286,0.914286,0.785098,0.736318
+source_packet_by_reviewer,feature_varied,external_reviewer_2,150,0.84,0.84,0.632653,0.47
+source_packet_by_reviewer,internal_reason,external_reviewer_2,80,1.0,1.0,1.0,1.0
+source_packet_by_reviewer,online_supplement,external_reviewer_2,50,1.0,1.0,1.0,1.0

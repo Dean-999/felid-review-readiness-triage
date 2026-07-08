@@ -28,11 +28,12 @@ Uncertainty is reported with query-image cluster bootstrap intervals for CzechLy
 4. Choose empirical calibration thresholds for selective evidence routing.
 5. Report calibration/evaluation risk-coverage and cluster-aware uncertainty.
 6. Allocate review budget by maximizing predicted admissible evidence under a predicted-risk constraint.
-7. Keep Bobcat outputs as unlabeled transfer-stress/workflow diagnostics.
+7. Validate label reliability with an external blind-review packet and report disagreement appendices.
+8. Keep Bobcat outputs as unlabeled transfer-stress/workflow diagnostics.
 
 ## Claim Status Counts
 
-`{'allowed': 3, 'allowed_with_caveat': 4, 'blocked': 6, 'exploratory': 2}`
+`{'allowed': 4, 'allowed_with_caveat': 4, 'blocked': 6, 'exploratory': 2}`
 
 ## Allowed Claims
 
@@ -41,6 +42,7 @@ Uncertainty is reported with query-image cluster bootstrap intervals for CzechLy
 - `allowed_descriptor_stratified_reporting`: The signal is observed in both descriptor-family queues, with descriptor-specific calibration caveats. Key evidence: MegaDescriptor_full_AUROC=0.8166580041580042; DINOv2_full_AUROC=0.8054147341171395; warnings=megadescriptor_l_384:any_model_weak_calibration_ece=warning; dinov2_vitl14:alpha_0_15_calibration_selective_risk=risk_gt_alpha_or_not_estimable
 - `allowed_empirical_selective_router`: Empirical CzechLynx calibration/evaluation risk-coverage routing is supported. Key evidence: alpha=0.15 calibration_risk=0.14583333333333334; evaluation_risk=0.037037037037037035; evaluation_coverage=0.3127413127413127; finite_sample_status=empirical_only_upper_bound_exceeds_alpha
 - `allowed_cluster_uncertainty_report`: Report cluster-aware uncertainty as validation uncertainty for CzechLynx reviewed pairs. Key evidence: alpha_0.15_selective_risk=0.07751937984496124 [0.0362206585096886, 0.13048020667122556]; cluster_count=221
+- `allowed_blind_reliability_supported_labels`: Use blind reliability-supported reviewability labels for CzechLynx model validation. Key evidence: reviewer1_n=280; reviewer1_binary_kappa=0.859305; reviewer1_reason_agreement=0.80597; reviewer2_n=280; reviewer2_binary_kappa=0.785098; reviewer2_reason_agreement=0.736318; reviewer2_provenance=INDEPENDENT_EXTERNAL_BLIND_REVIEW_CONFIRMED
 - `allowed_nonlinear_sensitivity_partial`: Report nonlinear sensitivity only for estimable features and mark constant features as design/data limitations. Key evidence: body_part_overlap_score=nonlinear_or_nonmonotonic_pattern; cross_descriptor_agreement_score=monotonic_supported_sparse_bin_caveat; night_or_motion_blur_risk=not_estimable_constant_feature; source_domain_shift_score=not_estimable_constant_feature; viewpoint_side_compatibility=not_estimable_constant_feature; visible_pattern_area_score=not_estimable_constant_feature
 - `allowed_predicted_risk_budget_optimization`: PF-ERI supports predicted-risk constrained review-budget allocation. Key evidence: alpha=0.15 B=100 PF-ERI selected=100 mean_predicted_risk=0.08859433178833984 empirical_risk=0.06; descriptor_unconstrained_predicted_risk=0.1818128331742451
 
@@ -65,8 +67,8 @@ Uncertainty is reported with query-image cluster bootstrap intervals for CzechLy
 - `risk_coverage` (empirical_only): Report empirical calibration/evaluation risk separately from finite-sample diagnostics.
 - `uncertainty` (reportable_with_scope): Use cluster-aware uncertainty for CzechLynx reviewability only.
 - `budget_optimization` (predicted_risk_only): Human labels are reserved for post-selection empirical audits.
-- `reason_labels` (required_for_stronger_claim): Reason-label enrichment remains future work before stronger explanation claims.
+- `reason_labels` (blind_reliability_supported_bounded): Reason labels are blind reliability-supported for reviewability annotation; mechanistic explanation remains component attribution.
 
 ## Required Limitation Paragraph
 
-Current evidence supports PF-ERI as a pair-level evidence governance layer for CzechLynx reviewed candidate pairs. Finite-sample distribution-free claims, Bobcat identity metrics, source-held-out causal domain generalization, and validated reason classification remain blocked until the corresponding labels and calibration designs exist.
+Current evidence supports PF-ERI as a pair-level evidence governance layer for CzechLynx reviewed candidate pairs with blind reliability-supported reviewability labels. Finite-sample distribution-free claims, Bobcat identity metrics, source-held-out causal domain generalization, and complete validated mechanism explanations remain blocked until the corresponding labels and calibration designs exist.
