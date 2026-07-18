@@ -49,7 +49,7 @@ The baseline expectation changed:
 - WildlifeTools now exposes a complete feature/similarity/inference workflow.
 - MegaDescriptor variants are easy to run through WildlifeTools.
 - WildFusion adds calibrated global + local score fusion, so a reviewer may
-  expect calibrated fusion baselines, not only a single embedding baseline.
+  expect calibrated fusion baselines alongside a single embedding baseline.
 - WildlifeReID-10k and AnimalCLEF-style work show that multispecies Re-ID is
   moving toward larger benchmarks, foundation ensembles, supervised contrastive
   projections, re-ranking, and open/unknown-individual scenarios.
@@ -133,7 +133,7 @@ Required baselines:
 3. optional CLIP/SigLIP-style descriptor as broad visual control;
 4. shortlist + re-ranking control where feasible.
 
-Do not claim PF-ERI beats descriptors unless this is directly shown.
+Do not claim PF-ERI beats descriptors unless evaluation shows that result.
 
 ### legacy-code18c: CzechLynx Known-ID Retrieval Benchmark
 

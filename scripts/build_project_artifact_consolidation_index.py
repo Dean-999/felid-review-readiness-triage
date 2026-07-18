@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a non-destructive consolidation index for phase output directories."""
+"""Build a non-destructive consolidation index for legacy-code16/17 outputs."""
 
 from __future__ import annotations
 
@@ -12,25 +12,25 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_DIR = PROJECT_ROOT / "outputs/project_structure/artifact_consolidation_index"
-INDEX_CSV = OUTPUT_DIR / "phase16_phase17_artifact_index.csv"
-AUDIT_JSON = OUTPUT_DIR / "phase16_phase17_artifact_index_audit.json"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/project-governance/project-structure/artifact_consolidation_index"
+INDEX_CSV = OUTPUT_DIR / "legacy-code16_legacy-code17_artifact_index.csv"
+AUDIT_JSON = OUTPUT_DIR / "legacy-code16_legacy-code17_artifact_index_audit.json"
 REPORT_MD = OUTPUT_DIR / "README.md"
 
 SCAN_ROOTS = [
-    PROJECT_ROOT / "outputs/phase16",
-    PROJECT_ROOT / "outputs/phase17",
-    PROJECT_ROOT / "outputs/bobcat_photo_selection",
-    PROJECT_ROOT / "outputs/czechlynx/phase17_strict3000_supplement",
-    PROJECT_ROOT / "outputs/frozen_modeling_datasets/phase17_strict3000_freeze_20260701",
+    PROJECT_ROOT / "archive/pferi_v1/outputs/project-governance/safeguards-candidate-scoring",
+    PROJECT_ROOT / "archive/pferi_v1/outputs/photo-selection/photo-entry-gates",
+    PROJECT_ROOT / "archive/pferi_v1/outputs/photo-selection/bobcat-photo-selection",
+    PROJECT_ROOT / "archive/pferi_v1/outputs/data-foundation/czechlynx-historical-validation/strict3000-supplement",
+    PROJECT_ROOT / "archive/pferi_v1/outputs/photo-freeze/frozen-modeling-datasets/strict3000-freeze-20260701",
 ]
 
 CANONICAL_MARKERS = {
-    "phase17n_bobcat_final3000_seed": "final_bobcat_3000_seed",
-    "phase17_strict3000_supplement": "final_czechlynx_strict3000",
-    "phase17_strict3000_freeze_20260701": "frozen_modeling_package",
-    "phase16g_czechlynx_real_pair_table": "prior_pair_contract",
-    "phase16h_czechlynx_calibrated_router": "prior_router_control",
+    "bobcat-final3000-seed": "final_bobcat_3000_seed",
+    "strict3000-supplement": "final_czechlynx_strict3000",
+    "strict3000-freeze-20260701": "frozen_modeling_package",
+    "czechlynx-real-pair-table": "prior_pair_contract",
+    "czechlynx-calibrated-router": "prior_router_control",
 }
 
 
@@ -46,12 +46,12 @@ def classify(path: Path) -> tuple[str, str]:
     for marker, role in CANONICAL_MARKERS.items():
         if marker in text:
             return "canonical_current", role
-    if "/phase17" in f"/{text}" and any(token in text for token in ["audit", "review", "clarity", "selected", "seed"]):
-        return "selection_experiment_or_review", "phase17_photo_selection_history"
-    if "/phase16" in f"/{text}" and any(token in text for token in ["phase16e", "candidate_model_filter", "score", "recalibrated"]):
-        return "model_filter_experiment", "phase16_candidate_scoring_history"
-    if "/phase16" in f"/{text}":
-        return "phase16_support", "phase16_supporting_artifact"
+    if "/photo-selection/" in f"/{text}" and any(token in text for token in ["audit", "review", "clarity", "selected", "seed"]):
+        return "selection_experiment_or_review", "legacy-code17_photo_selection_history"
+    if "/safeguards-candidate-scoring/" in f"/{text}" and any(token in text for token in ["candidate-model-filter", "score", "recalibrated"]):
+        return "model_filter_experiment", "legacy-code16_candidate_scoring_history"
+    if "/safeguards-candidate-scoring/" in f"/{text}":
+        return "legacy-code16_support", "legacy-code16_supporting_artifact"
     return "supporting_or_historical", "supporting_artifact"
 
 
@@ -96,7 +96,8 @@ def build_index() -> tuple[list[dict[str, Any]], dict[str, Any]]:
         "category_counts": dict(sorted(counts.items())),
         "claim_boundary": (
             "Non-destructive structure index only. It does not move, delete, "
-            "or revalidate images. Phase18 must use the frozen modeling manifest."
+            "or revalidate images. Current modeling must use data/frozen/pferi_v2/ "
+            "and the modeling-validation contracts."
         ),
     }
     return rows, audit
@@ -124,10 +125,10 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
 
 def write_report(rows: list[dict[str, Any]], audit: dict[str, Any]) -> None:
     lines = [
-        "# Phase16/17 Artifact Consolidation Index",
+        "# Legacy-Code16/17 Artifact Consolidation Index",
         "",
         "This is a non-destructive structure map. It explains which historical",
-        "phase directories are current canonical inputs and which are selection",
+        "content directories are current canonical inputs and which are selection",
         "experiments or supporting history.",
         "",
         "## Category Counts",
@@ -145,7 +146,7 @@ def write_report(rows: list[dict[str, Any]], audit: dict[str, Any]) -> None:
             "## Rule",
             "",
             "Do not use the many Phase17 selection-condition directories directly as",
-            "Phase18 algorithm input. Use the frozen modeling manifest and this index",
+            "modeling input. Use the final freeze and modeling contracts; use this index",
             "only as provenance/navigation.",
         ]
     )

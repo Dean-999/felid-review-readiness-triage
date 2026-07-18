@@ -1,166 +1,102 @@
-# Current Project Map
+# Current project map
 
-Date: 2026-07-07
+Date: 2026-07-17
 
-This is the current navigation layer after the repository slimming. The active
-project is no longer organized around the old Phase16/17/18 directory names.
-Those folders remain provenance, diagnostics, or legacy reproduction material.
+## Scientific state
 
-## Core Claim
+PF-ERI v2 studies pair-level evidence admission after strong wildlife Re-ID
+retrieval. Its governing line is **Similarity is not admissibility.** It does not
+replace a descriptor, assign identities automatically, or turn exploratory v1
+results into confirmation evidence.
 
-```text
-PF-ERI is a post-retrieval, pair-level evidence governance layer for patterned
-felid Re-ID candidate review.
-```
+The project is `v2_design_locked`. The four-stage programme, practical decision
+rule, dependence/interval specification, reviewer operation, sampling strata,
+official seed, historical-pair exclusion register, and exact zero-overlap
+1,000/1,000/1,000 image allocation are frozen pre-outcome. No v2 outcome packet
+has been authorized.
 
-PF-ERI is not a new descriptor, not automatic individual recognition, and not a
-primary top-k/mAP improvement claim. The active question is whether a candidate
-pair returned by a strong descriptor queue is evidence-admissible,
-review-ready, should be deferred, or carries evidence risk.
+## Active work
 
-## Current Data Entry Point
+Workbook04 / Workstream 04 is active. The accepted programme targets:
 
-Use this folder for final modeling inputs:
+- 400 analyzable development pairs;
+- 400 analyzable calibration pairs;
+- 400 analyzable mechanism-confirmation pairs;
+- 800 analyzable deployment-confirmation pairs.
 
-```text
-outputs/final_freeze/
-```
+At the accepted 0.90 planning completion fraction this means 2,224 prepared
+unique unordered pairs and 4,448 first-pass judgements under full double review.
+The immediate gate is completion and audit of within-role automatic pair
+measurements and post-allocation capacity. Pair sampling and outcome packets
+remain blocked until those gates pass.
 
-Current frozen scopes:
+The timed operational rehearsal v1 failed because it permitted duplicate
+participant/packet submissions. The assignment-enforced v2 replacement passed
+its operational gate on a distinct, permanently excluded pilot set. It informs
+interface operation only and does not estimate semantic-review completion or
+reviewer reliability.
 
-| Scope | Status | Rows | Role |
-| --- | --- | ---: | --- |
-| `lynx-wild` | frozen | 3,000 | known-ID CzechLynx validation core |
-| `bobcat-wild` | frozen | 3,000 | wild Bobcat transfer/evidence stress core |
-| `bobcat-urban` | frozen | 6,000 | urban/peri-urban Bobcat stress and pair-contamination core |
-| `lynx-urban` | auxiliary only | no 3000-image manifest | small heterogeneity note; not a forced core cell |
-
-Rules:
-
-- final modeling must read `outputs/final_freeze/<scope>/manifest.csv`;
-- final modeling must use copied files in `outputs/final_freeze/<scope>/images/`;
-- candidate reservoirs and historical phase outputs are provenance, not the
-  modeling entry point;
-- Bobcat rows do not provide verified individual identity labels;
-- Bobcat identity accuracy and Bobcat false-match accuracy remain blocked unless
-  verified individual labels or audited same/different Bobcat pair labels are
-  created later;
-- do not force a symmetric CzechLynx urban 3000 cell.
-
-## Current Evidence Status
-
-Phase18L and Phase18M establish the current pair-level mechanism.
-
-Phase18L descriptor-controlled result:
+## Current architecture
 
 ```text
-PASS
+data/frozen/pferi_v2
+  -> outputs/pferi_v2
+  -> canonical v2 pair and measurement contracts
+  -> fresh dual-descriptor reservoir
+  -> outcome-free feasibility gates
+  -> full image-quality and local-match measurement
+  -> exclusions, strata, seed, image allocation
+  -> within-role pair frames and automatic measurement
+  -> Workbook04 readiness and sampling execution
+  -> blinded collection only after all gates pass
 ```
 
-Phase18M identity-balanced result:
+The current implementation map is
+`docs/project-governance/structure/current_pipeline_manifest.md`. Script entry
+points are listed in `scripts/README.md`.
 
-```text
-BLIND_CONFIRMED_IDENTITY_BALANCED_PASS
-```
+## Historical boundary
 
-Interpretation:
+PF-ERI v1 and top-level Phase18-19 results are exploratory. They may explain
+failure modes and provide explicitly labelled scenario context, but they cannot
+set a v2 effect size, threshold, calibration target, success criterion, identity
+claim, or confirmation result. Workbook04 reads a compact frozen context capsule
+at `schemas/pferi_v2/ws04_exploratory_context_v1.json` rather than the legacy
+Phase18 output paths.
 
-```text
-Low PF-ERI admissibility remains enriched for human uncertain/not-ready
-reviewability labels after descriptor family, descriptor similarity, and known
-same/different identity stratum are controlled.
-```
+Phase 7–17 source/test bytes are isolated under
+`archive/pferi_v1/reproducibility/`. Earlier `scripts/legacy/`, prototype,
+archived-Colab, matcher-v1, oracle-v1, and implemented-plan files have left the
+active tree. Their succession and evidence retention rules are documented in
+`docs/project-governance/SUPERSEDED_IMPLEMENTATIONS.md`; exact tracked source is
+available from Git history.
 
-This supports PF-ERI as a pair-level reviewability and evidence-admissibility
-signal. It does not support a claim that PF-ERI is an identity classifier.
+## Output boundary
 
-## Active Modeling Direction
+`data/frozen/pferi_v2/` is authoritative input storage. Its three populated
+manifests match 6,000 Bobcat-urban, 3,000 Bobcat-wild, and 3,000 CzechLynx image
+files. Current result tables, audits and response logs live under
+`outputs/pferi_v2/`. Reconstructable execution and reviewer packages live under
+`work/pferi_v2/`; transport archives live under `artifacts/transfers/pferi_v2/`.
+PF-ERI v1 result bytes are preserved under `archive/pferi_v1/` and are never an
+active v2 result root.
 
-The next active layer is:
+The 2026-07-18 phase-code archive manifest records the original path, archive
+path, size, raw SHA-256, and source commit for every isolated script and test.
 
-```text
-PF-ERI Selective Evidence Sufficiency Model
-```
+The 2026-07-17 migration recorded every old/new path, size and source SHA-256 in
+`docs/project-governance/structure/2026-07-17_pferi_v1_v2_relocation_manifest.csv`.
+Work images removed as byte-identical frozen-input copies are reconstructable
+from `artifacts/manifests/pferi_v2_work_image_dedup.csv`.
 
-The formal modeling chain is:
+## Read order
 
-```text
-strong descriptor retrieval
--> candidate pair queue
--> pair-level evidence sufficiency scoring
--> calibrated selective evidence admission
--> risk-coverage and review-budget routing
--> Bobcat wild/urban transfer-stress evaluation
-```
+1. `README.md`
+2. `PROJECT_RULES.md`
+3. this map
+4. `docs/project-governance/structure/current_pipeline_manifest.md`
+5. `docs/project-governance/workstreams/04_dual_sample_confirmation/README.md`
+6. `docs/project-governance/SUPERSEDED_IMPLEMENTATIONS.md`
+7. `scripts/README.md`
 
-Scientific subtitle:
-
-```text
-A risk-calibrated selective inference layer for wildlife Re-ID candidate pairs
-```
-
-The first modeling bootstrap is:
-
-```text
-scripts/build_final_modeling_bootstrap.py
-outputs/modeling-validation/final-modeling-bootstrap/
-```
-
-Run this before final algorithm work. It verifies that the physical freeze is
-usable and writes the modeling contract that downstream scripts should consume.
-
-Active work after this point must be named by module purpose, not by new phase
-numbers. Examples: `modeling-contract`, `evidence-feature-extraction`,
-`known-id-evidence-sufficiency-validation`,
-`risk-calibrated-evidence-admission`, `bobcat-wild-urban-transfer-stress`,
-and `review-budget-routing`.
-
-## Current Folder Roles
-
-Active:
-
-- `outputs/final_freeze/`: current physical photo freeze and manifest entry.
-- `outputs/modeling-validation/final-modeling-bootstrap/`: generated readiness
-  contract for final modeling.
-- `outputs/modeling-validation/pair-level-validation/`: completed pair-level
-  validation evidence, strong descriptor controls, and reviewability analyses.
-- `docs/modeling-validation/pair-level-validation/`: scientific interpretation
-  and claim boundaries for completed validation and the transition into
-  selective evidence sufficiency modeling.
-- `docs/photo-freeze/`: photo-freeze rules and provenance map.
-- `docs/project-governance/`: structure maps, logs, project rules, and
-  executable plans.
-- `PROJECT_RULES.md`: binding scientific claim boundaries.
-- `AGENTS.md`: CodeGraph and project-specific tool guardrails.
-
-Legacy/provenance:
-
-- old `outputs/phase16`, `outputs/phase17`, and `outputs/phase18` paths;
-- old `docs/phase*` paths;
-- archived metric-learning and candidate-selection scripts;
-- candidate source pools under `data/` or historical output folders.
-
-Legacy material can explain how a dataset was constructed, but it must not
-override `outputs/final_freeze` or current claim rules.
-
-## What Counts As Core Now
-
-Core:
-
-- pair-level PF-ERI evidence utility;
-- descriptor-evidence conflict;
-- review-readiness and evidence-admissibility routing;
-- calibrated selective evidence admission;
-- risk coverage, positive retention, and review burden;
-- review-budget routing;
-- CzechLynx known-ID validation;
-- Bobcat wild/urban transfer and evidence-risk stress testing;
-- strong-descriptor-controlled comparison.
-
-Not core:
-
-- training a new descriptor as the main contribution;
-- claiming automatic Bobcat individual recognition;
-- claiming Bobcat identity accuracy without verified Bobcat identities;
-- forcing a 4x3000 design when the fourth cell is scientifically weak;
-- using old candidate-selection folders as final modeling inputs.
+The daily log preserves chronology but is not authoritative for current status.

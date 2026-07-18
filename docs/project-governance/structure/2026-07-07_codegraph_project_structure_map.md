@@ -12,8 +12,8 @@ photo-selection state, freeze status, and scientific boundaries.
 ```mermaid
 flowchart TB
   Rules["PROJECT_RULES.md / AGENTS.md<br/>claim boundaries and CodeGraph contract"]
-  Current["docs/structure/current_pipeline_manifest.md<br/>active read order and script list"]
-  Freeze["outputs/final_freeze/<br/>current photo-selection freeze entry"]
+  Current["docs/project-governance/structure/current_pipeline_manifest.md<br/>active read order and script list"]
+  Freeze["data/frozen/pferi_v2/<br/>current photo-selection freeze entry"]
 
   subgraph Data["Data and Source Inputs"]
     RawCzech["data/raw/czechlynx<br/>CzechLynx source"]
@@ -86,11 +86,11 @@ flowchart TB
 
 ## Current Final Freeze
 
-Use `outputs/final_freeze/` as the current navigation layer.
+Use `data/frozen/pferi_v2/` as the current navigation layer.
 
 ```mermaid
 flowchart LR
-  FF["outputs/final_freeze"]
+  FF["data/frozen/pferi_v2"]
 
   BU["bobcat-urban/<br/>manifest.csv<br/>6,000 images"]
   BUPairs["legacy-code15 pair table<br/>300,000 pairs"]
@@ -109,7 +109,7 @@ Validated freeze counts:
 
 | Freeze scope | Rows | Source |
 | --- | ---: | --- |
-| `bobcat-urban` | 6,000 images | `outputs/final_freeze/bobcat-urban/manifest.csv` |
+| `bobcat-urban` | 6,000 images | `data/frozen/pferi_v2/bobcat-urban/manifest.csv` |
 | `bobcat-urban-pairs` | 300,000 pairs | `outputs/legacy-code15/wild_urban_transfer_stress/legacy-code15e_bobcat_evidence_routed_review_table.csv` |
 | `bobcat-wild` | 3,000 images | `outputs/frozen_modeling_datasets/legacy-code17_strict3000_freeze_20260701/manifests/bobcat_frozen_manifest.csv` |
 | `lynx-wild` | 3,000 images | `outputs/frozen_modeling_datasets/legacy-code17_strict3000_freeze_20260701/manifests/czechlynx_frozen_manifest.csv` |
@@ -127,7 +127,7 @@ flowchart TB
   P18["legacy-code18<br/>PF-ERI pair-level evidence governance"]
   Strong["Strong descriptors<br/>MegaDescriptor / DINOv2 returned artifacts"]
   Reviews["Blind reviewability analyses<br/>18I / 18J / 18L / 18M"]
-  FinalFreeze["outputs/final_freeze<br/>current photo freeze"]
+  FinalFreeze["data/frozen/pferi_v2<br/>current photo freeze"]
 
   P14 --> P15 --> P16 --> P17 --> FreezePkg --> P18
   Strong --> P18
@@ -176,7 +176,7 @@ flowchart TB
 
 | Path | Role | Use now |
 | --- | --- | --- |
-| `outputs/final_freeze/` | Current freeze entry point | Yes, primary navigation |
+| `data/frozen/pferi_v2/` | Current freeze entry point | Yes, primary navigation |
 | `outputs/frozen_modeling_datasets/legacy-code17_strict3000_freeze_20260701/` | Stable 3,000 Bobcat + 3,000 CzechLynx modeling package | Yes, source of truth for frozen 6,000 package |
 | `outputs/legacy-code14/legacy-code14_algorithm_inputs/` | 12,000-row 2x2 image evidence table and pair comparability | Yes, provenance and legacy-code15 input |
 | `outputs/legacy-code15/wild_urban_transfer_stress/` | Bobcat urban/peri-urban transfer-stress pair outputs | Yes, pair-level stress source |
@@ -206,13 +206,13 @@ flowchart TB
 
 Start here:
 
-1. `outputs/final_freeze/README.md` for current photo freeze.
-2. `docs/structure/current_pipeline_manifest.md` for active scripts and read
+1. `data/frozen/pferi_v2/README.md` for current photo freeze.
+2. `docs/project-governance/structure/current_pipeline_manifest.md` for active scripts and read
    order.
-3. `docs/legacy-code18/README.md` for current pair-level modeling status.
+3. `docs/modeling-validation/pair-level-validation/README.md` for current
+   pair-level modeling status.
 4. `outputs/legacy-code18/legacy-code18m_identity_balanced_analysis/` for the strongest
    current blind-confirmed reviewability result.
-5. `outputs/project_structure/codegraph_contract/` and
-   `outputs/project_structure/artifact_consolidation_index/` for structure
+5. `archive/pferi_v1/outputs/project-governance/project-structure/codegraph_contract/` and
+   `archive/pferi_v1/outputs/project-governance/project-structure/artifact_consolidation_index/` for structure
    guardrails.
-

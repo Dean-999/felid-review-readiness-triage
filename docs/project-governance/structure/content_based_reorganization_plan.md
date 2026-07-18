@@ -107,8 +107,8 @@ Recommended canonical content names:
 | --- | --- | --- |
 | `project-governance/` | rules, claim boundaries, current maps, daily logs | `PROJECT_RULES.md`, `docs/CURRENT_PROJECT_MAP.md`, `docs/project-governance/structure/current_pipeline_manifest.md` |
 | `scientific-claims/` | gap rationale, claim gates, model cards | `docs/project-governance/safeguards-and-claim-lock/legacy-code16i_gap_rationale.md`, pair-level validation claim-gate docs |
-| `data-foundation/` | curated image manifests before final freeze, 2x2 evidence construction | `outputs/data-foundation/wild-urban-evidence-foundation/`, selected safeguards/photo-entry artifacts |
-| `photo-freeze/` | final frozen image-entry sets and manifest index | `outputs/final_freeze/`, `outputs/frozen_modeling_datasets/strict3000-freeze-20260701/` |
+| `data-foundation/` | curated image manifests before final freeze, 2x2 evidence construction | `archive/pferi_v1/outputs/data-foundation/wild-urban-evidence-foundation/`, selected safeguards/photo-entry artifacts |
+| `photo-freeze/` | final frozen image-entry sets and manifest index | `data/frozen/pferi_v2/`, `outputs/frozen_modeling_datasets/strict3000-freeze-20260701/` |
 | `pair-evidence/` | pair contracts, pair features, descriptor-evidence conflict | wild-urban pair comparability, pair-feature contracts, PF-ERI pair features |
 | `review-routing/` | review action policies, risk coverage, abstention, defer/species-level/non-comparable logic | evidence-routed review, CzechLynx review utility, review router, transfer readiness |
 | `modeling-validation/` | strong descriptor baselines, local controls, identity-balanced analyses | strong baselines, descriptor-controlled analysis, identity-balanced analysis |
@@ -121,10 +121,10 @@ Recommended canonical content names:
 Current freeze navigation should be:
 
 ```text
-outputs/final_freeze/bobcat-urban/
-outputs/final_freeze/bobcat-wild/
-outputs/final_freeze/lynx-wild/
-outputs/final_freeze/lynx-urban/
+data/frozen/pferi_v2/bobcat-urban/
+data/frozen/pferi_v2/bobcat-wild/
+data/frozen/pferi_v2/lynx-wild/
+data/frozen/pferi_v2/lynx-urban/
 ```
 
 Current interpretation:
@@ -163,7 +163,7 @@ explicit approval.
 
 Do the cleanup in small locked steps:
 
-1. Freeze current navigation: keep `outputs/final_freeze/` as the entry point.
+1. Freeze current navigation: keep `data/frozen/pferi_v2/` as the entry point.
 2. Write a manifest for each content folder before moving files.
 3. Move docs first, because they are small and easy to review.
 4. Move generated outputs only through index files or symlink/copy manifests at
@@ -181,7 +181,7 @@ Low-risk first pass:
 - Remove `.DS_Store` files from generated output folders.
 - Create an index of `*_review_working.csv` files and mark one accepted/latest
   working file per review task.
-- Add `README.md` files to `outputs/candidate-reservoirs/photo-selection-experiments/` and `data/candidate-reservoirs/photo-selection-candidate-pools/`
+- Add `README.md` files to `archive/pferi_v1/outputs/candidate-reservoirs/photo-selection-experiments/` and `data/candidate-reservoirs/photo-selection-candidate-pools/`
   stating "candidate reservoir only, not final freeze."
 - Add an `archive/failed-selection-attempts/` index for metadata-first Bobcat queues and the
   deprecated photo-selection camera-trap attempts.
@@ -190,9 +190,9 @@ Medium-risk second pass:
 
 - Move superseded docs under `docs/archive/` with replacement pointers.
 - Consolidate pair-level validation review packets into `outputs/human-review/pair-level-validation/`.
-- Consolidate pair-level validation modeling outputs into `outputs/modeling-validation/pair-level-validation/`.
+- Consolidate pair-level validation modeling outputs into `archive/pferi_v1/outputs/modeling-validation/pair-level-validation/`.
 - Consolidate data-foundation, safeguards, and photo-entry selected image manifests into
-  `outputs/photo-selection/`.
+  `archive/pferi_v1/outputs/photo-selection/`.
 
 High-risk / approval required:
 
@@ -208,8 +208,8 @@ Until the physical migration is done, use this read order:
 1. `README.md`
 2. `PROJECT_RULES.md`
 3. `docs/project-governance/structure/current_pipeline_manifest.md`
-4. `docs/structure/2026-07-07_codegraph_project_structure_map.md`
-5. `outputs/final_freeze/README.md`
+4. `docs/project-governance/structure/2026-07-07_codegraph_project_structure_map.md`
+5. `data/frozen/pferi_v2/README.md`
 6. `docs/modeling-validation/pair-level-validation/README.md`
 7. `docs/modeling-validation/pair-level-validation/2026-07-06_algorithm_modeling_readiness_report.md`
 8. `docs/modeling-validation/pair-level-validation/2026-07-04_legacy-code18m_identity_balanced_confirmatory_plan.md`

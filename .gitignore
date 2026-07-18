@@ -9,9 +9,14 @@ outputs/
 *.pth
 *.ckpt
 .env
+.venv/
 .codegraph/
 __pycache__/
 *.pyc
+
+# Repowise local index/cache (keep the portable repository config)
+.repowise/*
+!.repowise/config.yaml
 
 colab_exports/
 
@@ -20,3 +25,15 @@ sessions/sessions-state.json
 sessions/package.json
 sessions/transcripts/
 sessions/.archived/
+
+# PF-ERI physical evidence boundaries. Retain portable README/manifest files,
+# while large local evidence and reconstructable work bytes stay out of Git.
+archive/pferi_v1/*
+!archive/pferi_v1/README.md
+!archive/pferi_v1/reproducibility/
+!archive/pferi_v1/reproducibility/**
+work/pferi_v2/*
+!work/pferi_v2/README.md
+.ua/outputs-analysis/
+artifacts/transfers/pferi_v2/*
+!artifacts/transfers/pferi_v2/README.md

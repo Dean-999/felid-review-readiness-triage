@@ -1,5 +1,0 @@
-scope,required,manifest_path,modeling_role,permitted_endpoint,identity_validation_allowed,status,row_count,final_freeze_image_path_nonempty,missing_image_files,identity_column,identity_nonempty,identity_unique_count,required_columns_missing,notes
-lynx-wild,True,outputs/final_freeze/lynx-wild/manifest.csv,known-ID CzechLynx validation core,"same/different pair validation, reviewability, risk routing",True,PASS,3000,3000,0,source_identity_label,3000,235,,
-bobcat-wild,True,outputs/final_freeze/bobcat-wild/manifest.csv,wild Bobcat transfer/evidence stress core,"review-readiness, comparability, evidence-risk transfer",False,PASS,3000,3000,0,,,,,
-bobcat-urban,True,outputs/final_freeze/bobcat-urban/manifest.csv,urban/peri-urban Bobcat stress and pair contamination core,"review-readiness, comparability, domain-shift pressure",False,PASS,6000,6000,0,,,,,
-lynx-urban,False,outputs/final_freeze/lynx-urban/manifest.csv,small auxiliary heterogeneity note only,qualitative/exploratory context; not a 3000-image core,False,OPTIONAL_MISSING,0,0,0,,,,,manifest.csv is absent
