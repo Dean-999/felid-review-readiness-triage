@@ -26,8 +26,8 @@ Current role: research-question foundation.
 ## Related Scripts
 
 ```text
-scripts/build_phase12_pair_candidate_analysis_table.py
-scripts/build_phase12_rq1_rq3_evidence_analysis.py
-scripts/build_phase12c_confidence_evidence.py
-scripts/build_phase12d_failure_diagnosis_and_policy_revision.py
+archive/pferi_v1/reproducibility/scripts/build_phase12_pair_candidate_analysis_table.py
+archive/pferi_v1/reproducibility/scripts/build_phase12_rq1_rq3_evidence_analysis.py
+archive/pferi_v1/reproducibility/scripts/build_phase12c_confidence_evidence.py
+archive/pferi_v1/reproducibility/scripts/build_phase12d_failure_diagnosis_and_policy_revision.py
 ```

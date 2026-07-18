@@ -20,8 +20,8 @@ Current role: diagnostic evidence explaining why training is not current main pa
 ## Related Scripts
 
 ```text
-scripts/build_phase13_learned_candidate_utility.py
-scripts/build_phase13b_quality_boundary_diagnosis.py
-scripts/build_phase13c_rq4_training_control_manifest.py
-scripts/build_phase13d_rq4_fixed_embedding_training.py
+archive/pferi_v1/reproducibility/scripts/build_phase13_learned_candidate_utility.py
+archive/pferi_v1/reproducibility/scripts/build_phase13b_quality_boundary_diagnosis.py
+archive/pferi_v1/reproducibility/scripts/build_phase13c_rq4_training_control_manifest.py
+archive/pferi_v1/reproducibility/scripts/build_phase13d_rq4_fixed_embedding_training.py
 ```
