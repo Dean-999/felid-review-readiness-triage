@@ -12,7 +12,10 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/reason-label-enrichment"
+LEGACY_PROJECT_PATH_RELOCATIONS = (
+    ("outputs/final_freeze/", "data/frozen/pferi_v2/"),
+)
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/reason-label-enrichment"
 QUEUE_CSV = OUTPUT_DIR / "reason_label_enrichment_queue.csv"
 REVIEW_FORM_CSV = OUTPUT_DIR / "reason_label_enrichment_review_form.csv"
 CODEBOOK_CSV = OUTPUT_DIR / "reason_label_codebook.csv"
@@ -23,11 +26,11 @@ SOURCES = [
     {
         "source_id": "phase18m_identity_balanced",
         "majority_csv": PROJECT_ROOT
-        / "outputs/modeling-validation/pair-level-validation/identity-balanced-analysis/legacy-code18m_pair_majority_labels.csv",
+        / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/identity-balanced-analysis/legacy-code18m_pair_majority_labels.csv",
         "detail_csv": PROJECT_ROOT
-        / "outputs/modeling-validation/pair-level-validation/identity-balanced-analysis/legacy-code18m_reviewer_label_detail.csv",
+        / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/identity-balanced-analysis/legacy-code18m_reviewer_label_detail.csv",
         "packet_template": PROJECT_ROOT
-        / "outputs/modeling-validation/pair-level-validation/identity-balanced-review-packet/{descriptor}/legacy-code18m_identity_balanced_review_packet.csv",
+        / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/identity-balanced-review-packet/{descriptor}/legacy-code18m_identity_balanced_review_packet.csv",
         "binary_not_ready_column": "majority_binary_not_ready_or_uncertain",
         "majority_ready_column": "",
         "priority": 1,
@@ -35,11 +38,11 @@ SOURCES = [
     {
         "source_id": "phase18l_descriptor_controlled",
         "majority_csv": PROJECT_ROOT
-        / "outputs/modeling-validation/pair-level-validation/descriptor-controlled-analysis/legacy-code18l_pair_majority_labels.csv",
+        / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/descriptor-controlled-analysis/legacy-code18l_pair_majority_labels.csv",
         "detail_csv": PROJECT_ROOT
-        / "outputs/modeling-validation/pair-level-validation/descriptor-controlled-analysis/legacy-code18l_reviewer_label_detail.csv",
+        / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/descriptor-controlled-analysis/legacy-code18l_reviewer_label_detail.csv",
         "packet_template": PROJECT_ROOT
-        / "outputs/modeling-validation/pair-level-validation/descriptor-controlled-review-packet/{descriptor}/legacy-code18l_descriptor_controlled_review_packet.csv",
+        / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/descriptor-controlled-review-packet/{descriptor}/legacy-code18l_descriptor_controlled_review_packet.csv",
         "binary_not_ready_column": "majority_binary_not_ready_or_uncertain",
         "majority_ready_column": "",
         "priority": 2,
@@ -47,11 +50,11 @@ SOURCES = [
     {
         "source_id": "phase18j_full_queue_100",
         "majority_csv": PROJECT_ROOT
-        / "outputs/modeling-validation/pair-level-validation/reviewer-agreement-analysis-100/legacy-code18j_pair_majority_labels.csv",
+        / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/reviewer-agreement-analysis-100/legacy-code18j_pair_majority_labels.csv",
         "detail_csv": PROJECT_ROOT
-        / "outputs/modeling-validation/pair-level-validation/reviewer-agreement-analysis-100/legacy-code18j_reviewer_label_detail.csv",
+        / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/reviewer-agreement-analysis-100/legacy-code18j_reviewer_label_detail.csv",
         "packet_template": PROJECT_ROOT
-        / "outputs/modeling-validation/pair-level-validation/full-queue-review-packet-100/{descriptor}/legacy-code18j_full_queue_review_packet.csv",
+        / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/full-queue-review-packet-100/{descriptor}/legacy-code18j_full_queue_review_packet.csv",
         "binary_not_ready_column": "",
         "majority_ready_column": "majority_binary_review_ready",
         "priority": 3,
@@ -59,10 +62,10 @@ SOURCES = [
 ]
 
 DECOMPOSITION_CSV = (
-    PROJECT_ROOT / "outputs/modeling-validation/evidence-risk-decomposition/pair_evidence_risk_decomposition.csv"
+    PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/evidence-risk-decomposition/pair_evidence_risk_decomposition.csv"
 )
 IMAGE_INDEX_CSV = (
-    PROJECT_ROOT / "outputs/modeling-validation/final-modeling-bootstrap/final_modeling_image_index.csv"
+    PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/final-modeling-bootstrap/final_modeling_image_index.csv"
 )
 
 TARGET_TOTAL_REVIEW_ROWS = 300
@@ -238,17 +241,26 @@ def legacy_phase18_to_pferi_id(image_id: str) -> str:
 def image_path_lookup() -> dict[str, str]:
     lookup = {}
     for row in read_csv(IMAGE_INDEX_CSV):
-        lookup[row["image_id"]] = row["local_image_path"]
+        lookup[row["image_id"]] = relocate_project_path(row["local_image_path"])
     return lookup
+
+
+def relocate_project_path(path_text: str) -> str:
+    """Translate immutable historical path fields to the current repository layout."""
+    for legacy_prefix, current_prefix in LEGACY_PROJECT_PATH_RELOCATIONS:
+        if path_text.startswith(legacy_prefix):
+            return current_prefix + path_text[len(legacy_prefix) :]
+    return path_text
 
 
 def resolve_image_path(image_id: str, packet_path: str, image_lookup: dict[str, str]) -> str:
     mapped = image_lookup.get(legacy_phase18_to_pferi_id(image_id))
     if mapped:
         return mapped
-    if packet_path and (PROJECT_ROOT / packet_path).exists():
-        return packet_path
-    return packet_path
+    relocated_packet_path = relocate_project_path(packet_path)
+    if relocated_packet_path and (PROJECT_ROOT / relocated_packet_path).exists():
+        return relocated_packet_path
+    return relocated_packet_path
 
 
 def path_exists(path_text: str) -> bool:

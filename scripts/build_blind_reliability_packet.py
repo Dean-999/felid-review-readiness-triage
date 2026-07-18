@@ -14,7 +14,7 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/blind-reliability-packet"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/blind-reliability-packet"
 MASTER_PACKET_CSV = OUTPUT_DIR / "blind_reliability_master_packet.csv"
 REVIEW_TEMPLATE_CSV = OUTPUT_DIR / "blind_reliability_review_template.csv"
 AUDIT_JSON = OUTPUT_DIR / "blind_reliability_packet_audit.json"
@@ -26,14 +26,14 @@ REVIEWER2_CORRECTED_NOTE = (
 )
 
 FEATURE_WORKING_CSV = (
-    PROJECT_ROOT / "outputs/modeling-validation/feature-varied-validation-packet/feature_varied_validation_review_working.csv"
+    PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/feature-varied-validation-packet/feature_varied_validation_review_working.csv"
 )
 INTERNAL_REASON_CSV = (
-    PROJECT_ROOT / "outputs/modeling-validation/reason-label-enrichment/reason_label_enrichment_review_working.csv"
+    PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/reason-label-enrichment/reason_label_enrichment_review_working.csv"
 )
 ONLINE_REASON_CSV = (
     PROJECT_ROOT
-    / "outputs/modeling-validation/reason-label-enrichment/online-supplement/online_reason_label_review_working.csv"
+    / "archive/pferi_v1/outputs/modeling-validation/reason-label-enrichment/online-supplement/online_reason_label_review_working.csv"
 )
 
 DEFAULT_TARGETS = {

@@ -1,0 +1,114 @@
+{
+  "contract_version": "pferi_v2_four_stage_stratified_sampling_contract_v1",
+  "status": "accepted_pre_outcome_image_allocation_frozen_pair_sampling_blocked",
+  "prepared_date": "2026-07-15",
+  "accepted_date": "2026-07-16",
+  "v2_outcome_access": "none",
+  "claim_boundary": "This contract fixes the accepted outcome-free image blocking and four analytical pair-sampling rules. The official seed and image-role allocation are now frozen, but no formal pair has been sampled, no reviewer packet is authorized, and no PF-ERI performance has been established.",
+  "sampling_unit": "eligible canonical unordered pair",
+  "prohibited_inputs": [
+    "v2 reviewer outcome",
+    "identity truth in primary sampling",
+    "PF-ERI fitted prediction",
+    "action route",
+    "oracle annotation",
+    "adjudication result",
+    "confirmation result"
+  ],
+  "pre_sampling_exclusions": [
+    "measurement pilot pair",
+    "reviewer-interface dry-run pair",
+    "timed operational rehearsal pair",
+    "retired rehearsal pair",
+    "unavailable endpoint image",
+    "cross-image-role pair"
+  ],
+  "image_allocation": {
+    "required_image_measurement_scope": "all 3000 frozen images",
+    "role_counts": {
+      "development": 1000,
+      "calibration": 1000,
+      "confirmation": 1000
+    },
+    "graph_degree_groups": 5,
+    "quality_states": [
+      "measurement_failure",
+      "quality_stress_bottom_quintile",
+      "ordinary"
+    ],
+    "quality_bottleneck": "minimum deterministic direction-corrected percentile rank across native_pixel_count, sharpness_measure, and inverse exposure_clipping_fraction; the clipping field retains its channel-extreme construct caveat",
+    "allocation_method": "largest-remainder integer transportation quotas with exact role totals, followed by seeded random permutation within cell",
+    "tie_break": "ascending cryptographic hash of contract_version, official_seed, role, and cell_id"
+  },
+  "common_pair_retrieval_strata": {
+    "descriptor_support": [
+      "megadescriptor_only",
+      "dinov2_only",
+      "both"
+    ],
+    "best_rank_bands": [
+      "rank_01_05",
+      "rank_06_10",
+      "rank_11_20"
+    ],
+    "best_rank_definition": "minimum candidate_rank across every frozen membership of the canonical pair",
+    "descriptor_pair_score_definition": "maximum descriptor_similarity across available directions for one canonical pair and descriptor before conversion to a within-descriptor, within-role-frame percentile",
+    "raw_cross_descriptor_similarity_comparison_allowed": false
+  },
+  "full_frame_automatic_measurement_required_before_pair_sampling": true,
+  "analytical_samples": {
+    "development": {
+      "planned_collection_pairs": 445,
+      "cells": "common retrieval stratum crossed with measurement_failure, evidence_stress, or ordinary",
+      "allocation": "near-equal seeded hash-ordered water filling across nonempty cells, then seeded simple random sampling without replacement within cell",
+      "population_prevalence_claim_allowed": false
+    },
+    "calibration": {
+      "planned_collection_pairs": 445,
+      "cells": "nine common retrieval strata",
+      "allocation": "Hamilton largest-remainder proportional allocation, then seeded simple random sampling without replacement within cell",
+      "record_first_order_inclusion_probability": true
+    },
+    "deployment_confirmation": {
+      "planned_collection_pairs": 889,
+      "selection_order": 1,
+      "cells": "nine common retrieval strata",
+      "allocation": "Hamilton largest-remainder proportional allocation, then seeded simple random sampling without replacement within cell",
+      "record_first_order_inclusion_probability": true,
+      "primary_weighted_estimator": "Hajek-normalized inverse-probability-weighted mean when inclusion probabilities differ"
+    },
+    "mechanism_confirmation": {
+      "planned_collection_pairs": 445,
+      "selection_order": 2,
+      "sampling_frame": "confirmation pairs remaining after deployment sample is immutable",
+      "challenge_class_precedence": [
+        "automatic_measurement_failure",
+        "image_quality_stress",
+        "local_correspondence_bottom_quintile",
+        "descriptor_exclusive",
+        "dual_descriptor_percentile_disagreement_top_quintile",
+        "ordinary_reference"
+      ],
+      "cells": "challenge class crossed with three best-rank bands",
+      "allocation": "near-equal seeded hash-ordered water filling across nonempty cells, then seeded simple random sampling without replacement within cell",
+      "population_prevalence_claim_allowed": false
+    }
+  },
+  "allocation_tie_break": "ascending cryptographic hash of contract_version, official_seed, analytical_role, and cell_id",
+  "sparse_cell_rule": "Do not redefine or merge cells. Seeded hash-ordered water filling skips exhausted cells; proportional allocation uses fixed largest remainder. Stop with INSUFFICIENT_FRAME_CAPACITY if the requested total cannot be filled.",
+  "replacement_rule": "No post-outcome substitution. Any reserve order must be generated from the same pre-outcome within-cell random permutation and frozen with the primary sample.",
+  "required_pre_seed_audits": [
+    "complete retained automatic image measurements for all 3000 images",
+    "complete and hashed exclusion register",
+    "outcome-free image-strata preflight with exact 1000-per-role feasibility"
+  ],
+  "required_post_image_allocation_pre_pair_sampling_audits": [
+    "complete frozen automatic pair measurements for every eligible within-role pair",
+    "post-partition cell capacity audit",
+    "zero image and canonical-pair crossing audit",
+    "exact inclusion-probability and sample-degree audit"
+  ],
+  "official_seed": "af9a4f6fa244186aaed25511ef7c481ca22bb8371c13cbf715853dc6f47f0032",
+  "official_seed_record": "outputs/pferi_v2/information_partitioning/2026-07-16_official_image_allocation_v1/official_sampling_seed_record.json",
+  "official_image_role_allocation": "outputs/pferi_v2/information_partitioning/2026-07-16_official_image_allocation_v1/official_image_role_allocation.csv"
+}

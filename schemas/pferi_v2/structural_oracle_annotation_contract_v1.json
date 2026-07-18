@@ -1,0 +1,22 @@
+{
+  "contract_version": "pferi_v2_structural_oracle_annotation_contract_v1",
+  "purpose": "Measure reliability of feature-only structural oracle annotations on the restricted outcome-free pilot.",
+  "annotator_count": 2,
+  "independence_rule": "Each annotator works independently and cannot see the other annotator's entries, discussion, adjudication, outcomes, identity truth, descriptor, score, rank, route, or prior labels.",
+  "packet_allowlist": ["annotation_packet_id", "left_asset_token", "right_asset_token", "instrument_version", "annotation_form_schema_version"],
+  "response_allowlist": ["annotation_packet_id", "raw_annotation_response_id", "left_visible_pattern_area_fraction", "right_visible_pattern_area_fraction", "left_occlusion_fraction", "right_occlusion_fraction", "shared_body_region_fraction", "viewpoint_compatibility_class", "technical_problem_flag", "submitted_at_utc"],
+  "continuous_fields": {
+    "visible_pattern_area_fraction": "For each image, estimate the fraction of the animal's visible body surface that shows individually informative coat pattern; select in 0.05 increments from 0.00 to 1.00. Use 0.00 only when the animal is visible but no informative pattern is visible.",
+    "occlusion_fraction": "For each image, estimate the fraction of the animal's apparent body outline obscured by vegetation, terrain, another animal, or equipment; select in 0.05 increments from 0.00 to 1.00. Do not treat blur, darkness, or small size as occlusion.",
+    "shared_body_region_fraction": "For the pair, estimate the fraction of potentially comparable animal body regions visibly present in both images; select in 0.05 increments from 0.00 to 1.00. This is not a same-individual judgement."
+  },
+  "categorical_field": {
+    "viewpoint_compatibility_class": ["compatible", "partial", "incompatible", "unknown"],
+    "definition": "Classify only whether the views expose sufficiently corresponding body surfaces: compatible means broadly corresponding surfaces, partial means some correspondence, incompatible means essentially noncorresponding surfaces, and unknown means image rendering or subject visibility prevents classification.",
+    "reliability_analysis": "For evaluable records, use linear weighted Cohen's kappa with the fixed ordinal order incompatible < partial < compatible. Unknown is not an ordinal grade: exclude a pair from this categorical reliability calculation if either annotator records unknown, and report its count separately. Use a pair-level bootstrap 95 percent interval with 10,000 resamples and seed 20260713."
+  },
+  "missingness_rule": "A technical problem produces no structural values and is recorded through technical_problem_flag. Ambiguous visual evidence uses a valid best estimate when the animal is visible; it is not converted to a reviewability judgement.",
+  "reliability_gate": "For each continuous structural field, the lower 95 percent confidence bound of the two-annotator ICC must be at least 0.60. For viewpoint compatibility, the lower 95 percent confidence bound of the fixed linear weighted kappa must be at least 0.50.",
+  "record_correction": "2026-07-13: the ordinal order, linear weights, unknown handling, bootstrap resampling unit, count, and seed were intended analysis details omitted from the original record. This correction is now explicit and applies uniformly to the completed batch; it must not be changed after inspecting the resulting kappa."
+  "analysis_boundary": "Oracle annotations are measurement truth and reliability evidence only. They are never primary automatic-model inputs and cannot support a workflow-efficiency claim."
+}

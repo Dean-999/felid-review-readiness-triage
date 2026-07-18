@@ -25,6 +25,7 @@ from scripts.build_phase18l_descriptor_controlled_analysis import build_phase18l
 from scripts.build_phase18l_descriptor_controlled_review_packet import build_descriptor_packet
 from scripts.build_phase18m_identity_balanced_analysis import build_phase18m_identity_balanced_analysis
 from scripts.build_phase18m_identity_balanced_review_packet import build_descriptor_identity_balanced_packet
+from scripts.build_phase18n_confirmatory_review_packet import build_descriptor_confirmatory_packet
 from scripts.receive_phase18_strong_baseline_artifacts import receive_phase18_strong_baseline_artifacts
 from scripts.run_phase18_strong_descriptor_pipeline import run_phase18_strong_descriptor_pipeline
 
@@ -1359,6 +1360,80 @@ class Phase18PipelineTests(unittest.TestCase):
             gate_text = (root / "analysis/phase18m_claim_gate.csv").read_text(encoding="utf-8")
             self.assertIn("same_identity", gate_text)
             self.assertIn("different_identity", gate_text)
+
+    def test_phase18n_confirmatory_packet_stratifies_and_blinds_review_forms(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            image_a = root / "a.jpg"
+            image_b = root / "b.jpg"
+            Image.new("RGB", (80, 60), color=(120, 100, 80)).save(image_a)
+            Image.new("RGB", (90, 70), color=(80, 120, 100)).save(image_b)
+            phase18a = root / "phase18a.csv"
+            manifest_rows = [
+                {"phase18_image_id": f"query_{idx}", "frozen_image_path": str(image_a)}
+                for idx in range(12)
+            ] + [
+                {"phase18_image_id": f"candidate_{idx}", "frozen_image_path": str(image_b)}
+                for idx in range(12)
+            ]
+            write_csv(phase18a, manifest_rows, list(manifest_rows[0].keys()))
+            feature_rows = []
+            for idx in range(240):
+                feature_rows.append(
+                    {
+                        "pair_id": f"pair_{idx}",
+                        "descriptor_name": "test_descriptor",
+                        "query_image_id": f"query_{idx % 12}",
+                        "candidate_image_id": f"candidate_{(idx * 5) % 12}",
+                        "same_identity": "yes" if idx % 3 == 0 else "no",
+                        "candidate_rank_descriptor": (idx % 20) + 1,
+                        "descriptor_similarity": 0.25 + (idx % 100) / 150.0,
+                        "descriptor_similarity_percentile": (idx % 100) / 99.0,
+                        "query_split_role": "evaluation",
+                        "split_id": 1,
+                        "query_image_quality_score": 0.3 + (idx % 7) / 10.0,
+                        "candidate_image_quality_score": 0.35 + (idx % 5) / 10.0,
+                        "weakest_image_quality_score": 0.25 + (idx % 9) / 12.0,
+                        "pair_size_compatibility_score": 0.5,
+                        "pair_aspect_compatibility_score": 0.6,
+                        "pair_geometry_score": 0.2 + (idx % 11) / 12.0,
+                        "descriptor_evidence_conflict_score": 0.1 + (idx % 13) / 20.0,
+                        "pf_eri_admissibility_score": 0.1 + (idx % 17) / 20.0,
+                        "pf_eri_review_score": 0.2 + (idx % 19) / 20.0,
+                        "pf_eri_route": "review" if idx % 2 == 0 else "defer_low_evidence",
+                        "claim_boundary": "test",
+                    }
+                )
+            features = root / "features.csv"
+            write_csv(features, feature_rows, list(feature_rows[0].keys()))
+
+            audit = build_descriptor_confirmatory_packet(
+                descriptor_name="test_descriptor",
+                features_csv=features,
+                phase18a_manifest=phase18a,
+                output_dir=root / "packet",
+                sample_size=60,
+                reviewer_count=3,
+                random_seed=20260710,
+            )
+
+            self.assertEqual(audit["status"], "PASS")
+            self.assertEqual(audit["sample_rows"], 60)
+            self.assertGreater(audit["stratum_count"], 1)
+            blind_header = (root / "packet/phase18n_blind_review_form.csv").read_text(
+                encoding="utf-8"
+            ).splitlines()[0]
+            self.assertIn("reviewability_decision", blind_header)
+            self.assertIn("review_confidence", blind_header)
+            self.assertNotIn("descriptor_name", blind_header)
+            self.assertNotIn("same_identity_known_id", blind_header)
+            self.assertNotIn("pf_eri_admissibility_score", blind_header)
+            for reviewer_idx in range(1, 4):
+                reviewer_path = root / f"packet/reviewer_{reviewer_idx}_blind_review_form.csv"
+                self.assertTrue(reviewer_path.exists())
+                with reviewer_path.open(newline="", encoding="utf-8") as handle:
+                    rows = list(csv.DictReader(handle))
+                self.assertEqual(rows[0]["reviewer_id"], f"reviewer_{reviewer_idx}")
 
 
 if __name__ == "__main__":

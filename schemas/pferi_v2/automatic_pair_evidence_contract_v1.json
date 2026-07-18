@@ -1,0 +1,22 @@
+{
+  "contract_version": "pferi_v2_automatic_pair_evidence_contract_v1",
+  "purpose": "Define automatic, order-invariant local visual correspondence evidence without relabeling descriptor ensembling as independent PF-ERI evidence.",
+  "primary_model_status": "pending_workstream_02_measurement_feasibility",
+  "primary_evidence_candidates": [
+    {
+      "feature_name": "local_match_coverage_fraction",
+      "source_entity_level": "pair",
+      "inference_time_availability": "automatic",
+      "symmetry_rule": "order_invariant",
+      "operational_definition": "Run the registered local correspondence procedure on both canonical images and calculate the fraction of the smaller automatically detected subject region supported by mutual, geometrically consistent local correspondences. The extractor must return the same canonical value after endpoint order is reversed.",
+      "allowed_inputs": ["decoded_image_pixels", "registered_local_correspondence_output", "registered_automatic_subject_region_output"],
+      "prohibited_inputs": ["descriptor_similarity", "candidate_rank", "v2_outcome_review", "identity_truth", "manual_oracle_measurement", "historical_v1_proxy_or_constant", "quality_active_control_columns"],
+      "feasibility_requirements": ["automatic_without_manual_rescue", "nonconstant_valid_outputs", "failure_and_runtime_logged", "outcome_blind_execution", "reproducible_order_invariance"],
+      "output_record_requirements": ["canonical_pair_id", "value_status", "failure_code", "extractor_version", "runtime_ms", "endpoint_order_check"],
+      "failure_interpretation": "No local support, unavailable subject region, and extractor failure are distinct states and must not be encoded as the same numeric value."
+    }
+  ],
+  "diagnostic_only_features": ["descriptor_disagreement"],
+  "diagnostic_only_rule": "Descriptor disagreement may be audited as a prespecified diagnostic or secondary sensitivity variable, but it is not a primary automatic pair-evidence feature and cannot support a claim of improvement beyond descriptor similarity.",
+  "future_feature_rule": "Any new automatic structural feature requires a dictionary amendment, a registered outcome-blind extractor, and the same feasibility gate before it may be considered."
+}

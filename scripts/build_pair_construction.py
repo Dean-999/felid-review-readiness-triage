@@ -13,9 +13,9 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-INPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/final-modeling-bootstrap"
+INPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/final-modeling-bootstrap"
 IMAGE_INDEX_CSV = INPUT_DIR / "final_modeling_image_index.csv"
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/pair-construction"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/pair-construction"
 CZECHLYNX_PAIRS_CSV = OUTPUT_DIR / "czechlynx_known_id_pairs.csv"
 BOBCAT_PAIRS_CSV = OUTPUT_DIR / "bobcat_transfer_stress_pairs.csv"
 UNIFIED_PAIRS_CSV = OUTPUT_DIR / "pair_construction_index.csv"

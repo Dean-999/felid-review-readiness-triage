@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>Label</key><string>org.pferi.structural-oracle.annotator-b</string>
+  <key>ProgramArguments</key><array>
+    <string>/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3</string>
+    <string>-m</string><string>streamlit</string><string>run</string>
+    <string>scripts/streamlit_structural_oracle_annotator_b.py</string>
+    <string>--server.headless</string><string>true</string><string>--server.address</string><string>127.0.0.1</string><string>--server.port</string><string>8502</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/dshen/Desktop/scientific project/felid-review-readiness-triage</string>
+  <key>KeepAlive</key><true/><key>RunAtLoad</key><true/>
+  <key>StandardOutPath</key><string>/tmp/pferi_structural_oracle_b.log</string>
+  <key>StandardErrorPath</key><string>/tmp/pferi_structural_oracle_b.error.log</string>
+</dict></plist>

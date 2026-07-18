@@ -16,7 +16,7 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/manual-review-audits"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/manual-review-audits"
 AUDIT_JSON = OUTPUT_DIR / "manual_review_attested_audit.json"
 AUDIT_MD = OUTPUT_DIR / "manual_review_attested_audit.md"
 
@@ -28,7 +28,7 @@ ATTESTATION_BASIS = (
 TABLES = {
     "feature_varied": {
         "path": PROJECT_ROOT
-        / "outputs/modeling-validation/feature-varied-validation-packet/feature_varied_validation_review_working.csv",
+        / "archive/pferi_v1/outputs/modeling-validation/feature-varied-validation-packet/feature_varied_validation_review_working.csv",
         "id_column": "feature_varied_id",
         "status_column": "target_review_ready",
         "complete_values": {"yes", "no", "uncertain"},
@@ -36,7 +36,7 @@ TABLES = {
     },
     "internal_reason": {
         "path": PROJECT_ROOT
-        / "outputs/modeling-validation/reason-label-enrichment/reason_label_enrichment_review_working.csv",
+        / "archive/pferi_v1/outputs/modeling-validation/reason-label-enrichment/reason_label_enrichment_review_working.csv",
         "id_column": "enrichment_id",
         "status_column": "reason_label_review_status",
         "complete_values": {"complete"},
@@ -44,7 +44,7 @@ TABLES = {
     },
     "online_supplement": {
         "path": PROJECT_ROOT
-        / "outputs/modeling-validation/reason-label-enrichment/online-supplement/online_reason_label_review_working.csv",
+        / "archive/pferi_v1/outputs/modeling-validation/reason-label-enrichment/online-supplement/online_reason_label_review_working.csv",
         "id_column": "online_enrichment_id",
         "status_column": "online_reason_label_review_status",
         "complete_values": {"complete"},

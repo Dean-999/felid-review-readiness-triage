@@ -1,0 +1,35 @@
+{
+  "context_version": "pferi_v2_ws04_exploratory_context_v1",
+  "use_boundary": "Scenario context only. These PF-ERI v1 summaries must not define a v2 effect size, decision threshold, calibration target, confirmation result, or success claim.",
+  "frozen_utc": "2026-07-17T07:00:00+00:00",
+  "sources": [
+    {
+      "legacy_source_path": "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/reviewer-agreement-analysis-100/legacy-code18j_reviewability_summary.csv",
+      "legacy_source_sha256": "3afb5f90d6e744afada3cbae22b83858ae068bd5ba9e4b79093b2ac8c3207475",
+      "records": [
+        {"descriptor_name": "megadescriptor_l_384", "scope": "majority_vote", "pair_count": 100, "review_ready_rate": 0.69},
+        {"descriptor_name": "megadescriptor_l_384", "scope": "reviewer1", "pair_count": 100, "review_ready_rate": 0.65},
+        {"descriptor_name": "megadescriptor_l_384", "scope": "reviewer2", "pair_count": 100, "review_ready_rate": 0.75},
+        {"descriptor_name": "megadescriptor_l_384", "scope": "reviewer3", "pair_count": 100, "review_ready_rate": 0.69},
+        {"descriptor_name": "dinov2_vitl14", "scope": "majority_vote", "pair_count": 100, "review_ready_rate": 0.70},
+        {"descriptor_name": "dinov2_vitl14", "scope": "reviewer1", "pair_count": 100, "review_ready_rate": 0.69},
+        {"descriptor_name": "dinov2_vitl14", "scope": "reviewer2", "pair_count": 100, "review_ready_rate": 0.70},
+        {"descriptor_name": "dinov2_vitl14", "scope": "reviewer3", "pair_count": 100, "review_ready_rate": 0.71}
+      ]
+    },
+    {
+      "legacy_source_path": "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/reviewability-analysis/megadescriptor_l_384/legacy-code18i_reviewability_summary.csv",
+      "legacy_source_sha256": "4796a32070494ec30a6110d690e073e2b3846db4abe04326259826dff498fa29",
+      "records": [
+        {"descriptor_name": "megadescriptor_l_384", "scope": "targeted_reviewability_sample", "pair_count": 100, "review_ready_rate": 0.85}
+      ]
+    },
+    {
+      "legacy_source_path": "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/reviewability-analysis/dinov2_vitl14/legacy-code18i_reviewability_summary.csv",
+      "legacy_source_sha256": "db019f8406c7a5c951a743fea4862e7846d3b535ce983bfd362a811961a0e04d",
+      "records": [
+        {"descriptor_name": "dinov2_vitl14", "scope": "targeted_reviewability_sample", "pair_count": 100, "review_ready_rate": 0.88}
+      ]
+    }
+  ]
+}

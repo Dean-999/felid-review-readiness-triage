@@ -18,9 +18,9 @@ except ImportError:  # pragma: no cover - direct script execution
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 VALIDATION_TABLE_CSV = (
     PROJECT_ROOT
-    / "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
+    / "archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
 )
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/risk-calibrated-evidence-admission"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/risk-calibrated-evidence-admission"
 ROUTED_PAIRS_CSV = OUTPUT_DIR / "risk_calibrated_pair_routes.csv"
 THRESHOLDS_CSV = OUTPUT_DIR / "risk_calibrated_thresholds.csv"
 THRESHOLDS_JSON = OUTPUT_DIR / "risk_calibrated_thresholds.json"

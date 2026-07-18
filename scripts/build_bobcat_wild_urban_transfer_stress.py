@@ -19,13 +19,13 @@ except ImportError:  # pragma: no cover - direct script execution
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-FEATURE_TABLE_CSV = PROJECT_ROOT / "outputs/modeling-validation/evidence-feature-extraction/pair_evidence_features.csv"
+FEATURE_TABLE_CSV = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/evidence-feature-extraction/pair_evidence_features.csv"
 VALIDATION_TABLE_CSV = (
     PROJECT_ROOT
-    / "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
+    / "archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
 )
-THRESHOLDS_JSON = PROJECT_ROOT / "outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_thresholds.json"
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/bobcat-wild-urban-transfer-stress"
+THRESHOLDS_JSON = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_thresholds.json"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/bobcat-wild-urban-transfer-stress"
 BOBCAT_ROUTED_CSV = OUTPUT_DIR / "bobcat_transfer_stress_routed_pairs.csv"
 SUMMARY_CSV = OUTPUT_DIR / "bobcat_transfer_stress_summary.csv"
 AUDIT_JSON = OUTPUT_DIR / "bobcat_transfer_stress_audit.json"

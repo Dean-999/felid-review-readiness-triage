@@ -20,30 +20,60 @@ except ImportError:  # pragma: no cover - direct script execution
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-FEATURE_TABLE_CSV = PROJECT_ROOT / "outputs/modeling-validation/evidence-feature-extraction/pair_evidence_features.csv"
-IMAGE_INDEX_CSV = PROJECT_ROOT / "outputs/modeling-validation/final-modeling-bootstrap/final_modeling_image_index.csv"
+FEATURE_TABLE_CSV = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/evidence-feature-extraction/pair_evidence_features.csv"
+IMAGE_INDEX_CSV = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/final-modeling-bootstrap/final_modeling_image_index.csv"
 MAJORITY_LABELS_CSV = (
     PROJECT_ROOT
-    / "outputs/modeling-validation/pair-level-validation/identity-balanced-analysis/legacy-code18m_pair_majority_labels.csv"
+    / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/identity-balanced-analysis/legacy-code18m_pair_majority_labels.csv"
 )
-PACKET_ROOT = PROJECT_ROOT / "outputs/modeling-validation/pair-level-validation/identity-balanced-review-packet"
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/known-id-evidence-sufficiency-validation"
+PACKET_ROOT = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/identity-balanced-review-packet"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation"
 VALIDATION_TABLE_CSV = OUTPUT_DIR / "known_id_reviewability_validation_table.csv"
 METRICS_CSV = OUTPUT_DIR / "known_id_model_metrics.csv"
 COEFFICIENTS_CSV = OUTPUT_DIR / "known_id_model_coefficients.csv"
 CALIBRATION_CSV = OUTPUT_DIR / "known_id_calibration_bins.csv"
 AUDIT_JSON = OUTPUT_DIR / "known_id_validation_audit.json"
 REPORT_MD = OUTPUT_DIR / "README.md"
+ISSUE3_OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/story-hardening-issue3"
+ISSUE3_MODEL_COMPARISON_CSV = ISSUE3_OUTPUT_DIR / "issue3_core_incremental_model_comparison.csv"
+ISSUE3_AUDIT_JSON = ISSUE3_OUTPUT_DIR / "issue3_core_incremental_model_evidence_audit.json"
+ISSUE3_REPORT_MD = PROJECT_ROOT / "docs/modeling-validation/2026-07-09_core_incremental_model_evidence.md"
 
 DESCRIPTORS = ["megadescriptor_l_384", "dinov2_vitl14"]
 RANDOM_SEED = 20260707
 BOOTSTRAP_ITERATIONS = 300
 
+QUALITY_FEATURES = ["visible_pattern_area_score", "body_part_overlap_score", "night_or_motion_blur_risk"]
+PF_ERI_FEATURES = list(feature_builder.CORE_FEATURES)
+REQUIRED_MODEL_FAMILIES = [
+    "descriptor_only",
+    "quality_only",
+    "pf_eri_evidence_only",
+    "descriptor_plus_quality",
+    "descriptor_plus_pf_eri",
+    "descriptor_plus_quality_plus_pf_eri",
+]
+
+
+def unique_features(feature_names: list[str]) -> list[str]:
+    seen: set[str] = set()
+    output = []
+    for name in feature_names:
+        if name not in seen:
+            output.append(name)
+            seen.add(name)
+    return output
+
+
 MODEL_FAMILIES = {
     "descriptor_only": ["descriptor_similarity_percentile"],
-    "quality_only": ["visible_pattern_area_score", "body_part_overlap_score", "night_or_motion_blur_risk"],
-    "pf_eri_evidence_only": feature_builder.CORE_FEATURES,
-    "descriptor_plus_pf_eri": ["descriptor_similarity_percentile", *feature_builder.CORE_FEATURES],
+    "quality_only": QUALITY_FEATURES,
+    "pf_eri_evidence_only": PF_ERI_FEATURES,
+    "descriptor_plus_quality": unique_features(["descriptor_similarity_percentile", *QUALITY_FEATURES]),
+    "descriptor_plus_pf_eri": unique_features(["descriptor_similarity_percentile", *PF_ERI_FEATURES]),
+    "descriptor_plus_quality_plus_pf_eri": unique_features(
+        ["descriptor_similarity_percentile", *QUALITY_FEATURES, *PF_ERI_FEATURES]
+    ),
 }
 
 VALIDATION_COLUMNS = [
@@ -71,6 +101,7 @@ METRIC_COLUMNS = [
     "scope",
     "model_family",
     "feature_names",
+    "row_set_id",
     "pair_count",
     "positive_review_ready_count",
     "negative_not_ready_or_uncertain_count",
@@ -90,6 +121,31 @@ METRIC_COLUMNS = [
 
 COEFFICIENT_COLUMNS = ["scope", "model_family", "fold_id", "feature_name", "coefficient", "intercept"]
 CALIBRATION_COLUMNS = ["scope", "model_family", "bin_id", "row_count", "mean_predicted", "observed_review_ready_rate"]
+ISSUE3_COMPARISON_COLUMNS = [
+    "scope",
+    "model_family",
+    "feature_set_role",
+    "feature_names",
+    "row_set_id",
+    "pair_count",
+    "positive_review_ready_count",
+    "negative_not_ready_or_uncertain_count",
+    "auroc",
+    "auroc_ci_lower",
+    "auroc_ci_upper",
+    "auprc",
+    "auprc_ci_lower",
+    "auprc_ci_upper",
+    "brier_score",
+    "ece_5bin",
+    "delta_auroc_vs_descriptor_only",
+    "delta_auprc_vs_descriptor_only",
+    "delta_auroc_vs_quality_only",
+    "delta_auprc_vs_quality_only",
+    "delta_auroc_vs_descriptor_plus_quality",
+    "delta_auprc_vs_descriptor_plus_quality",
+    "interpretation_boundary",
+]
 
 
 def utc_now() -> str:
@@ -394,11 +450,18 @@ def calibration_rows(scope: str, model_family: str, labels: list[int], scores: l
     return rows
 
 
+def row_set_id_for_scope(scope: str, rows: list[dict[str, Any]]) -> str:
+    pair_ids = sorted(row["review_pair_id"] for row in rows)
+    digest = hashlib.sha1("|".join(pair_ids).encode("utf-8")).hexdigest()[:12]
+    return f"{scope}_pairs_{len(pair_ids)}_{digest}"
+
+
 def evaluate_scope(rows: list[dict[str, Any]], scope: str) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
     metrics: list[dict[str, Any]] = []
     coefficients: list[dict[str, Any]] = []
     calibration: list[dict[str, Any]] = []
     folds = sorted({int(row["fold_id"]) for row in rows})
+    row_set_id = row_set_id_for_scope(scope, rows)
     for model_family, feature_names in MODEL_FAMILIES.items():
         predictions: dict[str, float] = {}
         labels_by_pair: dict[str, int] = {}
@@ -440,6 +503,7 @@ def evaluate_scope(rows: list[dict[str, Any]], scope: str) -> tuple[list[dict[st
                 "scope": scope,
                 "model_family": model_family,
                 "feature_names": ",".join(feature_names),
+                "row_set_id": row_set_id,
                 "pair_count": len(labels),
                 "positive_review_ready_count": sum(labels),
                 "negative_not_ready_or_uncertain_count": len(labels) - sum(labels),
@@ -462,6 +526,138 @@ def evaluate_scope(rows: list[dict[str, Any]], scope: str) -> tuple[list[dict[st
     return metrics, coefficients, calibration
 
 
+def feature_set_role(model_family: str) -> str:
+    return {
+        "descriptor_only": "descriptor similarity control",
+        "quality_only": "image quality control",
+        "pf_eri_evidence_only": "pair-level PF-ERI evidence",
+        "descriptor_plus_quality": "descriptor and quality active control",
+        "descriptor_plus_pf_eri": "descriptor plus pair-level evidence",
+        "descriptor_plus_quality_plus_pf_eri": "full active-control incremental model",
+    }[model_family]
+
+
+def metric_lookup(metrics: list[dict[str, Any]], scope: str, model_family: str) -> dict[str, Any] | None:
+    for row in metrics:
+        if row["scope"] == scope and row["model_family"] == model_family:
+            return row
+    return None
+
+
+def delta(row: dict[str, Any], baseline: dict[str, Any] | None, metric: str) -> float | str:
+    if baseline is None:
+        return ""
+    return to_float(row[metric]) - to_float(baseline[metric])
+
+
+def issue3_comparison_rows(metrics: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    output: list[dict[str, Any]] = []
+    for scope in ["pooled", *DESCRIPTORS]:
+        descriptor = metric_lookup(metrics, scope, "descriptor_only")
+        quality = metric_lookup(metrics, scope, "quality_only")
+        descriptor_quality = metric_lookup(metrics, scope, "descriptor_plus_quality")
+        for model_family in REQUIRED_MODEL_FAMILIES:
+            row = metric_lookup(metrics, scope, model_family)
+            if row is None:
+                continue
+            output.append(
+                {
+                    "scope": row["scope"],
+                    "model_family": row["model_family"],
+                    "feature_set_role": feature_set_role(model_family),
+                    "feature_names": row["feature_names"],
+                    "row_set_id": row["row_set_id"],
+                    "pair_count": row["pair_count"],
+                    "positive_review_ready_count": row["positive_review_ready_count"],
+                    "negative_not_ready_or_uncertain_count": row["negative_not_ready_or_uncertain_count"],
+                    "auroc": row["auroc"],
+                    "auroc_ci_lower": row["auroc_ci_lower"],
+                    "auroc_ci_upper": row["auroc_ci_upper"],
+                    "auprc": row["auprc"],
+                    "auprc_ci_lower": row["auprc_ci_lower"],
+                    "auprc_ci_upper": row["auprc_ci_upper"],
+                    "brier_score": row["brier_score"],
+                    "ece_5bin": row["ece_5bin"],
+                    "delta_auroc_vs_descriptor_only": delta(row, descriptor, "auroc"),
+                    "delta_auprc_vs_descriptor_only": delta(row, descriptor, "auprc"),
+                    "delta_auroc_vs_quality_only": delta(row, quality, "auroc"),
+                    "delta_auprc_vs_quality_only": delta(row, quality, "auprc"),
+                    "delta_auroc_vs_descriptor_plus_quality": delta(row, descriptor_quality, "auroc"),
+                    "delta_auprc_vs_descriptor_plus_quality": delta(row, descriptor_quality, "auprc"),
+                    "interpretation_boundary": (
+                        "Human reviewability/evidential admissibility only; no identity accuracy, mAP, MRR, "
+                        "top-k identity improvement, or Bobcat identity claim."
+                    ),
+                }
+            )
+    return output
+
+
+def format_metric(value: Any, digits: int = 3) -> str:
+    if value == "":
+        return "not estimable"
+    return f"{to_float(value):.{digits}f}"
+
+
+def model_sentence(row: dict[str, Any]) -> str:
+    return (
+        f"In the {row['scope']} analysis, the {row['model_family']} model achieved "
+        f"AUROC {format_metric(row['auroc'])} (95% bootstrap CI "
+        f"{format_metric(row['auroc_ci_lower'])}-{format_metric(row['auroc_ci_upper'])}), "
+        f"AUPRC {format_metric(row['auprc'])} (95% bootstrap CI "
+        f"{format_metric(row['auprc_ci_lower'])}-{format_metric(row['auprc_ci_upper'])}), "
+        f"Brier score {format_metric(row['brier_score'])}, and five-bin ECE "
+        f"{format_metric(row['ece_5bin'])}."
+    )
+
+
+def write_issue3_report(comparison_rows: list[dict[str, Any]], audit: dict[str, Any]) -> None:
+    pooled_rows = [row for row in comparison_rows if row["scope"] == "pooled"]
+    full_row = next(row for row in pooled_rows if row["model_family"] == "descriptor_plus_quality_plus_pf_eri")
+    descriptor_quality = next(row for row in pooled_rows if row["model_family"] == "descriptor_plus_quality")
+    pf_eri_only = next(row for row in pooled_rows if row["model_family"] == "pf_eri_evidence_only")
+    quality_only = next(row for row in pooled_rows if row["model_family"] == "quality_only")
+    descriptor_only = next(row for row in pooled_rows if row["model_family"] == "descriptor_only")
+    descriptor_specific_full = [
+        row
+        for row in comparison_rows
+        if row["scope"] in DESCRIPTORS and row["model_family"] == "descriptor_plus_quality_plus_pf_eri"
+    ]
+
+    lines = [
+        "# Core Incremental Model Evidence",
+        "",
+        "Date: 2026-07-09",
+        "",
+        f"Status: `{audit['issue3_status']}`",
+        "",
+        "This result addresses the central modeling question in the current project story: whether PF-ERI carries pair-level evidence-admission signal after a strong descriptor has already returned a candidate pair. The endpoint is human reviewability and evidential admissibility on CzechLynx reviewed pairs. The endpoint is not identity accuracy, retrieval ranking quality, Bobcat identity performance, mean average precision, mean reciprocal rank, or top-k identity improvement.",
+        "",
+        "All six model families were evaluated on identical row sets within each scope. The pooled scope uses the combined reviewed candidate-pair table, and the descriptor-specific scopes repeat the same comparison separately for MegaDescriptor and DINOv2. Each model is an interpretable L2 logistic validation model evaluated by component-group cross-validation, with AUROC, AUPRC, Brier score, five-bin expected calibration error, and bootstrap intervals for AUROC and AUPRC.",
+        "",
+        model_sentence(descriptor_only),
+        model_sentence(quality_only),
+        model_sentence(pf_eri_only),
+        model_sentence(descriptor_quality),
+        model_sentence(full_row),
+        "",
+        f"The strongest active-control comparison is the full model against descriptor plus quality. In the pooled table, adding PF-ERI features to descriptor similarity and image-quality controls changed AUROC by {format_metric(full_row['delta_auroc_vs_descriptor_plus_quality'])} and AUPRC by {format_metric(full_row['delta_auprc_vs_descriptor_plus_quality'])}. PF-ERI evidence alone exceeded the quality-only control by AUROC {format_metric(pf_eri_only['delta_auroc_vs_quality_only'])} and AUPRC {format_metric(pf_eri_only['delta_auprc_vs_quality_only'])}. The descriptor-specific active-control increments were not uniformly positive: "
+        + " ".join(
+            f"{row['scope']} changed AUROC by {format_metric(row['delta_auroc_vs_descriptor_plus_quality'])} and AUPRC by {format_metric(row['delta_auprc_vs_descriptor_plus_quality'])}."
+            for row in descriptor_specific_full
+        )
+        + " This pattern supports the bounded statement that PF-ERI carries reviewability-relevant pair evidence, while the incremental advantage over a descriptor-plus-quality control is small in the pooled table and requires the planned quality and similarity sensitivity package before it should be treated as a strong standalone superiority claim.",
+        "",
+        "The interpretation remains deliberately bounded. These models test whether pair-level evidence features align with human reviewability labels after descriptor retrieval. They do not establish automatic individual identification, they do not validate Bobcat identity labels, and they do not claim that PF-ERI improves mAP, MRR, or top-k identity retrieval. The paper-ready table for this issue is the source of truth for the incremental model evidence.",
+        "",
+        "## Artifact Links",
+        "",
+        f"The paper-ready comparison table is `{audit['issue3_model_comparison_csv']}`. The full validation metrics table is `{audit['metrics_csv']}`. The calibration bins are `{audit['calibration_csv']}`. The Issue 3 audit file is `{audit['issue3_audit_json']}`.",
+    ]
+    ISSUE3_REPORT_MD.parent.mkdir(parents=True, exist_ok=True)
+    ISSUE3_REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def build() -> dict[str, Any]:
     rows, direct_overlap = build_validation_rows()
     scope_rows = {"pooled": rows}
@@ -475,16 +671,35 @@ def build() -> dict[str, Any]:
         all_metrics.extend(metrics)
         all_coefficients.extend(coefficients)
         all_calibration.extend(calibration)
+    comparison_rows = issue3_comparison_rows(all_metrics)
 
     image_folds: dict[str, set[str]] = defaultdict(set)
     for row in rows:
         image_folds[row["query_pferi_image_id"]].add(str(row["fold_id"]))
         image_folds[row["candidate_pferi_image_id"]].add(str(row["fold_id"]))
     image_fold_leakage_count = sum(1 for folds in image_folds.values() if len(folds) > 1)
+    expected_metric_rows = len(REQUIRED_MODEL_FAMILIES) * (1 + len(DESCRIPTORS))
+    scopes = ["pooled", *DESCRIPTORS]
+    row_set_counts_by_scope = {
+        scope: len({row["row_set_id"] for row in all_metrics if row["scope"] == scope})
+        for scope in scopes
+    }
+    model_families_by_scope = {
+        scope: [row["model_family"] for row in all_metrics if row["scope"] == scope]
+        for scope in scopes
+    }
+    issue3_status = (
+        "PASS"
+        if len(comparison_rows) == expected_metric_rows
+        and all(row_set_counts_by_scope[scope] == 1 for scope in scopes)
+        and all(model_families_by_scope[scope] == REQUIRED_MODEL_FAMILIES for scope in scopes)
+        else "FAIL"
+    )
     status = (
         "PASS"
         if rows
         and all_metrics
+        and issue3_status == "PASS"
         and image_fold_leakage_count == 0
         and all(row["query_pferi_image_id"].startswith("pferi_lynx_wild_") for row in rows)
         else "FAIL"
@@ -498,11 +713,19 @@ def build() -> dict[str, Any]:
         "metrics_csv": project_relative(METRICS_CSV),
         "coefficient_csv": project_relative(COEFFICIENTS_CSV),
         "calibration_csv": project_relative(CALIBRATION_CSV),
+        "issue3_model_comparison_csv": project_relative(ISSUE3_MODEL_COMPARISON_CSV),
+        "issue3_report_md": project_relative(ISSUE3_REPORT_MD),
+        "issue3_audit_json": project_relative(ISSUE3_AUDIT_JSON),
         "reviewability_rows": len(rows),
         "direct_overlap_with_issue7_pair_feature_table": direct_overlap,
         "descriptor_counts": dict(sorted(Counter(row["descriptor_name"] for row in rows).items())),
         "review_ready_counts": dict(sorted(Counter(str(row["review_ready_label"]) for row in rows).items())),
         "model_metric_rows": len(all_metrics),
+        "expected_model_metric_rows": expected_metric_rows,
+        "issue3_status": issue3_status,
+        "issue3_model_families": REQUIRED_MODEL_FAMILIES,
+        "issue3_row_set_counts_by_scope": row_set_counts_by_scope,
+        "issue3_model_families_by_scope": model_families_by_scope,
         "bobcat_rows": sum("bobcat" in row["query_pferi_image_id"] or "bobcat" in row["candidate_pferi_image_id"] for row in rows),
         "unique_images_in_validation": len(image_folds),
         "image_fold_leakage_count": image_fold_leakage_count,
@@ -514,16 +737,36 @@ def build() -> dict[str, Any]:
             "Bobcat identity accuracy",
             "Bobcat false-match accuracy",
             "mAP/MRR/top-k identity retrieval improvement",
+            "MRR identity retrieval improvement",
+            "Top-k identity improvement",
             "Automatic individual identification",
         ],
         "claim_boundary": "Known-ID CzechLynx reviewability validation only.",
+    }
+    issue3_audit = {
+        "built_at_utc": audit["built_at_utc"],
+        "status": issue3_status,
+        "model_families": REQUIRED_MODEL_FAMILIES,
+        "scopes": scopes,
+        "row_set_counts_by_scope": row_set_counts_by_scope,
+        "model_families_by_scope": model_families_by_scope,
+        "model_comparison_csv": project_relative(ISSUE3_MODEL_COMPARISON_CSV),
+        "report_md": project_relative(ISSUE3_REPORT_MD),
+        "blocked_claims": audit["blocked_claims"],
+        "claim_boundary": (
+            "CzechLynx human reviewability and evidential admissibility only; identity accuracy, mAP, "
+            "MRR, top-k identity improvement, and Bobcat identity claims are blocked."
+        ),
     }
     write_csv(VALIDATION_TABLE_CSV, rows, VALIDATION_COLUMNS)
     write_csv(METRICS_CSV, all_metrics, METRIC_COLUMNS)
     write_csv(COEFFICIENTS_CSV, all_coefficients, COEFFICIENT_COLUMNS)
     write_csv(CALIBRATION_CSV, all_calibration, CALIBRATION_COLUMNS)
+    write_csv(ISSUE3_MODEL_COMPARISON_CSV, comparison_rows, ISSUE3_COMPARISON_COLUMNS)
     write_json(AUDIT_JSON, audit)
+    write_json(ISSUE3_AUDIT_JSON, issue3_audit)
     write_report(audit)
+    write_issue3_report(comparison_rows, audit)
     return audit
 
 
@@ -543,6 +786,8 @@ def write_report(audit: dict[str, Any]) -> None:
         f"- Metrics: `{audit['metrics_csv']}`",
         f"- Coefficients: `{audit['coefficient_csv']}`",
         f"- Calibration bins: `{audit['calibration_csv']}`",
+        f"- Issue 3 paper-ready comparison: `{audit['issue3_model_comparison_csv']}`",
+        f"- Issue 3 report: `{audit['issue3_report_md']}`",
         "",
         "## Boundary",
         "",

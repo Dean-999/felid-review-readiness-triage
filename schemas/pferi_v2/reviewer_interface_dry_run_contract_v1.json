@@ -1,0 +1,73 @@
+{
+  "contract_version": "pferi_v2_reviewer_interface_dry_run_contract_v1",
+  "purpose": "Test the rendered v2 reviewer interface for prohibited information exposure before any real outcome collection.",
+  "source_boundary": "Use only outcome-free measurement-feasibility pilot pairs that are permanently excluded from both confirmation samples.",
+  "dry_run_pair_count": 12,
+  "selection_seed": "pferi_v2_reviewer_interface_dry_run_seed_20260714",
+  "reviewer_packet_allowlist": [
+    "review_packet_id",
+    "left_asset_token",
+    "right_asset_token",
+    "instrument_version",
+    "review_form_schema_version"
+  ],
+  "raw_response_allowlist": [
+    "review_packet_id",
+    "raw_reviewer_response_id",
+    "review_decision",
+    "reason_codes",
+    "confidence",
+    "optional_note",
+    "submitted_at_utc",
+    "technical_problem_flag"
+  ],
+  "restricted_linkage_allowlist": [
+    "review_packet_id",
+    "canonical_pair_id",
+    "left_image_id",
+    "right_image_id",
+    "reviewer_assignment_id",
+    "packet_batch_id"
+  ],
+  "review_decision_values": [
+    "review_ready",
+    "not_review_ready",
+    "uncertain"
+  ],
+  "asset_filename_pattern": "^asset_[a-f0-9]{20}\\.png$",
+  "review_packet_id_pattern": "^dryrun_packet_[0-9]{3}$",
+  "public_view_must_not_contain": [
+    "canonical_pair_id",
+    "image_id",
+    "identity",
+    "descriptor",
+    "score",
+    "rank",
+    "route",
+    "stratum",
+    "feature",
+    "coverage",
+    "sharpness",
+    "pixel_count",
+    "clipping",
+    "camera",
+    "source_dataset",
+    "prior_response",
+    "majority",
+    "adjudicated",
+    "model_ready"
+  ],
+  "required_human_browser_checks": [
+    "rendered_dom",
+    "url_and_browser_state",
+    "asset_tokens_and_filenames",
+    "export_columns",
+    "sort_filter_search_controls",
+    "network_or_hidden_fields",
+    "peer_response_isolation",
+    "leak_disposition_log"
+  ],
+  "pass_condition": "All machine checks pass and an independent non-reviewer records no prohibited exposure in every required human browser check.",
+  "failure_rule": "Any forbidden exposure invalidates the dry run. The exposed records, source, remediation, retest, and disposition must be documented before a new dry run can pass.",
+  "claim_boundary": "A passed dry run establishes interface-blinding readiness only; it does not create an outcome label, validate a feature, or establish Re-ID performance."
+}

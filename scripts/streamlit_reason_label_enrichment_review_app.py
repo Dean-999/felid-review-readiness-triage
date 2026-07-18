@@ -25,11 +25,11 @@ REASONS = (
 def main() -> None:
     source = (
         PROJECT_ROOT
-        / "outputs/modeling-validation/reason-label-enrichment/reason_label_enrichment_review_form.csv"
+        / "archive/pferi_v1/outputs/modeling-validation/reason-label-enrichment/reason_label_enrichment_review_form.csv"
     )
     working = (
         PROJECT_ROOT
-        / "outputs/modeling-validation/reason-label-enrichment/reason_label_enrichment_review_working.csv"
+        / "archive/pferi_v1/outputs/modeling-validation/reason-label-enrichment/reason_label_enrichment_review_working.csv"
     )
     config = PairReviewConfig(
         title="Internal Reason-Label Enrichment",

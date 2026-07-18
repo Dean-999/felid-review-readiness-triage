@@ -11,8 +11,8 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-FINAL_FREEZE_ROOT = PROJECT_ROOT / "outputs/final_freeze"
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/final-modeling-bootstrap"
+FINAL_FREEZE_ROOT = PROJECT_ROOT / "data/frozen/pferi_v2"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/final-modeling-bootstrap"
 INDEX_CSV = OUTPUT_DIR / "final_modeling_freeze_index.csv"
 IMAGE_INDEX_CSV = OUTPUT_DIR / "final_modeling_image_index.csv"
 AUDIT_JSON = OUTPUT_DIR / "final_modeling_bootstrap_audit.json"
@@ -321,8 +321,8 @@ Date: 2026-07-07
 Status: `{overall_status}`
 
 This is the modeling entry contract after the project slimming. Final modeling
-must start from `outputs/final_freeze/<scope>/manifest.csv` and copied images
-under `outputs/final_freeze/<scope>/images/`.
+must start from `data/frozen/pferi_v2/<scope>/manifest.csv` and copied images
+under `data/frozen/pferi_v2/<scope>/images/`.
 
 | Scope | Status | Rows | Missing copied images | Identity validation allowed | Permitted endpoint |
 | --- | --- | ---: | ---: | --- | --- |
@@ -343,9 +343,9 @@ under `outputs/final_freeze/<scope>/images/`.
   improvement claims remain blocked unless verified Bobcat identity labels or
   audited same/different Bobcat pair labels are added later.
 - The machine-readable image entry point is
-  `outputs/modeling-validation/final-modeling-bootstrap/final_modeling_image_index.csv`.
+  `archive/pferi_v1/outputs/modeling-validation/final-modeling-bootstrap/final_modeling_image_index.csv`.
 - The machine-readable blocked/allowed claim gate is
-  `outputs/modeling-validation/final-modeling-bootstrap/final_modeling_claim_gates.json`.
+  `archive/pferi_v1/outputs/modeling-validation/final-modeling-bootstrap/final_modeling_claim_gates.json`.
 - `lynx-urban` is not a required 3000-image modeling cell; it is an optional
   auxiliary heterogeneity note only.
 
@@ -355,7 +355,7 @@ Active work must be named by module purpose, not by new phase numbers.
 
 ```text
 modeling-contract:
-  build the final pair-level input contract from outputs/final_freeze
+  build the final pair-level input contract from data/frozen/pferi_v2
 
 evidence-feature-extraction:
   compute image evidence, pair comparability, descriptor conflict, and

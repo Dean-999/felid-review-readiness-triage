@@ -1,0 +1,83 @@
+{
+  "candidate_memberships": {
+    "forbidden_column_tokens": [
+      "review",
+      "decision",
+      "route",
+      "pferi",
+      "outcome",
+      "label",
+      "feature",
+      "identity"
+    ],
+    "required_columns": [
+      "contract_version",
+      "canonical_pair_id",
+      "descriptor_name",
+      "queue_name",
+      "queue_snapshot_id",
+      "query_image_id",
+      "candidate_image_id",
+      "candidate_rank",
+      "descriptor_similarity",
+      "membership_direction"
+    ],
+    "rules": [
+      "many descriptor and directed memberships may reference one canonical pair",
+      "query and candidate endpoints must equal the canonical endpoints in either direction",
+      "membership_direction must match a_to_b or b_to_a",
+      "candidate_rank is a positive integer and descriptor_similarity is finite"
+    ]
+  },
+  "canonical_pairs": {
+    "forbidden_column_tokens": [
+      "review",
+      "decision",
+      "route",
+      "pferi",
+      "outcome",
+      "label",
+      "feature",
+      "identity"
+    ],
+    "required_columns": [
+      "contract_version",
+      "canonical_pair_id",
+      "endpoint_a_image_id",
+      "endpoint_b_image_id",
+      "source_dataset",
+      "pair_availability_status",
+      "pair_inclusion_status",
+      "exclusion_reason"
+    ],
+    "rules": [
+      "endpoint_a_image_id is lexicographically smaller than endpoint_b_image_id",
+      "canonical_pair_id equals the SHA-256-derived opaque ID of the two endpoints",
+      "self-pairs and duplicate canonical_pair_id values are invalid",
+      "identity truth, review outcomes, routes, PF-ERI values, and feature values are excluded"
+    ]
+  },
+  "contract_version": "pferi_v2_canonical_pair_contract_v1",
+  "description": "PF-ERI v2 canonical unordered-pair contract.",
+  "restricted_identity_audit": {
+    "forbidden_column_tokens": [
+      "review",
+      "decision",
+      "route",
+      "pferi",
+      "outcome",
+      "feature"
+    ],
+    "required_columns": [
+      "canonical_pair_id",
+      "same_identity_known_id",
+      "identity_truth_source",
+      "access_class"
+    ],
+    "rules": [
+      "identity truth is stored separately from the pair and membership manifests",
+      "access_class must be restricted",
+      "same_identity_known_id is yes, no, or unknown"
+    ]
+  }
+}

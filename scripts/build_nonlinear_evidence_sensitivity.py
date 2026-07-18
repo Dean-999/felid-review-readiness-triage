@@ -13,14 +13,14 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-ADVANCED_DIR = PROJECT_ROOT / "outputs/modeling-validation/advanced-mathematical-validation"
+ADVANCED_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation"
 CONTRACT_AUDIT_JSON = ADVANCED_DIR / "advanced_mathematical_validation_contract_audit.json"
 VALIDATION_TABLE_CSV = (
     PROJECT_ROOT
-    / "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
+    / "archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
 )
 MODEL_METRICS_CSV = (
-    PROJECT_ROOT / "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_model_metrics.csv"
+    PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_model_metrics.csv"
 )
 CONFORMAL_ROUTES_CSV = ADVANCED_DIR / "conformal_selective_pair_routes.csv"
 SENSITIVITY_CSV = ADVANCED_DIR / "nonlinear_evidence_sensitivity.csv"

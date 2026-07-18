@@ -1,0 +1,81 @@
+{
+  "contract_version": "pferi_v2_timed_operational_rehearsal_contract_v2",
+  "purpose": "Measure reviewer-interface operational duration, completion, technical interruption, and independent-role workflow feasibility before numerical design freeze, without collecting an outcome or semantic image judgement.",
+  "source_boundary": "Use only included outcome-free measurement-feasibility pilot pairs that are permanently ineligible for both v2 confirmation samples. Exclude every canonical pair listed in the retired v1 rehearsal ledger.",
+  "binding_status": "outcome_free_operational_rehearsal_not_confirmation",
+  "rehearsal_pair_count": 24,
+  "selection_seed": "pferi_v2_timed_operational_rehearsal_seed_20260715_v2_no_v1_reuse",
+  "assignment_enforcement": "required",
+  "reviewer_packet_allowlist": [
+    "rehearsal_packet_id",
+    "left_asset_token",
+    "right_asset_token",
+    "interface_version",
+    "form_schema_version"
+  ],
+  "operational_response_allowlist": [
+    "rehearsal_packet_id",
+    "operational_response_id",
+    "rehearsal_participant_id",
+    "rehearsal_role",
+    "task_started_at_utc",
+    "task_submitted_at_utc",
+    "elapsed_seconds",
+    "completion_status",
+    "technical_problem_category"
+  ],
+  "completion_status_values": [
+    "completed",
+    "technical_interruption"
+  ],
+  "technical_problem_category_values": [
+    "none",
+    "image_display",
+    "page_or_network",
+    "save_or_session",
+    "other_technical"
+  ],
+  "asset_filename_pattern": "^asset_[a-f0-9]{20}\\.png$",
+  "rehearsal_packet_id_pattern": "^rehearsal_packet_[0-9]{3}$",
+  "public_view_must_not_contain": [
+    "canonical_pair_id",
+    "image_id",
+    "identity",
+    "descriptor",
+    "score",
+    "rank",
+    "route",
+    "stratum",
+    "feature",
+    "coverage",
+    "sharpness",
+    "pixel_count",
+    "clipping",
+    "camera",
+    "source_dataset",
+    "review_ready",
+    "not_review_ready",
+    "uncertain",
+    "reason_codes",
+    "confidence",
+    "optional_note",
+    "prior_response",
+    "majority",
+    "adjudicated",
+    "model_ready"
+  ],
+  "minimum_operational_return": {
+    "minimum_distinct_participants": 3,
+    "minimum_completed_tasks_per_participant": 12,
+    "require_at_least_one_adjudication_rehearsal_role": true,
+    "maximum_plausible_elapsed_seconds_per_task": 900
+  },
+  "prohibited_uses": [
+    "Using a rehearsal response as a v2 reviewability label, reason, confidence, or adjudication outcome",
+    "Using a rehearsal pair in a development, calibration, mechanism, deployment, or confirmation sample",
+    "Selecting a model, threshold, Brier increment, or effect size from rehearsal content",
+    "Showing participants another participant's response or raw operational log",
+    "Treating operational-rehearsal completion as permission to launch v2 outcome collection"
+  ],
+  "claim_boundary": "A completed rehearsal may inform reviewer-workload and completion assumptions only. It does not establish human-label reliability, feature validity, model utility, identity performance, or a v2 outcome result."
+}

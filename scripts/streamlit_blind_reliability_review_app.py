@@ -13,13 +13,13 @@ import streamlit as st
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_TEMPLATE = PROJECT_ROOT / "outputs/modeling-validation/blind-reliability-packet/blind_reliability_review_template.csv"
+DEFAULT_TEMPLATE = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/blind-reliability-packet/blind_reliability_review_template.csv"
 SOURCE_CSV = Path(os.environ.get("BLIND_RELIABILITY_SOURCE_CSV", DEFAULT_TEMPLATE))
 REVIEWER_ID = os.environ.get("BLIND_RELIABILITY_REVIEWER_ID", "external_reviewer_1")
 OUTPUT_DIR = Path(
     os.environ.get(
         "BLIND_RELIABILITY_OUTPUT_DIR",
-        PROJECT_ROOT / "outputs/modeling-validation/blind-reliability-packet/external-reviews" / REVIEWER_ID,
+        PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/blind-reliability-packet/external-reviews" / REVIEWER_ID,
     )
 )
 WORKING_CSV = OUTPUT_DIR / "blind_reliability_review_working.csv"

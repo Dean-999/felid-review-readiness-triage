@@ -26,7 +26,7 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/reason-label-enrichment/online-supplement"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/reason-label-enrichment/online-supplement"
 DATA_DIR = PROJECT_ROOT / "data/reason_label_online_supplement"
 USER_AGENT = "felid-review-readiness-triage/reason-label-online-supplement"
 

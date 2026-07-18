@@ -1,0 +1,87 @@
+{
+  "contract_version": "pferi_v2_power_cost_simulation_input_contract_v1",
+  "status": "inputs_not_frozen",
+  "scope": "Pre-outcome input audit and simulation contract for Workstream 04. This file does not set the v2 sample size, sampling seed, strata, model, threshold, or outcome-review permission.",
+  "binding_rule": "A numerical power-and-cost simulation may be run only after every required decision input below has a recorded value, decision owner, dated rationale, and pre-outcome freeze. A target or seed is not frozen by this contract.",
+  "primary_estimand": {
+    "name": "incremental_brier_improvement",
+    "definition": "Brier(active_control) minus Brier(full_automatic_evidence_model) on identical confirmation rows; a positive value favors the full model.",
+    "uncertainty_requirement": "Graph-aware resampling using a pre-specified cluster unit. Duplicate directions and shared images must not be treated as independent.",
+    "decision_rule": {
+      "value": null,
+      "value_status": "requires_project_owner_decision",
+      "required_choices": [
+        "superiority with a minimum practical increment",
+        "noninferiority with a separately stated margin"
+      ]
+    },
+    "minimum_practical_brier_increment": {
+      "value": null,
+      "value_status": "requires_project_owner_decision",
+      "rule": "Must be strictly positive if superiority is selected, stated before outcome review, and justified as practically meaningful rather than chosen from v2 labels."
+    }
+  },
+  "outcome_prevalence": {
+    "status": "scenario_range_only",
+    "rule": "Historical v1 reviewability rates may define sensitivity scenarios only. They are not v2 confirmation evidence, an expected v2 effect, or a calibration target.",
+    "historical_context": {
+      "broad_queue_majority_rate": [0.69, 0.70],
+      "targeted_packet_rate": [0.85, 0.88]
+    },
+    "required_pre_freeze_decision": "Specify the deployment-queue prevalence scenarios and the rationale for each without accessing v2 outcomes."
+  },
+  "dependence_and_graph_structure": {
+    "known_pre_outcome_fact": "The frozen eligible graph has 3,000 images, 85,182 canonical unordered pairs, one connected component, and image degree range 24 to 183.",
+    "rule": "The simulation must stress plausible shared-image dependence and cannot assume 1,200 independent rows. The final resampling cluster unit must be declared before confirmation is opened.",
+    "required_pre_freeze_decision": "Choose and justify the cluster-aware simulation/resampling method and sensitivity range."
+  },
+  "missingness_and_completion": {
+    "automatic_feature_context": "Retained automatic quality candidates and local-match coverage were complete in the outcome-free pilot; excluded animal coverage is not a primary automatic feature.",
+    "required_inputs": [
+      "first-pass reviewer nonresponse or invalid-response reserve",
+      "rule that every first-pass disagreement receives conflict-free third-person adjudication",
+      "technical image-display failure reserve",
+      "analysis treatment for any later automatic-feature missingness"
+    ],
+    "rule": "Pilot completeness is not permission to assume zero missingness in the 1,200-pair collection. All reserves must be selected before outcome review."
+  },
+  "workload_and_cost": {
+    "required_inputs": [
+      "two different independent first-pass reviewers for every prepared pair",
+      "one eligible third-person adjudicator for every possible disagreement",
+      "pair-level role-conflict restrictions",
+      "reviewer and adjudicator blinding and access-control rules",
+      "immutable fields for reporting actual elapsed time and adjudication after execution"
+    ],
+    "rule": "The experimental design does not estimate reviewer minutes, an adjudication probability, a total-hour budget, or a collection window. Actual elapsed time and adjudication frequency are descriptive operational results recorded after execution and are not model inputs or packet-release thresholds."
+  },
+  "sampling_constraints": {
+    "default_target": {
+      "mechanism_pairs": 400,
+      "deployment_pairs": 800,
+      "total_unique_canonical_pairs": 1200
+    },
+    "non_overlap_rule": "Mechanism and deployment samples must not share a canonical unordered pair. The separate 160-pair outcome-free pilot remains excluded.",
+    "target_change_rule": "Any increase or reduction must occur before outcome review and be justified by the completed, dated simulation; it cannot be based on a selective observed outcome."
+  },
+  "freeze_gate": {
+    "required_before_any_official_target_or_seed": [
+      "minimum practical Brier increment",
+      "decision rule",
+      "prevalence scenario rationale",
+      "cluster/dependence method and sensitivity range",
+      "completion and missingness reserve",
+      "conflict-free reviewer and adjudicator role-assignment rule",
+      "reviewer-interface and adjudicator-interface access-control audit",
+      "completed simulation artifact with source hashes",
+      "project-owner acceptance recorded before v2 outcome review"
+    ],
+    "prohibited_shortcuts": [
+      "using a v1 effect size as a v2 expected effect or pass threshold",
+      "using v2 outcome labels to choose any numerical input",
+      "treating directed descriptor memberships as independent pairs",
+      "using targeted mechanism prevalence as deployment prevalence",
+      "claiming v2_design_locked from this pre-simulation contract"
+    ]
+  }
+}

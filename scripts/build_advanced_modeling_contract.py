@@ -11,7 +11,7 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/advanced-mathematical-validation"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation"
 CONTRACT_MD = OUTPUT_DIR / "advanced_mathematical_validation_contract.md"
 INPUTS_CSV = OUTPUT_DIR / "advanced_validation_authoritative_inputs.csv"
 OUTPUT_SCHEMA_JSON = OUTPUT_DIR / "advanced_validation_output_contract.json"
@@ -22,56 +22,56 @@ REPORT_MD = OUTPUT_DIR / "README.md"
 AUTHORITATIVE_INPUTS = [
     {
         "input_id": "final_modeling_bootstrap_contract",
-        "path": "outputs/modeling-validation/final-modeling-bootstrap/final_modeling_contract.md",
+        "path": "archive/pferi_v1/outputs/modeling-validation/final-modeling-bootstrap/final_modeling_contract.md",
         "role": "physical image freeze and base modeling scope",
         "required": "yes",
         "claim_use": "defines allowed species/domain cells and base blocked claims",
     },
     {
         "input_id": "pair_construction_index",
-        "path": "outputs/modeling-validation/pair-construction/pair_construction_index.csv",
+        "path": "archive/pferi_v1/outputs/modeling-validation/pair-construction/pair_construction_index.csv",
         "role": "candidate pair universe and pair-family definitions",
         "required": "yes",
         "claim_use": "defines CzechLynx supervised pairs and Bobcat transfer-stress pairs",
     },
     {
         "input_id": "pair_evidence_features",
-        "path": "outputs/modeling-validation/evidence-feature-extraction/pair_evidence_features.csv",
+        "path": "archive/pferi_v1/outputs/modeling-validation/evidence-feature-extraction/pair_evidence_features.csv",
         "role": "PF-ERI pair-level evidence feature table",
         "required": "yes",
         "claim_use": "defines image evidence, pair comparability, descriptor conflict, and source/domain stress predictors",
     },
     {
         "input_id": "known_id_reviewability_validation",
-        "path": "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv",
+        "path": "archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv",
         "role": "supervised CzechLynx reviewed-pair validation table",
         "required": "yes",
         "claim_use": "defines y(p)=not-ready-or-uncertain labels for supervised risk estimation",
     },
     {
         "input_id": "risk_calibrated_routes",
-        "path": "outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_pair_routes.csv",
+        "path": "archive/pferi_v1/outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_pair_routes.csv",
         "role": "baseline selective evidence router output",
         "required": "yes",
         "claim_use": "defines existing evidence admission scores and route labels for advanced calibration",
     },
     {
         "input_id": "review_budget_routing",
-        "path": "outputs/modeling-validation/review-budget-routing/czechlynx_budget_risk_coverage.csv",
+        "path": "archive/pferi_v1/outputs/modeling-validation/review-budget-routing/czechlynx_budget_risk_coverage.csv",
         "role": "baseline fixed-budget PF-ERI versus descriptor-rank queue comparison",
         "required": "yes",
         "claim_use": "defines starting point for risk-constrained budget optimization",
     },
     {
         "input_id": "robustness_claim_gates",
-        "path": "outputs/modeling-validation/robustness-and-claim-gates/final_claim_gate_table.csv",
+        "path": "archive/pferi_v1/outputs/modeling-validation/robustness-and-claim-gates/final_claim_gate_table.csv",
         "role": "current allowed/exploratory/blocked claim baseline",
         "required": "yes",
         "claim_use": "prevents advanced validation from weakening existing claim boundaries",
     },
     {
         "input_id": "bobcat_transfer_stress_routes",
-        "path": "outputs/modeling-validation/bobcat-wild-urban-transfer-stress/bobcat_transfer_stress_routed_pairs.csv",
+        "path": "archive/pferi_v1/outputs/modeling-validation/bobcat-wild-urban-transfer-stress/bobcat_transfer_stress_routed_pairs.csv",
         "role": "unlabeled Bobcat transfer/workflow diagnostics",
         "required": "yes",
         "claim_use": "supports transfer-stress allocation only, not Bobcat identity or conformal domain-shift guarantees",
@@ -124,7 +124,7 @@ CLAIM_BOUNDARIES = [
 ]
 
 OUTPUT_CONTRACT = {
-    "output_root": "outputs/modeling-validation/advanced-mathematical-validation",
+    "output_root": "archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation",
     "modules": [
         {
             "module_id": "advanced-modeling-contract",

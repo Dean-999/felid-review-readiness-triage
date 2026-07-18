@@ -43,7 +43,7 @@ class AdvancedModelingContractTests(unittest.TestCase):
             contract.AUTHORITATIVE_INPUTS = [
                 {
                     "input_id": "missing",
-                    "path": "outputs/modeling-validation/does-not-exist.csv",
+                    "path": "archive/pferi_v1/outputs/modeling-validation/does-not-exist.csv",
                     "role": "missing",
                     "required": "yes",
                     "claim_use": "test",

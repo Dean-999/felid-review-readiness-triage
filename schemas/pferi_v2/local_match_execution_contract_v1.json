@@ -1,0 +1,30 @@
+{
+  "contract_version": "pferi_v2_local_match_execution_contract_v1",
+  "purpose": "Freeze an outcome-blind local-correspondence feasibility baseline before pilot pair access.",
+  "pipeline": {
+    "animal_region_detector": "torchvision_maskrcnn_resnet50_fpn_v2_coco_v1",
+    "local_feature_extractor": "SuperPoint",
+    "local_matcher": "LightGlue",
+    "lightglue_source_revision": "eb42fee2d71449efb0aa5c10549752b5d75384d8"
+  },
+  "required_directions": ["A_to_B", "B_to_A"],
+  "canonical_aggregation": {"rule": "minimum_of_two_valid_directions"},
+  "parameters": {
+    "animal_class": "cat",
+    "animal_score_threshold": 0.5,
+    "mask_threshold": 0.5,
+    "max_image_dimension": 1600,
+    "superpoint_max_num_keypoints": 2048,
+    "superpoint_detection_threshold": 0.005,
+    "lightglue_filter_threshold": 0.1,
+    "ransac_reprojection_threshold_px": 5.0,
+    "minimum_ransac_inliers": 4,
+    "coverage_disc_radius_fraction_of_smaller_region_diagonal": 0.01
+  },
+  "preprocessing": {"exif_orientation": "apply", "colour_space": "RGB", "resize": "downscale_only_longest_edge", "interpolation": "area"},
+  "prohibited_inputs": ["descriptor_similarity", "candidate_rank", "identity_truth", "v2_outcome_review", "review_route", "manual_oracle_measurement", "quality_active_control_columns"],
+  "directional_output_columns": ["pair_execution_id", "direction", "source_asset_filename", "target_asset_filename", "local_match_coverage_fraction", "value_status", "failure_code", "source_region_area_px", "target_region_area_px", "inlier_count", "runtime_seconds", "manual_rescue_count"],
+  "canonical_output_columns": ["pair_execution_id", "local_match_coverage_fraction", "value_status", "failure_code", "a_to_b_coverage_fraction", "b_to_a_coverage_fraction", "pair_runtime_seconds", "manual_rescue_count"],
+  "failure_codes": ["none", "image_decode_failure", "subject_not_detected", "insufficient_keypoints", "insufficient_matches", "insufficient_inliers", "model_runtime_error", "model_output_invalid"],
+  "rule": "The freeze stage must complete before the runner opens or extracts the opaque pilot ZIP. A run may not tune, retry with modified settings, or manually rescue any pair."
+}

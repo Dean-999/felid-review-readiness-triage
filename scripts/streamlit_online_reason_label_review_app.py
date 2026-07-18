@@ -27,11 +27,11 @@ REASONS = (
 def main() -> None:
     source = (
         PROJECT_ROOT
-        / "outputs/modeling-validation/reason-label-enrichment/online-supplement/online_reason_label_review_queue.csv"
+        / "archive/pferi_v1/outputs/modeling-validation/reason-label-enrichment/online-supplement/online_reason_label_review_queue.csv"
     )
     working = (
         PROJECT_ROOT
-        / "outputs/modeling-validation/reason-label-enrichment/online-supplement/online_reason_label_review_working.csv"
+        / "archive/pferi_v1/outputs/modeling-validation/reason-label-enrichment/online-supplement/online_reason_label_review_working.csv"
     )
     config = PairReviewConfig(
         title="Online Supplement Reason-Label Review",

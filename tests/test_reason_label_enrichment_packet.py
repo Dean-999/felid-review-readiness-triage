@@ -14,6 +14,16 @@ class ReasonLabelEnrichmentPacketTests(unittest.TestCase):
         self.assertEqual(packet.normalize_existing_reason("low_evidence"), "low_image_evidence")
         self.assertEqual(packet.normalize_existing_reason("unknown_legacy_reason"), "other")
 
+    def test_relocate_project_path_maps_frozen_v2_images_without_touching_other_paths(self) -> None:
+        self.assertEqual(
+            packet.relocate_project_path("outputs/final_freeze/lynx-wild/images/example.jpg"),
+            "data/frozen/pferi_v2/lynx-wild/images/example.jpg",
+        )
+        self.assertEqual(
+            packet.relocate_project_path("archive/pferi_v1/outputs/example.csv"),
+            "archive/pferi_v1/outputs/example.csv",
+        )
+
     def test_build_queue_contains_primary_targets_and_controls(self) -> None:
         rows = packet.build_queue_rows()
         roles = {row["annotation_role"] for row in rows}
