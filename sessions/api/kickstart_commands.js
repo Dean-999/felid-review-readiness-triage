@@ -21,28 +21,6 @@ const STATE = loadState();
 
 // ==== FUNCTIONS ===== //
 
-function formatConfigForDisplay(config) {
-    /**Format config as readable markdown for kickstart display.*/
-    return `**Current Configuration:**
-
-**Trigger Phrases:**
-- Implementation mode: ${config.trigger_phrases.implementation_mode}
-- Discussion mode: ${config.trigger_phrases.discussion_mode}
-- Task creation: ${config.trigger_phrases.task_creation}
-- Task startup: ${config.trigger_phrases.task_startup}
-- Task completion: ${config.trigger_phrases.task_completion}
-- Context compaction: ${config.trigger_phrases.context_compaction}
-
-**Git Preferences:**
-- Default branch: ${config.git_preferences.default_branch}
-- Has submodules: ${config.git_preferences.has_submodules}
-- Add pattern: ${config.git_preferences.add_pattern}
-
-**Environment:**
-- Developer name: ${config.environment.developer_name}
-- Project root: ${config.environment.project_root}`;
-}
-
 function loadProtocolFile(relativePath) {
     /**Load protocol markdown from protocols directory.*/
     const protocolPath = path.join(PROJECT_ROOT, 'sessions', 'protocols', relativePath);

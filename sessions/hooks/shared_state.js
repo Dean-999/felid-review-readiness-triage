@@ -738,10 +738,6 @@ function findGitRepo(dirPath) {
     return null;
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 function sleepSync(ms) {
     const end = Date.now() + ms;
     while (Date.now() < end) {
