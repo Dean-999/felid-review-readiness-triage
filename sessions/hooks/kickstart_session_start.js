@@ -3,7 +3,6 @@
 // ===== IMPORTS ===== //
 
 /// ===== STDLIB ===== ///
-const fs = require('fs');
 const path = require('path');
 ///-///
 
@@ -61,19 +60,6 @@ const SUBAGENTS_MODE_SEQUENCE = [
 //-//
 
 // ===== FUNCTIONS ===== //
-
-function loadProtocolFile(relativePath) {
-    /**
-     * Load protocol markdown from protocols directory.
-     */
-    const protocolPath = path.join(PROJECT_ROOT, 'sessions', 'protocols', relativePath);
-    if (!fs.existsSync(protocolPath)) {
-        return `Error: Protocol file not found: ${relativePath}`;
-    }
-    return fs.readFileSync(protocolPath, 'utf8');
-}
-
-//-//
 
 /*
 Kickstart SessionStart Hook

@@ -108,13 +108,14 @@ legacy-code16i gap lock
 -> expert-audit or verified-label escalation before any stronger Bobcat claim
 ```
 
-The earlier legacy-code16e -> legacy-code16f -> legacy-code16g/H path has been executed for
-CzechLynx and remains documented below as the current evidence chain. The active
-next validation layer is now legacy-code17:
+The earlier legacy-code16e -> legacy-code16f -> legacy-code16g/H path has been
+executed for CzechLynx and remains documented below as historical evidence. The
+active validation and modeling entry points are now:
 
 ```text
-docs/legacy-code17/README.md
-docs/structure/current_pipeline_manifest.md
+docs/modeling-validation/2026-07-08_final_modeling_freeze.md
+docs/modeling-validation/pair-level-validation/README.md
+docs/project-governance/structure/current_pipeline_manifest.md
 ```
 
 ## legacy-code16g Planning Boundary

@@ -14,19 +14,19 @@ from typing import Any
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 VALIDATION_TABLE_CSV = (
     PROJECT_ROOT
-    / "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
+    / "archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
 )
-ROUTES_CSV = PROJECT_ROOT / "outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_pair_routes.csv"
+ROUTES_CSV = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_pair_routes.csv"
 BOBCAT_ROUTED_CSV = (
-    PROJECT_ROOT / "outputs/modeling-validation/bobcat-wild-urban-transfer-stress/bobcat_transfer_stress_routed_pairs.csv"
+    PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/bobcat-wild-urban-transfer-stress/bobcat_transfer_stress_routed_pairs.csv"
 )
 CONFORMAL_THRESHOLDS_CSV = (
-    PROJECT_ROOT / "outputs/modeling-validation/advanced-mathematical-validation/conformal_selective_thresholds.csv"
+    PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation/conformal_selective_thresholds.csv"
 )
 CLUSTER_INTERVALS_CSV = (
-    PROJECT_ROOT / "outputs/modeling-validation/advanced-mathematical-validation/cluster_bootstrap_metric_intervals.csv"
+    PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation/cluster_bootstrap_metric_intervals.csv"
 )
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/review-budget-routing"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/review-budget-routing"
 CZECH_BUDGET_CSV = OUTPUT_DIR / "czechlynx_budget_risk_coverage.csv"
 BOBCAT_BUDGET_CSV = OUTPUT_DIR / "bobcat_budget_allocation.csv"
 RECOMMENDATIONS_MD = OUTPUT_DIR / "review_budget_routing_recommendations.md"

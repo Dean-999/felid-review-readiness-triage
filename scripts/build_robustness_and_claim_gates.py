@@ -19,20 +19,20 @@ except ImportError:  # pragma: no cover - direct script execution
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 VALIDATION_TABLE_CSV = (
     PROJECT_ROOT
-    / "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
+    / "archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
 )
 MODEL_METRICS_CSV = (
-    PROJECT_ROOT / "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_model_metrics.csv"
+    PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_model_metrics.csv"
 )
-ROUTES_CSV = PROJECT_ROOT / "outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_pair_routes.csv"
-ROUTER_AUDIT_JSON = PROJECT_ROOT / "outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_router_audit.json"
-DECOMPOSITION_AUDIT_JSON = PROJECT_ROOT / "outputs/modeling-validation/evidence-risk-decomposition/evidence_risk_decomposition_audit.json"
+ROUTES_CSV = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_pair_routes.csv"
+ROUTER_AUDIT_JSON = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_router_audit.json"
+DECOMPOSITION_AUDIT_JSON = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/evidence-risk-decomposition/evidence_risk_decomposition_audit.json"
 BOBCAT_AUDIT_JSON = (
-    PROJECT_ROOT / "outputs/modeling-validation/bobcat-wild-urban-transfer-stress/bobcat_transfer_stress_audit.json"
+    PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/bobcat-wild-urban-transfer-stress/bobcat_transfer_stress_audit.json"
 )
-BUDGET_CZECH_CSV = PROJECT_ROOT / "outputs/modeling-validation/review-budget-routing/czechlynx_budget_risk_coverage.csv"
-BUDGET_AUDIT_JSON = PROJECT_ROOT / "outputs/modeling-validation/review-budget-routing/review_budget_routing_audit.json"
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/robustness-and-claim-gates"
+BUDGET_CZECH_CSV = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/review-budget-routing/czechlynx_budget_risk_coverage.csv"
+BUDGET_AUDIT_JSON = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/review-budget-routing/review_budget_routing_audit.json"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/robustness-and-claim-gates"
 SENSITIVITY_CSV = OUTPUT_DIR / "robustness_sensitivity_checks.csv"
 SOURCE_ABLATION_CSV = OUTPUT_DIR / "source_shortcut_ablation.csv"
 RELIABILITY_CSV = OUTPUT_DIR / "reliability_curve_checks.csv"

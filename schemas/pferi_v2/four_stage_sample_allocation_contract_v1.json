@@ -1,0 +1,64 @@
+{
+  "contract_version": "pferi_v2_four_stage_sample_allocation_contract_v1",
+  "status": "accepted_pre_outcome_allocation_sampling_execution_pending",
+  "accepted_date": "2026-07-15",
+  "v2_outcome_access": "none",
+  "claim_boundary": "This contract fixes information roles, target analyzable pair counts, and planning reserve arithmetic before v2 outcomes. It does not create an official split, demonstrate statistical power, estimate formal-review completion, authorize an outcome packet, or establish model performance.",
+  "candidate_universe": {
+    "image_count": 3000,
+    "eligible_canonical_pair_count": 85182
+  },
+  "image_information_roles": {
+    "development": 1000,
+    "calibration": 1000,
+    "confirmation": 1000
+  },
+  "planning_completion_fraction": 0.9,
+  "analytical_roles": {
+    "development": {
+      "image_information_role": "development",
+      "target_analyzable_pairs": 400,
+      "planned_collection_pairs": 445,
+      "permitted_outcome_use": "feature engineering, transformations, model-family comparison, regularization selection, and error analysis"
+    },
+    "calibration": {
+      "image_information_role": "calibration",
+      "target_analyzable_pairs": 400,
+      "planned_collection_pairs": 445,
+      "permitted_outcome_use": "probability calibration and action-threshold fitting after the development model specification is frozen"
+    },
+    "mechanism_confirmation": {
+      "image_information_role": "confirmation",
+      "target_analyzable_pairs": 400,
+      "planned_collection_pairs": 445,
+      "permitted_outcome_use": "pre-specified mechanism and failure-mode confirmation only"
+    },
+    "deployment_confirmation": {
+      "image_information_role": "confirmation",
+      "target_analyzable_pairs": 800,
+      "planned_collection_pairs": 889,
+      "permitted_outcome_use": "primary representative-queue proper-score, calibration, risk, coverage, time, and cost evaluation"
+    }
+  },
+  "totals": {
+    "target_analyzable_pairs": 2000,
+    "planned_collection_pairs": 2224,
+    "first_pass_judgements_if_every_pair_is_double_reviewed": 4448
+  },
+  "separation_rules": {
+    "image_role_crossing_allowed": false,
+    "canonical_pair_role_crossing_allowed": false,
+    "mechanism_and_deployment_pair_overlap_allowed": false,
+    "confirmation_outcomes_may_influence_development_or_calibration": false,
+    "both_confirmation_samples_released_only_after_common_freeze": true
+  },
+  "planning_assumption_boundary": "The 0.90 completion fraction is a conservative planning assumption. It is not estimated from the 72-task outcome-free interface rehearsal and is not a claim about formal-label completion.",
+  "remaining_freeze_gates": [
+    "reviewer identity-separation and adjudication assignment audit",
+    "official sampling seed",
+    "actual zero-crossing image and pair manifests"
+  ],
+  "resolved_freeze_gates": [
+    "formal stratification rule accepted pre-outcome on 2026-07-16 in pferi_v2_four_stage_stratified_sampling_contract_v1"
+  ]
+}

@@ -64,13 +64,13 @@ DINOv2: directional but weak under majority vote
 Pooled: positive
 ```
 
-This showed that PF-ERI admissibility was not simply image quality, but legacy-code18l
-still had an identity-composition concern: high PF-ERI had more same-ID pairs,
-and low PF-ERI had more different-ID pairs.
+Phase18L separated PF-ERI admissibility from image quality. It still left an
+identity-composition concern: high PF-ERI had more same-ID pairs, and low PF-ERI
+had more different-ID pairs.
 
 ### legacy-code18m Identity-Balanced Result
 
-legacy-code18m directly fixed the legacy-code18l identity-confounding issue by balancing:
+Phase18M fixed the Phase18L identity-confounding issue with a balanced design:
 
 ```text
 same-ID + high PF-ERI admissibility

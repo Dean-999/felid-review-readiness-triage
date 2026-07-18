@@ -1,0 +1,88 @@
+{
+  "active_partition_roles": [
+    "development",
+    "calibration",
+    "confirmation"
+  ],
+  "claim_boundary": "A validator PASS establishes structural accounting and zero prohibited image/pair crossings only. It is not partition_locked and does not authorize outcome review.",
+  "contract_version": "pferi_v2_partition_constraint_contract_v1",
+  "description": "Outcome-free PF-ERI v2 graph-aware partition constraint contract.",
+  "image_partition_manifest": {
+    "allowed_allocation_status": [
+      "assigned",
+      "unassigned"
+    ],
+    "allowed_partition_roles": [
+      "development",
+      "calibration",
+      "confirmation",
+      "unassigned"
+    ],
+    "required_columns": [
+      "partition_contract_version",
+      "image_id",
+      "partition_role",
+      "allocation_status",
+      "exclusion_reason"
+    ],
+    "rules": [
+      "every image endpoint in the eligible canonical-pair universe appears exactly once",
+      "no image outside the eligible canonical-pair universe appears",
+      "development, calibration, and confirmation require allocation_status assigned and blank exclusion_reason",
+      "unassigned requires allocation_status unassigned and a nonblank exclusion_reason",
+      "outcome, review, model, feature, threshold, route, and identity fields are forbidden"
+    ]
+  },
+  "lock_rule": "The validator never writes partition_locked. A later freeze may do so only after this structural audit, the authorized identity-sensitivity decision, fixed numerical allocation/seed, access controls, and immutable manifest hashes are all complete.",
+  "pair_partition_manifest": {
+    "allowed_allocation_status": [
+      "assigned",
+      "excluded"
+    ],
+    "allowed_partition_roles": [
+      "development",
+      "calibration",
+      "confirmation",
+      "excluded"
+    ],
+    "required_columns": [
+      "partition_contract_version",
+      "canonical_pair_id",
+      "endpoint_a_image_id",
+      "endpoint_b_image_id",
+      "partition_role",
+      "allocation_status",
+      "exclusion_reason"
+    ],
+    "rules": [
+      "every eligible available canonical pair appears exactly once",
+      "manifest endpoints exactly equal the frozen canonical endpoints",
+      "an assigned pair and both endpoint images have the same active partition role",
+      "a pair whose endpoint image roles differ cannot be assigned and must be excluded",
+      "excluded pairs require allocation_status excluded and a nonblank exclusion_reason",
+      "outcome, review, model, feature, threshold, route, and identity fields are forbidden"
+    ]
+  },
+  "restricted_identity_sensitivity_interface": {
+    "required_identity_map_columns": [
+      "partition_contract_version",
+      "image_id",
+      "identity_id",
+      "access_class"
+    ],
+    "required_sensitivity_pair_columns": [
+      "partition_contract_version",
+      "canonical_pair_id",
+      "sensitivity_set_id"
+    ],
+    "rules": [
+      "identity artifacts are optional at the base-constraint stage but must be supplied together",
+      "a supplied sensitivity pair manifest must contain at least one assigned confirmation pair",
+      "access_class is restricted for every identity-map row",
+      "every sensitivity pair is an assigned confirmation pair",
+      "all development and calibration images and all sensitivity-pair endpoints have resolved identity IDs",
+      "no identity represented by a sensitivity-pair endpoint occurs in development or calibration",
+      "identity results are reported only as aggregate counts in the public audit"
+    ]
+  }
+}

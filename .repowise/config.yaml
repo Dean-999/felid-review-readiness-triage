@@ -1,0 +1,13 @@
+provider: codex_cli
+embedder: mock
+reasoning: low
+wiki_style: comprehensive
+language: zh
+commit_limit: 500
+follow_renames: false
+tier2_tail_enabled: true
+editor_files:
+  agents_md: false
+distill:
+  commands:
+    enabled: false

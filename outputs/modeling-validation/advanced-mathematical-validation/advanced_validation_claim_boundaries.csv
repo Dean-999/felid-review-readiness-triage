@@ -1,8 +1,0 @@
-claim_id,status,statement,safe_condition
-allowed_selective_evidence_admission,allowed,PF-ERI may be framed as selective evidence admission after strong descriptor retrieval.,Use only pair-level evidence admissibility and review-readiness language.
-allowed_alpha_level_czechlynx_calibration,allowed_after_implementation,Alpha-level risk-control statements may be made on CzechLynx calibration/evaluation splits.,Only after #16 implements threshold selection and reports calibration/evaluation risk separately.
-exploratory_bobcat_transfer_stress,exploratory,Bobcat outputs may diagnose transfer-stress and review burden.,"Do not present as Bobcat identity, retrieval, or distribution-free conformal validation."
-blocked_new_descriptor,blocked,PF-ERI is a new descriptor or embedding.,"PF-ERI remains downstream of MegaDescriptor, DINOv2, or other descriptor queues."
-blocked_automatic_identity_assignment,blocked,PF-ERI automatically identifies individuals.,PF-ERI routes evidence for review; it does not assign identity.
-blocked_bobcat_identity_metrics,blocked,"PF-ERI improves Bobcat identity accuracy, false-match accuracy, mAP, MRR, or top-k retrieval.",Bobcat lacks the required reviewed identity labels in this workflow.
-blocked_unqualified_distribution_free_domain_shift,blocked,Conformal guarantees hold unqualified under Bobcat domain shift.,Distribution-free language is limited to supported calibration assumptions and excludes Bobcat shift unless validated later.

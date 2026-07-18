@@ -12,15 +12,15 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-ADVANCED_DIR = PROJECT_ROOT / "outputs/modeling-validation/advanced-mathematical-validation"
-KNOWN_ID_DIR = PROJECT_ROOT / "outputs/modeling-validation/known-id-evidence-sufficiency-validation"
-RISK_ROUTING_DIR = PROJECT_ROOT / "outputs/modeling-validation/risk-calibrated-evidence-admission"
-DECOMPOSITION_DIR = PROJECT_ROOT / "outputs/modeling-validation/evidence-risk-decomposition"
-BOBCAT_DIR = PROJECT_ROOT / "outputs/modeling-validation/bobcat-wild-urban-transfer-stress"
-BUDGET_DIR = PROJECT_ROOT / "outputs/modeling-validation/review-budget-routing"
-BLIND_RELIABILITY_DIR = PROJECT_ROOT / "outputs/modeling-validation/blind-reliability-packet/agreement-analysis"
+ADVANCED_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation"
+KNOWN_ID_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation"
+RISK_ROUTING_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/risk-calibrated-evidence-admission"
+DECOMPOSITION_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/evidence-risk-decomposition"
+BOBCAT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/bobcat-wild-urban-transfer-stress"
+BUDGET_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/review-budget-routing"
+BLIND_RELIABILITY_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/blind-reliability-packet/agreement-analysis"
 BLIND_RELIABILITY_REVIEWER2_DIR = (
-    PROJECT_ROOT / "outputs/modeling-validation/blind-reliability-packet/agreement-analysis-reviewer2"
+    PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/blind-reliability-packet/agreement-analysis-reviewer2"
 )
 
 CONTRACT_AUDIT_JSON = ADVANCED_DIR / "advanced_mathematical_validation_contract_audit.json"
@@ -41,7 +41,7 @@ BLIND_RELIABILITY_REASON_FAMILY_CSV = BLIND_RELIABILITY_DIR / "blind_reliability
 BLIND_RELIABILITY_REVIEWER2_AUDIT_JSON = BLIND_RELIABILITY_REVIEWER2_DIR / "blind_reliability_analysis_audit.json"
 BLIND_RELIABILITY_REVIEWER2_CORRECTION_JSON = (
     PROJECT_ROOT
-    / "outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/provenance_correction.json"
+    / "archive/pferi_v1/outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/provenance_correction.json"
 )
 
 CLAIM_GATES_CSV = ADVANCED_DIR / "final_advanced_claim_gate_table.csv"
@@ -516,7 +516,7 @@ def confidence_limitation_rows(claims: list[dict[str, Any]]) -> list[dict[str, A
             "confidence_level": "high",
             "paper_claim_status": "supported",
             "claim_or_limitation": "The final modeling freeze is materialized and scoped to CzechLynx known-ID validation plus Bobcat unlabeled transfer-stress datasets.",
-            "supporting_evidence": "outputs/final_freeze/lynx-wild/manifest.csv; outputs/final_freeze/bobcat-wild/manifest.csv; outputs/final_freeze/bobcat-urban/manifest.csv",
+            "supporting_evidence": "data/frozen/pferi_v2/lynx-wild/manifest.csv; data/frozen/pferi_v2/bobcat-wild/manifest.csv; data/frozen/pferi_v2/bobcat-urban/manifest.csv",
             "safe_paper_wording": "Use the final freeze as the fixed analysis population and describe Bobcat as unlabeled transfer-stress/workflow data.",
             "must_not_claim": "Bobcat identity validation from the freeze alone.",
             "why_confidence_is_not_higher": "Bobcat rows are not audited same/different identity labels.",
@@ -707,7 +707,7 @@ def write_paper_ready_outputs(claims: list[dict[str, Any]]) -> None:
         "",
         f"Key reliability evidence: {blind['key_numbers']}.",
         "",
-        "Reviewer 2 provenance correction: `outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/provenance_correction.md`.",
+        "Reviewer 2 provenance correction: `archive/pferi_v1/outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/provenance_correction.md`.",
         "",
         "## Main Result Table",
         "",

@@ -1,0 +1,27 @@
+{
+  "binding_status": "nonbinding_feasibility_stress_test",
+  "claim_boundary": "These outcome-free scenarios assess graph capacity only. They are not the eventual allocation, sample-size decision, sampling rule, or official random seed.",
+  "nonbinding_capacity_stress_benchmarks": {
+    "minimum_descriptor_covered_canonical_pairs_per_active_role": 400,
+    "minimum_unique_canonical_pairs_per_active_role": 1200
+  },
+  "scenario_version": "pferi_v2_nonbinding_image_partition_feasibility_scenarios_v1",
+  "scenarios": [
+    {
+      "description": "Equal image shares test symmetric three-role graph capacity.",
+      "image_role_shares": {"development": 0.3333333333333333, "calibration": 0.3333333333333333, "confirmation": 0.3333333333333334},
+      "scenario_id": "equal_image_thirds"
+    },
+    {
+      "description": "Development-weighted image shares stress a smaller calibration pool without committing to that allocation.",
+      "image_role_shares": {"development": 0.5, "calibration": 0.2, "confirmation": 0.3},
+      "scenario_id": "development_weighted_stress"
+    },
+    {
+      "description": "Confirmation-weighted image shares stress a larger future confirmation pool without committing to that allocation.",
+      "image_role_shares": {"development": 0.25, "calibration": 0.2, "confirmation": 0.55},
+      "scenario_id": "confirmation_weighted_stress"
+    }
+  ],
+  "seeds": [41001, 41002, 41003, 41004, 41005, 41006, 41007, 41008, 41009, 41010, 41011, 41012, 41013, 41014, 41015, 41016, 41017, 41018, 41019, 41020, 41021, 41022, 41023, 41024, 41025, 41026, 41027, 41028, 41029, 41030, 41031, 41032]
+}

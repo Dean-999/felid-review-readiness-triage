@@ -13,9 +13,9 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-FEATURE_TABLE_CSV = PROJECT_ROOT / "outputs/modeling-validation/evidence-feature-extraction/pair_evidence_features.csv"
-IMAGE_INDEX_CSV = PROJECT_ROOT / "outputs/modeling-validation/final-modeling-bootstrap/final_modeling_image_index.csv"
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/feature-varied-validation-packet"
+FEATURE_TABLE_CSV = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/evidence-feature-extraction/pair_evidence_features.csv"
+IMAGE_INDEX_CSV = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/final-modeling-bootstrap/final_modeling_image_index.csv"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/feature-varied-validation-packet"
 PACKET_CSV = OUTPUT_DIR / "feature_varied_validation_packet.csv"
 REVIEW_FORM_CSV = OUTPUT_DIR / "feature_varied_validation_review_form.csv"
 AUDIT_JSON = OUTPUT_DIR / "feature_varied_validation_packet_audit.json"

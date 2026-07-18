@@ -1,0 +1,53 @@
+{
+  "scenario_version": "pferi_v2_nonbinding_power_cost_sensitivity_scenarios_v1",
+  "binding_status": "nonbinding_pre_outcome_sensitivity",
+  "claim_boundary": "This is an outcome-free sensitivity analysis. It does not estimate a v2 model effect, choose the official sample target, set the practical Brier increment, set a decision rule, set an official seed, or authorize outcome review.",
+  "simulation_seed": 740402,
+  "graph_draws_per_design_point": 500,
+  "confidence_level": 0.95,
+  "primary_estimand": "Brier(active_control) minus Brier(full_automatic_evidence_model); positive values favor the full model.",
+  "statistical_model": {
+    "description": "A synthetic, bounded paired Brier-loss-difference process is evaluated on random canonical-pair subgraphs. The image_variance_fraction denotes the marginal variance fraction contributed jointly by the two image endpoints; two pairs sharing one image have induced correlation equal to half of this fraction.",
+    "practical_brier_increment_scenarios": [0.005, 0.01],
+    "true_brier_increment_scenarios": [0.01, 0.02],
+    "paired_loss_difference_sd_scenarios": [0.08, 0.12],
+    "image_variance_fraction_scenarios": [0.0, 0.05, 0.1],
+    "confirmation_analyzable_pair_counts": [250, 300, 400, 500, 600, 800],
+    "success_rule": "The normal-approximation lower endpoint of a two-sided 95% graph-aware interval exceeds the practical Brier increment. This is a sensitivity criterion, not the final v2 decision rule."
+  },
+  "completion_and_workload_scenarios": {
+    "completion_rates": [0.85, 0.9, 0.95],
+    "profiles": [
+      {
+        "profile_id": "low_workload_illustration",
+        "first_pass_minutes_per_pair": 0.75,
+        "adjudication_rate": 0.1,
+        "adjudication_minutes_per_pair": 0.75
+      },
+      {
+        "profile_id": "moderate_workload_illustration",
+        "first_pass_minutes_per_pair": 1.5,
+        "adjudication_rate": 0.2,
+        "adjudication_minutes_per_pair": 1.5
+      },
+      {
+        "profile_id": "high_workload_illustration",
+        "first_pass_minutes_per_pair": 3.0,
+        "adjudication_rate": 0.3,
+        "adjudication_minutes_per_pair": 3.0
+      }
+    ],
+    "rule": "These are historical, nonbinding workload illustrations, not measured reviewer times, a budget commitment, or inputs to the accepted experimental design. The design assigns no expected review duration, adjudication rate, total-hour requirement, or collection window; actual values will be reported after execution."
+  },
+  "feature_runtime_context": {
+    "local_match_pair_runtime_p95_seconds": 1.6585013,
+    "rule": "Pilot local-match runtime is reported only as automatic-computation workload. It is not a monetary cost, a model effect, or a substitute for human review time."
+  },
+  "prohibited_uses": [
+    "Using v1 effect sizes or v1 model performance as a v2 true effect scenario",
+    "Treating descriptor directions as independent pairs",
+    "Treating the 400-pair mechanism sample as a deployment prevalence sample",
+    "Selecting the official target or seed from a favorable sensitivity row without the required pre-outcome decisions",
+    "Creating an outcome-review packet or calling v2_design_locked"
+  ]
+}

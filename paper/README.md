@@ -1,0 +1,7 @@
+# PF-ERI Paper Working Folder
+
+This folder contains the exploratory v1 manuscript materials and the forward-looking PF-ERI v2 study protocols. The editable v1 draft at `paper/manuscript/main.md`, its display items, and any results copied from the historical 400-row review table are under a submission lock. They may be used to preserve provenance and to identify claims that must be retested, but they are not a submission-ready paper and must not be presented as v2 confirmation evidence.
+
+The current project is PF-ERI v2: a pre-specified CzechLynx study of whether automatically available pair-evidence features improve blinded human evidence-admission assessment beyond descriptor similarity and independent image quality. The authoritative sources are `PROJECT_RULES.md`, `docs/CURRENT_PROJECT_MAP.md`, and the three protocol documents in `paper/protocols/`. The adversarial scientific basis is `paper/reviews/2026-07-10_pferi_full_project_adversarial_hv_report.md`.
+
+After v2 is confirmed or reported as mixed or not confirmed, a new manuscript should be drafted from the locked raw logs, manifests, feature schema, split records, and regenerated analyses. The future paper must distinguish exploratory v1 observations from prospective v2 results in its abstract, methods, results, figures, tables, and data-availability statement. It must not claim descriptor replacement, automated identity assignment, Bobcat validation, a universal threshold, or a risk guarantee that has not been demonstrated.

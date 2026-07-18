@@ -1,0 +1,54 @@
+{
+  "contract_version": "pferi_v2_independent_quality_control_contract_v1",
+  "purpose": "Define automatic image-quality controls for the descriptor-plus-quality active model without importing pair evidence, reviewer outcomes, identity truth, or historical proxies.",
+  "primary_model_status": "pending_workstream_02_measurement_feasibility",
+  "pair_aggregation_rule": "Each raw image-level measurement is retained separately. The declared worst-side aggregation becomes the pair-level active-control column; no outcome-informed aggregation is permitted.",
+  "quality_controls": [
+    {
+      "control_id": "pair_min_animal_coverage_fraction",
+      "raw_feature_name": "animal_coverage_fraction",
+      "source_entity_level": "image",
+      "pair_aggregation": "minimum",
+      "model_column_name": "quality_min_animal_coverage_fraction",
+      "role": "independent_quality_control_candidate",
+      "allowed_inputs": ["decoded_image_pixels", "registered_subject_detector_output"],
+      "prohibited_inputs": ["descriptor_similarity", "candidate_rank", "v2_outcome_review", "identity_truth", "manual_oracle_measurement", "historical_v1_proxy_or_constant"],
+      "feasibility_requirements": ["automatic_without_manual_rescue", "nonconstant_valid_outputs", "failure_and_runtime_logged", "outcome_blind_execution", "reproducible_pair_aggregation"]
+    },
+    {
+      "control_id": "pair_min_native_pixel_count",
+      "raw_feature_name": "native_pixel_count",
+      "source_entity_level": "image",
+      "pair_aggregation": "minimum",
+      "model_column_name": "quality_min_native_pixel_count",
+      "role": "independent_quality_control_candidate",
+      "allowed_inputs": ["decoded_image_dimensions"],
+      "prohibited_inputs": ["descriptor_similarity", "candidate_rank", "v2_outcome_review", "identity_truth", "manual_oracle_measurement", "historical_v1_proxy_or_constant"],
+      "feasibility_requirements": ["automatic_without_manual_rescue", "nonconstant_valid_outputs", "failure_and_runtime_logged", "outcome_blind_execution", "reproducible_pair_aggregation"]
+    },
+    {
+      "control_id": "pair_min_sharpness_measure",
+      "raw_feature_name": "sharpness_measure",
+      "source_entity_level": "image",
+      "pair_aggregation": "minimum",
+      "model_column_name": "quality_min_sharpness_measure",
+      "role": "independent_quality_control_candidate",
+      "allowed_inputs": ["decoded_image_pixels", "registered_sharpness_extractor_output"],
+      "prohibited_inputs": ["descriptor_similarity", "candidate_rank", "v2_outcome_review", "identity_truth", "manual_oracle_measurement", "historical_v1_proxy_or_constant"],
+      "feasibility_requirements": ["automatic_without_manual_rescue", "nonconstant_valid_outputs", "failure_and_runtime_logged", "outcome_blind_execution", "reproducible_pair_aggregation"]
+    },
+    {
+      "control_id": "pair_max_exposure_clipping_fraction",
+      "raw_feature_name": "exposure_clipping_fraction",
+      "source_entity_level": "image",
+      "pair_aggregation": "maximum",
+      "model_column_name": "quality_max_exposure_clipping_fraction",
+      "role": "independent_quality_control_candidate",
+      "allowed_inputs": ["decoded_image_pixels", "registered_exposure_extractor_output"],
+      "prohibited_inputs": ["descriptor_similarity", "candidate_rank", "v2_outcome_review", "identity_truth", "manual_oracle_measurement", "historical_v1_proxy_or_constant"],
+      "feasibility_requirements": ["automatic_without_manual_rescue", "nonconstant_valid_outputs", "failure_and_runtime_logged", "outcome_blind_execution", "reproducible_pair_aggregation"]
+    }
+  ],
+  "context_only_features": ["infrared_likelihood"],
+  "context_only_rule": "Infrared likelihood is an automatic context descriptor for stratification and failure auditing. It is not an active-control quality variable unless a later pre-outcome amendment supplies a domain-specific causal and measurement rationale."
+}

@@ -11,16 +11,18 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_DIR = PROJECT_ROOT / "outputs/project_structure/codegraph_contract"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/project-governance/project-structure/codegraph_contract"
 AUDIT_JSON = OUTPUT_DIR / "codegraph_project_contract_audit.json"
 REPORT_MD = OUTPUT_DIR / "README.md"
 
 REQUIRED_EXACT_PATHS = [
     "PROJECT_RULES.md",
     "AGENTS.md",
-    "docs/structure/current_pipeline_manifest.md",
-    "docs/structure/2026-07-01_phase18_gap_research_and_plan.md",
+    "docs/CURRENT_PROJECT_MAP.md",
+    "docs/project-governance/structure/current_pipeline_manifest.md",
+    "docs/project-governance/structure/2026-07-01_legacy-code18_gap_research_and_plan.md",
     "scripts/freeze_phase17_modeling_dataset.py",
+    "scripts/build_final_modeling_bootstrap.py",
 ]
 
 
@@ -72,7 +74,7 @@ def build_audit() -> dict[str, Any]:
                 "audits, reports, and direct counts answer which data are valid."
             ),
             "fallback_when_broad_query_misses": (
-                "Use exact paths from docs/structure/current_pipeline_manifest.md "
+                "Use exact paths from docs/project-governance/structure/current_pipeline_manifest.md "
                 "or inspect concrete CSV/JSON artifacts directly."
             ),
         },

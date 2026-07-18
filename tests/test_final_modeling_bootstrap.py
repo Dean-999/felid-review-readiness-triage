@@ -59,7 +59,7 @@ class FinalModelingBootstrapTests(unittest.TestCase):
             original_root = bootstrap.PROJECT_ROOT
             try:
                 bootstrap.PROJECT_ROOT = Path(tmp)
-                scope_dir = Path(tmp) / "outputs/final_freeze/bobcat-wild"
+                scope_dir = Path(tmp) / "data/frozen/pferi_v2/bobcat-wild"
                 image_dir = scope_dir / "images"
                 image_dir.mkdir(parents=True)
                 image = image_dir / "bobcat.jpg"
@@ -67,7 +67,7 @@ class FinalModelingBootstrapTests(unittest.TestCase):
                 manifest = scope_dir / "manifest.csv"
                 manifest.write_text(
                     "final_freeze_image_path,candidate_id,final_freeze_sha256,final_freeze_bytes\n"
-                    "outputs/final_freeze/bobcat-wild/images/bobcat.jpg,bobcat_001,abc,4\n",
+                    "data/frozen/pferi_v2/bobcat-wild/images/bobcat.jpg,bobcat_001,abc,4\n",
                     encoding="utf-8",
                 )
 

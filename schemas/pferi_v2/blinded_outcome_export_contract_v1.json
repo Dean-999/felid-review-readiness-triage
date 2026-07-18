@@ -1,0 +1,14 @@
+{
+  "contract_version": "pferi_v2_blinded_outcome_export_contract_v1",
+  "purpose": "Prevent outcome-review detection bias by separating reviewer-visible assets and responses from feature, queue, route, and identity information.",
+  "reviewer_packet_allowlist": ["review_packet_id", "left_asset_token", "right_asset_token", "instrument_version", "review_form_schema_version"],
+  "raw_response_allowlist": ["review_packet_id", "raw_reviewer_response_id", "review_decision", "reason_codes", "confidence", "optional_note", "submitted_at_utc", "technical_problem_flag"],
+  "restricted_linkage_allowlist": ["review_packet_id", "canonical_pair_id", "left_image_id", "right_image_id", "reviewer_assignment_id", "packet_batch_id"],
+  "rendered_asset_rule": "opaque_rendered_asset_tokens_only",
+  "canonical_pair_linkage_visibility": "restricted_only",
+  "first_pass_isolation_rule": "reviewers_and_adjudicators_receive_no_prior_responses",
+  "decision_values": ["review_ready", "not_review_ready", "uncertain"],
+  "derived_data_rule": "Majority, adjudicated, recoded, and model-ready labels are derived analysis artifacts. They must not be inserted into a raw response export or shown to any first-pass reviewer or adjudicator.",
+  "required_independent_leakage_audit": ["rendered_dom", "url_and_browser_state", "asset_tokens_and_filenames", "export_columns", "sort_filter_search_controls", "network_or_hidden_fields", "leak_disposition_log"],
+  "leak_disposition_rule": "Any detected exposure of a forbidden condition invalidates the affected batch until the exposed records, source, remediation, retest, and final disposition are documented by a non-reviewer."
+}

@@ -18,10 +18,10 @@ except ImportError:  # pragma: no cover - optional strong-descriptor enhancement
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-PAIR_CONSTRUCTION_DIR = PROJECT_ROOT / "outputs/modeling-validation/pair-construction"
+PAIR_CONSTRUCTION_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/pair-construction"
 PAIR_INDEX_CSV = PAIR_CONSTRUCTION_DIR / "pair_construction_index.csv"
-IMAGE_INDEX_CSV = PROJECT_ROOT / "outputs/modeling-validation/final-modeling-bootstrap/final_modeling_image_index.csv"
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/evidence-feature-extraction"
+IMAGE_INDEX_CSV = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/final-modeling-bootstrap/final_modeling_image_index.csv"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/evidence-feature-extraction"
 FEATURE_TABLE_CSV = OUTPUT_DIR / "pair_evidence_features.csv"
 FEATURE_SCHEMA_JSON = OUTPUT_DIR / "pair_evidence_feature_schema.json"
 AUDIT_JSON = OUTPUT_DIR / "pair_evidence_feature_audit.json"
@@ -29,14 +29,14 @@ REPORT_MD = OUTPUT_DIR / "README.md"
 
 MEGADESCRIPTOR_PAIR_SCORES = (
     PROJECT_ROOT
-    / "outputs/modeling-validation/pair-level-validation/returned_strong_baselines/megadescriptor_l_384/pair_scores.csv"
+    / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/returned_strong_baselines/megadescriptor_l_384/pair_scores.csv"
 )
 DINOV2_PAIR_SCORES = (
     PROJECT_ROOT
-    / "outputs/modeling-validation/pair-level-validation/returned_strong_baselines/dinov2_vitl14/pair_scores.csv"
+    / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/returned_strong_baselines/dinov2_vitl14/pair_scores.csv"
 )
-MEGADESCRIPTOR_ROOT = PROJECT_ROOT / "outputs/modeling-validation/pair-level-validation/returned_strong_baselines/megadescriptor_l_384"
-DINOV2_ROOT = PROJECT_ROOT / "outputs/modeling-validation/pair-level-validation/returned_strong_baselines/dinov2_vitl14"
+MEGADESCRIPTOR_ROOT = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/returned_strong_baselines/megadescriptor_l_384"
+DINOV2_ROOT = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/returned_strong_baselines/dinov2_vitl14"
 
 CORE_FEATURES = [
     "visible_pattern_area_score",

@@ -17,12 +17,12 @@ except ImportError:  # pragma: no cover - direct script execution
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-ADVANCED_DIR = PROJECT_ROOT / "outputs/modeling-validation/advanced-mathematical-validation"
+ADVANCED_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation"
 MODEL_METRICS_CSV = (
-    PROJECT_ROOT / "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_model_metrics.csv"
+    PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_model_metrics.csv"
 )
 CALIBRATION_BINS_CSV = (
-    PROJECT_ROOT / "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_calibration_bins.csv"
+    PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_calibration_bins.csv"
 )
 CONFORMAL_ROUTES_CSV = ADVANCED_DIR / "conformal_selective_pair_routes.csv"
 CONFORMAL_THRESHOLDS_CSV = ADVANCED_DIR / "conformal_selective_thresholds.csv"

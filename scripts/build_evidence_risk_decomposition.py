@@ -14,14 +14,14 @@ from typing import Any
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 VALIDATION_TABLE_CSV = (
     PROJECT_ROOT
-    / "outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
+    / "archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation/known_id_reviewability_validation_table.csv"
 )
-ROUTES_CSV = PROJECT_ROOT / "outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_pair_routes.csv"
+ROUTES_CSV = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/risk-calibrated-evidence-admission/risk_calibrated_pair_routes.csv"
 MAJORITY_LABELS_CSV = (
     PROJECT_ROOT
-    / "outputs/modeling-validation/pair-level-validation/identity-balanced-analysis/legacy-code18m_pair_majority_labels.csv"
+    / "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/identity-balanced-analysis/legacy-code18m_pair_majority_labels.csv"
 )
-OUTPUT_DIR = PROJECT_ROOT / "outputs/modeling-validation/evidence-risk-decomposition"
+OUTPUT_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/evidence-risk-decomposition"
 DECOMPOSITION_CSV = OUTPUT_DIR / "pair_evidence_risk_decomposition.csv"
 SUMMARY_CSV = OUTPUT_DIR / "risk_family_summary.csv"
 ENRICHMENT_CSV = OUTPUT_DIR / "reason_label_enrichment_needs.csv"

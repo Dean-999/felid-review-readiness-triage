@@ -1,0 +1,25 @@
+{
+  "contract_version": "pferi_v2_measurement_feasibility_pilot_contract_v1",
+  "purpose": "Stress-test v2 measurement feasibility without collecting reviewability outcomes or consuming confirmation pairs.",
+  "unit_of_sampling": "canonical_unordered_pair",
+  "target_unique_pair_count": 160,
+  "outcome_data_rule": "no_v2_outcome_collection_or_outcome_label_access",
+  "confirmation_overlap_rule": "pilot_pairs_are_ineligible_for_v2_confirmation_samples",
+  "pilot_manifest_required_columns": ["contract_version", "pilot_pair_id", "canonical_pair_id", "selection_seed_id", "selection_stratum", "pair_availability_status", "pilot_inclusion_status", "exclusion_reason"],
+  "required_coverage_domains": ["descriptor_membership", "retrieval_rank_band", "day_or_infrared_metadata", "image_decode_availability", "source_camera_context_when_available"],
+  "selection_rule": "Before any pilot measurement, freeze a random seed and a restricted candidate manifest. Sample from the frozen CzechLynx candidate-pair reservoir with prospective coverage across declared operational stress domains. The selection process may use restricted queue and source metadata but may not use v1 outcomes, v2 outcomes, model scores, or an observed pilot measurement to favor a successful feature.",
+  "retention_gates": [
+    {"gate_id":"automatic_quality_valid_output_rate","metric":"valid automatic output fraction among decodable eligible images","threshold":"at least 0.90 for each active-control quality field","selection_rule":"fixed_before_pilot_measurements","failure_action":"remove"},
+    {"gate_id":"automatic_quality_variation","metric":"number of distinct valid values on the registered output scale","threshold":"at least 10 distinct valid values for each active-control quality field","selection_rule":"fixed_before_pilot_measurements","failure_action":"remove"},
+    {"gate_id":"automatic_quality_manual_rescue","metric":"manual corrections required to obtain a model-input value","threshold":"exactly 0 for every active-control quality field","selection_rule":"fixed_before_pilot_measurements","failure_action":"remove"},
+    {"gate_id":"automatic_quality_runtime","metric":"95th-percentile automatic runtime on the registered reference environment","threshold":"no more than 30 seconds per image for each active-control quality field","selection_rule":"fixed_before_pilot_measurements","failure_action":"remove"},
+    {"gate_id":"local_match_valid_output_rate","metric":"valid automatic output fraction among pairs with two decodable images","threshold":"at least 0.80","selection_rule":"fixed_before_pilot_measurements","failure_action":"redefine_or_oracle_only"},
+    {"gate_id":"local_match_variation","metric":"number of distinct valid local-match coverage values on the registered output scale","threshold":"at least 10 distinct valid values","selection_rule":"fixed_before_pilot_measurements","failure_action":"redefine_or_oracle_only"},
+    {"gate_id":"local_match_order_invariance","metric":"canonical pair output disagreements after endpoint reversal","threshold":"exactly 0 disagreements","selection_rule":"fixed_before_pilot_measurements","failure_action":"remove"},
+    {"gate_id":"local_match_manual_rescue","metric":"manual corrections required to obtain local-match coverage","threshold":"exactly 0","selection_rule":"fixed_before_pilot_measurements","failure_action":"remove"},
+    {"gate_id":"local_match_runtime","metric":"95th-percentile automatic runtime on the registered reference environment","threshold":"no more than 60 seconds per pair","selection_rule":"fixed_before_pilot_measurements","failure_action":"redefine_or_oracle_only"},
+    {"gate_id":"structural_oracle_reliability","metric":"two independent feature-only annotators: lower 95 percent confidence bound of ICC for continuous fields and fixed linear weighted kappa for viewpoint class","threshold":"ICC lower bound at least 0.60 for each continuous structural field and linear-weighted-kappa lower bound at least 0.50 for viewpoint compatibility; unknown is non-ordinal and excluded if either annotator records it","selection_rule":"fixed_before_pilot_measurements","failure_action":"measurement_not_ready","record_correction":"2026-07-13: intended ordinal-analysis detail added to correct an omission in the original record; order is incompatible < partial < compatible, linear weights, pair-level bootstrap 10,000 resamples, seed 20260713."}
+  ],
+  "reference_environment_rule": "Record operating system, processor or accelerator, memory, library versions, extractor version, image-rendering policy, and single-worker or parallel setting before runtime gates are evaluated.",
+  "decision_rule": "Apply every fixed gate to its declared field family. Record retain, remove, redefine, or oracle-only status without fitting an outcome model. Any post-pilot change creates a new contract version and requires a fresh pilot or an explicitly nonconfirmatory status."
+}

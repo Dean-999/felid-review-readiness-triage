@@ -19,8 +19,8 @@ Current role: diagnostic foundation, not active training endpoint.
 ## Related Scripts
 
 ```text
-scripts/build_phase11_pair_level_pf_eri_table.py
-scripts/build_phase11c_split_level_diagnostics.py
-scripts/audit_phase11_pair_level_pf_eri_table.py
-scripts/audit_phase11c_split_level_diagnostics.py
+archive/pferi_v1/reproducibility/scripts/build_phase11_pair_level_pf_eri_table.py
+archive/pferi_v1/reproducibility/scripts/build_phase11c_split_level_diagnostics.py
+archive/pferi_v1/reproducibility/scripts/audit_phase11_pair_level_pf_eri_table.py
+archive/pferi_v1/reproducibility/scripts/audit_phase11c_split_level_diagnostics.py
 ```

@@ -25,10 +25,10 @@ REASONS = (
 
 
 def main() -> None:
-    source = PROJECT_ROOT / "outputs/modeling-validation/feature-varied-validation-packet/feature_varied_validation_review_form.csv"
+    source = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/feature-varied-validation-packet/feature_varied_validation_review_form.csv"
     working = (
         PROJECT_ROOT
-        / "outputs/modeling-validation/feature-varied-validation-packet/feature_varied_validation_review_working.csv"
+        / "archive/pferi_v1/outputs/modeling-validation/feature-varied-validation-packet/feature_varied_validation_review_working.csv"
     )
     config = PairReviewConfig(
         title="Feature-Varied Pair Validation",

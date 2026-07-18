@@ -11,7 +11,7 @@ When descriptor similarity is controlled by sampling, does low PF-ERI
 admissibility still concentrate human uncertain / not-ready labels?
 ```
 
-This directly targets the descriptor-similarity replacement problem.
+This targets the descriptor-similarity replacement problem.
 
 ## Data
 
@@ -58,8 +58,8 @@ Majority vote:
 Interpretation:
 
 ```text
-The descriptor-controlled packet strongly supports the PF-ERI admissibility
-mechanism for MegaDescriptor and in the pooled analysis. DINOv2 is directionally
+The descriptor-controlled packet supports the PF-ERI admissibility mechanism for
+MegaDescriptor and in the pooled analysis. DINOv2 is directionally
 consistent but not independently significant under majority vote.
 ```
 
@@ -92,8 +92,8 @@ All six reviewer-descriptor combinations have the expected direction. The
 effect is consistently large for MegaDescriptor and smaller for DINOv2.
 ```
 
-This consistency matters. Even where DINOv2 is not individually significant,
-the direction does not reverse.
+All DINOv2 reviewer estimates point in the same direction, although several
+intervals include zero.
 
 ## Reviewer Agreement
 
@@ -156,21 +156,21 @@ basic completion is not completion
 the strict answer is:
 
 ```text
-The mechanism is strongly supported, but the cross-descriptor highest-goal proof
-is not fully closed because DINOv2 majority-vote evidence is directional but not
+The mechanism has support, but the cross-descriptor highest-goal proof is not
+fully closed because DINOv2 majority-vote evidence is directional but not
 independently significant.
 ```
 
 ## What This Solves
 
-Solved strongly:
+Solved:
 
 ```text
-uncertain/not-ready frequency is not merely global conservatism;
+uncertain/not-ready frequency is not global conservatism;
 it concentrates in low-admissibility pairs.
 ```
 
-Solved strongly for MegaDescriptor:
+Solved for MegaDescriptor:
 
 ```text
 PF-ERI has descriptor-controlled reviewability signal beyond high descriptor
@@ -209,4 +209,3 @@ rate with CI fully above zero.
 
 If that passes, the highest-goal cross-descriptor proof becomes much harder to
 challenge.
-

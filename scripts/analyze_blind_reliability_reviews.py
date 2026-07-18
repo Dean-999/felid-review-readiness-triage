@@ -13,7 +13,7 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-PACKET_DIR = PROJECT_ROOT / "outputs/modeling-validation/blind-reliability-packet"
+PACKET_DIR = PROJECT_ROOT / "archive/pferi_v1/outputs/modeling-validation/blind-reliability-packet"
 MASTER_PACKET_CSV = PACKET_DIR / "blind_reliability_master_packet.csv"
 DEFAULT_REVIEW_ROOT = PACKET_DIR / "external-reviews"
 OUTPUT_DIR = PACKET_DIR / "agreement-analysis"

@@ -1,0 +1,19 @@
+# Research memo: stratified confirmation sampling and blinded wildlife review
+
+Lookup date: 15 July 2026. The preferred `parallel-cli` backend was unavailable in the local environment, so the lookup used web search restricted to methodological and primary research sources. This memo supports the Workstream 04 sampling-strata proposal; project CSV and JSON artifacts remain the source of truth for available fields and capacity.
+
+## Sources retained
+
+Collins GS, Moons KGM, Dhiman P, et al. TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods. *BMJ*. 2024;385:e078378. doi: [10.1136/bmj-2023-078378](https://doi.org/10.1136/bmj-2023-078378). The reporting guidance requires transparent description of development and evaluation data and explicit discussion of non-representative samples, bias, uncertainty, and generalisability. Although PF-ERI is not a clinical model, the same prediction-validation principle supports keeping the deployment-confirmation sample representative of its declared target queue.
+
+Datta J, Polson NG. Inverse Probability Weighting: from Survey Sampling to Evidence Estimation. arXiv:2204.14121. [https://arxiv.org/abs/2204.14121](https://arxiv.org/abs/2204.14121). The paper reviews Horvitz–Thompson and Hájek estimators and shows why known inclusion probabilities permit finite-population mean estimation under unequal-probability sampling. This supports retaining pair-level inclusion probabilities and using the already accepted Hájek-normalized estimator for the deployment sample.
+
+Choo YR, Kudavidanage EP, Amarasinghe TR, Nimalrathna T, Chua MAH, Webb EL. Best practices for reporting individual identification using camera trap photographs. *Global Ecology and Conservation*. 2020;24:e01294. doi: [10.1016/j.gecco.2020.e01294](https://doi.org/10.1016/j.gecco.2020.e01294). The review identifies misidentification, unclassifiable photographs, inter-observer disagreement, and weak reporting as material threats in camera-trap individual identification. This supports independent first-pass review, explicit adjudication, and reporting of difficult or unclassifiable cases rather than removing them from the sampling frame.
+
+Mendoza E, Martineau PR, Brenner E, Dirzo R. A novel method to improve individual animal identification based on camera-trapping data. *Journal of Wildlife Management*. 2011;75(4):973–979. doi: [10.1002/jwmg.120](https://doi.org/10.1002/jwmg.120). The study combines computational support with multiple human observers and demonstrates that agreement can change substantially through structured reconciliation. It supports the use of independent reviewers and a separate adjudication stage, while not implying that the reported bobcat agreement values transfer to PF-ERI.
+
+## Design consequences
+
+The deployment-confirmation sample should preserve a known probability relationship to the frozen canonical queue, because calibration and proper-score claims depend on the case mix being evaluated. A mechanism-enriched sample is useful for exposing failure modes but cannot estimate deployment prevalence or replace the representative sample. If proportional stratification produces slightly unequal inclusion probabilities through integer allocation, the inclusion probability must remain in the hidden analysis manifest and the accepted Hájek estimator must be used.
+
+Sampling strata may use only variables available before v2 outcomes. Descriptor scores from different model families must not be compared on their raw scales; within-descriptor ranks or percentiles are required. Human outcome, identity truth, future reviewer responses, fitted PF-ERI predictions, or confirmation results cannot determine strata, thresholds, pooling, or replacement. Difficult images and automatic-measurement failures should remain visible as design states rather than being silently discarded.
