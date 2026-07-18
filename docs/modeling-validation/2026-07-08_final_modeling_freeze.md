@@ -11,29 +11,51 @@ reviewability layer. It is evaluated on CzechLynx known-ID reviewed candidate
 pairs and applied to Bobcat wild/urban data only as unlabeled same-genus
 transfer-stress and workflow-allocation diagnostics.
 
+The frozen main line is pair-level evidential admissibility:
+
+```text
+Similarity is not admissibility.
+```
+
+PF-ERI's claim-bearing task is to decide whether a strong-descriptor candidate
+pair has comparable, reviewable, and trustworthy individual-level evidence. Any
+conformal/risk-control, reject-option, Bayesian, multi-annotator,
+bootstrap-uncertainty, or review-budget method is a supporting safeguard around
+this task. None of those tools should be presented as the project's primary
+novelty.
+
+The field-need and positioning review is:
+
+```text
+docs/modeling-validation/2026-07-09_pair_level_evidence_admission_review.md
+```
+
+It anchors PF-ERI as an evidence admission layer before individual-level
+ecological inference, not as a critique of descriptor systems.
+
 ## Final Data Freeze
 
-- CzechLynx known-ID validation: `outputs/final_freeze/lynx-wild/manifest.csv`
+- CzechLynx known-ID validation: `data/frozen/pferi_v2/lynx-wild/manifest.csv`
   with 3,000 rows.
-- Bobcat wild transfer stress: `outputs/final_freeze/bobcat-wild/manifest.csv`
+- Bobcat wild transfer stress: `data/frozen/pferi_v2/bobcat-wild/manifest.csv`
   with 3,000 rows.
-- Bobcat urban transfer stress: `outputs/final_freeze/bobcat-urban/manifest.csv`
+- Bobcat urban transfer stress: `data/frozen/pferi_v2/bobcat-urban/manifest.csv`
   with 6,000 rows.
 
 ## Final Paper-Ready Artifacts
 
 - Main model result table:
-  `outputs/modeling-validation/advanced-mathematical-validation/paper-ready/main_model_result_table.csv`
+  `archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation/paper-ready/main_model_result_table.csv`
 - Final claim narrative:
-  `outputs/modeling-validation/advanced-mathematical-validation/paper-ready/final_claim_narrative.md`
+  `archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation/paper-ready/final_claim_narrative.md`
 - Confidence and limitations table:
-  `outputs/modeling-validation/advanced-mathematical-validation/paper-ready/final_confidence_limitations_table.csv`
+  `archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation/paper-ready/final_confidence_limitations_table.csv`
 - Confidence and limitations appendix:
-  `outputs/modeling-validation/advanced-mathematical-validation/paper-ready/final_confidence_limitations.md`
+  `archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation/paper-ready/final_confidence_limitations.md`
 - Final methods-ready report:
-  `outputs/modeling-validation/advanced-mathematical-validation/final_methods_ready_report.md`
+  `archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation/final_methods_ready_report.md`
 - Final claim gate table:
-  `outputs/modeling-validation/advanced-mathematical-validation/final_advanced_claim_gate_table.csv`
+  `archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation/final_advanced_claim_gate_table.csv`
 
 ## Core Model Result
 
@@ -60,14 +82,16 @@ Reviewer 2 is confirmed as an independent external blind reviewer. The original
 Reviewer 2 CSV contained stale metadata in `reviewer_notes`; the raw file is
 preserved, and a corrected metadata copy is stored at:
 
-`outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/blind_reliability_review_working.corrected.csv`
+`archive/pferi_v1/outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/blind_reliability_review_working.corrected.csv`
 
 The correction changes only `reviewer_notes`; labels are unchanged. The audit is:
 
-`outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/corrected_copy_audit.json`
+`archive/pferi_v1/outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/corrected_copy_audit.json`
 
 ## Allowed Claims
 
+- PF-ERI introduces pair-level evidential admissibility as the claim-bearing
+  target after strong descriptor retrieval.
 - PF-ERI is a pair-level selective evidence inference layer after strong
   descriptor retrieval.
 - PF-ERI evidence features improve reviewability prediction on CzechLynx
@@ -85,6 +109,8 @@ The correction changes only `reviewer_notes`; labels are unchanged. The audit is
 ## Blocked Claims
 
 - No automatic identity assignment.
+- No reframing PF-ERI as mainly a conformal, Bayesian, multi-annotator, or
+  generic classifier method.
 - No Bobcat identity accuracy, false-match accuracy, mAP, MRR, or top-k
   identity metrics.
 - No claim that PF-ERI is a new descriptor, embedding, or replacement for
@@ -97,10 +123,10 @@ The correction changes only `reviewer_notes`; labels are unchanged. The audit is
 
 ```bash
 python3 scripts/analyze_blind_reliability_reviews.py \
-  --review-root outputs/modeling-validation/blind-reliability-packet/blind_reliability_review_template.csv
+  --review-root archive/pferi_v1/outputs/modeling-validation/blind-reliability-packet/blind_reliability_review_template.csv
 
 python3 scripts/analyze_blind_reliability_reviews.py \
-  --review-root outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/blind_reliability_review_working.csv
+  --review-root archive/pferi_v1/outputs/modeling-validation/blind-reliability-packet/external-reviews/external_reviewer_2/blind_reliability_review_working.csv
 
 python3 scripts/build_blind_reliability_packet.py \
   --correct-reviewer-copy external_reviewer_2
@@ -121,4 +147,3 @@ python3 -m unittest \
 ```
 
 Last verification: 29 tests passed, 3 skipped.
-

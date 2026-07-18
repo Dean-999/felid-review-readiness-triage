@@ -4,7 +4,7 @@ Date: 2026-07-06
 
 ## Correct Selection Logic
 
-legacy-code19 photo selection must not send the full candidate pool directly to human
+legacy-code19 photo selection must not send the full candidate pool to human
 review. The workflow is:
 
 1. Split candidates by planned modeling cell:
@@ -34,14 +34,14 @@ the row remains a candidate only and must pass human area review.
 
 ## Validation Sample Design
 
-The 100-image sample is not simply the first 100 images. It spans the top-3000
+The 100-image sample is stratified across the top-3000
 candidate set:
 
 - 40 from the top strict segment;
 - 30 from the middle segment;
 - 30 from the boundary segment.
 
-This tests whether the whole top-3000 set is stable, not only whether the best
+This tests whether the whole top-3000 set is stable, not whether the best
 few images look good.
 
 ## Current Results

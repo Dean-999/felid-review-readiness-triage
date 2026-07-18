@@ -1,0 +1,13 @@
+# Sampling Execution Status — 16 July 2026
+
+Status: image allocation frozen; complete within-role pair measurement pending GPU execution; formal pair sampling and outcome collection blocked.
+
+The retained full-image quality run passed for all 3,000 frozen images. The pre-sampling exclusion register consolidated six historical pilot, interface, and operational artifacts: 244 pair occurrences reduced to 160 unique canonical pair IDs, all present in the frozen canonical queue. The image-strata preflight then passed with ten observed nonempty graph-degree-by-quality cells.
+
+After those three gates passed, the project froze official seed `af9a4f6fa244186aaed25511ef7c481ca22bb8371c13cbf715853dc6f47f0032`; reroll is prohibited. The resulting blocked randomization assigned exactly 1,000 images to development, 1,000 to calibration, and 1,000 to confirmation, with zero cross-role image overlap.
+
+The post-allocation canonical frame contains 28,295 unique eligible within-role pairs after historical exclusion: 9,445 development pairs, 9,433 calibration pairs, and 9,417 confirmation pairs. Each role contains all nine pre-specified descriptor-support-by-rank retrieval strata. Of the 160 historically exposed pairs, 62 would otherwise have entered a within-role frame and were explicitly removed; the other 98 were already removed by cross-role separation. Basic total capacity therefore passes for the planned 445 development, 445 calibration, and combined 1,334 confirmation collections.
+
+Basic capacity does not authorize pair selection. The contract requires frozen automatic pair evidence for the complete 28,295-pair frame. For execution only, the frame has been divided deterministically into 30 opaque shards of at most 1,000 pairs. Sharding is not sampling. The control ZIP contains no images, canonical linkage, outcomes, or identity truth and reuses the separately audited immutable 3,000-image ZIP. The resumable wrapper calls the unchanged frozen SuperPoint, LightGlue, RANSAC, region, and PF-ERI measurement implementation and writes one atomic checkpoint per completed pair.
+
+The next gate is return and merge of all 30 GPU shards. A shard may return `PASS` or scientifically completed `PARTIAL`; pre-specified `insufficient_matches` and `insufficient_inliers` remain measurements of algorithm applicability and are not converted to runtime success. Any row-count, manifest-hash, freeze-hash, duplicate-ID, missing-shard, or model-runtime integrity failure blocks merging. Only after the full frame is complete may the project compute evidence/challenge strata, verify post-measurement capacity and inclusion probabilities, and draw the 2,224 formal review pairs using namespaced derivatives of the already frozen seed.

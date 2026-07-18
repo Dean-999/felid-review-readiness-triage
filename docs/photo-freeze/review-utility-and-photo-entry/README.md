@@ -25,7 +25,7 @@ PF-ERI replaces MegaDescriptor, WildlifeTools, MiewID, or Wildbook/WBIA-style
 identity matching.
 
 PF-ERI improves top-k identity ranking over descriptor-only unless a later
-leakage-controlled held-out validation directly supports that exact endpoint.
+leakage-controlled held-out validation supports that endpoint.
 
 PF-ERI validates Bobcat identity accuracy without verified individual labels or
 an audited same/different pair set.
@@ -50,13 +50,13 @@ python3 scripts/build_legacy-code17a_czechlynx_review_utility.py
 Primary input:
 
 ```text
-outputs/project-governance/safeguards-candidate-scoring/legacy-code16h_czechlynx_readiness_controls/legacy-code16h_czechlynx_scored_pair_table.csv
+archive/pferi_v1/outputs/project-governance/safeguards-candidate-scoring/legacy-code16h_czechlynx_readiness_controls/legacy-code16h_czechlynx_scored_pair_table.csv
 ```
 
 Primary output directory:
 
 ```text
-outputs/photo-selection/photo-entry-gates/legacy-code17a_czechlynx_review_utility/
+archive/pferi_v1/outputs/photo-selection/photo-entry-gates/legacy-code17a_czechlynx_review_utility/
 ```
 
 Tracked regression test:
@@ -108,13 +108,13 @@ python3 scripts/build_legacy-code17b_bobcat_transfer_stress.py
 Primary input:
 
 ```text
-outputs/project-governance/safeguards-candidate-scoring/legacy-code16e_bobcat_score_analysis/legacy-code16e_bobcat_recalibrated_scores.csv
+archive/pferi_v1/outputs/project-governance/safeguards-candidate-scoring/legacy-code16e_bobcat_score_analysis/legacy-code16e_bobcat_recalibrated_scores.csv
 ```
 
 Primary output directory:
 
 ```text
-outputs/photo-selection/photo-entry-gates/legacy-code17b_bobcat_transfer_stress/
+archive/pferi_v1/outputs/photo-selection/photo-entry-gates/legacy-code17b_bobcat_transfer_stress/
 ```
 
 Tracked regression test:
@@ -132,7 +132,7 @@ review-readiness and expert-audit planning only.
 Current interpretation:
 
 - the 20,000-row Bobcat score table passes handoff integrity checks;
-- Tier 1 and Tier 2 differ strongly in final score and MD geometry evidence;
+- Tier 1 and Tier 2 differ in final score and MD geometry evidence;
 - Tier 2 has slightly higher IQA but lower final review-readiness because it
   lacks geometry evidence, so it must be treated as top-up transfer stress, not
   a clean high-confidence pool;
@@ -156,13 +156,13 @@ python3 scripts/build_legacy-code17c_bobcat_provisional_3000.py
 Primary input:
 
 ```text
-outputs/project-governance/safeguards-candidate-scoring/legacy-code16e_bobcat_score_analysis/legacy-code16e_bobcat_recalibrated_scores.csv
+archive/pferi_v1/outputs/project-governance/safeguards-candidate-scoring/legacy-code16e_bobcat_score_analysis/legacy-code16e_bobcat_recalibrated_scores.csv
 ```
 
 Primary output directory:
 
 ```text
-outputs/photo-selection/photo-entry-gates/legacy-code17c_bobcat_provisional_3000/
+archive/pferi_v1/outputs/photo-selection/photo-entry-gates/legacy-code17c_bobcat_provisional_3000/
 ```
 
 Tracked regression test:
@@ -203,13 +203,13 @@ streamlit run scripts/streamlit_legacy-code17k_bobcat_clarity_gate_app.py
 Primary input:
 
 ```text
-outputs/photo-selection/photo-entry-gates/legacy-code17e_external_source_probe/prototype_legacy-code17e_inat_research_grade_bobcat_organism_candidates.csv
+archive/pferi_v1/outputs/photo-selection/photo-entry-gates/legacy-code17e_external_source_probe/prototype_legacy-code17e_inat_research_grade_bobcat_organism_candidates.csv
 ```
 
 Primary output directory:
 
 ```text
-outputs/photo-selection/photo-entry-gates/legacy-code17k_bobcat_clarity_gate/
+archive/pferi_v1/outputs/photo-selection/photo-entry-gates/legacy-code17k_bobcat_clarity_gate/
 ```
 
 The Bobcat clarity gate is now the binding Bobcat algorithm-entry gate. It exists because
@@ -254,13 +254,13 @@ streamlit run scripts/streamlit_legacy-code17l_bobcat_strict_clarity_review_app.
 Primary output directory:
 
 ```text
-outputs/photo-selection/photo-entry-gates/legacy-code17l_multisource_strict_clarity_queue/
+archive/pferi_v1/outputs/photo-selection/photo-entry-gates/legacy-code17l_multisource_strict_clarity_queue/
 ```
 
 Review working directory:
 
 ```text
-outputs/photo-selection/photo-entry-gates/legacy-code17l_multisource_strict_clarity_review/
+archive/pferi_v1/outputs/photo-selection/photo-entry-gates/legacy-code17l_multisource_strict_clarity_review/
 ```
 
 The multisource strict clarity queue answers a prototype question: can multiple open image sources produce
@@ -308,13 +308,13 @@ python3 scripts/prototypes/prototype_legacy-code17m_inat_annotation_aware_strict
 Primary output directory:
 
 ```text
-outputs/photo-selection/photo-entry-gates/legacy-code17m_inat_annotation_aware_strict_clarity_queue/
+archive/pferi_v1/outputs/photo-selection/photo-entry-gates/legacy-code17m_inat_annotation_aware_strict_clarity_queue/
 ```
 
 Review working directory:
 
 ```text
-outputs/photo-selection/photo-entry-gates/legacy-code17m_inat_annotation_aware_strict_clarity_review/
+archive/pferi_v1/outputs/photo-selection/photo-entry-gates/legacy-code17m_inat_annotation_aware_strict_clarity_review/
 ```
 
 The annotation-aware strict queue responds to the legacy-code17l spot-review failure mode: many GBIF rows were
@@ -366,7 +366,7 @@ python3 scripts/build_legacy-code17n_bobcat_final3000_seed_from_human_clear.py
 Primary output directory:
 
 ```text
-outputs/photo-selection/photo-entry-gates/legacy-code17n_bobcat_final3000_seed/
+archive/pferi_v1/outputs/photo-selection/photo-entry-gates/legacy-code17n_bobcat_final3000_seed/
 ```
 
 The final-3000 human-clear seed is the locked inclusion seed for the eventual Bobcat final 3000. It
@@ -407,13 +407,13 @@ python3 scripts/build_legacy-code17d_bobcat_manual_audit_gate.py
 Primary input:
 
 ```text
-outputs/photo-selection/photo-entry-gates/legacy-code17c_bobcat_provisional_3000/legacy-code17c_bobcat_manual_audit_expansion_sheet.csv
+archive/pferi_v1/outputs/photo-selection/photo-entry-gates/legacy-code17c_bobcat_provisional_3000/legacy-code17c_bobcat_manual_audit_expansion_sheet.csv
 ```
 
 Primary output directory:
 
 ```text
-outputs/photo-selection/photo-entry-gates/legacy-code17d_bobcat_manual_audit_gate/
+archive/pferi_v1/outputs/photo-selection/photo-entry-gates/legacy-code17d_bobcat_manual_audit_gate/
 ```
 
 Tracked regression test:

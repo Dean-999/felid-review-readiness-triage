@@ -14,12 +14,12 @@ This layer is data construction plus first pair-risk diagnostics. It is not fina
 ## Core Outputs
 
 ```text
-outputs/data-foundation/wild-urban-evidence-foundation/final-2x2-working-labels/
-outputs/data-foundation/wild-urban-evidence-foundation/algorithm-inputs/
-outputs/data-foundation/wild-urban-evidence-foundation/descriptor-embeddings/
-outputs/data-foundation/wild-urban-evidence-foundation/descriptor-conflict/
-outputs/data-foundation/wild-urban-evidence-foundation/statistical-analysis/
-outputs/data-foundation/wild-urban-evidence-foundation/risk-controlled-review-policy/
+archive/pferi_v1/outputs/data-foundation/wild-urban-evidence-foundation/final-2x2-working-labels/
+archive/pferi_v1/outputs/data-foundation/wild-urban-evidence-foundation/algorithm-inputs/
+archive/pferi_v1/outputs/data-foundation/wild-urban-evidence-foundation/descriptor-embeddings/
+archive/pferi_v1/outputs/data-foundation/wild-urban-evidence-foundation/descriptor-conflict/
+archive/pferi_v1/outputs/data-foundation/wild-urban-evidence-foundation/statistical-analysis/
+archive/pferi_v1/outputs/data-foundation/wild-urban-evidence-foundation/risk-controlled-review-policy/
 ```
 
 Flow:

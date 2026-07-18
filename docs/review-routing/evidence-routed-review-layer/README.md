@@ -23,14 +23,14 @@ non_comparable
 ## Core Outputs
 
 ```text
-outputs/review-routing/evidence-routed-review-layer/query_level_benchmark/
-outputs/review-routing/evidence-routed-review-layer/hybrid_routing_policy/
-outputs/review-routing/evidence-routed-review-layer/colab_ranker_package/
-outputs/review-routing/evidence-routed-review-layer/calibrated_ranker_results/
-outputs/review-routing/evidence-routed-review-layer/repeated_ranker_validation/
-outputs/review-routing/evidence-routed-review-layer/evidence_routed_review_policy/
-outputs/review-routing/evidence-routed-review-layer/wild_urban_transfer_stress/
-outputs/review-routing/evidence-routed-review-layer/bobcat_pair_audit_package/
+archive/pferi_v1/outputs/review-routing/evidence-routed-review-layer/query_level_benchmark/
+archive/pferi_v1/outputs/review-routing/evidence-routed-review-layer/hybrid_routing_policy/
+archive/pferi_v1/outputs/review-routing/evidence-routed-review-layer/colab_ranker_package/
+archive/pferi_v1/outputs/review-routing/evidence-routed-review-layer/calibrated_ranker_results/
+archive/pferi_v1/outputs/review-routing/evidence-routed-review-layer/repeated_ranker_validation/
+archive/pferi_v1/outputs/review-routing/evidence-routed-review-layer/evidence_routed_review_policy/
+archive/pferi_v1/outputs/review-routing/evidence-routed-review-layer/wild_urban_transfer_stress/
+archive/pferi_v1/outputs/review-routing/evidence-routed-review-layer/bobcat_pair_audit_package/
 ```
 
 ## Main Scripts
@@ -67,7 +67,7 @@ scripts/package_legacy-code15f_bobcat_pair_audit.py
 - No bobcat identity accuracy without verified labels.
 - No claim that PF-ERI replaces MegaDescriptor.
 - No claim that PF-ERI's main contribution is descriptor-only top-k ranking
-  improvement unless later leakage-controlled held-out validation directly
+  improvement unless later leakage-controlled held-out validation
   supports that exact claim.
 - No broad Re-ID breakthrough claim from modest top-k gains.
 

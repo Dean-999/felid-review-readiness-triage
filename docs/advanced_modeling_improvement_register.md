@@ -7,7 +7,7 @@ claims are made.
 
 ## Current Items
 
-| Item | Status | Why It Matters | Future Fix |
+| Item | Status | Modeling Risk | Future Fix |
 | --- | --- | --- | --- |
 | Finite-sample upper risk exceeds target alpha | Open | Hoeffding upper-risk diagnostics are conservative with current accepted calibration sample sizes, so alpha-level routing is empirical-calibration supported rather than finite-sample upper-bound guaranteed. | Increase calibration sample size or use a more suitable risk-control method with clearly stated assumptions. |
 | Identity-cluster bootstrap not feasible | Open | The reviewed table has same/different identity relation but not resolved query/candidate identity clusters. | Add `query_identity_label` and `candidate_identity_label` to the validation table when available. |

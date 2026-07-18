@@ -1,0 +1,48 @@
+{
+  "built_at_utc": "2026-07-09T17:32:11.342102+00:00",
+  "claim_boundary": "CzechLynx human reviewability/evidential admissibility only; no automatic identity assignment, Bobcat identity accuracy, or retrieval mAP/MRR/top-k claim.",
+  "outputs": {
+    "Figure 2": [
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/figure2_model_comparison.svg",
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/figure2_model_comparison.pdf",
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/figure2_model_comparison.png"
+    ],
+    "Figure 3": [
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/figure3_quality_similarity_sensitivity.svg",
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/figure3_quality_similarity_sensitivity.pdf",
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/figure3_quality_similarity_sensitivity.png"
+    ],
+    "Figure 4": [
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/figure4_review_budget_utility.svg",
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/figure4_review_budget_utility.pdf",
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/figure4_review_budget_utility.png"
+    ],
+    "README": [
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/README.md"
+    ],
+    "Table 1": [
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/table1_dataset_validation_contract.csv",
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/table1_dataset_validation_contract.md"
+    ],
+    "Table 2": [
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/table2_model_comparison.csv",
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/table2_model_comparison.md"
+    ],
+    "Table 3": [
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/table3_review_routing_evidence_hygiene.csv",
+      "outputs/manuscript/2026-07-10_pferi_figures_tables/table3_review_routing_evidence_hygiene.md"
+    ]
+  },
+  "policy_delta_rows_loaded_for_audit_context": 17,
+  "source_artifacts": {
+    "outputs/modeling-validation/story-hardening-issue3/issue3_core_incremental_model_comparison.csv": 18,
+    "outputs/modeling-validation/story-hardening-issue4/issue4_high_quality_subset.csv": 3,
+    "outputs/modeling-validation/story-hardening-issue4/issue4_high_similarity_subset.csv": 3,
+    "outputs/modeling-validation/story-hardening-issue4/issue4_quality_matched_sensitivity.csv": 12,
+    "outputs/modeling-validation/story-hardening-issue4/issue4_rank_similarity_stratified_sensitivity.csv": 32,
+    "outputs/modeling-validation/story-hardening-issue5/issue5_fixed_budget_policy_delta.csv": 17,
+    "outputs/modeling-validation/story-hardening-issue5/issue5_fixed_budget_review_utility.csv": 34,
+    "outputs/modeling-validation/story-hardening-issue6/issue6_pre_inference_evidence_hygiene_summary.csv": 6
+  },
+  "status": "PASS"
+}

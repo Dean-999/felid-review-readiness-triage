@@ -1,5 +1,963 @@
 # Daily Work Log
 
+## 2026-07-17 CST - Repository Supersession and Output Cleanup
+
+Work type: architecture consolidation and reproducible artifact cleanup; no v2
+outcome access.
+
+Changed state:
+
+- Added the canonical supersession register and rewrote the current pipeline and
+  script maps around PF-ERI v2/Workbook04.
+- Removed 221 tracked files from `scripts/legacy/`, `scripts/prototypes/`, and
+  `colab/archive/`, plus the untracked matcher-v1 family, old structural-oracle
+  analyzer, rehearsal contract v1, and implemented plan/spec files.
+- Kept top-level Phase11-19 code because the working tree contains uncommitted
+  Phase18 result/test changes; it is now explicitly historical reproducibility
+  code and must not be imported by new v2 code.
+- Fixed rehearsal builder, auditor, and tests to use the assignment-enforced v2
+  contract and v2 output directory by default.
+- Replaced three direct Workbook04 legacy-Phase18 input paths with the frozen,
+  hashed `ws04_exploratory_context_v1.json` capsule.
+- Updated the four-stage allocation auditor to the accepted
+  `sampling_execution_pending` contract status and current remaining gates.
+
+Output audit:
+
+- Before: approximately 29 GB and 19,162 files.
+- Removed: 404 allowlisted packaging/metadata files totalling 8,323,841,931
+  bytes.
+- After: approximately 21 GB and 18,758 files.
+- Retained and verified: 6,000/6,000 Bobcat-urban, 3,000/3,000 Bobcat-wild, and
+  3,000/3,000 CzechLynx final-freeze manifest/image rows.
+- The first bulk run's 403-row detailed SHA manifest was accidentally overwritten
+  by a later one-file run before append semantics were added. The target allowlist,
+  retained-counterpart guards, total count/bytes, and terminal record preserve its
+  scope; the missing per-file hashes are not fabricated. Future cleanup manifests
+  append.
+
+Scientific boundary:
+
+No scientific table, response log, current extracted package, or final-freeze
+file was targeted. PF-ERI v1 summaries remain scenario context only. Pair sampling
+and outcome packets remain blocked pending within-role measurements and
+post-allocation gates.
+
+## 2026-07-15 CST - Workstream 04 Task 04 Timed Operational Rehearsal Package
+
+Work type: outcome-free operational-design implementation.
+
+Changed files:
+
+- Added `schemas/pferi_v2/timed_operational_rehearsal_contract_v1.json`.
+- Added `scripts/build_v2_timed_operational_rehearsal.py` and `scripts/audit_v2_timed_operational_rehearsal.py`.
+- Added `tests/test_v2_timed_operational_rehearsal.py`.
+- Added `docs/project-governance/workstreams/04_dual_sample_confirmation/04_timed_operational_rehearsal.md`.
+- Updated the Workstream 04 navigation.
+
+Scientific decision:
+
+The timed rehearsal deliberately records workflow duration and technical completion only. It selects from the permanently excluded outcome-free pilot and contains no reviewability decision, reason, confidence, free-text note, feature, score, descriptor, route, identity, or outcome field. Its output may inform operational workload assumptions but cannot be combined with v2 labels or used as model evidence.
+
+Next action:
+
+Run the reviewer delivery with at least three independent rehearsal participants and one adjudication-rehearsal session. Validate the returned logs before using timing or completion information to complete the numerical decision record.
+
+## 2026-07-14 CST - Workstream 04 Task 03 Numerical-Freeze Readiness Review
+
+Work type: pre-outcome critical-design review.
+
+Changed files:
+
+- Added `docs/project-governance/workstreams/04_dual_sample_confirmation/03_pre_outcome_numerical_freeze_readiness_review.md`.
+- Added `docs/project-governance/workstreams/04_dual_sample_confirmation/03_pre_outcome_numerical_decision_record_template.md`.
+- Updated the Workstream 04 navigation.
+
+Scientific decision:
+
+The numerical freeze is not yet authorized. The current 1,200-pair default does not specify how many analyzable rows will remain in the confirmation partition, and no practical Brier threshold, final dependence scenario, reviewer-operation record, completion reserve, or principal cost region has been accepted. The outcome-free sensitivity map is therefore sufficient to expose the decisions but not to choose them. No v2 outcome, reviewer response, model prediction, calibration result, or identity value was read.
+
+Next action:
+
+Run a short outcome-free timed operational rehearsal and complete the pre-outcome decision record. Then run a dated binding simulation that fixes the target, reserve, strata, and official seed before any real outcome packet is generated.
+
+## 2026-07-14 CST - Workstream 04 Task 02 Nonbinding Power and Workload Sensitivity
+
+Work type: outcome-free statistical design sensitivity.
+
+Changed files:
+
+- Added `schemas/pferi_v2/nonbinding_power_cost_sensitivity_scenarios_v1.json`.
+- Added `scripts/simulate_ws04_power_cost_sensitivity.py` and `tests/test_simulate_ws04_power_cost_sensitivity.py`.
+- Added `docs/project-governance/workstreams/04_dual_sample_confirmation/02_nonbinding_power_cost_sensitivity_simulation.md`.
+- Updated the Workstream 04 navigation.
+
+Scientific decision:
+
+The frozen canonical-pair graph can support a dependence-sensitive pre-outcome sensitivity analysis. The simulation models shared-image variance directly from sampled endpoint degrees and separates analyzable confirmation size from collection reserve and reviewer-workload scenarios. It reads no v2 outcome, model prediction, calibration result, reviewer log, or identity truth. All Brier increments, loss variability, completion, and timing values are deliberately illustrative; none is a recommendation or a hidden sample-size freeze.
+
+Next action:
+
+Freeze the minimum practical Brier increment and decision rule, justify the final dependence and loss-variability scenario, document reviewer availability and measured timing, and select one transparent principal cost/budget region. Then create a dated binding simulation record before selecting target, strata, or official seed.
+
+## 2026-07-14 CST - Workstream 04 Task 01 Power-and-Cost Input Audit
+
+Work type: outcome-free confirmatory-design audit.
+
+Changed files:
+
+- Added `schemas/pferi_v2/power_cost_simulation_input_contract_v1.json`.
+- Added `scripts/audit_ws04_power_cost_inputs.py` and `tests/test_audit_ws04_power_cost_inputs.py`.
+- Added `docs/project-governance/workstreams/04_dual_sample_confirmation/01_power_cost_input_audit_and_simulation_contract.md`.
+- Updated the Workstream 04 navigation.
+
+Scientific decision:
+
+The v2 graph and measurement-feasibility sources are sufficient to define a future graph-aware power-and-cost simulation, but they cannot honestly determine an official target or seed yet. The audit records 85,182 eligible canonical pairs and outcome-free automatic-feature feasibility; it labels the v1 broad and targeted reviewability rates as scenario context only. No v2 outcome label, model result, calibration result, or reviewer response was read.
+
+Blocking inputs:
+
+- minimum practical Brier increment and superiority/noninferiority rule;
+- prevalence, dependence, completion, and adjudication scenario choices;
+- reviewer availability, measured review minutes, collection window, and one principal cost/budget region.
+
+Next action:
+
+Record and accept those pre-outcome inputs, then run a dated sensitivity simulation. Do not choose an official sample size, allocation, sampling seed, or outcome-review packet from this audit.
+
+## 2026-07-13 CST - Current Structural Oracle Reliability Audit
+
+Work type: outcome-free Workstream 02 measurement audit.
+
+The current independent A and B response files each contained all 160 locked opaque packets, without duplicates or technical-problem rows. The input SHA256 values are recorded in `outputs/pferi_v2/measurement_feasibility_pilot/current_structural_oracle_reliability_audit.json`.
+
+Visible-pattern-area annotation met the fixed absolute-agreement ICC lower-bound gate (ICC(A,1) 0.800; 95% CI 0.76–0.84). Occlusion (0.069; −0.03–0.17) and shared-body-region fraction (0.465; 0.33–0.58) did not meet the 0.60 lower-bound gate. Viewpoint exact agreement was 0.631 and unweighted kappa 0.415, but the required weighted-kappa gate is not evaluable because no ordinal ordering or weights were frozen for a category set that includes non-ordinal `unknown`.
+
+Decision: the structural oracle branch is `measurement_not_ready`. Failed fields are not measurement truth, training data, primary automatic-model inputs, or workflow-efficiency evidence. Continue automatic-quality and local-match feasibility independently; any revised oracle measurement requires a versioned new contract and fresh pilot.
+
+## 2026-07-11 CST - Workstream 02 Task 02 Restricted Pilot Manifest Generated
+
+Work type: live v2 measurement-feasibility implementation.
+
+Changed files:
+
+- Repaired standalone module-path initialization in `scripts/build_v2_measurement_feasibility_pilot_manifest.py`.
+- Generated `outputs/pferi_v2/measurement_feasibility_pilot/restricted_pilot_manifest.csv` and `restricted_pilot_manifest_audit.json`.
+- Updated the authoritative current-project map and Workstream 02 task navigation to replace the completed reservoir block.
+
+Scientific decision:
+
+The fixed seed `pferi-v2-pilot-seed-001` selected 160 unique canonical pairs from the frozen fresh dual-descriptor reservoir of 85,182 pairs. The manifest remains restricted and outcome-free; every selected pair is ineligible for either v2 confirmation sample. This event is selection only, not feature evidence, reviewability evidence, identity evidence, or a v2 pass.
+
+Verification:
+
+- `python3 -m unittest discover -s tests -p 'test_build_v2_measurement_feasibility_pilot_manifest.py' -v`: PASS, 4 tests.
+- Actual builder audit: PASS; 160 selected pairs, 0 duplicate canonical pairs, and all six descriptor/rank strata represented (26–27 pairs each).
+- Output row count: 161 including the header.
+
+Next action:
+
+Implement and preregister the automatic quality measurement run for the 305 unique pilot images (across the 160 selected pairs), then run it without outcome access and record values, failures, and reference-environment timing.
+
+## 2026-07-11 CST - Fresh Descriptor GPU Handoff Prepared
+
+Work type: live v2 candidate-reservoir implementation.
+
+Changed files:
+
+- Added `scripts/build_v2_descriptor_execution_manifest.py` and `tests/test_build_v2_descriptor_execution_manifest.py`.
+- Generated `outputs/pferi_v2/restricted_descriptor_execution_manifest.csv` for 3,000 frozen CzechLynx images.
+- Added `docs/project-governance/workstreams/02_measurement_feasibility/04_colab_kaggle_fresh_descriptor_handoff.md`.
+
+Scientific decision:
+
+Fresh MegaDescriptor and DINOv2 inference will run in a Colab or Kaggle GPU environment because the local runtime lacks `timm` and `transformers`. The handoff preserves opaque image IDs, image-relative paths, and content hashes, and requires a recorded model, preprocessing, environment, input checksum, output checksum, runtime, and explicit failures. Historical embeddings remain excluded.
+
+Verification:
+
+- Restricted execution-manifest build: PASS, 3,000 images and no identity fields in output.
+
+Next action:
+
+Run the two fixed descriptor inferences in the external GPU environment and return their embedding manifests, matrices, and run audits for v2 queue validation.
+
+## 2026-07-11 CST - Upstream V2 Reservoir Neutral Image Context
+
+Work type: live v2 candidate-reservoir implementation.
+
+Changed files:
+
+- Added `scripts/build_v2_czechlynx_image_context.py` and `tests/test_build_v2_czechlynx_image_context.py`.
+- Generated `outputs/pferi_v2/czechlynx_v2_image_context.csv` and its audit from the final CzechLynx freeze.
+- Added `docs/project-governance/workstreams/02_measurement_feasibility/03_neutral_v2_image_context.md`.
+
+Scientific decision:
+
+The final-freeze source has 3,000 available, decodable, content-unique CzechLynx images. A neutral v2 context export retains only opaque content-hash-derived identifiers, decode state, and explicitly unknown illumination/camera-context states. Identity and path fields are excluded. Existing historical descriptor embeddings remain prohibited; a fresh fixed-descriptor run is required before directed memberships and canonical pairs exist.
+
+Verification:
+
+- `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_build_v2_czechlynx_image_context.py'`: PASS, 4 tests.
+- Actual build: PASS, 3,000 source rows and 3,000 neutral output rows, zero duplicate content hashes.
+
+Next action:
+
+Run fresh MegaDescriptor and DINOv2 inference on the neutral v2 image context under a recorded environment, then build the directed top-k memberships and canonical-pair reservoir. Do not reuse any historical embedding or score table.
+
+## 2026-07-11 CST - Workstream 02 Task 02 Restricted Pilot-Manifest Builder
+
+Work type: live v2 measurement-feasibility implementation.
+
+Changed files:
+
+- Added `scripts/build_v2_measurement_feasibility_pilot_manifest.py` and `tests/test_build_v2_measurement_feasibility_pilot_manifest.py`.
+- Added the task protocol at `docs/project-governance/workstreams/02_measurement_feasibility/02_restricted_pilot_manifest_builder.md`.
+
+Scientific decision:
+
+The pilot-manifest builder accepts only new v2 canonical-pair, directed-membership, and neutral image-context manifests. It deterministically selects canonical unordered pairs without outcome data and reserves them from confirmation. It rejects the existing historical `czechlynx_known_id_pairs.csv` source because its identity-bearing headers violate the v2 separation contract. The source was not transformed, copied, or used for pilot selection.
+
+Verification:
+
+- `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_build_v2_measurement_feasibility_pilot_manifest.py'`: PASS, 4 tests.
+
+Blocking condition:
+
+The new v2 canonical-pair, directed-membership, and neutral image-context manifests do not yet exist. No actual pilot manifest can be built until an upstream v2 candidate reservoir is generated. This is a scientific data-contract block, not a reason to reuse historical pair tables.
+
+Next action:
+
+Build the upstream v2 CzechLynx candidate reservoir from the frozen queue, then run the manifest builder and inspect its audit before any feature extraction.
+
+## 2026-07-11 CST - Workstream 02 Task 01 Pilot Isolation and Pre-registered Gates
+
+Work type: live v2 measurement-feasibility implementation.
+
+Changed files:
+
+- Added `schemas/pferi_v2/measurement_feasibility_pilot_contract_v1.json`.
+- Added `scripts/validate_v2_measurement_feasibility_pilot_contract.py` and `tests/test_v2_measurement_feasibility_pilot_contract.py`.
+- Added the task protocol at `docs/project-governance/workstreams/02_measurement_feasibility/01_pilot_isolation_and_preregistered_gates.md`.
+- Recorded project-lead acceptance of the Workstream 01 contract decisions.
+
+Scientific decision:
+
+The feasibility pilot is a new 160-pair canonical-unordered-pair measurement stress test. It has no v2 outcome collection or access, and every pilot pair is barred from v2 confirmation samples. Ten numerical feature-retention gates are frozen before measurement. This resolves a methodological conflict in the earlier prose: gate values cannot be selected after observing which features look favorable. Outcome-free feature feasibility may proceed while the real reviewer-interface leakage audit is prepared; the interface audit remains a strict prerequisite for any true outcome collection.
+
+Verification:
+
+- `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_v2_measurement_feasibility_pilot_contract.py'`: PASS, 7 tests.
+- `scripts/validate_v2_measurement_feasibility_pilot_contract.py`: PASS, 160-pair target and 10 fixed gates.
+
+Next action:
+
+Build and validate the actual restricted pilot manifest from a frozen CzechLynx candidate-pair reservoir. Do not select a confirmation pair, access an outcome label, or run a model.
+
+## 2026-07-11 CST - Workstream 01 Task 05 Blinded Outcome-Export Fence
+
+Work type: live v2 measurement-contract implementation.
+
+Changed files:
+
+- Added `schemas/pferi_v2/blinded_outcome_export_contract_v1.json`.
+- Added `scripts/validate_v2_blinded_outcome_export_contract.py` and `tests/test_v2_blinded_outcome_export_contract.py`.
+- Added the task protocol at `docs/project-governance/workstreams/01_evidence_measurement_contract/05_blinded_outcome_export_fence.md`.
+
+Scientific decision:
+
+The reviewer packet permits only neutral packet and opaque asset identifiers plus version fields. Raw response exports contain only the review decision and its direct form fields. Canonical linkage, source-image identifiers, assignments, features, descriptor values, ranks, routes, sampling conditions, identity truth, and derived labels are held outside reviewer-visible and raw-response exports. A validator cannot inspect a live browser, so the contract explicitly requires a separate independent audit of rendered assets, filenames, DOM, URL, hidden/network fields, and sort/filter/search controls before collection.
+
+Verification:
+
+- `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_v2_blinded_outcome_export_contract.py'`: PASS, 7 tests.
+- `scripts/validate_v2_blinded_outcome_export_contract.py`: PASS, 5 packet fields, 8 raw-response fields, and 6 restricted-linkage fields.
+
+Next action:
+
+Obtain internal sign-off on the complete Workstream 01 contract, then enter Workstream 02 with a new difficult-case pilot and a documented rendered-interface leakage audit. No v2 outcome collection may begin before that audit passes.
+
+## 2026-07-11 CST - Workstream 01 Task 04 Automatic Pair-Evidence Contract
+
+Work type: live v2 measurement-contract implementation.
+
+Changed files:
+
+- Added `schemas/pferi_v2/automatic_pair_evidence_contract_v1.json`.
+- Added `scripts/validate_v2_automatic_pair_evidence_contract.py` and `tests/test_v2_automatic_pair_evidence_contract.py`.
+- Added the task protocol at `docs/project-governance/workstreams/01_evidence_measurement_contract/04_automatic_pair_evidence_contract.md`.
+
+Scientific decision:
+
+Automatic local-match coverage is the sole provisional primary pair-evidence candidate. It must be measured symmetrically from decoded image data and registered local correspondences, with no descriptor, rank, outcome, identity, manual, historical, or active-control input. Descriptor disagreement is diagnostic-only because its apparent increment could be descriptor ensembling rather than new visual evidence. A smaller honest primary evidence set is preferable to a flexible but circular model.
+
+Verification:
+
+- `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_v2_automatic_pair_evidence_contract.py'`: PASS, 7 tests.
+- `scripts/validate_v2_automatic_pair_evidence_contract.py`: PASS, 1 primary candidate and 1 diagnostic-only field.
+
+Next action:
+
+Define the outcome-review interface, blinding exports, reviewer access boundary, and deterministic audit that prevent feature, route, identity, and queue metadata from reaching outcome reviewers.
+
+## 2026-07-11 CST - Workstream 01 Task 03 Independent Image-Quality Control Contract
+
+Work type: live v2 measurement-contract implementation.
+
+Changed files:
+
+- Added `schemas/pferi_v2/independent_quality_control_contract_v1.json`.
+- Added `scripts/validate_v2_independent_quality_control_contract.py` and `tests/test_v2_independent_quality_control_contract.py`.
+- Added the task protocol at `docs/project-governance/workstreams/01_evidence_measurement_contract/03_independent_image_quality_control_contract.md`.
+
+Scientific decision:
+
+The descriptor-plus-quality active control is provisionally limited to image coverage, native pixel count, sharpness, and exposure clipping, with predeclared worst-side aggregation. It cannot consume descriptor outputs, candidate-rank information, pair evidence, reviewer outcomes, identity truth, manual structural annotations, or historical proxies. Infrared likelihood is recorded for context stratification and failure auditing only because it is an environmental state rather than an a priori monotonic quality measure. Every control remains pending the new difficult-case feasibility pilot.
+
+Verification:
+
+- `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_v2_independent_quality_control_contract.py'`: PASS, 7 tests.
+- `scripts/validate_v2_independent_quality_control_contract.py`: PASS, 4 controls and 1 context-only field.
+
+Next action:
+
+Define the automatic pair-evidence extraction contract without allowing descriptor similarity, outcome labels, identity truth, or the active-control quality columns to be relabeled as PF-ERI evidence.
+
+## 2026-07-10 CST - Workstream 01 Task 02 Feature Dictionary and Failure Taxonomy
+
+Work type: live v2 measurement-contract implementation.
+
+Changed files:
+
+- Added `schemas/pferi_v2/evidence_measurement_dictionary_v1.json`.
+- Added `scripts/validate_v2_evidence_measurement_dictionary.py` and `tests/test_v2_evidence_measurement_dictionary.py`.
+- Added the task protocol at `docs/project-governance/workstreams/01_evidence_measurement_contract/02_feature_dictionary_and_failure_taxonomy.md`.
+
+Scientific decision:
+
+The v2 contract now distinguishes an observed low measurement from unavailable input and extractor or annotation failure. Seven automatic fields are retained only as pending candidates, four structural fields are oracle-only, and three provenance fields are metadata-only. No field may use a v2 reviewer outcome, route, identity truth, or a historical v1 proxy or constant. Passing the dictionary audit therefore establishes a measurement boundary, not extractor validity, predictive utility, or a deployment rule.
+
+Verification:
+
+- `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_v2_evidence_measurement_dictionary.py'`: PASS, 8 tests.
+- `scripts/validate_v2_evidence_measurement_dictionary.py`: PASS, 14 features and zero outcome-like feature names.
+
+Next action:
+
+Define the independent automatic image-quality controls and a feasibility protocol that can reject constant, failed, or manually rescued candidate measures before outcome review.
+
+## 2026-07-10 CST - Workstream 01 Task 01 Canonical Pair Contract
+
+Work type: live v2 measurement-contract implementation.
+
+Changed files:
+
+- Added `schemas/pferi_v2/canonical_pair_contract_v1.json`.
+- Added `scripts/build_v2_canonical_pair_contract.py` and `tests/test_v2_canonical_pair_contract.py`.
+- Added the task protocol at `docs/project-governance/workstreams/01_evidence_measurement_contract/01_canonical_unordered_pair_contract.md`.
+
+Scientific decision:
+
+V2 represents each physical image pair once through an opaque SHA-256 canonical identifier. Directed retrieval rows and descriptor memberships are retained separately, so repeated directions and descriptors remain traceable without being counted as independent pair evidence. Known identity truth is optional and restricted. Review outcomes, PF-ERI values, routes, and feature values are prohibited from the canonical and membership manifests.
+
+Verification:
+
+- `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_v2_canonical_pair_contract.py'`: PASS, 8 tests.
+
+Next action:
+
+Define the feature dictionary, missingness codes, inference-time availability, and automatic-or-oracle role for each proposed measurement field.
+
+## 2026-07-10 CST - Workstream 00 V1 Evidence Isolation
+
+Work type: live evidence-quality and provenance audit.
+
+Changed files:
+
+- Added the v1 evidence inventory, claim-bearing-file audit, provenance-resolution register, and isolation decision under `docs/project-governance/workstreams/00_v1_evidence_isolation/`.
+- Added `verify_v1_evidence_inventory.sh` to recheck all v1 SHA-256 anchors without mutating source artifacts.
+- Added v1 historical-status notices to the modeling-validation, pair-level-validation, blind-reliability, and known-ID derived-analysis entry points.
+- Added `docs/manuscript/README.md` to lock copied manuscript-facing material as historical.
+
+Scientific decision:
+
+Phase18M raw working records exist, but the historical Streamlit interface exposed PF-ERI evidence group, identity stratum, and rank during outcome review. The 400-row table and all downstream models and routes are therefore exploratory only. The 0.859305 reviewer-agreement result is synthetic rather than human evidence. The 0.785098 result remains provenance pending because its source file describes synthetic calibration while a later correction asserts independent review without the required primary documentation. The Phase18N packet is retired because it has duplicate unordered pairs and collapsed quality cutoffs.
+
+Exit decision:
+
+`isolated_with_provenance_pending`. V1 is preserved with integrity anchors and may guide feature design or simulation, but it cannot enter any v2 development, calibration, confirmation, workflow, or external-validation claim. Reviewer-2 provenance is non-blocking for v2.
+
+Next action:
+
+Begin Workstream 01 by writing the versioned canonical-pair and feature-measurement contract without importing v1 outcome labels, constant proxies, or thresholds.
+
+## 2026-07-10 CST - PF-ERI v2 Workstream Structure
+
+Work type: live project-governance implementation.
+
+Changed files:
+
+- Added `docs/project-governance/workstreams/README.md`.
+- Added one execution-guide folder for each v2 Workstream 00 through 06.
+- Updated `PROJECT_RULES.md` and `docs/CURRENT_PROJECT_MAP.md` to designate the workstream directory as the dependency-aware implementation map.
+
+Scientific decision:
+
+The complete v2 programme is now operationally decomposed without changing its scope. Workstream 00 isolates exploratory v1 evidence; Workstreams 01 and 02 validate the measurement construct; Workstream 03 prevents information leakage; Workstream 04 constructs the mechanism and deployment samples; Workstream 05 tests the probability model and decision policy; and Workstream 06 defines a local species-adapter extension after CzechLynx confirmation.
+
+Next action:
+
+Start Workstream 00 by building the immutable v1 inventory and claim-bearing-file audit. Do not generate a v2 outcome-review packet before Workstreams 01–04 meet their stated exit conditions.
+
+## 2026-07-10 CST - PF-ERI v2 Full Rebuild Rule Adoption
+
+Work type: live project-governance revision.
+
+Changed files:
+
+- Replaced `PROJECT_RULES.md` with the binding PF-ERI v2 scientific and operational contract.
+- Replaced `docs/CURRENT_PROJECT_MAP.md` with the v2 navigation and status map.
+- Replaced the review protocol, pre-specified analysis plan, and reviewer guidelines in `paper/protocols/`.
+- Updated `README.md` and `paper/README.md` so v1 manuscript material is visibly under a submission lock.
+
+Scientific decision:
+
+The project retains the complete v2 objective of 1,200 unique CzechLynx pairs rather than redefining success around the historical 400-row table. V2 is split into a 400-pair mechanism-confirmation sample and an 800-pair probability-sampled deployment-queue sample. Feature measurement, blinded reviewability assessment, identity truth, development, calibration, and one-shot confirmation are separated. Existing v1 evidence is `v1_exploratory_not_confirmatory`; it may guide design but cannot satisfy a v2 gate.
+
+Claim boundary:
+
+The only future primary claim is a bounded CzechLynx claim about pair-level evidence admission beyond descriptor similarity and independent automatic quality controls. Bobcat, Mainland Clouded Leopard, and Marbled Cat remain future adapter studies until their own auditable data and blinded-pair-review contracts exist.
+
+Next action:
+
+Create the v2 canonical unordered-pair universe and identity/image-pair graph, then conduct the separate feature-measurement feasibility pilot before generating the 1,200-pair blinded review packet.
+
+## 2026-07-09 CST - Story Hardening Issue 9 Final Story Consistency Audit
+
+Work type: live session.
+
+Changed files:
+
+- Added `scripts/build_story_hardening_issue9_consistency_audit.py`.
+- Added `tests/test_story_hardening_issue9_consistency_audit.py`.
+- Added `docs/modeling-validation/2026-07-09_final_story_consistency_audit.md`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue9/issue9_story_consistency_findings.csv`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue9/issue9_story_consistency_audit.json`.
+- Updated `README.md` with the binding line `Similarity is not admissibility`.
+- Updated `docs/CURRENT_PROJECT_MAP.md`.
+- Updated `docs/modeling-validation/README.md`.
+- Updated
+  `docs/project-governance/executable-plans/plans/2026-07-09-story-hardening-issue-pack.md`.
+- Updated `docs/project-governance/logs/daily_work_log.md`.
+
+Scientific decision:
+
+- Issue 9 is complete. The final claim-bearing layer preserves the central
+  claim that similarity is not admissibility and that PF-ERI is pair-level
+  evidence admission after descriptor retrieval.
+- The final consistency gate status is `PASS`.
+- The scan found zero unsafe positive claim lines in the checked files.
+- Remaining flagged lines are safe blocked-claim boundaries or manual-review
+  context lines, not positive overclaims.
+
+Claim boundary:
+
+- PF-ERI remains a post-retrieval pair-level evidence admission layer.
+- It is not a new descriptor, not automatic identity assignment, not Bobcat
+  identity validation, and not mainly a conformal, Bayesian, multi-annotator, or
+  generic classifier method.
+
+Verification:
+
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/build_story_hardening_issue9_consistency_audit.py`.
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_story_hardening_issue9_consistency_audit.py'`.
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m py_compile scripts/build_story_hardening_issue9_consistency_audit.py`.
+
+Next action:
+
+- The story hardening issue pack is complete. Move to manuscript assembly from
+  the evidence-chain outline, contribution hierarchy, results evidence ladder,
+  reviewer objection matrix, final claim narrative, and final consistency
+  audit.
+
+## 2026-07-09 CST - Story Hardening Issue 8 Reviewer Objection Matrix
+
+Work type: live session.
+
+Changed files:
+
+- Added `scripts/build_story_hardening_issue8_objection_matrix.py`.
+- Added `tests/test_story_hardening_issue8_objection_matrix.py`.
+- Added
+  `docs/modeling-validation/2026-07-09_reviewer_objection_matrix_and_claim_gate.md`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue8/issue8_reviewer_objection_matrix.csv`.
+- Generated `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue8/issue8_claim_gate.json`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue8/issue8_objection_matrix_audit.json`.
+- Updated
+  `archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation/paper-ready/final_claim_narrative.md`.
+- Updated `docs/CURRENT_PROJECT_MAP.md`.
+- Updated `docs/modeling-validation/README.md`.
+- Updated
+  `docs/project-governance/executable-plans/plans/2026-07-09-story-hardening-issue-pack.md`.
+- Updated `docs/project-governance/logs/daily_work_log.md`.
+
+Scientific decision:
+
+- Issue 8 is complete with claim gate status `PASS`.
+- Every major reviewer objection is answered by main evidence, appendix
+  sensitivity, or an explicit blocked-claim boundary.
+- Covered objections are reviewability subjectivity, quality-proxy alternative,
+  descriptor-similarity-proxy alternative, targeted-sample/full-queue
+  representativeness, human label reliability, Bobcat identity-label absence,
+  and partial feature sensitivity with non-estimable features.
+
+Claim boundary:
+
+- Safe wording remains: PF-ERI is a post-retrieval pair-level evidence
+  admission layer for descriptor-retrieved wildlife Re-ID candidate pairs.
+- Blocked wording remains: PF-ERI is a new descriptor, automatically identifies
+  individuals, validates Bobcat identity accuracy, universally improves
+  top-k/mAP/MRR identity retrieval, proves every feature mechanism causally, or
+  provides unqualified distribution-free cross-domain guarantees.
+
+Verification:
+
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/build_story_hardening_issue8_objection_matrix.py`.
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_story_hardening_issue8_objection_matrix.py'`.
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m py_compile scripts/build_story_hardening_issue8_objection_matrix.py`.
+
+Next action:
+
+- Start Issue 9: run the final story consistency audit across project rules,
+  current project map, modeling validation documents, final claim narrative,
+  and paper-ready claim tables.
+
+## 2026-07-09 CST - Story Hardening Issue 7 Results Evidence Ladder
+
+Work type: live session.
+
+Changed files:
+
+- Added `docs/modeling-validation/2026-07-09_results_evidence_ladder.md`.
+- Added `scripts/prototypes/prototype_issue7_evidence_ladder.py`.
+- Updated `docs/CURRENT_PROJECT_MAP.md`.
+- Updated `docs/modeling-validation/README.md`.
+- Updated
+  `docs/project-governance/executable-plans/plans/2026-07-09-story-hardening-issue-pack.md`.
+- Updated `docs/project-governance/logs/daily_work_log.md`.
+
+Scientific decision:
+
+- Issue 7 is complete. The manuscript results should no longer follow phase
+  chronology. They should follow inference logic: construct validity,
+  distinction from descriptor similarity and image quality, pair-level evidence
+  mechanism, selective routing utility, and Bobcat transfer-stress boundary.
+- Phase and legacy names remain provenance only. They should appear in methods,
+  artifact links, or reproducibility appendices, not as main result headings.
+
+Claim boundary:
+
+- The evidence ladder supports pair-level reviewability and evidence admission
+  after descriptor retrieval.
+- It does not support automatic identity recognition, top-k identity
+  improvement, population-level ecological inference, or Bobcat identity
+  accuracy.
+
+Next action:
+
+- Start Issue 8: build the reviewer objection matrix and claim gate so each
+  likely reviewer challenge is answered by main evidence, appendix
+  sensitivity, or an explicit blocked-claim boundary.
+
+## 2026-07-09 CST - Story Hardening Review Lock
+
+Work type: live session.
+
+Changed files:
+
+- Added `docs/modeling-validation/2026-07-09_story_adversarial_review_and_hardening_plan.md`.
+- Added
+  `docs/project-governance/executable-plans/plans/2026-07-09-story-hardening-issue-pack.md`.
+- Updated `docs/CURRENT_PROJECT_MAP.md`.
+- Updated `docs/modeling-validation/README.md`.
+- Updated `docs/project-governance/logs/daily_work_log.md`.
+
+Scientific decision:
+
+- The project story is locked around the first-principles thesis that
+  `Similarity is not admissibility`.
+- PF-ERI remains a pair-level evidence admission layer after strong descriptor
+  retrieval, not a descriptor, identity classifier, or generic risk-control
+  wrapper.
+- The non-full-score story dimensions are field necessity, novelty protection,
+  evidence strength, logic closure, and reviewer resistance.
+
+Repair / next-action decision:
+
+- Improve field necessity by writing the paper around the evidence chain from
+  candidate retrieval to evidence admission to cautious ecological inference.
+- Protect novelty by keeping pair-level evidential admissibility as the primary
+  contribution and treating risk control, reviewer reliability, budget routing,
+  and possible Bayesian/conformal tools as safeguards.
+- Strengthen evidence by making descriptor plus quality plus PF-ERI controls,
+  descriptor-specific reporting, quality-matched sensitivity, and review-budget
+  routing paper-ready.
+- Improve logic closure by ordering results as an evidence ladder instead of
+  phase chronology.
+- Improve reviewer resistance by preparing an objection matrix where each major
+  challenge is answered by main evidence, appendix sensitivity, or an explicit
+  blocked-claim boundary.
+- The story hardening work is broken into nine approved vertical-slice issues,
+  starting with the manuscript evidence-chain outline and ending with a final
+  story consistency audit.
+
+Remaining risk:
+
+- Bobcat remains unlabeled transfer stress and cannot support identity
+  performance claims.
+- Current evidence supports reviewability/admissibility, not automatic
+  individual recognition.
+- Feature-level mechanism claims remain bounded where current validation
+  features are constant or sparse.
+
+Next action:
+
+- Build a manuscript-facing positioning outline and figure order from the
+  hardening plan.
+
+## 2026-07-09 CST - Story Hardening Issue 1 Evidence-Chain Outline
+
+Work type: live session.
+
+Changed files:
+
+- Added `docs/modeling-validation/2026-07-09_manuscript_evidence_chain_outline.md`.
+- Added `scripts/build_story_hardening_issue1_figure.py`.
+- Updated `docs/CURRENT_PROJECT_MAP.md`.
+- Updated `docs/modeling-validation/README.md`.
+- Updated
+  `docs/project-governance/executable-plans/plans/2026-07-09-story-hardening-issue-pack.md`.
+- Updated `docs/project-governance/logs/daily_work_log.md`.
+
+Generated artifacts:
+
+- `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue1/figure1_pair_level_evidence_admission_chain.svg`
+- `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue1/figure1_pair_level_evidence_admission_chain.pdf`
+- `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue1/figure1_pair_level_evidence_admission_chain.png`
+- `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue1/story_hardening_issue1_figure_audit.json`
+
+Scientific decision:
+
+- Issue 1 is complete. The manuscript opening should begin from the ecological
+  evidence chain rather than the algorithm.
+- Figure 1 is locked as a conceptual evidence-chain figure showing descriptor
+  retrieval, candidate pair queue, PF-ERI pair-level evidence admission, expert
+  review, and cautious ecological inference.
+
+Claim boundary:
+
+- The Issue 1 output supports PF-ERI as post-retrieval pair-level evidence
+  admission.
+- It does not support automatic identity assignment, descriptor replacement,
+  Bobcat identity validation, or distribution-free cross-domain risk control.
+
+Next action:
+
+- Start Issue 2: add the contribution hierarchy and related-work distinction
+  table.
+
+## 2026-07-09 CST - Story Hardening Issue 2 Contribution Hierarchy
+
+Work type: live session.
+
+Changed files:
+
+- Added
+  `docs/modeling-validation/2026-07-09_contribution_hierarchy_related_work_distinction.md`.
+- Updated `docs/CURRENT_PROJECT_MAP.md`.
+- Updated `docs/modeling-validation/README.md`.
+- Updated
+  `docs/project-governance/executable-plans/plans/2026-07-09-story-hardening-issue-pack.md`.
+- Updated `docs/project-governance/logs/daily_work_log.md`.
+
+Scientific decision:
+
+- Issue 2 is complete. PF-ERI's primary novelty is locked as pair-level
+  evidential admissibility after strong descriptor retrieval.
+- Strong descriptors, Wildbook/WBIA-style platforms, active learning,
+  selective/conformal risk control, multi-annotator modeling, bootstrap
+  uncertainty, and review-budget optimization are positioned as neighboring
+  work or safeguards, not as the main novelty.
+
+Claim boundary:
+
+- PF-ERI may be described as compatible with strong descriptor and matching
+  systems because it answers a downstream evidence-admission question.
+- PF-ERI must not be described as a descriptor, identity classifier, image
+  quality filter, generic conformal model, or Bobcat identity-validation system.
+
+Sources checked:
+
+- WildlifeDatasets / MegaDescriptor paper.
+- Wildbook matching process and image-analysis pipeline documentation.
+- Flukebook / WBIA platform paper.
+- Conformal Risk Control and Selective Conformal Risk Control papers.
+- Active learning for camera-trap species identification and counting.
+
+Next action:
+
+- Start Issue 3: make the core incremental model evidence paper-ready.
+
+## 2026-07-09 CST - Story Hardening Issue 3 Core Incremental Model Evidence
+
+Work type: live session.
+
+Changed files:
+
+- Updated `scripts/build_known_id_evidence_sufficiency_validation.py`.
+- Added `tests/test_known_id_evidence_sufficiency_validation.py`.
+- Added `docs/modeling-validation/2026-07-09_core_incremental_model_evidence.md`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue3/issue3_core_incremental_model_comparison.csv`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue3/issue3_core_incremental_model_evidence_audit.json`.
+- Updated `docs/CURRENT_PROJECT_MAP.md`.
+- Updated `docs/modeling-validation/README.md`.
+- Updated
+  `docs/project-governance/executable-plans/plans/2026-07-09-story-hardening-issue-pack.md`.
+
+Scientific decision:
+
+- Issue 3 is complete. The core incremental model evidence now compares six
+  model families on identical row sets within pooled, MegaDescriptor, and
+  DINOv2 scopes.
+- The paper-ready endpoint is human reviewability / evidential admissibility on
+  CzechLynx reviewed pairs.
+- The pooled full active-control model reaches AUROC 0.786 and AUPRC 0.885,
+  compared with descriptor-only AUROC 0.585 and AUPRC 0.775.
+- The full model adds a small pooled increment over descriptor plus quality
+  (AUROC +0.014, AUPRC +0.003), while descriptor-specific active-control
+  increments are not uniformly positive.
+
+Claim boundary:
+
+- The result supports PF-ERI as reviewability-relevant pair-level evidence
+  after descriptor retrieval.
+- It does not support identity accuracy, Bobcat identity validation, mAP, MRR,
+  top-k identity improvement, or automatic individual identification.
+
+Verification:
+
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/build_known_id_evidence_sufficiency_validation.py`.
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m py_compile scripts/build_known_id_evidence_sufficiency_validation.py`.
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_known_id_evidence_sufficiency_validation.py'`.
+
+Next action:
+
+- Start Issue 4: build the quality and similarity sensitivity package to
+  explain whether the small pooled active-control increment is stable under
+  quality-matched, high-quality-only, high-similarity-only, and stratified
+  conditions.
+
+## 2026-07-09 CST - Story Hardening Issue 4 Quality And Similarity Sensitivity
+
+Work type: live session.
+
+Changed files:
+
+- Added `scripts/build_story_hardening_issue4_sensitivity.py`.
+- Added `tests/test_story_hardening_issue4_sensitivity.py`.
+- Added `docs/modeling-validation/2026-07-09_quality_similarity_sensitivity.md`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue4/issue4_quality_matched_sensitivity.csv`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue4/issue4_high_quality_subset.csv`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue4/issue4_high_similarity_subset.csv`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue4/issue4_rank_similarity_stratified_sensitivity.csv`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue4/issue4_quality_similarity_sensitivity_audit.json`.
+- Updated `docs/CURRENT_PROJECT_MAP.md`.
+- Updated `docs/modeling-validation/README.md`.
+- Updated
+  `docs/project-governance/executable-plans/plans/2026-07-09-story-hardening-issue-pack.md`.
+
+Scientific decision:
+
+- Issue 4 is complete with status `PASS_WITH_BOUNDARIES`.
+- Pooled quality-matched strata all show positive high-minus-low PF-ERI
+  reviewability contrast.
+- In the pooled high-quality subset, the high-minus-low PF-ERI contrast is
+  0.156.
+- In the pooled high-similarity subset, the high-minus-low PF-ERI contrast is
+  0.176.
+- Across pooled estimable rank/similarity strata, 10 of 10 strata show positive
+  high-minus-low PF-ERI contrast.
+
+Claim boundary:
+
+- The result weakens the simplest image-quality-only and
+  descriptor-similarity-only explanations.
+- It does not justify a universal superiority claim because visible pattern
+  area, night/motion blur risk, viewpoint compatibility, and source-domain
+  shift are constant in this 400-row table, and descriptor-specific
+  quality-matched strata are not uniformly positive.
+- The correct interpretation is that quality and similarity do not fully
+  exhaust the human reviewability construct in these CzechLynx reviewed
+  candidate pairs.
+
+Verification:
+
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/build_story_hardening_issue4_sensitivity.py`.
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m py_compile scripts/build_story_hardening_issue4_sensitivity.py`.
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_story_hardening_issue4_sensitivity.py'`.
+
+Next action:
+
+- Start Issue 5: turn review-budget routing into applied evidence value by
+  comparing PF-ERI-prioritized review against descriptor-priority review at
+  fixed review budgets.
+
+## 2026-07-09 CST - Story Hardening Issue 5 Review-Budget Routing Value
+
+Work type: live session.
+
+Changed files:
+
+- Added `scripts/build_story_hardening_issue5_review_budget_value.py`.
+- Added `tests/test_story_hardening_issue5_review_budget_value.py`.
+- Added `docs/modeling-validation/2026-07-09_review_budget_routing_value.md`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue5/issue5_fixed_budget_review_utility.csv`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue5/issue5_fixed_budget_policy_delta.csv`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue5/figure_issue5_review_budget_utility.svg`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue5/issue5_review_budget_value_audit.json`.
+- Updated `docs/CURRENT_PROJECT_MAP.md`.
+- Updated `docs/modeling-validation/README.md`.
+- Updated
+  `docs/project-governance/executable-plans/plans/2026-07-09-story-hardening-issue-pack.md`.
+
+Scientific decision:
+
+- Issue 5 is complete. PF-ERI now has a fixed-budget applied evidence-value
+  result, not only a predictive reviewability result.
+- On the pooled CzechLynx reviewed pair table, PF-ERI priority reduces
+  not-ready/uncertain burden in 4 of 7 fixed-budget settings.
+- At budget 100, PF-ERI burden is 0.060 versus descriptor-priority burden
+  0.090.
+- At budget 200, PF-ERI burden is 0.125 versus descriptor-priority burden
+  0.210.
+
+Claim boundary:
+
+- This is pre-review evidence hygiene and review-burden routing.
+- Same-ID retention is reported as known-ID candidate coverage, not automated
+  identity assignment.
+- False-candidate burden is review burden, not identity accuracy.
+- Bobcat identity accuracy, mAP, MRR, and top-k identity-improvement claims
+  remain blocked.
+
+Tradeoff:
+
+- PF-ERI does not dominate descriptor priority on every metric. Descriptor
+  priority retains more same-ID candidates at some budgets.
+- The supported applied claim is that PF-ERI can reduce uncertain/not-ready
+  review burden under fixed expert budgets while preserving useful candidate
+  coverage, not that it universally improves identity retrieval.
+
+Verification:
+
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/build_story_hardening_issue5_review_budget_value.py`.
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m py_compile scripts/build_story_hardening_issue5_review_budget_value.py`.
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_story_hardening_issue5_review_budget_value.py'`.
+
+Next action:
+
+- Start Issue 6: build the CzechLynx pre-inference evidence hygiene simulation,
+  showing admitted versus deferred candidate pairs before expert review or
+  downstream evidence use.
+
+## 2026-07-09 CST - Story Hardening Issue 6 Pre-Inference Evidence Hygiene Simulation
+
+Work type: live session.
+
+Changed files:
+
+- Added `scripts/prototypes/prototype_issue6_evidence_hygiene_logic.py`.
+- Added `scripts/build_story_hardening_issue6_pre_inference_simulation.py`.
+- Added `tests/test_story_hardening_issue6_pre_inference_simulation.py`.
+- Added
+  `docs/modeling-validation/2026-07-09_pre_inference_evidence_hygiene_simulation.md`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue6/issue6_pre_inference_evidence_hygiene_pairs.csv`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue6/issue6_pre_inference_evidence_hygiene_summary.csv`.
+- Generated
+  `archive/pferi_v1/outputs/modeling-validation/story-hardening-issue6/issue6_pre_inference_evidence_hygiene_audit.json`.
+- Updated `docs/CURRENT_PROJECT_MAP.md`.
+- Updated `docs/modeling-validation/README.md`.
+- Updated
+  `docs/project-governance/executable-plans/plans/2026-07-09-story-hardening-issue-pack.md`.
+
+Scientific decision:
+
+- Issue 6 is complete. The project now has a CzechLynx known-ID
+  pre-inference evidence hygiene simulation.
+- PF-ERI routes candidate pairs into admitted and deferred evidence states
+  before expert review or downstream inference.
+- In the pooled table, 234 pairs are admitted and 166 pairs are deferred.
+- The admitted set has review-ready rate 0.859 and not-ready/uncertain rate
+  0.141.
+- The deferred set has review-ready rate 0.446 and not-ready/uncertain rate
+  0.554.
+
+Claim boundary:
+
+- This is a pre-inference evidence hygiene simulation.
+- It is not a population estimate, validated ecological outcome, automatic
+  individual recognition claim, Bobcat identity accuracy claim, or top-k/mAP/MRR
+  retrieval claim.
+- Same-ID retention is candidate coverage. False-candidate burden is review
+  utility, not identity accuracy.
+
+Verification:
+
+- Ran
+  `printf 'q' | /Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/prototypes/prototype_issue6_evidence_hygiene_logic.py`.
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/build_story_hardening_issue6_pre_inference_simulation.py`.
+- Ran
+  `/Users/dshen/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p 'test_story_hardening_issue6_pre_inference_simulation.py'`.
+
+Next action:
+
+- Start Issue 7: rewrite the manuscript results as an evidence ladder so the
+  reader evaluates construct validity, quality/similarity distinction,
+  pair-level mechanism, selective routing utility, and Bobcat transfer-stress
+  boundary in inference order rather than phase chronology.
+
 ## Purpose
 
 This file records daily project progress, problems, repairs, and decisions.

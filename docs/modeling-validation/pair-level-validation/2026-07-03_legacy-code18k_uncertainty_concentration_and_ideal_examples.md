@@ -14,7 +14,7 @@ The system value is:
 
 ```text
 PF-ERI concentrates uncertain / not-ready labels in the pairs where evidence is
-actually weak, non-admissible, or hard to compare, while preserving review-ready
+weak, non-admissible, or hard to compare, while preserving review-ready
 labels for high-evidence pairs.
 ```
 
@@ -51,11 +51,11 @@ risk**, i.e. low PF-ERI admissibility.
 Interpretation:
 
 ```text
-Uncertain/not-ready labels are strongly enriched where PF-ERI admissibility is
+Uncertain/not-ready labels are enriched where PF-ERI admissibility is
 low.
 ```
 
-This directly supports the evidence-governance interpretation.
+This supports the evidence-governance interpretation.
 
 ### Low Geometry Also Concentrates Uncertainty
 
@@ -160,7 +160,7 @@ admissible versus when it is only descriptor-similar but weak for review.
 Supported now:
 
 ```text
-Uncertain/not-ready labels are strongly concentrated in low-admissibility and
+Uncertain/not-ready labels are concentrated in low-admissibility and
 low-geometry PF-ERI regions.
 ```
 
@@ -179,6 +179,5 @@ contrasts high-admissibility and low-admissibility pairs at matched descriptor
 similarity.
 ```
 
-This is better than simply increasing uncertain/not-ready frequency. The target
-is selective concentration, not general conservatism.
-
+The target is selective concentration, not a general increase in
+uncertain/not-ready frequency.

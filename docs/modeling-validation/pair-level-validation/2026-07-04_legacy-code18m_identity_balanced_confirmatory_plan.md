@@ -4,7 +4,9 @@ Date: 2026-07-04
 
 ## Purpose
 
-legacy-code18l showed strong descriptor-controlled support for MegaDescriptor, but its high/low PF-ERI groups were not balanced by known same/different identity outcome. legacy-code18m directly removes that confound.
+Phase18L showed descriptor-controlled support for MegaDescriptor. Its high/low
+PF-ERI groups still had unequal known same/different identity composition.
+Phase18M removes that confound.
 
 The confirmatory claim is:
 
@@ -51,7 +53,7 @@ It does not show identity truth, PF-ERI group, PF-ERI scores, descriptor similar
 
 ## Pass Standard
 
-The highest-goal gate requires all descriptor-specific identity-stratum checks to pass:
+The strict gate requires all descriptor-specific identity-stratum checks to pass:
 
 ```text
 MegaDescriptor same-ID: low PF-ERI > high PF-ERI uncertain/not-ready
@@ -66,9 +68,9 @@ Each check must have a positive bootstrap confidence interval lower bound.
 
 This phase is not identity accuracy, not a new descriptor, not a universal threshold claim, and not a Bobcat identity claim.
 
-## Completed Group-Visible Result
+## Group-Visible Result
 
-The completed legacy-code18m group-visible review produced 1,200 labels over 400
+The Phase18M group-visible review produced 1,200 labels over 400
 majority-vote pairs:
 
 ```text
@@ -111,18 +113,18 @@ PF-ERI scores
 PF-ERI route
 ```
 
-This was not a new exploratory branch. It was the locked closure step for the
-highest-confidence legacy-code18m claim.
+The project used this pass as the locked closure step for the strict Phase18M
+claim.
 
 Final claim rule:
 
 ```text
-The highest-confidence manuscript claim is allowed because the blind
+The strict manuscript claim is allowed because the blind
 confirmation reproduces the positive low-minus-high effect in all four
 descriptor x identity-stratum cells.
 ```
 
-The current completed result is therefore:
+The result status is:
 
 ```text
 BLIND_CONFIRMED_IDENTITY_BALANCED_PASS

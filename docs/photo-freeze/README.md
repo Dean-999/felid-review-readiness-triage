@@ -8,5 +8,5 @@ Current contents:
 review-utility-and-photo-entry/
 ```
 
-Use `outputs/final_freeze/` as the current freeze entry point. The old
+Use `data/frozen/pferi_v2/` as the current freeze entry point. The old
 `docs/legacy-code17` path is kept as a compatibility symlink.

@@ -1,0 +1,15 @@
+file_or_family,observed_claim_risk,required_v2_treatment,action_taken,status
+PROJECT_RULES.md,Central rule conflict risk,Set v2 status vocabulary and prohibit v1 confirmation use,Updated in v2 rebuild,controlled
+docs/CURRENT_PROJECT_MAP.md,Current-navigation conflict risk,State v1 exploratory status and v2 authority,Updated in v2 rebuild,controlled
+README.md,Repository-entry conflict risk,State v2 protocol-prelock and v1 exploratory status,Updated in v2 rebuild,controlled
+paper/README.md,Submission-entry conflict risk,Lock all v1 manuscript materials from submission,Updated in v2 rebuild,controlled
+paper/manuscript/main.md,Direct numerical and reliability claims,Retain as provenance with prominent submission lock,Submission-lock notice present,controlled
+paper/reviews/confirmatory_expansion_plan.md,Old active-protocol conflict,Mark superseded and point to v2 protocols,Supersession notice present,controlled
+docs/modeling-validation/README.md,Historical final-modeling language,Mark entire documentation family as historical v1,Updated by Workstream 00,controlled
+docs/modeling-validation/pair-level-validation/README.md,Historical Phase18M closure language,Mark as v1 exploratory and no longer active,Updated by Workstream 00,controlled
+docs/manuscript/,Copied manuscript-facing claims,Add directory-level historical and submission-lock notice,Created Workstream 00 notice,controlled
+archive/pferi_v1/outputs/modeling-validation/known-id-evidence-sufficiency-validation/README.md,Current PASS language,Replace with v1 exploratory status and prohibit v2 reuse,Updated by Workstream 00,controlled
+archive/pferi_v1/outputs/modeling-validation/blind-reliability-packet/README.md,Current PASS and independent-review language,State synthetic exclusion and reviewer-2 provenance pending,Updated by Workstream 00,controlled
+archive/pferi_v1/outputs/modeling-validation/advanced-mathematical-validation/paper-ready/final_claim_narrative.md,Paper-ready claim language,Add archival v1 and submission-lock notice,Updated by Workstream 00,controlled
+paper/figures/ and paper/tables/,Copied v1 display artifacts,Keep under paper-level submission lock without altering images or raw tables,Paper README lock applies,controlled
+docs/project-governance/logs/daily_work_log.md,Historical claims preserved as audit trail,Do not rewrite historical entries; append superseding Workstream 00 decision,Workstream 00 entry appended,controlled

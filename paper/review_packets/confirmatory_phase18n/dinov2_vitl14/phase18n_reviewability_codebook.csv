@@ -1,0 +1,12 @@
+field,allowed_value,definition
+reviewability_decision,review_ready,"The pair contains enough comparable visual evidence for responsible individual-level review, including confident rejection."
+reviewability_decision,not_review_ready,The pair should not enter immediate evidence use because comparable pair evidence is inadequate.
+reviewability_decision,uncertain,The reviewer cannot determine reviewability from the pair after considering the reason fields.
+not_ready_reason,low_evidence,"At least one image is too weak, small, occluded, blurred, distant, overexposed, or otherwise low-evidence."
+not_ready_reason,non_comparable,"Images are visible but body region, side, pose, scale, viewpoint, or pattern evidence cannot be compared."
+not_ready_reason,both_low_evidence_and_non_comparable,Both evidence weakness and non-comparability affect the pair.
+not_ready_reason,identity_uncertain_but_reviewable,"The pair is reviewable, but identity itself is hard; normally pair decision should be review_ready."
+not_ready_reason,other,Use only with notes.
+review_confidence,high,Reviewer is confident in the reviewability decision.
+review_confidence,medium,Reviewer has moderate confidence.
+review_confidence,low,Reviewer has low confidence.

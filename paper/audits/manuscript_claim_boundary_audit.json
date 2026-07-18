@@ -1,0 +1,18 @@
+{
+  "built_at_utc": "2026-07-09T17:54:33.858429+00:00",
+  "checked_files": [
+    "docs/manuscript/2026-07-09_pferi_pair_level_evidence_admission_manuscript_draft.md",
+    "docs/manuscript/2026-07-10_pferi_display_captions_and_table_notes.md",
+    "docs/manuscript/2026-07-10_figure1_harmonization_note.md",
+    "outputs/manuscript/2026-07-10_pferi_figures_tables/README.md",
+    "outputs/manuscript/2026-07-10_pferi_source_data_package/README.md",
+    "outputs/manuscript/2026-07-10_pferi_source_data_package/display_item_source_map.md"
+  ],
+  "claim_boundary": "PF-ERI remains a post-retrieval pair-level evidence admission layer for human reviewability/evidential admissibility; no identity accuracy, Bobcat identity performance, descriptor replacement, mAP, MRR, top-k, or universal guarantee claim.",
+  "finding_count": 39,
+  "manual_review_count": 0,
+  "reference_context_count": 0,
+  "safe_boundary_count": 39,
+  "status": "PASS",
+  "unsafe_positive_claim_count": 0
+}
