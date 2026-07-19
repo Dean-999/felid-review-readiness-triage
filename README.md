@@ -10,6 +10,12 @@ The historical v1 400-row material remains in the repository for provenance, fea
 
 `PROJECT_RULES.md` is the binding project contract. `docs/CURRENT_PROJECT_MAP.md` gives the current state and navigation. Workbook04 is the active work area; its design is locked, the official image allocation is frozen, and pair sampling/outcome packets remain blocked pending within-role automatic measurements and post-allocation gates. The operational protocol, pre-specified analysis plan, and reviewer instructions are in `paper/protocols/`. Superseded implementations are recorded in `docs/project-governance/SUPERSEDED_IMPLEMENTATIONS.md`.
 
+## Experiment iteration rule
+
+An experiment or workbook task keeps one canonical design document. When the first attempt fails, the next attempt copies forward the complete original design and revises that same file; it must not create a parallel `v2`, `retry`, `new`, or `final` design document merely to represent another attempt. Git history preserves the previous revision.
+
+The experiment's nearest README must maintain an `Iteration history` that records each failed attempt, its failure criterion and evidence, what was retained, what changed, the affected scripts and artifacts, and the current status. A separate design document is reserved for a genuinely new scientific study with a changed question, dataset boundary, endpoint, or confirmation set. This operational rule does not merge the already established PF-ERI v1 exploratory study with the PF-ERI v2 confirmatory study.
+
 ## Execution environment
 
 Use Python 3.11 or newer; current scripts use `datetime.UTC`, which is unavailable

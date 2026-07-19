@@ -35,3 +35,11 @@ The reviewer-operation rule is recorded at `03_reviewer_operation_design.md`. Th
 The formal strata design is recorded at `03_sampling_strata_design_proposal.md`, with machine-readable rules in `schemas/pferi_v2/four_stage_stratified_sampling_contract_v1.json`. The project owner accepted it pre-outcome on 16 July 2026. It fixes graph- and quality-blocked image allocation, representative proportional sampling for calibration and deployment, balanced outcome-free coverage for development, and a separate challenge-enriched mechanism sample drawn only after deployment selection. Retained full-image measurements, the 160-pair hashed exclusion register, and the image-strata preflight passed. The one-time seed and exact zero-overlap 1,000/1,000/1,000 image allocation are now frozen. Pair sampling and outcome packets remain blocked until within-role measurements and all post-allocation gates pass.
 
 The verified execution state is summarized in `03_sampling_execution_status_20260716.md`. The frozen allocation yields 28,295 eligible within-role pairs across three role frames, all nine retrieval strata are present in every role, and the complete frame has been split into 30 computational shards for frozen automatic local-evidence measurement. These shards are execution units, not formal review samples.
+
+The full-frame execution history and current engineering contract are consolidated
+in `05_colab_full_frame_execution_engineering_audit.md`. The failed Kaggle range
+inference and abandoned Kaggle-to-Colab continuation are retained there as
+iteration history. The accepted package performs one fresh inventory-driven run
+over all 30 shards, with input/model binding, resumable execution, global
+validation, deterministic merge, and one checksum-protected export. This is an
+engineering readiness result only; the full GPU measurements remain pending.

@@ -11,6 +11,7 @@ from collections import Counter
 from pathlib import Path
 
 import local_match_runner_v2 as core
+from full_frame_execution_common import atomic_write_csv, atomic_write_json
 
 
 PROVENANCE_COLUMNS = [
@@ -59,6 +60,14 @@ def verify_control_gate(control_dir: Path) -> None:
 def freeze(control_dir: Path) -> dict[str, object]:
     if (control_dir / core.FREEZE).exists():
         raise FileExistsError("freeze record already exists; refusing to replace it")
+    from lightglue import LightGlue
+
+    params = json.loads(core.CONTRACT.read_text(encoding="utf-8"))["parameters"]
+    _, _, device = core._models(params)
+    LightGlue(
+        features="superpoint",
+        filter_threshold=params["lightglue_filter_threshold"],
+    ).eval().to(device)
     record = core.freeze(control_dir)
     record["full_frame_wrapper_sha256"] = core.sha(Path(__file__))
     record["scope"] = "full_post_allocation_within_role_frame"
@@ -79,8 +88,10 @@ def smoke(pair_manifest: Path, image_dir: Path, control_dir: Path) -> dict[str, 
     params = json.loads(core.CONTRACT.read_text(encoding="utf-8"))["parameters"]
     models = core._models(params)
     records = []
+    canonical_records = []
     failures = []
     for pair in pairs:
+        measured_rows: dict[str, dict[str, object]] = {}
         for direction, source_key, target_key in (
             ("A_to_B", "left_asset_filename", "right_asset_filename"),
             ("B_to_A", "right_asset_filename", "left_asset_filename"),
@@ -93,6 +104,7 @@ def smoke(pair_manifest: Path, image_dir: Path, control_dir: Path) -> dict[str, 
             row, provenance = core.measure_direction_v2(
                 pair["pair_execution_id"], direction, source, target, models, params, runtime_errors
             )
+            measured_rows[direction] = row
             attempt_diagnostics = [
                 item for item in runtime_errors if item.get("failure_code") != "model_runtime_error"
             ]
@@ -105,33 +117,39 @@ def smoke(pair_manifest: Path, image_dir: Path, control_dir: Path) -> dict[str, 
                     "direction": direction,
                     "decode_success": row["failure_code"] != "image_decode_failure",
                     "failure_code": row["failure_code"],
+                    "measurement": row,
                     "provenance": provenance,
                     "attempt_diagnostics": attempt_diagnostics,
                     "runtime_errors": runtime_errors,
                 }
             )
+        canonical = core.canonicalize(
+            pair["pair_execution_id"],
+            measured_rows["A_to_B"],
+            measured_rows["B_to_A"],
+        )
+        if canonical.get("pair_execution_id") != pair["pair_execution_id"]:
+            failures.append(f"{pair['pair_execution_id']}:canonical_pair_id_mismatch")
+        canonical_records.append(canonical)
     result = {
         "status": "PASS" if not failures else "FAIL",
         "pair_count": 5,
         "direction_count": 10,
         "interface_failures": failures,
         "records": records,
+        "canonical_records": canonical_records,
         "claim_boundary": (
             "Smoke PASS verifies execution interfaces on five full-frame pairs. Scientific insufficient-match "
             "or insufficient-inlier outcomes remain valid failure measurements and do not become runtime errors."
         ),
     }
     control_dir.mkdir(parents=True, exist_ok=True)
-    (control_dir / "full_frame_smoke_test.json").write_text(
-        json.dumps(result, indent=2) + "\n", encoding="utf-8"
-    )
+    atomic_write_json(control_dir / "full_frame_smoke_test.json", result)
     return result
 
 
 def atomic_checkpoint(path: Path, payload: dict[str, object]) -> None:
-    temporary = path.with_suffix(".tmp")
-    temporary.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    os.replace(temporary, path)
+    atomic_write_json(path, payload)
 
 
 def run_shard(pair_manifest: Path, image_dir: Path, control_dir: Path, output_dir: Path) -> dict[str, object]:
@@ -189,10 +207,10 @@ def finalize_shard(pair_manifest: Path, control_dir: Path, output_dir: Path) -> 
         canonical.append(payload["canonical"])
         provenance.extend(payload["provenance"])
         runtime_errors.extend(payload["runtime_errors"])
-    core.write_csv(output_dir / "directional_measurements.csv", core.DIRECTIONAL_COLUMNS, directional)
-    core.write_csv(output_dir / "canonical_measurements.csv", core.CANONICAL_COLUMNS, canonical)
-    core.write_csv(output_dir / "region_provenance.csv", PROVENANCE_COLUMNS, provenance)
-    (output_dir / "runtime_errors.json").write_text(json.dumps(runtime_errors, indent=2) + "\n", encoding="utf-8")
+    atomic_write_csv(output_dir / "directional_measurements.csv", core.DIRECTIONAL_COLUMNS, directional)
+    atomic_write_csv(output_dir / "canonical_measurements.csv", core.CANONICAL_COLUMNS, canonical)
+    atomic_write_csv(output_dir / "region_provenance.csv", PROVENANCE_COLUMNS, provenance)
+    atomic_write_json(output_dir / "runtime_errors.json", runtime_errors)
     valid = [row for row in canonical if row["value_status"] == "not_missing"]
     errors = []
     if len(directional) != 2 * len(pairs):
@@ -220,7 +238,7 @@ def finalize_shard(pair_manifest: Path, control_dir: Path, output_dir: Path) -> 
             "have pre-specified scientific failure codes. It is not evidence that PF-ERI performance passed."
         ),
     }
-    (output_dir / "run_audit.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")
+    atomic_write_json(output_dir / "run_audit.json", audit)
     return audit
 
 

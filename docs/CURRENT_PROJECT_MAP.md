@@ -64,7 +64,7 @@ claim, or confirmation result. Workbook04 reads a compact frozen context capsule
 at `schemas/pferi_v2/ws04_exploratory_context_v1.json` rather than the legacy
 Phase18 output paths.
 
-Phase 7–17 source/test bytes are isolated under
+Phase 7–19 source/test bytes are isolated under
 `archive/pferi_v1/reproducibility/`. Earlier `scripts/legacy/`, prototype,
 archived-Colab, matcher-v1, oracle-v1, and implemented-plan files have left the
 active tree. Their succession and evidence retention rules are documented in

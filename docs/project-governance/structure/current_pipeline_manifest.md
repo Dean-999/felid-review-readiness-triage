@@ -58,10 +58,10 @@ permit access to outcome data.
 
 - `scripts/legacy/`, `scripts/prototypes/`, `colab/archive/`, the original local
   matcher, and implemented plan/spec files have left the active tree.
-- Phase 7–17 scripts/tests are isolated under
+- Phase 7–19 scripts/tests are isolated under
   `archive/pferi_v1/reproducibility/` with a byte-level archive manifest.
-- Top-level Phase18–19 scripts remain solely while unfinished Phase18 work is
-  present. New v2 code must not import them.
+- No phase-numbered v1 implementation remains in the active `scripts/` or
+  `tests/` tree. New v2 code must not import from the reproducibility archive.
 - Historical result tables and audits live under `archive/pferi_v1/outputs/`.
   They are not v2 evidence unless an active contract names a compact frozen input
   explicitly.

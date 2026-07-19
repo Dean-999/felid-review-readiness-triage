@@ -1,6 +1,6 @@
 # Scripts map
 
-The active implementation is PF-ERI v2. Historical Phase 7–17 sources and their
+The active implementation is PF-ERI v2. Historical Phase 7–19 sources and their
 directly coupled tests are isolated under
 `archive/pferi_v1/reproducibility/`; they are not inputs to the v2 confirmation
 chain. The former `scripts/legacy/`, prototype, and archived-Colab trees were
@@ -25,7 +25,6 @@ removed after their outcomes and supersession reasons were consolidated in
 - `build_v2_measurement_feasibility_pilot_manifest.py`
 - `build_v2_pilot_quality_execution_manifest.py`
 - `run_v2_pilot_quality_measurements.py`
-- `build_final_local_match_package_v2.py`
 - `build_v2_structural_oracle_annotation_package.py`
 - `analyze_v2_structural_oracle_reliability.py`
 - `build_v2_reviewer_interface_dry_run.py`
@@ -61,13 +60,14 @@ accidentally.
 
 ## Historical reproducibility code
 
-Phase 7–17 source bytes and tests are preserved under
+Phase 7–19 source bytes and tests are preserved under
 `archive/pferi_v1/reproducibility/`, with original paths, hashes, sizes, and the
 source commit recorded in the 2026-07-18 phase-code archive manifest. Restore
 the original tree in a separate Git worktree when reproducing an old run.
 
-Top-level Phase18–19 files remain temporarily because the working tree contains
-unfinished Phase18 source/test changes. Do not call them from new v2 code.
+Phase 18–19 joined the same source-hash archive on 19 July 2026 after their
+working-tree state was verified clean. No phase-numbered v1 script is an active
+PF-ERI v2 entry point.
 
 ## Repository maintenance
 
@@ -76,7 +76,7 @@ unfinished Phase18 source/test changes. Do not call them from new v2 code.
 - `build_project_cleanup_indexes.py` audits artifact organization.
 - `cleanup_superseded_artifacts.py` performs allowlisted output cleanup; it is a
   dry run unless `--apply` is supplied and never targets `data/frozen/pferi_v2/`.
-- `archive_pferi_v1_phase_code.py` records and isolates inactive Phase 7–17
+- `archive_pferi_v1_phase_code.py` records and isolates inactive Phase 7–19
   source/test bytes; it is also dry-run-first.
 
 Current routing and claim boundaries are defined by

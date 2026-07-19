@@ -8,7 +8,7 @@ from scripts import archive_pferi_v1_phase_code as archive
 
 
 class ArchivePFERIV1PhaseCodeTests(unittest.TestCase):
-    def test_selects_phase_7_through_17_but_not_phase_18_or_v2_schema_names(self) -> None:
+    def test_selects_phase_7_through_19_but_not_v2_schema_names(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             (root / "scripts").mkdir()
@@ -35,6 +35,7 @@ class ArchivePFERIV1PhaseCodeTests(unittest.TestCase):
                 {
                     "build_phase7_example.py",
                     "build_phase17a_example.py",
+                    "build_phase18_example.py",
                     "test_phase17.py",
                     "test_package_phase16e2.py",
                 },

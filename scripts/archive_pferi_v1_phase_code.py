@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Archive inactive PF-ERI v1 Phase 7–17 source and directly coupled tests."""
+"""Archive inactive PF-ERI v1 Phase 7–19 source and directly coupled tests."""
 
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ DEFAULT_MANIFEST = (
     ROOT
     / "docs/project-governance/structure/2026-07-18_pferi_v1_phase_code_archive_manifest.csv"
 )
-PHASE_RE = re.compile(r"(?:^|_)(?:phase|legacy-code)(7|8|9|1[0-7])(?=[a-z_]|$)", re.IGNORECASE)
+PHASE_RE = re.compile(r"(?:^|_)(?:phase|legacy-code)(7|8|9|1[0-9])(?=[a-z_]|$)", re.IGNORECASE)
 
 
 @dataclass(frozen=True)
