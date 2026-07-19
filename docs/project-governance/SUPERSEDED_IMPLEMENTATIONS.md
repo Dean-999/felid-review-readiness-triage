@@ -37,6 +37,15 @@ and result validation. The old runner, notebook, package builder, test, and
 implemented plan/spec formed one superseded capability island and were removed
 together. Current code lives in `gpu/kaggle_v2_local_matcher_v2/`.
 
+The later full-frame engineering work initially produced separate base, Colab,
+Kaggle-continuation, and fresh-run package names plus parallel builders and
+README files. They all wrapped the same SuperPoint + LightGlue + RANSAC matcher.
+On 19 July 2026 these were collapsed into one platform-neutral builder, one
+`gpu/kaggle_v2_local_matcher_v2/README.md`, and one
+`PF_ERI_V2_FULL_FRAME_LOCAL_MATCH_CONTROL.zip`. The failed Kaggle range
+inference and abandoned cross-platform continuation remain documented in the
+Workbook04 engineering audit; they are not retained as executable package forks.
+
 ### Structural-oracle reliability
 
 The initial `current` analyzer could not evaluate the frozen reliability gate and
@@ -54,8 +63,55 @@ by the PF-ERI v2 execution chain and were removed from the active tree. On 18
 July, the remaining 124 Phase 7–17 scripts and 16 directly coupled tests were
 byte-preserved under `archive/pferi_v1/reproducibility/`. The archive manifest
 records every original path, archive path, size, SHA-256, and source commit.
-Top-level Phase18–19 files remain temporarily because the working tree contains
-unfinished Phase18 changes; they are historical support code, not a v2 dependency.
+On 19 July, the remaining clean Phase18–19 scripts and their directly coupled
+tests were moved through the same SHA-256/source-commit archive mechanism. No
+phase-numbered v1 implementation remains an active PF-ERI v2 entry point.
+
+Active `colab/` copies of the Phase14 MegaDetector and Phase15 calibrated-ranker
+scripts were byte-identical to preserved v1 package copies and were removed on
+19 July 2026. The active Colab directory now routes users to the canonical v2
+GPU/cloud implementation instead of exposing historical training entry points.
+
+### Historical cloud-package deduplication
+
+The Phase 9–16 package proliferation represented a smaller number of algorithm
+families: fixed MegaDescriptor/ResNet embeddings and sampling controls; pair-
+weighted supervised contrastive learning and rescue transforms; MegaDetector
+region filtering; MegaDescriptor extraction/retry; calibrated/hybrid routing;
+and Phase16 candidate filtering. Batch names, retry names, and cloud platforms
+do not constitute new algorithms.
+
+The 19 July cleanup therefore removes only verified aliases:
+
+- duplicate Phase14 `packaged_manifest` files when the same package retains a
+  byte-identical `manifest`;
+- duplicate Phase14 MegaDetector and descriptor-extractor source copies while
+  retaining one archived source/package copy;
+- duplicate Phase16E runner copies while retaining the candidate-filter package
+  runner;
+- one 194,179,405-byte Phase15 routing input copied into both ranker and hybrid
+  packages, retaining the identical ranker-package copy;
+- two returned/smoke pilot manifests identical to the canonical execution
+  manifest; and
+- the old two-column MegaDescriptor manifest after verifying its 3,000 ordered
+  image IDs equal the retained v2 manifest.
+
+Each physical deletion is hash-guarded in
+`scripts/cleanup_superseded_artifacts.py` and appended to the cleanup manifest.
+Unique result tables, audits, human returns, source archives, annotation batches,
+and retry outcomes remain retained.
+
+The tracked `paper/review_packets/confirmatory_phase18n/` copy and the copied
+source-data audit were also removed after directory-level SHA-256 inventory
+equality with `archive/pferi_v1/outputs/` was verified. This prevents a retired
+v1 packet from appearing beside the active v2 manuscript protocols.
+
+The same equality guard removed repeated Phase4 tables/documents copied across
+result, manuscript, review, and final-review packs, retaining the final or latest
+review copy. Phase6 downloaded annotation returns were removed only when the
+accepted `imported_ranges` copy matched byte for byte; duplicated blank
+correction-template aliases retained their equivalent manifest, and the distinct
+annotation batch/return ZIPs were not touched.
 
 ### Photo-selection prototypes
 
