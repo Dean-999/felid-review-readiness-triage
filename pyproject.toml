@@ -26,6 +26,9 @@ dev = [
 testpaths = ["tests"]
 pythonpath = ["."]
 addopts = "-ra"
+markers = [
+  "local_evidence: requires non-versioned local archives, work outputs, or restricted evidence.",
+]
 
 [tool.ruff]
 target-version = "py311"

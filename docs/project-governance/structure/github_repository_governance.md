@@ -25,4 +25,6 @@ GitHub stores portable implementation and review evidence, not the local scienti
 3. `uv run python -m compileall -q scripts tests`
 4. `uv run pytest -q`
 
+GitHub Actions runs `uv run pytest -q -m "not local_evidence"`. The excluded marker is only for tests whose asserted inputs are intentionally retained in the non-versioned local evidence boundary. A complete local research checkout runs all tests without the marker filter.
+
 The pull-request template requires confirmation that no restricted or binary payload is staged.
