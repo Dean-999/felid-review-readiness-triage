@@ -6,8 +6,8 @@ import streamlit as st
 from scripts import structural_oracle_annotation_core as core
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE_ROOT = Path(os.environ.get("STRUCTURAL_ORACLE_PACKAGE_ROOT", ROOT / "work/pferi_v2/measurement_feasibility/structural_oracle_annotation_package"))
-OUTPUT_ROOT = Path(os.environ.get("STRUCTURAL_ORACLE_OUTPUT_ROOT", ROOT / "outputs/pferi_v2/measurement_feasibility_pilot/structural_oracle_responses"))
+PACKAGE_ROOT = Path(os.environ.get("STRUCTURAL_ORACLE_PACKAGE_ROOT", ROOT / "work/pferi_v2/review/structural_oracle_annotation"))
+OUTPUT_ROOT = Path(os.environ.get("STRUCTURAL_ORACLE_OUTPUT_ROOT", ROOT / "work/pferi_v2/gpu/measurement_feasibility/structural_oracle_responses"))
 GRID = [f"{index / 20:.2f}" for index in range(21)]
 
 def main(annotator_id: str) -> None:

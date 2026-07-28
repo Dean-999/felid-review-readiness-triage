@@ -1,0 +1,129 @@
+{
+  "contract_version": "pferi_v2_task15f_bayesian_sensitivity_contract_v1",
+  "status": "FROZEN_BEFORE_TASK15F_POSTERIOR_SAMPLING",
+  "scientific_role": "development-only mathematical sensitivity; never a replacement confirmatory analysis",
+  "scope": {
+    "stage": "development",
+    "expected_pair_count": 445,
+    "expected_component_count": 116,
+    "permitted_outcome": "review_ready_label",
+    "locked_stages": ["calibration", "deployment_confirmation", "mechanism_confirmation"],
+    "forbidden": [
+      "locked-stage outcome access",
+      "outcome-tuned prior selection",
+      "row-random cross-validation",
+      "class rebalancing",
+      "promotion of S3, S4, or S5 to confirmation from development performance alone"
+    ]
+  },
+  "authoritative_inputs": {
+    "development_modeling_input.csv": "c31a06da5c77104044fb087cb3c4a49256134a43872ead02d72cfde217c144f5",
+    "outer_fold_assignments.csv": "4b85554c8d5dde143d80db5b62e4db7d807c2a30a9b3d751d248c8667e24ce7e",
+    "feature_preprocessing_contract.json": "aee2ee968d8be81d0d565bc77392fcaf86227be2c3d5f9e52bc8cb4e487d9377",
+    "fold_preprocessor.py": "002d8bcecdf285b11b3ace9e739a2b594e22f1490188e49b9e1cce7ef2aa3741",
+    "task15e_development_disposition.json": "e4bf149fe2078e40c02eea95580667f06366492cf37ecbad82a4d7e511d48b21"
+  },
+  "common_design": {
+    "feature_blocks": ["descriptor", "independent_quality", "pair_evidence"],
+    "preprocessing": "pferi_v2_feature_preprocessing_contract_v1, refit inside each outer training fold",
+    "outer_validation": "the frozen five-fold endpoint-component-disjoint assignment",
+    "training_likelihood_weight": "sqrt inverse inclusion probability normalized to mean one in each outer training fold",
+    "reporting_weight": "full inverse inclusion probability Hajek-normalized within the evaluated set",
+    "class_weight": "none",
+    "posterior_intervals": "Bayesian model intervals under the declared pseudo-likelihood; not design-based confidence intervals"
+  },
+  "models": {
+    "S3": {
+      "family": "weak_prior_bayesian_logistic",
+      "linear_predictor": "alpha + X beta",
+      "priors": {
+        "alpha": "StudentT(nu=3, mu=0, sigma=2.5)",
+        "beta_each_frozen_design_column": "Normal(mu=0, sigma=0.5)"
+      },
+      "outer_test_prediction": "posterior mean of inverse_logit(alpha + X_test beta)"
+    },
+    "S4": {
+      "family": "crossed_endpoint_image_random_intercept_bayesian_logistic",
+      "linear_predictor_training": "alpha + X beta + u_endpoint_a + u_endpoint_b",
+      "priors": {
+        "alpha": "StudentT(nu=3, mu=0, sigma=2.5)",
+        "beta_each_frozen_design_column": "Normal(mu=0, sigma=0.5)",
+        "sigma_image": "HalfNormal(sigma=0.5)",
+        "image_offset": "Normal(mu=0, sigma=1), non-centered",
+        "u_image": "sigma_image * image_offset"
+      },
+      "outer_test_prediction": "marginal posterior probability for two previously unseen endpoints, integrating Normal(0, 2*sigma_image^2) with fixed 20-node Gauss-Hermite quadrature for every posterior draw",
+      "prohibited_prediction": "conditioning on training endpoint effects or treating test images as previously observed"
+    },
+    "S5": {
+      "family": "Firth_FLIC_separation_diagnostic_only",
+      "selection_eligible": false,
+      "trigger_timing_limitation": "numeric thresholds are frozen after Task15E development outcomes were open, so S5 cannot affect final route selection",
+      "trigger_unit": "each outer-training fold after frozen P5 preprocessing and removal of zero-variance design columns",
+      "trigger_if_any": [
+        "complete separation linear-program feasibility",
+        "unpenalized logistic optimizer nonconvergence",
+        "absolute non-intercept coefficient greater than 10",
+        "training fitted probability below 1e-6 or above 0.999999"
+      ],
+      "if_not_triggered": "record NOT_TRIGGERED and do not fit Firth/FLIC",
+      "if_triggered": "run Firth with FLIC intercept correction only as a labelled diagnostic; it cannot replace P3, P5, S1, S2, S3, or S4"
+    }
+  },
+  "prior_predictive_gate": {
+    "draws": 2000,
+    "seed": 150100,
+    "required": true,
+    "checks": [
+      "all probabilities finite and in [0,1]",
+      "no implementation shape mismatch",
+      "both outcome classes receive nonzero prior predictive probability",
+      "prior definitions exactly match the frozen contract"
+    ],
+    "prohibited": "changing priors in response to observed Task15F posterior performance"
+  },
+  "mcmc": {
+    "python": "3.12",
+    "pymc": "6.0.1",
+    "sampler": "nutpie NUTS",
+    "chains": 4,
+    "tune_draws_per_chain": 1500,
+    "posterior_draws_per_chain": 2000,
+    "target_accept": 0.95,
+    "maximum_tree_depth": 12,
+    "random_seed_rule": "150100 + 100*outer_fold + 10*model_index + chain_index",
+    "retry_policy": "one prespecified retry at target_accept 0.99 and 3000 tune draws only when the first run fails a convergence gate; retain both attempts"
+  },
+  "convergence_gates": {
+    "post_tuning_divergences": 0,
+    "fixed_effect_and_sigma_max_rank_normalized_rhat": 1.01,
+    "fixed_effect_and_sigma_min_bulk_ess": 400,
+    "fixed_effect_and_sigma_min_tail_ess": 400,
+    "S4_image_offset_max_rhat": 1.05,
+    "S4_image_offset_first_percentile_bulk_ess": 100,
+    "S4_image_offset_first_percentile_tail_ess": 100,
+    "failed_fold_policy": "model sensitivity does not qualify; never silently omit or replace the fold"
+  },
+  "required_outputs": [
+    "prior_predictive_audit.json",
+    "separation_trigger_audit.json",
+    "posterior_diagnostics.csv",
+    "posterior_parameter_summary.csv",
+    "bayesian_oof_predictions.csv",
+    "bayesian_outer_fold_metrics.csv",
+    "bayesian_overall_metrics.csv",
+    "pair_evidence_posterior_summary.csv",
+    "S4_marginalization_audit.json",
+    "execution_audit.json",
+    "validation_audit.json",
+    "TASK15F_SENSITIVITY_REPORT.md",
+    "CHECKSUMS.sha256"
+  ],
+  "interpretation_rules": {
+    "S3_question": "whether P5 fixed-effect direction and uncertainty remain coherent under an outcome-independent weak prior",
+    "S4_question": "whether shared endpoint-image dependence materially changes fixed effects or honest new-image predictions",
+    "S5_question": "whether classical separation requires a labelled diagnostic rescue",
+    "not_allowed": "choosing the final model by the lowest Task15F development Brier",
+    "next_gate": "Task15G exploratory performance-bound benchmark, followed by Task15H qualification-before-performance freeze"
+  }
+}

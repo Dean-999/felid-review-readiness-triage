@@ -1,0 +1,214 @@
+{
+  "contract_version": "pferi_v2_task15g_exploratory_performance_bound_contract_v1",
+  "status": "FROZEN_BEFORE_TASK15G_MODEL_FITTING",
+  "scientific_role": "development-only exploratory performance-bound benchmark; never confirmation eligible and never a replacement for qualification-before-performance",
+  "scope": {
+    "stage": "development",
+    "expected_pair_count": 445,
+    "expected_component_count": 116,
+    "permitted_outcome": "review_ready_label",
+    "locked_stages": [
+      "calibration",
+      "deployment_confirmation",
+      "mechanism_confirmation"
+    ],
+    "forbidden": [
+      "locked-stage outcome access",
+      "row-random cross-validation",
+      "class rebalancing",
+      "outcome-guided expansion or replacement of a hyperparameter grid",
+      "fine-tuning a foundation-model checkpoint",
+      "promotion of E1, E2, or E3 to confirmation eligibility",
+      "selection of a final development route during Task15G"
+    ]
+  },
+  "authoritative_inputs": {
+    "development_modeling_input.csv": "c31a06da5c77104044fb087cb3c4a49256134a43872ead02d72cfde217c144f5",
+    "outer_fold_assignments.csv": "4b85554c8d5dde143d80db5b62e4db7d807c2a30a9b3d751d248c8667e24ce7e",
+    "nested_fold_assignments.csv": "dbc66e8ebdf19572f96a7d9fe6204a66dc2d971b0ec53ed6f3edd1dc2d692f08",
+    "feature_preprocessing_contract.json": "aee2ee968d8be81d0d565bc77392fcaf86227be2c3d5f9e52bc8cb4e487d9377",
+    "fold_preprocessor.py": "002d8bcecdf285b11b3ace9e739a2b594e22f1490188e49b9e1cce7ef2aa3741",
+    "candidate_model_registry.json": "1d610012f6040a3232f5c782b140cdd7604d04bf906b095e4219f4530283af1b",
+    "task15f_disposition.json": "f1573865cfc65322519e9f75f47cd96e17bf3bc6ab61894786beb00699412f5d"
+  },
+  "common_design": {
+    "feature_blocks": [
+      "descriptor",
+      "independent_quality",
+      "pair_evidence"
+    ],
+    "preprocessing": "pferi_v2_feature_preprocessing_contract_v1, refit inside every inner and outer training fold",
+    "outer_validation": "frozen five-fold endpoint-component-disjoint assignment",
+    "inner_selection": "frozen four-fold endpoint-component-disjoint assignment within each outer training set",
+    "training_weight": "sqrt inverse first-order inclusion probability normalized to mean one within each training fold",
+    "validation_and_reporting_weight": "full inverse first-order inclusion probability Hajek-normalized to mean one within each evaluated set",
+    "selection_score": "mean of the four inner-fold design-weighted Brier scores, giving each fold equal weight",
+    "selection_tie_tolerance": 1e-12,
+    "class_weight": "none",
+    "class_rebalancing": "none",
+    "outer_prediction_rule": "one finite honest out-of-fold probability per eligible model and development pair",
+    "probability_clip_for_log_loss_only": [
+      1e-12,
+      0.999999999999
+    ]
+  },
+  "models": {
+    "E1": {
+      "family": "explainable_boosting_machine",
+      "implementation": "interpret.glassbox.ExplainableBoostingClassifier",
+      "package": "interpret==0.7.8",
+      "confirmation_eligible": false,
+      "automatic_interaction_search": false,
+      "prespecified_interactions": [],
+      "fixed_parameters": {
+        "interactions": 0,
+        "validation_size": 0,
+        "outer_bags": 1,
+        "inner_bags": 0,
+        "max_rounds": 1000,
+        "early_stopping_rounds": 0,
+        "min_samples_leaf": 5,
+        "greedy_ratio": 0,
+        "smoothing_rounds": 0,
+        "n_jobs": 1
+      },
+      "configuration_grid": {
+        "learning_rate": [
+          0.025,
+          0.05
+        ],
+        "max_bins": [
+          16,
+          32
+        ],
+        "max_leaves": [
+          2,
+          3
+        ]
+      },
+      "configuration_count": 8,
+      "tie_break_order": "smaller max_leaves, then smaller max_bins, then smaller learning_rate",
+      "random_seed_rule": "150700 + 100*outer_fold + 10*inner_fold + configuration_index"
+    },
+    "E2": {
+      "family": "shallow_catboost",
+      "implementation": "catboost.CatBoostClassifier",
+      "package": "catboost==1.2.10",
+      "confirmation_eligible": false,
+      "fixed_parameters": {
+        "loss_function": "Logloss",
+        "iterations": 500,
+        "bootstrap_type": "No",
+        "random_strength": 0,
+        "grow_policy": "SymmetricTree",
+        "allow_writing_files": false,
+        "verbose": false,
+        "thread_count": 1
+      },
+      "configuration_grid": {
+        "depth": [
+          2,
+          3,
+          4
+        ],
+        "learning_rate": [
+          0.03,
+          0.08
+        ],
+        "l2_leaf_reg": [
+          3,
+          10
+        ]
+      },
+      "configuration_count": 12,
+      "maximum_depth": 4,
+      "tie_break_order": "smaller depth, then larger l2_leaf_reg, then smaller learning_rate",
+      "random_seed_rule": "150800 + 100*outer_fold + 10*inner_fold + configuration_index"
+    },
+    "E3": {
+      "family": "fixed_version_tabpfn",
+      "implementation": "tabpfn.TabPFNClassifier",
+      "package": "tabpfn==8.0.7",
+      "confirmation_eligible": false,
+      "fine_tuning": false,
+      "checkpoint": {
+        "repository": "Prior-Labs/TabPFN-v2-clf",
+        "repository_revision": "f851f2a3c941544733b712d8c0f96dfae9b28862",
+        "filename": "tabpfn-v2-classifier-finetuned-zk73skhh.ckpt",
+        "sha256": "cf8c519c01eaf1613ee91239006d57b1c806ff5f23ac1aeb1315ba1015210e49",
+        "size_bytes": 29009539,
+        "model_version": "v2"
+      },
+      "sample_weight_api_precheck": {
+        "frozen_fit_signature": "fit(self, X, y)",
+        "supports_sample_weight": false,
+        "required_common_training_weight": "sqrt inverse first-order inclusion probability normalized to mean one",
+        "disposition": "PREDECLARED_INELIGIBLE_UNDER_COMMON_WEIGHTING_CONTRACT"
+      },
+      "execution_rule": "verify package version, checkpoint size and SHA256, and fit signature; emit no E3 prediction unless native sample_weight support is present in this exact frozen API",
+      "prohibited_workarounds": [
+        "row duplication",
+        "weighted or class-stratified resampling",
+        "integer replication",
+        "fine-tuning",
+        "changing the package or checkpoint after observing E1 or E2 results"
+      ],
+      "expected_prediction_rows": 0,
+      "scientific_interpretation": "E3 is registered but not comparable under the common design because the frozen estimator cannot consume the required fitting weights"
+    }
+  },
+  "model_selection": {
+    "unit": "within each outer fold, select E1 and E2 separately using only frozen inner folds",
+    "rule": "choose the configuration with minimum mean inner-fold design-weighted Brier; apply the model-specific tie-break order only within the fixed tolerance",
+    "refit": "fit the selected configuration once on the complete outer-training set using fold-normalized square-root IPW",
+    "failed_configuration": "record the failure and continue only if at least one prespecified configuration remains valid for that model and outer fold",
+    "failed_outer_fold": "the model does not produce a Task15G performance-bound estimate; never omit, replace, or impute the fold"
+  },
+  "required_metrics": [
+    "design-weighted Brier score",
+    "design-weighted log loss",
+    "design-weighted calibration intercept",
+    "design-weighted calibration slope",
+    "design-weighted AUROC",
+    "design-weighted AUPRC",
+    "component-level paired Brier regret",
+    "selected-configuration stability"
+  ],
+  "required_outputs": [
+    "execution_contract_frozen.json",
+    "model_availability_audit.json",
+    "inner_selection_results.csv",
+    "selected_configurations.csv",
+    "exploratory_oof_predictions.csv",
+    "exploratory_outer_fold_metrics.csv",
+    "exploratory_overall_metrics.csv",
+    "configuration_stability.csv",
+    "execution_audit.json",
+    "validation_audit.json",
+    "TASK15G_EXPLORATORY_PERFORMANCE_BOUND_REPORT.md",
+    "CHECKSUMS.sha256"
+  ],
+  "hard_failures": [
+    "authoritative input hash mismatch",
+    "not exactly 445 unique development pairs or 116 endpoint-image components",
+    "locked-stage artifact or outcome access",
+    "fold assignment mismatch or endpoint-component leakage",
+    "global preprocessing before a fold split",
+    "one-class training fold",
+    "class rebalancing or non-prespecified fitting-weight approximation",
+    "complexity budget or configuration-count violation",
+    "missing, duplicate, non-finite, or out-of-range eligible-model OOF probability",
+    "result validation failure"
+  ],
+  "interpretation_rules": {
+    "allowed": "estimate how much development proper-score performance a tightly bounded nonlinear tabular learner can attain under the same information and validation design",
+    "not_allowed": "select or promote E1, E2, or E3 as a confirmation model, introduce a new decision rule, or open calibration because an exploratory score is favorable",
+    "E3_missingness": "structural non-executability under the common fitting-weight contract, not evidence of poor predictive performance",
+    "next_gate": "Task15H qualification-before-performance freeze and validated development_model_freeze_record.json"
+  },
+  "runtime": {
+    "target": "ModelScope CPU or CUDA runtime with deterministic CPU fallback",
+    "python": "3.12",
+    "network_required_after_dependency_and_checkpoint_install": false
+  }
+}

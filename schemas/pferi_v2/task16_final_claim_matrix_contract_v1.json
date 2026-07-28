@@ -1,0 +1,94 @@
+{
+  "contract_version": "pferi_v2_task16_final_claim_matrix_contract_v1",
+  "purpose": "Freeze the final evidence-to-claim mapping after Task15M execution validation without performing confirmation-outcome analysis.",
+  "source_records": {
+    "task15j_development": "outputs/pferi_v2/models/development/development_model_freeze_record_v2.json",
+    "task15l_calibration": "outputs/pferi_v2/models/calibration/analysis/task15l_calibration_analysis_freeze_record.json",
+    "task15n_execution": "outputs/pferi_v2/models/confirmation/execution_freeze/task15n_confirmation_execution_result_freeze.json",
+    "project_rules": "PROJECT_RULES.md",
+    "manuscript_integration": "paper/manuscript/pferi_v2_claim_integration.md"
+  },
+  "required_source_states": {
+    "task15j_status": "QUALIFIED_P5_DEVELOPMENT_MODEL_FROZEN_CALIBRATION_AUTHORIZED",
+    "task15j_qualification_status": "QUALIFIED",
+    "task15l_status": "PASS",
+    "task15n_status": "PASS_TASK15M_EXECUTION_VALIDATION",
+    "task15n_confirmation_outcomes_accessed": false,
+    "task15n_outcome_performance_analysis_performed": false
+  },
+  "claims": [
+    {
+      "claim_id": "C01_PROJECT_OBJECT",
+      "disposition": "SUPPORTED_BOUNDED",
+      "public_statement": "PF-ERI is a post-retrieval pair-level evidence-admission layer for human reviewability, not an identity-assignment system or replacement descriptor.",
+      "evidence_ids": ["PROJECT_RULES"],
+      "manuscript_treatment": "May be stated as the project definition."
+    },
+    {
+      "claim_id": "C02_INDEPENDENT_DEVELOPMENT",
+      "disposition": "SUPPORTED_BOUNDED",
+      "public_statement": "In the prospectively governed independent Task15I development sample, P5 passed the frozen development screen against P3 and was frozen with lambda 100.",
+      "evidence_ids": ["TASK15J"],
+      "manuscript_treatment": "Report only as a development-stage qualification result."
+    },
+    {
+      "claim_id": "C03_CALIBRATION_COMPLETION",
+      "disposition": "SUPPORTED_BOUNDED",
+      "public_statement": "Task15L completed the prespecified apparent probability calibration for frozen P3 and P5 without model reselection or refitting the original models.",
+      "evidence_ids": ["TASK15L"],
+      "manuscript_treatment": "Report as calibration completion, not independent performance validation."
+    },
+    {
+      "claim_id": "C04_CONFIRMATION_EXECUTION",
+      "disposition": "SUPPORTED_BOUNDED",
+      "public_statement": "The authoritative Task15M external execution passed run, validation, coverage, descriptor, and artifact-integrity checks.",
+      "evidence_ids": ["TASK15N"],
+      "manuscript_treatment": "Use the exact status PASS_TASK15M_EXECUTION_VALIDATION and retain its execution-only boundary."
+    },
+    {
+      "claim_id": "C05_V1_RESULTS",
+      "disposition": "HISTORICAL_ONLY",
+      "public_statement": "The historical 400-pair v1 model, reliability, and routing results remain exploratory provenance and are not PF-ERI v2 confirmation evidence.",
+      "evidence_ids": ["PROJECT_RULES"],
+      "manuscript_treatment": "Keep in the locked v1 manuscript or label explicitly as historical exploratory evidence."
+    },
+    {
+      "claim_id": "C06_EXTERNAL_P5_SUPERIORITY",
+      "disposition": "NOT_ESTABLISHED",
+      "public_statement": "P5 superiority over P3 on independent confirmation outcomes has not been established.",
+      "evidence_ids": ["TASK15N"],
+      "manuscript_treatment": "Do not report a confirmation Brier increment, interval, superiority decision, or external predictive-performance result."
+    },
+    {
+      "claim_id": "C07_IDENTITY_ACCURACY",
+      "disposition": "PROHIBITED",
+      "public_statement": "No PF-ERI identity-accuracy, mAP, MRR, top-k, false-match, or automatic identity-assignment claim is authorized.",
+      "evidence_ids": ["PROJECT_RULES", "TASK15N"],
+      "manuscript_treatment": "State the boundary explicitly wherever reviewability is discussed."
+    },
+    {
+      "claim_id": "C08_DEPLOYMENT_UTILITY",
+      "disposition": "NOT_ESTABLISHED",
+      "public_statement": "Deployment utility and workflow efficiency have not been established under the v2 cost and confirmation contract.",
+      "evidence_ids": ["PROJECT_RULES", "TASK15N"],
+      "manuscript_treatment": "Do not upgrade historical routing simulations into a v2 deployment claim."
+    },
+    {
+      "claim_id": "C09_PROJECT_COMPLETION",
+      "disposition": "NOT_ESTABLISHED",
+      "public_statement": "PF-ERI v2 is not scientifically complete because independent confirmation-outcome performance and remaining Workstream 05 exit analyses are unresolved.",
+      "evidence_ids": ["TASK15N", "PROJECT_RULES"],
+      "manuscript_treatment": "Keep the v2 manuscript under a bounded integration lock."
+    }
+  ],
+  "accepted_status": "TASK16_CLAIM_MATRIX_FROZEN_PERFORMANCE_UNCONFIRMED",
+  "workstream_exit_decision": "DEFERRED_PENDING_AUTHORIZED_CONFIRMATION_OUTCOME_ANALYSIS",
+  "prohibited_actions": [
+    "recalculate Task15J coefficients",
+    "recalculate Task15L calibration parameters",
+    "calculate confirmation Brier or other outcome-performance metrics",
+    "cite the superseded wrong-source confirmation analysis",
+    "describe PASS_TASK15M_EXECUTION_VALIDATION as external predictive validation",
+    "merge historical v1 numerical results into v2 confirmation claims"
+  ]
+}

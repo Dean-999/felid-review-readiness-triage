@@ -1,6 +1,6 @@
 # Workstream 02 Exit Decision
 
-Date: 2026-07-14  
+Date: 2026-07-14
 Decision: `measurement_ready_with_reduced_feature_set`
 
 ## Basis for the decision
@@ -16,7 +16,7 @@ The outcome-free 160-pair measurement-feasibility pilot completed its required b
 
 The completed external audit is archived at:
 
-`work/pferi_v2/measurement_feasibility/reviewer_interface_dry_run/2026-07-14_v2_blinded_interface_dry_run_v3/independent_browser_audit/returned_audits/2026-07-14_a001_completed/`
+`work/pferi_v2/review/interface_dry_run/independent_browser_audit/returned_audits/2026-07-14_a001_completed/`
 
 The raw returned ZIP SHA-256 is:
 

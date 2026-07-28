@@ -1,0 +1,18 @@
+{
+  "registry_version": "pferi_v2_model_design_dgp_registry_v2",
+  "extends": "model_design_dgp_registry_v1.json",
+  "overrides": {
+    "status": "FROZEN_SYNTHETIC_THREE_STAGE_DESIGN",
+    "target_population": "the 9,417 outcome-free confirmation-role pairs after official zero-crossing image allocation",
+    "training_sample": "the 445 formally sampled development pairs joined to the outcome-free master derivation frame",
+    "calibration_sample": "the 445 formally sampled calibration pairs joined to the outcome-free master derivation frame",
+    "three_stage_design": {
+      "stage_1": "fit active-control and full models on synthetic development outcomes",
+      "stage_2": "fit separate intercept-and-slope logistic recalibrators on synthetic calibration outcomes",
+      "stage_3": "evaluate calibrated probabilities against synthetic truth over the full confirmation-role outcome-free frame"
+    },
+    "calibration_policy_for_simulation": "separate unpenalized intercept-and-slope logistic recalibration for active and full predictions",
+    "qualification_probability_stage": "post-independent-synthetic-calibration",
+    "claim_boundary": "Three-stage simulation ranks design strategies under declared synthetic mechanisms. It uses no observed outcome, does not select a fitted PF-ERI model, and cannot unlock real calibration or confirmation."
+  }
+}

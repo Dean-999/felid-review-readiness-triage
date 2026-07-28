@@ -84,9 +84,9 @@ def build_audit(contract_path: Path) -> dict[str, Any]:
     contract = read_json(contract_path)
     unresolved = validate_contract(contract)
 
-    canonical = ROOT / "outputs/pferi_v2/dual_descriptor_queue/canonical_pairs.csv"
-    local_gate = ROOT / "outputs/pferi_v2/measurement_feasibility_pilot/local_match_runs/2026-07-14_gpu_t4_protocol_v2/local_match_measurement_feasibility_gate_audit.json"
-    quality_gate = ROOT / "outputs/pferi_v2/measurement_feasibility_pilot/automatic_quality_runs/2026-07-14_gpu_cuda_protocol_v1/automatic_quality_measurement_gate_audit.json"
+    canonical = ROOT / "work/pferi_v2/pipeline/dual_descriptor_queue/canonical_pairs.csv"
+    local_gate = ROOT / "work/pferi_v2/gpu/measurement_feasibility/local_match/local_match_measurement_feasibility_gate_audit.json"
+    quality_gate = ROOT / "work/pferi_v2/gpu/measurement_feasibility/automatic_quality/automatic_quality_measurement_gate_audit.json"
     exploratory_context_path = ROOT / "schemas/pferi_v2/ws04_exploratory_context_v1.json"
     rules = ROOT / "PROJECT_RULES.md"
     analysis_plan = ROOT / "paper/protocols/pre_specified_analysis_plan.md"
@@ -152,7 +152,7 @@ def main() -> None:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=ROOT / "outputs/pferi_v2/dual_sample_confirmation/2026-07-14_power_cost_input_audit_v1",
+        default=ROOT / "archive/pferi_v2/task_runs/dual_sample_confirmation/2026-07-14_power_cost_input_audit_v1",
     )
     args = parser.parse_args()
     audit = build_audit(args.contract.resolve())

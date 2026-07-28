@@ -11,8 +11,8 @@ from typing import Any, Mapping, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE = ROOT / "data/frozen/pferi_v2/lynx-wild/manifest.csv"
-DEFAULT_OUTPUT = ROOT / "outputs/pferi_v2/restricted_descriptor_execution_manifest.csv"
-DEFAULT_AUDIT = ROOT / "outputs/pferi_v2/restricted_descriptor_execution_manifest_audit.json"
+DEFAULT_OUTPUT = ROOT / "work/pferi_v2/pipeline/descriptor_manifests/restricted_descriptor_execution_manifest.csv"
+DEFAULT_AUDIT = ROOT / "work/pferi_v2/pipeline/descriptor_manifests/restricted_descriptor_execution_manifest_audit.json"
 OUTPUT_COLUMNS = ["image_id", "image_path_relative", "content_sha256"]
 
 def read_csv(path: Path) -> list[dict[str, str]]:

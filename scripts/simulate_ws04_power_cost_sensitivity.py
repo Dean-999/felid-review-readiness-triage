@@ -411,7 +411,7 @@ def main() -> None:
     parser.add_argument(
         "--canonical-pairs",
         type=Path,
-        default=ROOT / "outputs/pferi_v2/dual_descriptor_queue/canonical_pairs.csv",
+        default=ROOT / "work/pferi_v2/pipeline/dual_descriptor_queue/canonical_pairs.csv",
     )
     parser.add_argument(
         "--config",
@@ -421,7 +421,7 @@ def main() -> None:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=ROOT / "outputs/pferi_v2/dual_sample_confirmation/2026-07-14_nonbinding_power_cost_sensitivity_v1",
+        default=ROOT / "archive/pferi_v2/task_runs/dual_sample_confirmation/2026-07-14_nonbinding_power_cost_sensitivity_v1",
     )
     args = parser.parse_args()
     audit = run_simulation(args.canonical_pairs.resolve(), args.config.resolve(), args.output_dir.resolve())

@@ -1,6 +1,6 @@
 # Task 01: Power-and-Cost Input Audit and Simulation Contract
 
-Status: complete — the input boundary is auditable; numerical simulation is deliberately blocked pending pre-outcome decisions.  
+Status: complete — the input boundary is auditable; numerical simulation is deliberately blocked pending pre-outcome decisions.
 Workstream: 04 — Dual-Sample Confirmatory Design.
 
 ## Question
@@ -45,6 +45,6 @@ Run:
   scripts/audit_ws04_power_cost_inputs.py
 ```
 
-The archived output is `outputs/pferi_v2/dual_sample_confirmation/2026-07-14_power_cost_input_audit_v1/power_cost_input_audit.json`. Its status is deliberately `BLOCKED_PENDING_PRE_OUTCOME_DECISIONS`, not PASS or FAIL. This is the correct result: it confirms provenance and shows exactly why selecting a target or seed now would be scientifically arbitrary.
+The archived output is `archive/pferi_v2/task_runs/dual_sample_confirmation/2026-07-14_power_cost_input_audit_v1/power_cost_input_audit.json`. Its status is deliberately `BLOCKED_PENDING_PRE_OUTCOME_DECISIONS`, not PASS or FAIL. This is the correct result: it confirms provenance and shows exactly why selecting a target or seed now would be scientifically arbitrary.
 
 After the required input decisions are accepted, the next task may run a dated, versioned sensitivity simulation. Only that later artifact may recommend retaining, increasing, or reducing the default 400 mechanism plus 800 deployment-pair target. It must still not generate reviewer packets or allow outcome collection until all later Workstream 04 artifacts are frozen.

@@ -1,7 +1,7 @@
 # Workstream 04: Dual-Sample Confirmatory Design
 
-Status: in progress — the primary rule, four-stage allocation, dependence/interval specification, reviewer-operation design, and sampling-strata design are accepted; full-frame measurements, seed, role assignment, and outcome packet remain unfrozen.  
-Primary dependency: Workstreams 01–03.  
+Status: in progress — design, automatic measurement, formal sampling, human outcome collection, adjudication, final endpoint assembly, and stage-isolated analysis entry are complete; only the development stage is open for model construction, while calibration and both confirmation stages remain locked.
+Primary dependency: Workstreams 01–03.
 Exit dependency: Workstream 05 may analyse deployment utility only after this workstream locks the representative queue.
 
 ## Purpose
@@ -41,5 +41,67 @@ in `05_colab_full_frame_execution_engineering_audit.md`. The failed Kaggle range
 inference and abandoned Kaggle-to-Colab continuation are retained there as
 iteration history. The accepted package performs one fresh inventory-driven run
 over all 30 shards, with input/model binding, resumable execution, global
-validation, deterministic merge, and one checksum-protected export. This is an
-engineering readiness result only; the full GPU measurements remain pending.
+validation, deterministic merge, and one checksum-protected export.
+
+The completed result is audited in `07_full_frame_measurement_result_audit_20260720.md`
+and archived under `archive/pferi_v2/task_runs/measurements/local_match/`.
+All 30 shards and 28,295 pairs are present; 28,284 pairs have valid frozen
+measurements and 11 retain prespecified scientific failure codes. This closes the
+full-frame execution dependency but does not establish identity accuracy or
+biological validity. The next authorized action is the outcome-free
+post-allocation capacity/strata audit followed by formal role-specific pair
+sampling under the accepted contract.
+
+The first post-measurement step is accepted in
+`08_post_allocation_sampling_derivation_freeze_proposal.md`, with a
+machine-readable operational supplement at
+`schemas/pferi_v2/post_allocation_sampling_derivation_contract_v1.json`. It
+removes ambiguity in percentile ties, zero-coverage handling, descriptor
+percentiles, and deterministic pair-seed namespaces without changing the
+accepted scientific design. The project owner accepted it pre-outcome on 20
+July 2026. This authorizes the restricted derivation frame and capacity audit
+only; no formal pair has been selected and no outcome packet is authorized.
+
+The accepted derivation was implemented and audited in
+`09_post_allocation_derivation_and_capacity_audit_20260720.md`. The restricted
+28,295-pair master frame joins exactly, preserves all eleven scientific matcher
+failures and all finite zero measurements, and reports sufficient capacity for
+the accepted 445/445/889/445 collection totals. Exact mechanism challenge cells
+remain correctly deferred until the deployment draw is immutable. This PASS
+does not itself authorize the formal draw, reviewer packet, or outcome access.
+
+The project owner subsequently authorized the one-time formal draw. Its frozen
+execution and independent reconstruction are recorded in
+`10_formal_pair_sampling_freeze_20260720.md`. The checksum-protected restricted
+manifest contains exactly 445 development, 445 calibration, 889 deployment,
+and 445 post-deployment mechanism pairs, with 2,224 unique canonical pair IDs
+and zero pair overlap. The formal draw is complete and must not be rerun. The
+next blocked gate is reviewer-role assignment plus blinded packet construction
+and a fresh leakage audit; no reviewer outcome has been collected.
+
+Reviewer workload and assignment planning is recorded in
+`11_reviewer_workload_and_assignment_planning_20260720.md`. The formal sample
+requires exactly 4,448 independent first-pass decisions before any
+adjudication. A provisional four-code plan balances this to 1,112 tasks per
+person and leaves two eligible adjudicators per pair, but it is not released:
+the actual number of distinct trained people must be confirmed before packet
+IDs, assignments, and reviewer-specific asset tokens can be frozen.
+
+Task 13 is recorded in `13_final_adjudicated_outcome_assembly_20260722.md`.
+The accepted human returns contain all 4,448 first-pass decisions and one fresh
+adjudication for each of the 250 exact three-category disagreements. The
+deterministic merge produced 2,224 unique final endpoints, preserved assignment
+and sampling lineage, excluded submission time, and passed checksum and schema
+verification. The study owner accepted the returned CSV judgements and declared
+use of the supplied collection application nonbinding. This outcome freeze
+establishes the response variable but does not establish model performance.
+
+Task 14 is recorded in `14_stage_isolated_analysis_entry_freeze_20260722.md`.
+It joins the formal pairs to the frozen outcome-free automatic feature frame,
+opens one 445-row development modelling table, and emits separate outcome-free
+feature tables for 445 calibration, 889 deployment-confirmation, and 445
+mechanism-confirmation pairs. No human outcome column appears in a locked-stage
+feature table. Calibration requires a passed development-model freeze, and both
+confirmation stages additionally require a frozen calibration policy, analysis
+bundle, and active-control and full-model predictions. The next authorized
+action is development-only probabilistic model construction under Task 15.

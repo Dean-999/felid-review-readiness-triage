@@ -10,8 +10,8 @@ from scripts import structural_oracle_annotation_core as core
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE = ROOT / "work/pferi_v2/measurement_feasibility/structural_oracle_annotation_package"
-RESPONSES = ROOT / "outputs/pferi_v2/measurement_feasibility_pilot/structural_oracle_responses"
+PACKAGE = ROOT / "work/pferi_v2/review/structural_oracle_annotation"
+RESPONSES = ROOT / "work/pferi_v2/gpu/measurement_feasibility/structural_oracle_responses"
 
 
 def tile(path: Path, label: str, width: int, height: int) -> Image.Image:

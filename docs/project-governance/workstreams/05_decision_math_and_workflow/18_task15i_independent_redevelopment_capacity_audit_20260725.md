@@ -1,0 +1,13 @@
+# Task 15I-C Independent Redevelopment Capacity Audit
+
+Status: `READY_FOR_PRELABEL_AMENDMENT`
+
+Task 15I-C performed an outcome-free audit of the only currently recorded external Eurasian lynx candidate reservoir. It did not read any development, calibration, deployment-confirmation, or mechanism-confirmation outcome, construct a new pair sample, assign labels, or modify an existing analytical role. The audit evaluated the conditional 90 percent development-screen design: 1,600 analyzable pairs in 400 independent endpoint-image connected components, with at most eight pairs per component, endpoint degree at most six, and enough independent components for five outer folds of at least 80 components each.
+
+The initial reservoir metadata contained 4,765 distinct image URIs from 3,481 source candidate records, but the first four audits found no files at the recorded download paths. Subsequent materialization and content deduplication produced the current eligible manifest with 4,108 unique, present images. The current audit reports zero missing files, zero duplicate-content images, and zero content-hash overlap with the three frozen existing roles.
+
+The v7 audit adds a 1,600-row candidate-pair manifest arranged as 400 endpoint-disjoint components with four pairs per component. The maximum endpoint degree is four, every structural and outer-fold-capacity check passes, and the declared strata are complete. Automatic-quality measurements cover all 4,108 candidate images with nondegenerate valid values; local-match measurements cover all 1,600 pairs with 955 distinct valid values. The audit therefore returns `READY_FOR_PRELABEL_AMENDMENT` with no blocking reasons.
+
+The consolidated audit task is `archive/pferi_v2/task_runs/model_development/2026-07-25_task15i_independent_redevelopment_capacity_audit/`; `current/` points to the hash-verified `iterations/v7/`. Versions v1-v4 document the pre-materialization diagnostics and audit-builder corrections, v5 records the partially materialized reservoir with missing and duplicate-content files, v6 records the clean 4,108-image eligible manifest, and v7 adds the complete pair graph and measurements. The task-level README preserves the complete iteration rationale.
+
+The acquisition, deduplication, pair-graph, and prelabel measurement capacity gates are complete. The next operational task is a separate prelabel contract amendment adopting the 400-component/1,600-pair screen. This capacity result does not itself authorize human labeling, calibration, or confirmation; those stages remain subject to their own contract, release, and information-barrier controls.

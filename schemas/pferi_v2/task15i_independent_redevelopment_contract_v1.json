@@ -1,0 +1,73 @@
+{
+  "contract_version": "pferi_v2_task15i_independent_redevelopment_contract_v1",
+  "status": "FROZEN_PRELABEL_REDEVELOPMENT_DESIGN",
+  "purpose": "Specify an independent, outcome-free redesign after Task15H documented no qualified development model.",
+  "information_boundary": {
+    "existing_locked_stages_may_be_reassigned": false,
+    "locked_outcomes_may_be_read": false,
+    "existing_development_outcomes_may_be_reused_for_selection": false,
+    "permitted_inputs": [
+      "outcome-free covariates",
+      "outcome-free graph structure",
+      "formal sampling manifests without labels",
+      "synthetic outcomes generated within this design simulation",
+      "Task15H nonqualification record"
+    ]
+  },
+  "independent_data_requirements": {
+    "image_overlap_with_existing_roles": 0,
+    "canonical_pair_overlap_with_existing_roles": 0,
+    "new_development_role_required": true,
+    "outcome_collection_may_begin_before_execution_package_freeze": false,
+    "analysis_unit": "endpoint-image connected component"
+  },
+  "sampling_design": {
+    "analyzable_pair_target": 1200,
+    "minimum_component_count": 300,
+    "nominal_pairs_per_component": 4,
+    "maximum_pairs_per_component": 8,
+    "maximum_endpoint_degree": 6,
+    "outer_fold_count": 5,
+    "minimum_components_per_outer_fold": 60,
+    "inner_fold_count": 4,
+    "stratification_variables": [
+      "descriptor_support_category",
+      "best_rank_band",
+      "development_evidence_state",
+      "endpoint_quality_measurement_failure",
+      "local_match_measurement_failure"
+    ]
+  },
+  "fixed_lambda_selection": {
+    "candidate_grid": [0.1, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0],
+    "training_weight_strategy": "sqrt_ipw",
+    "model_family": "l2_logistic",
+    "synthetic_scenario_registry": "model_design_dgp_registry_v1.json",
+    "replicates_per_scenario": 12,
+    "selection_rule": "Minimize the maximum registered-scenario median full-model Brier regret; break exact ties toward stronger shrinkage.",
+    "selected_lambda_must_be_fixed_for_P3_and_P5": true,
+    "outer_fold_lambda_retuning": false
+  },
+  "qualification_policy": {
+    "minimum_development_weighted_brier_increment": 0.005,
+    "minimum_outer_folds_with_nonnegative_P3_minus_P5_brier": 4,
+    "maximum_absolute_weighted_calibration_intercept": 0.2,
+    "weighted_calibration_slope_interval": [0.8, 1.2],
+    "automatic_P3_fallback_if_P5_fails": false,
+    "sensitivity_or_exploratory_model_promotion": false,
+    "passing_development_freeze_authorizes_calibration": true
+  },
+  "operating_characteristic_simulation": {
+    "component_counts": [200, 300, 400],
+    "pairs_per_component": 4,
+    "paired_loss_difference_sd": 0.12,
+    "intracomponent_correlation": 0.1,
+    "practical_brier_increment": 0.005,
+    "synthetic_true_brier_increments": [0.005, 0.01, 0.02],
+    "replicates": 10000,
+    "confidence_level": 0.95,
+    "recommendation_rule": "Choose the smallest design with at least 300 components, at least 1200 analyzable pairs, and at least 0.80 probability that the development point estimate exceeds the practical increment when the synthetic true increment is 0.01."
+  },
+  "stopping_rule": "If the independently collected development result fails any frozen qualification gate, no calibration or confirmation outcome may be accessed and the P5 confirmation route terminates.",
+  "claim_boundary": "This design uses no real outcome to estimate PF-ERI performance. Its operating characteristics are conditional synthetic calculations and do not authorize calibration, confirmation, or a model claim."
+}

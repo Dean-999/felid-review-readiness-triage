@@ -1,0 +1,40 @@
+{
+  "contract_version": "pferi_v2_task15l_calibration_analysis_contract_v1",
+  "purpose": "Freeze Task15K calibration-label collection and the limited recalibration analysis of the already frozen Task15J P3/P5 models.",
+  "input_requirements": {
+    "task15k_control_execution_status": "PASS",
+    "pair_count": 448,
+    "component_count": 112,
+    "models": ["P3", "P5"],
+    "calibration_labels_open_at_contract_freeze": false
+  },
+  "label_assembly": {
+    "first_pass_reviews_per_pair": 2,
+    "target": "not_ready_or_uncertain_label",
+    "rule": "0 only if both first-pass reviewers select review_ready; otherwise 1",
+    "eligibility": "Only assignment coverage, exact response schema, unique response provenance, and technical_problem_flag=no are hard eligibility conditions.",
+    "descriptive_only": ["reason_codes", "confidence", "submitted_at_utc", "reviewer agreement"]
+  },
+  "calibration_model": {
+    "per_model": true,
+    "formula": "logit Pr(label=1) = intercept + slope * logit(raw_frozen_probability)",
+    "fit": "unpenalized logistic likelihood with numerically clipped raw probabilities",
+    "resampling": "2000 deterministic component-cluster bootstrap replicates after labels are opened",
+    "bootstrap_seed": 20260727,
+    "allowed_parameters": ["intercept", "slope"],
+    "prohibited": [
+      "refitting P3 or P5 coefficients",
+      "changing P3/P5 preprocessing or feature columns",
+      "changing lambda",
+      "using labels to reselect P3 versus P5",
+      "creating a decision threshold before a separate utility policy is frozen"
+    ]
+  },
+  "interpretation": {
+    "apparent_calibration_only": true,
+    "performance_confirmation_requires_independent_future_sample": true,
+    "no_predeclared_calibration_pass_threshold": true
+  },
+  "locked_stages": ["deployment_confirmation", "mechanism_confirmation"],
+  "claim_boundary": "This contract authorizes controlled calibration-label collection and limited probability recalibration only. It does not establish pair correctness, identity accuracy, externally confirmed calibration, deployment performance, utility, or project completion."
+}

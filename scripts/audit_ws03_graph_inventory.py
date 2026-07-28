@@ -25,9 +25,9 @@ import matplotlib.pyplot as plt
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_CANONICAL_PAIRS = ROOT / "outputs/pferi_v2/dual_descriptor_queue/canonical_pairs.csv"
-DEFAULT_MEMBERSHIPS = ROOT / "outputs/pferi_v2/dual_descriptor_queue/candidate_memberships.csv"
-DEFAULT_OUTPUT_DIR = ROOT / "outputs/pferi_v2/information_partitioning/2026-07-14_graph_inventory_v1"
+DEFAULT_CANONICAL_PAIRS = ROOT / "work/pferi_v2/pipeline/dual_descriptor_queue/canonical_pairs.csv"
+DEFAULT_MEMBERSHIPS = ROOT / "work/pferi_v2/pipeline/dual_descriptor_queue/candidate_memberships.csv"
+DEFAULT_OUTPUT_DIR = ROOT / "archive/pferi_v2/task_runs/information_partitioning/2026-07-14_graph_inventory_v1"
 
 CANONICAL_COLUMNS = {
     "contract_version",

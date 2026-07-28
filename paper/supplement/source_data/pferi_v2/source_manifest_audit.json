@@ -1,0 +1,13 @@
+{
+  "all_declared_row_counts_match": true,
+  "all_source_hashes_match": true,
+  "all_sources_exist": true,
+  "audit_version": "pferi_v2_manuscript_source_manifest_audit_v1",
+  "claim_boundary": "This package maps frozen evidence to manuscript claims. It does not change any scientific result or authorize a broader claim.",
+  "claim_count": 11,
+  "contract_sha256": "103b92718d6cd969ae0b0c312a3d0e381a0aab8c8ae2fadbff7852586e57929d",
+  "failures": [],
+  "semantic_validation_passed": true,
+  "source_count": 26,
+  "status": "PASS"
+}

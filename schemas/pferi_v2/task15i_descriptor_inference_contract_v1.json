@@ -1,0 +1,31 @@
+{
+  "contract_version": "pferi_v2_task15i_descriptor_inference_contract_v1",
+  "purpose": "Image-only, independent Task 15I descriptor inference for candidate-pair construction.",
+  "scientific_boundary": "This execution may read only image_id, image_path_relative, and content_sha256 from the input manifest. It must not read human outcomes, identity labels, calibration outcomes, deployment-confirmation outcomes, or mechanism-confirmation outcomes.",
+  "input_manifest_columns": ["image_id", "image_path_relative", "content_sha256"],
+  "expected_image_count": 4108,
+  "top_k": 20,
+  "descriptors": {
+    "megadescriptor_l_384": {
+      "model_id": "hf-hub:BVRA/MegaDescriptor-L-384",
+      "library": "timm",
+      "input_size": 384,
+      "preprocessing": "timm default preprocessing",
+      "embedding_dimension": 1536,
+      "embedding_normalization": "L2"
+    },
+    "dinov2_vitl14": {
+      "model_id": "facebook/dinov2-vitl14",
+      "library": "transformers",
+      "resize_shorter_side": 224,
+      "center_crop": 224,
+      "normalization_mean": [0.485, 0.456, 0.406],
+      "normalization_std": [0.229, 0.224, 0.225],
+      "embedding_dimension": 1024,
+      "embedding_token": "CLS",
+      "embedding_normalization": "L2"
+    }
+  },
+  "failure_policy": "Fail the entire run on any manifest, file-integrity, image-decode, model-load, embedding, or output-validation error. Do not silently drop or replace images.",
+  "claim_boundary": "A successful run supplies only reproducible descriptor embeddings and directed candidate memberships. It is not an identity conclusion, a model-performance claim, or a Task 15I pass decision."
+}

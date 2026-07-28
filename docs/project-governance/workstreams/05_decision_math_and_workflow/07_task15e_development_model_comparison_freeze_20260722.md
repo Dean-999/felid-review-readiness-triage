@@ -1,0 +1,9 @@
+# Task 15E Development Model Comparison Freeze
+
+Task 15E is complete and frozen at `archive/pferi_v2/task_runs/model_development/2026-07-22_task15e_development_model_comparison_freeze_v1`. The original ModelScope export, external checksum, run summary, thirteen result artifacts, independent metric recalculation, scientific disposition, freeze builder snapshot, freeze audit, and complete directory checksums are retained together.
+
+The execution and output-integrity gates passed. All five endpoint-component-disjoint outer folds ran successfully, producing one honest out-of-fold probability for each of 445 development pairs under each of eight models. The independent recalculation reproduced every weighted Brier and log-loss result. No calibration, deployment-confirmation, or mechanism-confirmation outcome was accessed.
+
+The full ridge model P5 reduced weighted Brier relative to P3 by only 0.00004117, or 0.0294% of P3 Brier. P3 and P5 selected lambda 100 in four outer folds and lambda 0.1 in the remaining fold, and 94.7% of the global paired improvement arose from that single fold. The direction therefore favors P5, but the magnitude and regularization instability do not qualify P5 as the final route. The nonlinear S1 and S2 models achieved lower development Brier scores, but the incremental S1-to-S2 gain also remained small and its descriptive component-bootstrap interval crossed zero. S2 is therefore not promoted directly either.
+
+This is an observed-result freeze, not the final development-model freeze. Task 15E must not be rerun or retuned to improve its appearance. The next authorized step is Task 15F, which runs the already registered weak-prior Bayesian, crossed-image dependence, and separation diagnostics as mathematical sensitivities. Task 15G then measures the exploratory performance ceiling, and Task 15H applies the frozen qualification-before-performance rule to select or reject the final development route.

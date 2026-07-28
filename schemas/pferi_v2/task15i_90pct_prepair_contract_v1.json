@@ -1,0 +1,38 @@
+{
+  "contract_version": "pferi_v2_task15i_90pct_prepair_contract_v1",
+  "status": "FROZEN_PRELABEL_CONTRACT",
+  "design": {
+    "component_count": 400,
+    "pair_count": 1600,
+    "pairs_per_component": 4,
+    "outer_fold_count": 5,
+    "inner_fold_count": 4,
+    "minimum_components_per_outer_fold": 80,
+    "maximum_endpoint_degree": 6
+  },
+  "conditional_operating_characteristic": {
+    "synthetic_true_brier_increment": 0.01,
+    "point_threshold": 0.005,
+    "conditional_point_threshold_success_probability": 0.9280969668399988,
+    "not_an_actual_pass_probability": true
+  },
+  "model_rules": {
+    "fixed_lambda": 100.0,
+    "fixed_for_models": ["P3", "P5"],
+    "outer_or_inner_fold_lambda_retuning": false,
+    "automatic_P3_fallback_if_P5_fails": false
+  },
+  "information_boundary": {
+    "outcomes_permitted_in_this_freeze": false,
+    "identity_labels_permitted_in_this_freeze": false,
+    "existing_development_outcomes_reusable": false,
+    "calibration_or_confirmation_outcomes_permitted": false
+  },
+  "future_development_qualification": {
+    "minimum_weighted_brier_increment_P3_minus_P5": 0.005,
+    "minimum_outer_folds_nonnegative_increment": 4,
+    "maximum_absolute_weighted_calibration_intercept": 0.2,
+    "weighted_calibration_slope_interval": [0.8, 1.2]
+  },
+  "claim_boundary": "This contract freezes an outcome-free collection and resampling geometry. Its conditional operating characteristic is not an estimate of image-pair correctness, model performance, or actual development qualification."
+}

@@ -248,13 +248,13 @@ def main() -> None:
         "--capacity-summary",
         type=Path,
         default=ROOT
-        / "outputs/pferi_v2/information_partitioning/2026-07-14_nonbinding_partition_feasibility_v1/nonbinding_partition_feasibility_summary.csv",
+        / "archive/pferi_v2/task_runs/information_partitioning/2026-07-14_nonbinding_partition_feasibility_v1/nonbinding_partition_feasibility_summary.csv",
     )
     parser.add_argument(
         "--output-dir",
         type=Path,
         default=ROOT
-        / "outputs/pferi_v2/dual_sample_confirmation/2026-07-15_four_stage_allocation_readiness_v1",
+        / "archive/pferi_v2/task_runs/dual_sample_confirmation/2026-07-15_four_stage_allocation_readiness_v1",
     )
     args = parser.parse_args()
     audit = build_audit(args.contract.resolve(), args.capacity_summary.resolve())

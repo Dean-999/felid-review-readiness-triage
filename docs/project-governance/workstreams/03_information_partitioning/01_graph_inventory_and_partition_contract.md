@@ -1,6 +1,6 @@
 # Task 01: Graph Inventory and Partition Contract
 
-Status: complete — graph inventory PASS; component-level allocation infeasible.  
+Status: complete — graph inventory PASS; component-level allocation infeasible.
 Workstream: 03 — Development, Calibration, and Confirmation Partitioning.
 
 ## Objective
@@ -37,4 +37,4 @@ The audit was run on 2026-07-14 using only the frozen outcome-free dual-descript
 
 The graph contains 3,000 image nodes and 85,182 eligible canonical-pair edges. All nodes belong to one connected component; image degree ranges from 24 to 183 eligible incident pairs, with median 52 and mean 56.788. This is a decisive design constraint rather than a failure of the reservoir. A future split cannot allocate whole connected components, because that would place the entire candidate universe into a single role. Instead, it must allocate disjoint sets of image nodes to development, calibration, and confirmation, retain only canonical pairs whose two endpoints lie within one allocated image set, and record every cross-set candidate edge as excluded. This is the only approach consistent with the rule that no image or canonical pair may cross a prohibited boundary.
 
-The machine-readable audit, node and component inventories, scientific report, and figure are archived at `outputs/pferi_v2/information_partitioning/2026-07-14_graph_inventory_v1/`. The audit script is `scripts/audit_ws03_graph_inventory.py`; its two synthetic integrity tests passed before the production audit. Neither the audit nor its artifacts read identity truth, outcome labels, review responses, PF-ERI feature values, model outputs, or thresholds.
+The machine-readable audit, node and component inventories, scientific report, and figure are archived at `archive/pferi_v2/task_runs/information_partitioning/2026-07-14_graph_inventory_v1/`. The audit script is `scripts/audit_ws03_graph_inventory.py`; its two synthetic integrity tests passed before the production audit. Neither the audit nor its artifacts read identity truth, outcome labels, review responses, PF-ERI feature values, model outputs, or thresholds.

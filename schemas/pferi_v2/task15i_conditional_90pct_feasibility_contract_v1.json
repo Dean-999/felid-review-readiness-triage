@@ -1,0 +1,37 @@
+{
+  "contract_version": "pferi_v2_task15i_conditional_90pct_feasibility_contract_v1",
+  "status": "FROZEN_OUTCOME_FREE_CONDITIONAL_ANALYSIS",
+  "purpose": "Quantify the independent-component sample size required for specified conditional operating characteristics without estimating the probability that the actual model will pass.",
+  "source_design_record": "2026-07-25_task15i_independent_redevelopment_design_freeze_v1/independent_redevelopment_design_record.json",
+  "forbidden": [
+    "reading raw development, calibration, deployment-confirmation, or mechanism-confirmation outcomes",
+    "estimating actual PF-ERI effect size",
+    "stating a conditional operating characteristic as an actual pass probability",
+    "altering the frozen Task15I redevelopment contract"
+  ],
+  "assumptions": {
+    "pairs_per_component": 4,
+    "paired_loss_difference_sd": 0.12,
+    "intracomponent_correlation": 0.1,
+    "practical_brier_increment": 0.005,
+    "confidence_level": 0.95,
+    "component_counts": [300, 400, 600, 800, 1000, 1200, 1600, 2000, 2400],
+    "synthetic_true_brier_increments": [0.005, 0.0075, 0.01, 0.015, 0.02]
+  },
+  "targets": {
+    "screen": {
+      "metric": "point_threshold_success_probability",
+      "synthetic_true_brier_increment": 0.01,
+      "required_probability": 0.9,
+      "interpretation": "Probability that an independent redevelopment point estimate reaches 0.005 if the true increment is 0.01."
+    },
+    "confirmation_like": {
+      "metric": "lower_confidence_bound_success_probability",
+      "synthetic_true_brier_increment": 0.01,
+      "required_probability": 0.9,
+      "interpretation": "Probability that a nominal 95% lower bound exceeds 0.005 if the true increment is 0.01."
+    }
+  },
+  "adoption_rule": "This analysis is nonbinding. Any increase beyond the frozen Task15I 1,200-pair, 300-component design requires a new prelabel redevelopment contract version and a new independent sampling feasibility audit.",
+  "claim_boundary": "Results are conditional on declared synthetic effect, variance, and dependence assumptions. They are not a forecast of the actual model result or a route to bypass model qualification."
+}

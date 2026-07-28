@@ -170,7 +170,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             "seed_record_sha256": sha256_file(args.seed_record),
             "restricted_linkage_sha256": sha256_file(linkage_path),
             "shard_inventory_sha256": sha256_file(inventory_path),
-            "reused_immutable_image_zip": "outputs/pferi_v2/v2_czechlynx_fresh_descriptor_images.zip",
+            "reused_immutable_image_zip": "archive/pferi_v2/task_runs/v2_czechlynx_fresh_descriptor_images.zip",
             "reused_immutable_image_zip_sha256": "540912351ff958b0d4395c0a8fec3ab8e129995f0d0f355656e673599f018bc0",
         }
     )

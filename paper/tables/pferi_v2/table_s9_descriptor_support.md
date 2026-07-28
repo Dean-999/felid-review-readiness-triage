@@ -1,0 +1,9 @@
+# Table S9. Task15M descriptor pair-support taxonomy
+
+Support is a descriptor-relation property, not a human endpoint.
+
+| support_category | formal_definition | directed_top20_requirement | pair_count | percentage_of_889 | scoring_eligibility | local_match_eligibility | prediction_count | interpretation |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| both_reciprocal | Both descriptors retrieve the pair in both directions within top 20 | Reciprocal for both descriptors | 109 | 12.3% | yes | yes | 218 | Gate-1 supported |
+| both_agreement | Both descriptors support the same pair direction within top 20 | Same-direction consensus | 143 | 16.1% | yes | yes | 286 | Gate-1 supported |
+| unsupported | no_same_direction_dual_descriptor_top20_consensus | Requirement not met | 637 | 71.7% | no | no | 0 | Not a human reviewability judgment |

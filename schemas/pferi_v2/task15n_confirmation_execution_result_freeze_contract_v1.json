@@ -1,0 +1,30 @@
+{
+  "contract_version": "pferi_v2_task15n_confirmation_execution_result_freeze_contract_v1",
+  "purpose": "Freeze the authoritative Task15M ModelScope execution export as a passed execution-validation result without recalculating model or performance quantities.",
+  "authoritative_source": "outputs/pferi_v2/model_development/2026-07-28_task15m_confirmation_execution_results_v1/PF_ERI_TASK15M_CONFIRMATION_FINAL_EXPORT",
+  "acceptance_rule": {
+    "run_audit_status": "PASS",
+    "validation_audit_status": "PASS",
+    "validation_failures": [],
+    "confirmation_outcomes_accessed": false,
+    "expected_candidate_pair_count": 889,
+    "expected_supported_pair_count": 252,
+    "expected_unsupported_pair_count": 637,
+    "expected_image_count": 815,
+    "expected_prediction_count": 504
+  },
+  "frozen_bindings": {
+    "package_manifest_sha256": "b2eb81598aeb0199c237e01fad67567c3ee716bcd619fdc0c9eec2ebd57b7efb",
+    "execution_contract_sha256": "c25b29afcca0e53e87f58fd97cf338cd50de1996e6993e001683bb30c26aa799"
+  },
+  "prohibited_recalculations": [
+    "Task15J coefficient estimation",
+    "Task15L calibration-parameter estimation",
+    "Brier or other outcome-performance analysis",
+    "model reselection",
+    "pair replacement"
+  ],
+  "accepted_status": "PASS_TASK15M_EXECUTION_VALIDATION",
+  "superseded_artifact": "outputs/pferi_v2/model_development/2026-07-27_task15m_external_confirmation_analysis_freeze_v1",
+  "claim_boundary": "This freeze establishes successful Task15M execution, integrity, coverage, and validation only. It does not establish P5 superiority, external predictive performance, identity accuracy, deployment utility, or project completion."
+}

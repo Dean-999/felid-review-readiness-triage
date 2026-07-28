@@ -129,7 +129,7 @@ Record and accept those pre-outcome inputs, then run a dated sensitivity simulat
 
 Work type: outcome-free Workstream 02 measurement audit.
 
-The current independent A and B response files each contained all 160 locked opaque packets, without duplicates or technical-problem rows. The input SHA256 values are recorded in `outputs/pferi_v2/measurement_feasibility_pilot/current_structural_oracle_reliability_audit.json`.
+The current independent A and B response files each contained all 160 locked opaque packets, without duplicates or technical-problem rows. The input SHA256 values are recorded in `work/pferi_v2/gpu/measurement_feasibility/current_structural_oracle_reliability_audit.json`.
 
 Visible-pattern-area annotation met the fixed absolute-agreement ICC lower-bound gate (ICC(A,1) 0.800; 95% CI 0.76–0.84). Occlusion (0.069; −0.03–0.17) and shared-body-region fraction (0.465; 0.33–0.58) did not meet the 0.60 lower-bound gate. Viewpoint exact agreement was 0.631 and unweighted kappa 0.415, but the required weighted-kappa gate is not evaluable because no ordinal ordering or weights were frozen for a category set that includes non-ordinal `unknown`.
 
@@ -142,7 +142,7 @@ Work type: live v2 measurement-feasibility implementation.
 Changed files:
 
 - Repaired standalone module-path initialization in `scripts/build_v2_measurement_feasibility_pilot_manifest.py`.
-- Generated `outputs/pferi_v2/measurement_feasibility_pilot/restricted_pilot_manifest.csv` and `restricted_pilot_manifest_audit.json`.
+- Generated `work/pferi_v2/gpu/measurement_feasibility/restricted_pilot_manifest.csv` and `restricted_pilot_manifest_audit.json`.
 - Updated the authoritative current-project map and Workstream 02 task navigation to replace the completed reservoir block.
 
 Scientific decision:
@@ -166,7 +166,7 @@ Work type: live v2 candidate-reservoir implementation.
 Changed files:
 
 - Added `scripts/build_v2_descriptor_execution_manifest.py` and `tests/test_build_v2_descriptor_execution_manifest.py`.
-- Generated `outputs/pferi_v2/restricted_descriptor_execution_manifest.csv` for 3,000 frozen CzechLynx images.
+- Generated `work/pferi_v2/pipeline/descriptor_manifests/restricted_descriptor_execution_manifest.csv` for 3,000 frozen CzechLynx images.
 - Added `docs/project-governance/workstreams/02_measurement_feasibility/04_colab_kaggle_fresh_descriptor_handoff.md`.
 
 Scientific decision:
@@ -188,7 +188,7 @@ Work type: live v2 candidate-reservoir implementation.
 Changed files:
 
 - Added `scripts/build_v2_czechlynx_image_context.py` and `tests/test_build_v2_czechlynx_image_context.py`.
-- Generated `outputs/pferi_v2/czechlynx_v2_image_context.csv` and its audit from the final CzechLynx freeze.
+- Generated `work/pferi_v2/pipeline/descriptor_manifests/czechlynx_v2_image_context.csv` and its audit from the final CzechLynx freeze.
 - Added `docs/project-governance/workstreams/02_measurement_feasibility/03_neutral_v2_image_context.md`.
 
 Scientific decision:
@@ -1000,31 +1000,31 @@ Revised the triage rubric to separate species-level tagging from individual-leve
 
 ### Work Completed
 
-- 
+-
 
 ### Problem Encountered
 
-- 
+-
 
 ### Repair / Decision
 
-- 
+-
 
 ### Files Changed
 
-- 
+-
 
 ### Evidence / Source Notes
 
-- 
+-
 
 ### Remaining Risk
 
-- 
+-
 
 ### Next Action
 
-- 
+-
 ```
 
 ## Backfilled Initial Entries

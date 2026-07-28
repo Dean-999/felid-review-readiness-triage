@@ -220,7 +220,7 @@ def write_csv(path: Path, rows: Iterable[Mapping[str, Any]]) -> None:
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--quality-measurements", type=Path, required=True)
-    parser.add_argument("--canonical-pairs", type=Path, default=ROOT / "outputs/pferi_v2/dual_descriptor_queue/canonical_pairs.csv")
+    parser.add_argument("--canonical-pairs", type=Path, default=ROOT / "work/pferi_v2/pipeline/dual_descriptor_queue/canonical_pairs.csv")
     parser.add_argument("--expected-image-count", type=int, default=3000)
     parser.add_argument("--output-csv", type=Path, required=True)
     parser.add_argument("--audit-json", type=Path, required=True)

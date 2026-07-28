@@ -1,0 +1,32 @@
+{
+  "audit_version": "pferi_v2_manuscript_stop_slop_audit_v1",
+  "failures": [],
+  "long_sentence_fraction": 0.071,
+  "manuscript": "/Users/dshen/Desktop/scientific project/felid-review-readiness-triage/paper/manuscript/pferi_v2_manuscript_rewrite.md",
+  "mean_sentence_words": 15.21,
+  "passive_voice_candidates": [],
+  "pattern_matches": {
+    "binary_reversal": [],
+    "business_jargon": [],
+    "em_dash": [],
+    "emphasis_crutch": [],
+    "filler_adverb": [],
+    "meta_commentary": [],
+    "promotional_closure": [],
+    "rhetorical_prompt": [],
+    "throat_clearing": [],
+    "vague_value_claim": [],
+    "wh_sentence_start": []
+  },
+  "scores": {
+    "authenticity": 10,
+    "density": 10,
+    "directness": 10,
+    "rhythm": 8,
+    "trust": 10
+  },
+  "sentence_count": 254,
+  "short_sentence_fraction": 0.217,
+  "status": "PASS",
+  "total_score": 48
+}

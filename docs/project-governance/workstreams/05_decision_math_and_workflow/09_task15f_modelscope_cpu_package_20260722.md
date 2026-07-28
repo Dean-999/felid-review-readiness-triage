@@ -1,0 +1,11 @@
+# Task 15F-B ModelScope CPU Execution Package
+
+Task 15F-B implements, but does not yet execute in full, the frozen Bayesian/Firth sensitivity contract. The package contains only the 445 development pairs and their five endpoint-component-disjoint folds. It contains no calibration, deployment-confirmation, or mechanism-confirmation outcome. Therefore this step cannot alter the locked confirmation analysis or select a final model.
+
+The executable fits S3 weak-prior Bayesian logistic regression and S4 non-centered crossed endpoint-image random-intercept logistic regression in every outer fold. S4 outer-test predictions integrate two unseen endpoint effects by the frozen 20-node Gauss–Hermite rule. S5 runs only on the previously triggered folds 0 and 4 and remains explicitly marked `selection_eligible=false`.
+
+The package enforces Python 3.12, PyMC 6.0.1, nutpie NUTS, four chains, the frozen draw/tuning schedule, fixed seeds, the one-retry rule, and all convergence gates. Fold checkpoints contain hashes for predictions, parameter summaries, the accepted posterior NetCDF file, the preprocessing fit, and the contract. A resume accepts a checkpoint only when every hash and status matches. Final validation requires 890 out-of-fold Bayesian predictions, all ten posterior fits passing, all prior-predictive checks passing, five S4 marginalization records, the complete triggered S5 diagnostic, ten accepted posterior files, a frozen contract copy, and an explicit no-locked-stage-access audit.
+
+Local verification used the package's exact pinned environment. Both S3 and S4 constructed successfully; each completed 2,000 prior-predictive draws; the Gauss–Hermite identity checks passed; short non-scientific nutpie interface runs verified both S3 and S4 posterior extraction, S4 marginal prediction, and NetCDF serialization. These short runs test software interfaces only and are not Task 15F results. The full ten-fit ModelScope run remains pending.
+
+The immutable delivery is at `work/pferi_v2/gpu/packages/task15f_bayesian_sensitivity/PF_ERI_TASK15F_MODELSCOPE_CPU_PACKAGE.zip`. Its SHA256 is recorded beside the ZIP. The next authorized action is to run the included `smoke` gate, then `run`, `validate`, and `export` in that order. Only a returned final export whose validation reports `PASS` may enter Task 15F result interpretation.

@@ -62,9 +62,9 @@ TARGETS = (
         "archive/pferi_v1/outputs/data-foundation/czechlynx-historical-validation/phase13/rq4_training_control_manifest/phase13c_rq4_training_control_manifest_summary.md",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/measurement_feasibility_pilot/current_structural_oracle_reliability_audit.json",
+        "work/pferi_v2/gpu/measurement_feasibility/current_structural_oracle_reliability_audit.json",
         "superseded reliability audit from the removed current analyzer",
-        "outputs/pferi_v2/measurement_feasibility_pilot/structural_oracle_reliability_audit_latest.json",
+        "work/pferi_v2/gpu/measurement_feasibility/structural_oracle_reliability_audit_latest.json",
     ),
     CleanupTarget(
         "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/kaggle_legacy-code18_strong_baseline_input_20260702.zip",
@@ -72,17 +72,17 @@ TARGETS = (
         "archive/pferi_v1/outputs/modeling-validation/pair-level-validation/returned_strong_baselines",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/PF_ERI_V2_KAGGLE_RAW_ARCHIVES/v2_czechlynx_fresh_descriptor_images.zip.bin",
+        "archive/pferi_v2/task_runs/PF_ERI_V2_KAGGLE_RAW_ARCHIVES/v2_czechlynx_fresh_descriptor_images.zip.bin",
         "byte-identical transport suffix copy",
         "work/pferi_v2/descriptor_execution_package",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/PF_ERI_V2_KAGGLE_RAW_ARCHIVES/PF_ERI_V2_FULL_FRAME_LOCAL_MATCH_CONTROL.zip.bin",
+        "archive/pferi_v2/task_runs/PF_ERI_V2_KAGGLE_RAW_ARCHIVES/PF_ERI_V2_FULL_FRAME_LOCAL_MATCH_CONTROL.zip.bin",
         "byte-identical transport suffix copy",
         "artifacts/transfers/pferi_v2/PF_ERI_V2_FULL_FRAME_LOCAL_MATCH_CONTROL.zip",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/v2_czechlynx_fresh_descriptor_images.zip",
+        "archive/pferi_v2/task_runs/v2_czechlynx_fresh_descriptor_images.zip",
         "compressed execution copy; extracted current package is retained",
         "work/pferi_v2/descriptor_execution_package",
     ),
@@ -97,12 +97,12 @@ TARGETS = (
         "work/pferi_v2/measurement_feasibility/structural_oracle_annotation_package",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/measurement_feasibility_pilot/v2_czechlynx_pilot_local_match_images.zip",
+        "work/pferi_v2/gpu/measurement_feasibility/v2_czechlynx_pilot_local_match_images.zip",
         "compressed copy of retained local-match execution package",
         "work/pferi_v2/measurement_feasibility/local_match_execution_package",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/measurement_feasibility_pilot/v2_czechlynx_pilot_quality_images.zip",
+        "work/pferi_v2/gpu/measurement_feasibility/v2_czechlynx_pilot_quality_images.zip",
         "compressed copy of retained quality execution package",
         "work/pferi_v2/measurement_feasibility/quality_execution_package",
     ),
@@ -117,9 +117,9 @@ TARGETS = (
         "work/pferi_v2/measurement_feasibility/reviewer_interface_dry_run/2026-07-14_v2_blinded_interface_dry_run_v3",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/measurement_feasibility_pilot/local_match_runs/2026-07-14_gpu_t4_protocol_v2/PF_ERI_FINAL_RESULTS_GPU.zip",
+        "work/pferi_v2/gpu/measurement_feasibility/local_match/PF_ERI_FINAL_RESULTS_GPU.zip",
         "compressed copy of retained returned result directory",
-        "outputs/pferi_v2/measurement_feasibility_pilot/local_match_runs/2026-07-14_gpu_t4_protocol_v2/PF_ERI_FINAL_RESULTS_GPU",
+        "work/pferi_v2/gpu/measurement_feasibility/local_match/PF_ERI_FINAL_RESULTS_GPU",
     ),
     CleanupTarget(
         "work/pferi_v2/measurement_feasibility/final_local_match_package_v2.zip",
@@ -127,12 +127,12 @@ TARGETS = (
         "work/pferi_v2/measurement_feasibility/final_local_match_package_v2",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/measurement_feasibility_pilot/v2_local_match_kaggle_package.zip",
+        "work/pferi_v2/gpu/measurement_feasibility/v2_local_match_kaggle_package.zip",
         "superseded matcher-v1 transfer package",
         "work/pferi_v2/measurement_feasibility/final_local_match_package_v2",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/dual_sample_confirmation/2026-07-15_timed_operational_rehearsal_v2/PF_ERI_V2_TIMED_OPERATIONAL_REHEARSAL_DELIVERY.zip",
+        "archive/pferi_v2/task_runs/dual_sample_confirmation/2026-07-15_timed_operational_rehearsal_v2/PF_ERI_V2_TIMED_OPERATIONAL_REHEARSAL_DELIVERY.zip",
         "compressed copy of retained v2 rehearsal directory",
         "work/pferi_v2/workbook04/timed_operational_rehearsal_v2/reviewer_view",
     ),
@@ -147,24 +147,24 @@ TARGETS = (
         "work/pferi_v2/measurement_feasibility/reviewer_interface_dry_run/2026-07-14_v2_blinded_interface_dry_run_v3/machine_static_audit.json",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/measurement_feasibility_pilot/structural_oracle_reliability_audit.json",
+        "work/pferi_v2/gpu/measurement_feasibility/structural_oracle_reliability_audit.json",
         "superseded initial structural-oracle reliability calculation recorded in the iteration lineage",
-        "outputs/pferi_v2/measurement_feasibility_pilot/structural_oracle_reliability_audit_latest.json",
+        "work/pferi_v2/gpu/measurement_feasibility/structural_oracle_reliability_audit_latest.json",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/measurement_feasibility_pilot/structural_oracle_reliability_audit_v2.json",
+        "work/pferi_v2/gpu/measurement_feasibility/structural_oracle_reliability_audit_v2.json",
         "superseded intermediate structural-oracle reliability calculation recorded in the iteration lineage",
-        "outputs/pferi_v2/measurement_feasibility_pilot/structural_oracle_reliability_audit_latest.json",
+        "work/pferi_v2/gpu/measurement_feasibility/structural_oracle_reliability_audit_latest.json",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/measurement_feasibility_pilot/v2_local_match_package_audit.json",
+        "work/pferi_v2/gpu/measurement_feasibility/v2_local_match_package_audit.json",
         "audit for a removed initial local-match package; hash and disposition are retained in the iteration lineage",
-        "outputs/pferi_v2/measurement_feasibility_pilot/final_local_match_package_v2.audit.json",
+        "work/pferi_v2/gpu/measurement_feasibility/final_local_match_package_v2.audit.json",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/measurement_feasibility_pilot/v2_local_match_kaggle_package_audit.json",
+        "work/pferi_v2/gpu/measurement_feasibility/v2_local_match_kaggle_package_audit.json",
         "audit for the superseded matcher-v1 Kaggle package; hash and disposition are retained in the iteration lineage",
-        "outputs/pferi_v2/measurement_feasibility_pilot/final_local_match_package_v2.audit.json",
+        "work/pferi_v2/gpu/measurement_feasibility/final_local_match_package_v2.audit.json",
     ),
     CleanupTarget(
         "work/pferi_v2/measurement_feasibility/final_local_match_package_v2",
@@ -196,9 +196,9 @@ TARGETS = (
         "b8eec5b3b5cd97a9f77a300be2340d20f7e5e748de97d178af19d6d009773e46",
     ),
     CleanupTarget(
-        "outputs/pferi_v2/fresh_descriptor_runs/megadescriptor_l_384/embedding_manifest.csv",
+        "work/pferi_v2/gpu/descriptor_runs/megadescriptor_l_384/embedding_manifest.csv",
         "legacy two-column manifest whose ordered image IDs are a strict subset of the retained v2 manifest schema",
-        "outputs/pferi_v2/fresh_descriptor_runs/megadescriptor_l_384/embedding_manifest_v2.csv",
+        "work/pferi_v2/gpu/descriptor_runs/megadescriptor_l_384/embedding_manifest_v2.csv",
         "d9dace67216d85430026bc4dcc3df80ccb9b25b5e9c01416ccfb3303403c3bc1",
     ),
     CleanupTarget(

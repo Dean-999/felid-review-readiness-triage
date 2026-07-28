@@ -19,8 +19,8 @@ from typing import Any, Mapping, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE = ROOT / "data/frozen/pferi_v2/lynx-wild/manifest.csv"
-DEFAULT_OUTPUT = ROOT / "outputs/pferi_v2/czechlynx_v2_image_context.csv"
-DEFAULT_AUDIT = ROOT / "outputs/pferi_v2/czechlynx_v2_image_context_audit.json"
+DEFAULT_OUTPUT = ROOT / "work/pferi_v2/pipeline/descriptor_manifests/czechlynx_v2_image_context.csv"
+DEFAULT_AUDIT = ROOT / "work/pferi_v2/pipeline/descriptor_manifests/czechlynx_v2_image_context_audit.json"
 REQUIRED_SOURCE_COLUMNS = {"species", "decode_status", "final_freeze_image_exists", "final_freeze_sha256", "final_freeze_image_path"}
 OUTPUT_COLUMNS = ["image_id", "image_decode_status", "illumination_metadata", "source_camera_context"]
 

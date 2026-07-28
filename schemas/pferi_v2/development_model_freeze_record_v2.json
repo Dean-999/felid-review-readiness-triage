@@ -1,0 +1,61 @@
+{
+  "schema_version": "pferi_v2_development_model_freeze_record_schema_v2",
+  "purpose": "Define auditable authorization semantics for a prospectively governed independent redevelopment result that freezes P3 and P5 before calibration.",
+  "authorization_rule": {
+    "calibration_may_open_only_if": [
+      "record_validation_status is PASS",
+      "qualification_status is QUALIFIED",
+      "development_model_frozen is true",
+      "active_control_model_id is P3",
+      "full_model_id is P5",
+      "fixed_lambda is 100",
+      "calibration_authorized is true",
+      "confirmation_authorized is false"
+    ],
+    "calibration_authorization_does_not_authorize_confirmation": true,
+    "post_result_threshold_or_model_change_is_prohibited": true
+  },
+  "required_top_level_fields": [
+    "record_version",
+    "status",
+    "record_validation_status",
+    "qualification_status",
+    "development_model_frozen",
+    "active_control_model_id",
+    "full_model_id",
+    "fixed_lambda",
+    "calibration_authorized",
+    "confirmation_authorized",
+    "source_evidence",
+    "qualification_before_performance",
+    "candidate_dispositions",
+    "model_bundle",
+    "binding_decision",
+    "locked_stages",
+    "prohibited_actions",
+    "next_authorized_action",
+    "claim_boundary"
+  ],
+  "permitted_record_validation_status": ["PASS", "FAIL"],
+  "permitted_qualification_status": ["QUALIFIED", "NOT_QUALIFIED"],
+  "required_qualification_rules": [
+    "minimum_independent_redevelopment_coverage",
+    "zero_endpoint_leakage_across_folds",
+    "zero_locked_stage_input_access",
+    "fold_train_only_preprocessing",
+    "finite_probabilities_in_unit_interval",
+    "fixed_stable_regularization",
+    "minimum_weighted_brier_increment",
+    "outer_fold_direction_stability",
+    "acceptable_calibration_intercept_and_slope",
+    "P3_and_P5_differ_only_by_pair_evidence"
+  ],
+  "rule_status_values": ["PASS", "FAIL", "UNRESOLVED"],
+  "candidate_role_constraints": {
+    "active_control_model_id": "P3",
+    "full_model_id": "P5",
+    "P5_incremental_feature_count": 5,
+    "all_other_routes_remain_ineligible": true
+  },
+  "claim_boundary": "A qualifying independent-development record freezes the uncalibrated P3 and P5 specifications and may authorize a separately pre-frozen calibration stage. It does not authorize confirmation or establish deployment performance."
+}

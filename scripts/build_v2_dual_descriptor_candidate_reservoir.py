@@ -7,8 +7,8 @@ from collections import Counter
 ROOT=Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path: sys.path.insert(0,str(ROOT))
 from scripts import build_v2_canonical_pair_contract as contract
-OUT=ROOT/'outputs/pferi_v2/dual_descriptor_queue'
-RUNS={'megadescriptor_l_384': ROOT/'outputs/pferi_v2/fresh_descriptor_runs/megadescriptor_l_384/pair_scores.csv','dinov2_vitl14': ROOT/'outputs/pferi_v2/fresh_descriptor_runs/dinov2_vitl14/scores.csv'}
+OUT=ROOT/'work/pferi_v2/pipeline/dual_descriptor_queue'
+RUNS={'megadescriptor_l_384': ROOT/'work/pferi_v2/gpu/descriptor_runs/megadescriptor_l_384/pair_scores.csv','dinov2_vitl14': ROOT/'work/pferi_v2/gpu/descriptor_runs/dinov2_vitl14/scores.csv'}
 
 def read(path):
     with path.open(newline='',encoding='utf-8') as f:return list(csv.DictReader(f))

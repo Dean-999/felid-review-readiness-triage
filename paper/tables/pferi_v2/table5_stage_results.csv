@@ -1,0 +1,5 @@
+stage,sample,p3_brier,p5_brier,p3_minus_p5,interval_95,decision_threshold,stability_or_coverage,frozen_result,interpretation
+Task15I pooled development,"1,600 pairs; 400 components",0.194909,0.189046,0.005863,not prespecified,>=0.005 point estimate,5/5 folds nonnegative,PASS_TASK15I_DEVELOPMENT_SCREEN,Development qualification
+Task15L calibration,448 pairs,not an outcome-performance stage,not an outcome-performance stage,not applicable,not applicable,Calibration validity only,"2,000 bootstrap replicates",PASS,No external superiority claim
+Task15M/15N execution,889 candidates; 252 supported,not an outcome-performance stage,not an outcome-performance stage,not applicable,not applicable,Validation audit PASS,504 model predictions,PASS_TASK15M_EXECUTION_VALIDATION,Execution integrity only
+Independent outcome analysis,252 supported pairs; 357 endpoints,0.307246,0.509116,-0.201870,"[-0.224671, -0.179068]",Lower 95% bound >0.005,Dyadic endpoint-aware interval,FAIL_PRIMARY_CONFIRMATION,P5 superiority did not reproduce

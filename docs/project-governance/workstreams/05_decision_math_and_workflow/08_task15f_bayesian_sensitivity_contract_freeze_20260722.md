@@ -1,0 +1,9 @@
+# Task 15F Bayesian Sensitivity Contract Freeze
+
+Task 15F-A freezes the mathematical sensitivity analysis before posterior sampling. S3 is a weak-prior Bayesian logistic model on the frozen P5 feature design. S4 adds non-centered crossed endpoint-image random intercepts during training. Because every outer-test component contains unseen endpoints, S4 reports a population-marginal prediction obtained by integrating the combined two-endpoint Gaussian random effect with fixed 20-node Gauss–Hermite quadrature. It may not condition on training image effects or collapse new-image variance to zero.
+
+The pseudo-likelihood retains the outcome-free square-root inverse-probability training rule selected in Task 15B. The fixed-effect prior is Normal(0, 0.5) on each frozen transformed design column, the intercept prior is Student-t with three degrees of freedom and scale 2.5, and the S4 image standard-deviation prior is Half-Normal(0, 0.5). These priors are not chosen from Task 15E coefficient signs or performance. PyMC, sampler, chains, draws, seeds, retry rule, convergence gates, prior-predictive gate, and all required outputs are fixed in `schemas/pferi_v2/task15f_bayesian_sensitivity_contract_v1.json`.
+
+S5 remains a separation diagnostic rather than a competitor. Its numerical trigger thresholds were not quantified before development outcomes were opened, so its output cannot participate in final route selection. The deterministic audit returned `TRIGGERED_DIAGNOSTIC_ONLY`: outer folds 0 and 4 crossed the coefficient and extreme-probability thresholds, while no fold satisfied the complete-separation linear program. The Task 15F execution package must therefore run and label a Firth/FLIC diagnostic, but that output cannot select the final route.
+
+The next authorized action is to build the Task 15F ModelScope CPU package. Calibration, deployment-confirmation, and mechanism-confirmation outcomes remain locked throughout Tasks 15F–15H.

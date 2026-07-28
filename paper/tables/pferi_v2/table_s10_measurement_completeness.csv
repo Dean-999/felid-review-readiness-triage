@@ -1,0 +1,7 @@
+measurement_family,expected_unit,expected_count,observed_count,missing_count,failure_code_distribution,hash_audit,shape_audit,downstream_consequence
+Image decode and quality,image,815,815,0,none=815,PASS,PASS,All images measurable
+MegaDescriptor embeddings,image x 1536,815,815,0,none,PASS,815 x 1536,Top-20 relation available
+DINOv2 embeddings,image x 1024,815,815,0,none,PASS,815 x 1024,Top-20 relation available
+Descriptor pair support,candidate pair,889,889,0,supported=252; unsupported=637,PASS,PASS,252 eligible for scoring
+Local matching,supported pair,252,252,0,none=252,PASS,PASS,P5 pair evidence complete
+Calibrated predictions,supported pair x model,504,504,0,none,PASS,252 x 2,Independent comparison executable

@@ -1,0 +1,11 @@
+# Table 3. Pair inventories, support, and endpoint distributions by stage
+
+The 637 descriptor-unsupported pairs are not 637 human-not-review-ready pairs. Human counts are linked directly to frozen outcome records.
+
+| stage_or_subset | candidate_pairs | analyzable_or_scored_pairs | unique_endpoint_images | endpoint_components | review_ready_n_percent | not_ready_or_uncertain_n_percent | descriptor_supported_n_percent | descriptor_unsupported_n_percent | sampling_or_weighting_role |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Task15I development | 1600 | 1600 | not reported in display source | 400 | 448 (28.0%) | 1152 (72.0%) | not applicable | not applicable | Inverse-square-root inclusion weights |
+| Task15L calibration | 448 | 448 | not reported in display source | not applicable | 86 (19.2%) | 362 (80.8%) | not applicable | not applicable | Calibration only |
+| Task15M full queue | 889 | 252 | 815 | not applicable | 712 (80.1%) | 177 (19.9%) | 252 (28.3%) | 637 (71.7%) | Deployment sampling probabilities |
+| Task15M descriptor-supported | 252 | 252 | 357 in final analysis | not applicable | 218 (86.5%) | 34 (13.5%) | 252 (100.0%) | 0 (0.0%) | Primary independent comparison subset |
+| Task15M descriptor-unsupported | 637 | 0 | not separately frozen | not applicable | 494 (77.6%) | 143 (22.4%) | 0 (0.0%) | 637 (100.0%) | Excluded by Gate 1; outcomes descriptive only |

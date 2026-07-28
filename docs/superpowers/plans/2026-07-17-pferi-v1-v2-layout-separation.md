@@ -39,7 +39,7 @@ def test_plan_separates_scientific_generations(tmp_path):
     plan = migration.build_plan(tmp_path)
     assert destination(plan, "outputs/final_freeze/a.jpg") == "data/frozen/pferi_v2/a.jpg"
     assert destination(plan, "outputs/modeling-validation/v1.csv") == "archive/pferi_v1/outputs/modeling-validation/v1.csv"
-    assert destination(plan, "outputs/v2_candidate_reservoir/ws04.csv") == "outputs/pferi_v2/ws04.csv"
+    assert destination(plan, "outputs/v2_candidate_reservoir/ws04.csv") == "archive/pferi_v2/task_runs/ws04.csv"
 ```
 
 - [ ] **Step 2: Run tests and confirm they fail before implementation**
@@ -74,7 +74,7 @@ Expected: all migration tests pass without modifying the real repository.
 **Files:**
 - Move: `outputs/final_freeze/` → `data/frozen/pferi_v2/`
 - Move: legacy output areas → `archive/pferi_v1/outputs/`
-- Move: `outputs/v2_candidate_reservoir/` → `outputs/pferi_v2/`
+- Move: `outputs/v2_candidate_reservoir/` → `archive/pferi_v2/task_runs/`
 - Move: v2 execution packages → `work/pferi_v2/`
 - Move: transfer ZIPs → `artifacts/transfers/pferi_v2/`
 - Move: `outputs/.ua/` → `.ua/outputs-analysis/`
@@ -158,7 +158,7 @@ Expected: only reconstructable duplicate work images are removed; no frozen file
 
 - [ ] **Step 1: Update boundary documentation and ignore rules**
 
-Document `data/frozen/pferi_v2`, `outputs/pferi_v2`, `archive/pferi_v1`, `work/pferi_v2`, and `artifacts/transfers/pferi_v2`, including how to materialize deduplicated work images.
+Document `data/frozen/pferi_v2`, `archive/pferi_v2/task_runs`, `archive/pferi_v1`, `work/pferi_v2`, and `artifacts/transfers/pferi_v2`, including how to materialize deduplicated work images.
 
 - [ ] **Step 2: Run Workbook04 and v2 regression tests**
 

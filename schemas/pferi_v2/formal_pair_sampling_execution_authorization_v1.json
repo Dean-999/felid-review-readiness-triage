@@ -1,0 +1,28 @@
+{
+  "authorization_version": "pferi_v2_formal_pair_sampling_execution_authorization_v1",
+  "status": "authorized_by_project_owner_20260720",
+  "authorization_date": "2026-07-20",
+  "authorization_basis": "The project owner explicitly instructed Codex to proceed after reviewing the one-time formal sampling boundary.",
+  "authorized_action": "Execute exactly one deterministic formal draw of 445 development, 445 calibration, 889 deployment-confirmation, and 445 mechanism-confirmation canonical pairs under the accepted contracts and official seed.",
+  "immutable_inputs": {
+    "post_allocation_derivation_contract_sha256": "6a1f5dc28c9ac48122eee773e5caf8422dd0dda0c98a29b78557c4b8b73f1f29",
+    "four_stage_stratified_sampling_contract_sha256": "d58f7f8ed58fb42836a49591cda829fa27daf687a2830be7f6c028be36b1803e",
+    "official_sampling_seed_record_sha256": "741fa0e95a9b727902475481ee3ac9b7f841af220c9c65e554c3ab82cfca942b",
+    "restricted_master_derivation_frame_sha256": "764cf1ca0539a1e82bc8af136ce1db81f0a30482cc49e5ae6afe23a5e6730fab",
+    "planned_allocation_quotas_sha256": "7efcec426a79a1cca2d110f9e8bb7b51496d3864b777ac93044d515195f66a9f",
+    "post_allocation_capacity_audit_sha256": "269336de0b71b37cbbfbe8e8ef875aafcf10c3e6da868d196443d8cdfe1081c5",
+    "preflight_checksums_sha256": "15cfec5a6dd0d2589c1fef2bfd175a36831aef53642a4b64a5698b2e50830149"
+  },
+  "execution_guards": {
+    "formal_pair_selection_authorized": true,
+    "single_execution_only": true,
+    "existing_final_directory_must_abort": true,
+    "prng_allowed": false,
+    "reroll_allowed": false,
+    "manual_replacement_allowed": false,
+    "post_selection_degree_optimization_allowed": false,
+    "reviewer_packet_authorized": false,
+    "outcome_access_authorized": false
+  },
+  "required_terminal_state": "Either an atomically frozen checksum-protected PASS artifact or no formal artifact at all."
+}
