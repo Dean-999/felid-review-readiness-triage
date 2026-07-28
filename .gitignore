@@ -13,6 +13,11 @@ outputs/
 .codegraph/
 __pycache__/
 *.pyc
+.coverage
+.pytest_cache/
+.ruff_cache/
+tmp/
+/*.pdf
 
 # Repowise local index/cache (keep the portable repository config)
 .repowise/*
@@ -32,8 +37,20 @@ archive/pferi_v1/*
 !archive/pferi_v1/README.md
 !archive/pferi_v1/reproducibility/
 !archive/pferi_v1/reproducibility/**
+archive/pferi_v2/*
+!archive/pferi_v2/README.md
 work/pferi_v2/*
 !work/pferi_v2/README.md
 .ua/outputs-analysis/
 artifacts/transfers/pferi_v2/*
 !artifacts/transfers/pferi_v2/README.md
+
+# Local scientific runtime payloads. Commit their source manifests, hashes,
+# and governance records, not posterior draws, embeddings, or raw responses.
+*.nc
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.joblib
+*.pkl

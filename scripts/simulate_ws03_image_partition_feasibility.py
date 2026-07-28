@@ -316,12 +316,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--canonical-pairs",
         type=Path,
-        default=ROOT / "outputs/pferi_v2/dual_descriptor_queue/canonical_pairs.csv",
+        default=ROOT / "work/pferi_v2/pipeline/dual_descriptor_queue/canonical_pairs.csv",
     )
     parser.add_argument(
         "--memberships",
         type=Path,
-        default=ROOT / "outputs/pferi_v2/dual_descriptor_queue/candidate_memberships.csv",
+        default=ROOT / "work/pferi_v2/pipeline/dual_descriptor_queue/candidate_memberships.csv",
     )
     parser.add_argument(
         "--scenario-config",
@@ -331,7 +331,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=ROOT / "outputs/pferi_v2/information_partitioning/2026-07-14_nonbinding_partition_feasibility_v1",
+        default=ROOT / "archive/pferi_v2/task_runs/information_partitioning/2026-07-14_nonbinding_partition_feasibility_v1",
     )
     return parser.parse_args()
 

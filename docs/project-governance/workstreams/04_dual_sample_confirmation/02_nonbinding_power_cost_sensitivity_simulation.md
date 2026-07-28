@@ -1,6 +1,6 @@
 # Task 02: Nonbinding Graph-Aware Power and Workload Sensitivity Simulation
 
-Status: complete — outcome-free sensitivity results are archived; no official target, seed, or reviewer packet is authorized.  
+Status: complete — outcome-free sensitivity results are archived; no official target, seed, or reviewer packet is authorized.
 Workstream: 04 — Dual-Sample Confirmatory Design.
 
 ## Aim
@@ -19,4 +19,4 @@ The generated outputs demonstrate how assumptions change required precision and 
 
 ## Reproducibility
 
-The nonbinding scenario configuration is `schemas/pferi_v2/nonbinding_power_cost_sensitivity_scenarios_v1.json`, and the executable is `scripts/simulate_ws04_power_cost_sensitivity.py`. Its audit, tables, prose report, and power-curve illustration are archived under `outputs/pferi_v2/dual_sample_confirmation/2026-07-14_nonbinding_power_cost_sensitivity_v1/`. The randomized graph draws use a nonofficial simulation seed and are not an allocation or sampling seed.
+The nonbinding scenario configuration is `schemas/pferi_v2/nonbinding_power_cost_sensitivity_scenarios_v1.json`, and the executable is `scripts/simulate_ws04_power_cost_sensitivity.py`. Its audit, tables, prose report, and power-curve illustration are archived under `archive/pferi_v2/task_runs/dual_sample_confirmation/2026-07-14_nonbinding_power_cost_sensitivity_v1/`. The randomized graph draws use a nonofficial simulation seed and are not an allocation or sampling seed.

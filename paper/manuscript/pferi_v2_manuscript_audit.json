@@ -1,0 +1,36 @@
+{
+  "audit_version": "pferi_v2_manuscript_audit_v1",
+  "checked_boundaries": [
+    "internal_task17",
+    "p5_confirmed_superior",
+    "identity_accuracy_improved",
+    "deployment_ready",
+    "fully_clean_claim"
+  ],
+  "checked_required_values": {
+    "calibration_kappa": "0.7802",
+    "confirmation_increment": "-0.201870",
+    "confirmation_kappa": "0.8049",
+    "confirmation_lower": "-0.224671",
+    "confirmation_upper": "-0.179068",
+    "development_increment": "0.005863",
+    "development_kappa": "0.0787",
+    "development_pairs": "1,600",
+    "independent_reviewer_acknowledgement": "four independent reviewers",
+    "major_deviation": "major protocol deviation",
+    "no_competing_interests": "The author declares no competing interests.",
+    "no_external_funding": "This research received no external funding.",
+    "scope_boundary": "execution-validation scope",
+    "sole_author_contribution": "The sole author was responsible for conceptualization",
+    "supported_count": "252",
+    "unsupported_count": "637"
+  },
+  "failures": [],
+  "manuscript": "paper/manuscript/pferi_v2_manuscript_draft.md",
+  "models_refit": false,
+  "reference_doi_count": 13,
+  "remaining_author_metadata_placeholders": [],
+  "status": "PASS",
+  "task15l_parameters_recomputed": false,
+  "word_count": 5558
+}

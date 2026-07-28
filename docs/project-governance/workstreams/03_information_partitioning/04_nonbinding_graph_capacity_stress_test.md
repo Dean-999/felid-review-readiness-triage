@@ -1,6 +1,6 @@
 # Task 04: Nonbinding Graph-Capacity Stress Test
 
-Status: complete — outcome-free graph-capacity feasibility PASS.  
+Status: complete — outcome-free graph-capacity feasibility PASS.
 Workstream: 03 — Development, Calibration, and Confirmation Partitioning.
 
 ## Purpose
@@ -27,4 +27,4 @@ The next allocation step must use the Workstream 04 numerical decision to select
 
 ## Reproducibility
 
-The scenario configuration is `schemas/pferi_v2/nonbinding_image_partition_feasibility_scenarios_v1.json`. The executable simulation is `scripts/simulate_ws03_image_partition_feasibility.py`, and the archived audit, per-seed counts, summary table, and generated report are stored at `outputs/pferi_v2/information_partitioning/2026-07-14_nonbinding_partition_feasibility_v1/`. The simulation reads only the frozen canonical-pair and descriptor-membership manifests.
+The scenario configuration is `schemas/pferi_v2/nonbinding_image_partition_feasibility_scenarios_v1.json`. The executable simulation is `scripts/simulate_ws03_image_partition_feasibility.py`, and the archived audit, per-seed counts, summary table, and generated report are stored at `archive/pferi_v2/task_runs/information_partitioning/2026-07-14_nonbinding_partition_feasibility_v1/`. The simulation reads only the frozen canonical-pair and descriptor-membership manifests.

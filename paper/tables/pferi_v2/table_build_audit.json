@@ -1,0 +1,461 @@
+{
+  "audit_version": "pferi_v2_manuscript_displays_audit_v1",
+  "figure_count": 6,
+  "figures": [
+    {
+      "figure_id": "graphical_abstract",
+      "formats": "PNG 450 dpi; SVG; PDF",
+      "note": "Identity retrieval and evidence admission are visually separated.",
+      "title": "Graphical abstract"
+    },
+    {
+      "figure_id": "figure1_pair_decision_chain",
+      "formats": "PNG 450 dpi; SVG; PDF",
+      "note": "Two distinct pair-level gates.",
+      "title": "Figure 1. Scientific object and decision chain"
+    },
+    {
+      "figure_id": "figure2_prospective_flow",
+      "formats": "PNG 450 dpi; SVG; PDF",
+      "note": "Counts, freezing, and outcome-access boundaries.",
+      "title": "Figure 2. Prospective study flow"
+    },
+    {
+      "figure_id": "figure3_development_confirmation",
+      "formats": "PNG 450 dpi; SVG; PDF",
+      "note": "Fold points have no prespecified intervals; the independent estimate has a dyadic 95% CI.",
+      "title": "Figure 3. Development and confirmation contrast"
+    },
+    {
+      "figure_id": "figure4_distribution_support_shift",
+      "formats": "PNG 450 dpi; SVG; PDF",
+      "note": "Aligned bars avoid conflating Gate 1 descriptor support with Gate 2 human reviewability.",
+      "title": "Figure 4. Distribution and support shift"
+    },
+    {
+      "figure_id": "figure5_calibration_transport",
+      "formats": "PNG 450 dpi; SVG; PDF",
+      "note": "Descriptive only; no recalibration, refitting, or threshold selection was performed.",
+      "title": "Figure 5. Calibration transport"
+    }
+  ],
+  "main_table_count": 6,
+  "models_refit": false,
+  "scientific_boundaries": [
+    "Descriptor support is not human reviewability.",
+    "Reviewability is not identity truth.",
+    "Operational CONFIRMED is limited to Task15M execution validation.",
+    "Independent P5 superiority was not confirmed."
+  ],
+  "source_manifest_status": "PASS",
+  "status": "PASS",
+  "supplementary_table_count": 16,
+  "table_count": 22,
+  "tables": [
+    {
+      "columns": [
+        "stage",
+        "scientific_purpose",
+        "pair_source",
+        "pair_count",
+        "outcome_access",
+        "permitted_model_action",
+        "dependency_control",
+        "primary_output",
+        "permitted_claim"
+      ],
+      "note": "Operational CONFIRMED is limited to Task15M execution validation; it is not P5 superiority or identity validation.",
+      "row_count": 6,
+      "stem": "table1_study_architecture",
+      "table_id": "TABLE1",
+      "title": "Table 1. Prospective study architecture and information boundaries"
+    },
+    {
+      "columns": [
+        "concept",
+        "unit",
+        "information_used",
+        "decision_question",
+        "positive_state",
+        "negative_state",
+        "role_in_pferi",
+        "not_equivalent_to"
+      ],
+      "note": "The descriptor-support gate, human reviewability endpoint, and identity truth are distinct constructs.",
+      "row_count": 5,
+      "stem": "table2_pair_scientific_object",
+      "table_id": "TABLE2",
+      "title": "Table 2. The pair as the scientific object: two gates and adjacent concepts"
+    },
+    {
+      "columns": [
+        "stage_or_subset",
+        "candidate_pairs",
+        "analyzable_or_scored_pairs",
+        "unique_endpoint_images",
+        "endpoint_components",
+        "review_ready_n_percent",
+        "not_ready_or_uncertain_n_percent",
+        "descriptor_supported_n_percent",
+        "descriptor_unsupported_n_percent",
+        "sampling_or_weighting_role"
+      ],
+      "note": "The 637 descriptor-unsupported pairs are not 637 human-not-review-ready pairs. Human counts are linked directly to frozen outcome records.",
+      "row_count": 5,
+      "stem": "table3_pair_inventories",
+      "table_id": "TABLE3",
+      "title": "Table 3. Pair inventories, support, and endpoint distributions by stage"
+    },
+    {
+      "columns": [
+        "feature_family",
+        "feature_or_block",
+        "unit",
+        "p3_active_control",
+        "p5_full_model",
+        "availability_timing",
+        "transformation",
+        "missingness_handling",
+        "interpretation"
+      ],
+      "note": "P5 equals P3 plus the frozen local pair-evidence block; both use the same model family and lambda.",
+      "row_count": 6,
+      "stem": "table4_model_specification",
+      "table_id": "TABLE4",
+      "title": "Table 4. Nested P3 and P5 model specification"
+    },
+    {
+      "columns": [
+        "stage",
+        "sample",
+        "p3_brier",
+        "p5_brier",
+        "p3_minus_p5",
+        "interval_95",
+        "decision_threshold",
+        "stability_or_coverage",
+        "frozen_result",
+        "interpretation"
+      ],
+      "note": "Brier score is lower-is-better. P3-minus-P5 is positive when P5 performs better.",
+      "row_count": 4,
+      "stem": "table5_stage_results",
+      "table_id": "TABLE5",
+      "title": "Table 5. Development, calibration, execution, and independent outcome results"
+    },
+    {
+      "columns": [
+        "claim",
+        "evidence_stage",
+        "disposition",
+        "quantitative_basis",
+        "permitted_wording",
+        "prohibited_extension"
+      ],
+      "note": "Dispositions and boundaries are copied from the hash-bound manuscript evidence map.",
+      "row_count": 11,
+      "stem": "table6_evidence_claim_matrix",
+      "table_id": "TABLE6",
+      "title": "Table 6. Evidence-to-claim matrix"
+    },
+    {
+      "columns": [
+        "dataset_or_reservoir",
+        "species",
+        "source_institution",
+        "license",
+        "image_or_pair_count",
+        "identity_availability",
+        "geographic_sensitivity",
+        "publication_permission",
+        "repository_access_class",
+        "manuscript_role"
+      ],
+      "note": "This display does not grant image-publication rights; rights must be verified before representative photographs are used.",
+      "row_count": 3,
+      "stem": "table_s1_dataset_provenance",
+      "table_id": "TABLE",
+      "title": "Table S1. Dataset provenance, licenses, and access restrictions"
+    },
+    {
+      "columns": [
+        "stage",
+        "source_reservoir",
+        "selection_rule",
+        "pair_count",
+        "endpoint_image_count",
+        "component_count",
+        "pair_overlap_with_earlier_stages",
+        "endpoint_overlap",
+        "identity_overlap",
+        "seed",
+        "sampling_probability",
+        "audit_status"
+      ],
+      "note": "Unavailable fields are stated explicitly rather than inferred.",
+      "row_count": 3,
+      "stem": "table_s2_sampling_nonoverlap",
+      "table_id": "TABLE",
+      "title": "Table S2. Pair sampling frames and non-overlap checks"
+    },
+    {
+      "columns": [
+        "instrument_item",
+        "definition",
+        "reviewer_visible_information",
+        "role_in_eligibility",
+        "role_in_endpoint",
+        "analysis_treatment"
+      ],
+      "note": "The endpoint is visual reviewability, not identity truth.",
+      "row_count": 8,
+      "stem": "table_s3_review_instrument",
+      "table_id": "TABLE",
+      "title": "Table S3. Human review instrument and adjudication rules"
+    },
+    {
+      "columns": [
+        "stage",
+        "pair_count",
+        "first_pass_response_count",
+        "three_category_exact_agreement",
+        "binary_agreement",
+        "cohen_kappa_binary",
+        "disagreement_count",
+        "adjudication_count",
+        "interpretation"
+      ],
+      "note": "Agreement is deterministically recomputed from frozen first-pass labels. Cohen's kappa uses the binary review-ready versus not-ready-or-uncertain mapping.",
+      "row_count": 3,
+      "stem": "table_s4_reviewer_agreement",
+      "table_id": "TABLE",
+      "title": "Table S4. Reviewer agreement and endpoint reliability by stage"
+    },
+    {
+      "columns": [
+        "outer_fold",
+        "validation_pair_count",
+        "validation_component_count",
+        "p3_brier",
+        "p5_brier",
+        "p3_minus_p5",
+        "direction",
+        "endpoint_leakage_count",
+        "fixed_lambda"
+      ],
+      "note": "Positive P3-minus-P5 values favor P5; lower Brier scores are better.",
+      "row_count": 6,
+      "stem": "table_s5_task15i_folds",
+      "table_id": "TABLE",
+      "title": "Table S5. Task15I component-disjoint fold results"
+    },
+    {
+      "columns": [
+        "source_field",
+        "scientific_family",
+        "unit",
+        "raw_type",
+        "transformation",
+        "training_fold_statistic",
+        "missing_state_encoding",
+        "p3_inclusion",
+        "p5_inclusion",
+        "outcome_availability_prohibition",
+        "interpretation_boundary"
+      ],
+      "note": "Generated directly from the frozen feature-preprocessing contract.",
+      "row_count": 10,
+      "stem": "table_s6_predictor_dictionary",
+      "table_id": "TABLE",
+      "title": "Table S6. Complete predictor and preprocessing dictionary"
+    },
+    {
+      "columns": [
+        "model",
+        "transformed_feature",
+        "coefficient",
+        "intercept_indicator",
+        "lambda",
+        "coefficient_scale",
+        "source_bundle_field",
+        "interpretation_note"
+      ],
+      "note": "Coefficients are copied without refitting from the Task15J final model bundle.",
+      "row_count": 43,
+      "stem": "table_s7_frozen_coefficients",
+      "table_id": "TABLE",
+      "title": "Table S7. Frozen P3 and P5 coefficients"
+    },
+    {
+      "columns": [
+        "model",
+        "calibration_pair_count",
+        "class_counts",
+        "raw_probability_range",
+        "intercept",
+        "slope",
+        "convergence_status",
+        "bootstrap_replicates",
+        "calibrated_probability_valid",
+        "model_refit",
+        "feature_change",
+        "lambda_change",
+        "threshold_created"
+      ],
+      "note": "Stored intercepts and slopes are reported exactly; this builder does not recalculate them.",
+      "row_count": 2,
+      "stem": "table_s8_calibration_details",
+      "table_id": "TABLE",
+      "title": "Table S8. Task15L calibration details"
+    },
+    {
+      "columns": [
+        "support_category",
+        "formal_definition",
+        "directed_top20_requirement",
+        "pair_count",
+        "percentage_of_889",
+        "scoring_eligibility",
+        "local_match_eligibility",
+        "prediction_count",
+        "interpretation"
+      ],
+      "note": "Support is a descriptor-relation property, not a human endpoint.",
+      "row_count": 3,
+      "stem": "table_s9_descriptor_support",
+      "table_id": "TABLE",
+      "title": "Table S9. Task15M descriptor pair-support taxonomy"
+    },
+    {
+      "columns": [
+        "measurement_family",
+        "expected_unit",
+        "expected_count",
+        "observed_count",
+        "missing_count",
+        "failure_code_distribution",
+        "hash_audit",
+        "shape_audit",
+        "downstream_consequence"
+      ],
+      "note": "Counts are tied to the Task15N execution freeze and frozen execution outputs.",
+      "row_count": 6,
+      "stem": "table_s10_measurement_completeness",
+      "table_id": "TABLE",
+      "title": "Table S10. Technical measurement completeness and failure inventory"
+    },
+    {
+      "columns": [
+        "stage_or_subset",
+        "pair_count",
+        "review_ready_count_percent",
+        "not_ready_or_uncertain_count_percent",
+        "descriptor_support_composition",
+        "median_p3_probability",
+        "median_p5_probability",
+        "probability_range",
+        "role_in_analysis"
+      ],
+      "note": "Descriptive distribution shifts are not evidence of a causal mediation mechanism.",
+      "row_count": 4,
+      "stem": "table_s11_transport_diagnostics",
+      "table_id": "TABLE",
+      "title": "Table S11. Endpoint prevalence and transport diagnostics"
+    },
+    {
+      "columns": [
+        "summary_group",
+        "pair_count",
+        "weighted_mean_p3_loss",
+        "weighted_mean_p5_loss",
+        "p3_minus_p5",
+        "pairs_favoring_p3",
+        "pairs_favoring_p5",
+        "inclusion_weight_effective_n",
+        "unique_endpoint_count",
+        "maximum_endpoint_degree",
+        "independent_row_se",
+        "dyadic_se",
+        "analysis_status"
+      ],
+      "note": "Only the all-supported-pairs row is the preplanned primary result; label-stratified rows are post hoc descriptive diagnostics.",
+      "row_count": 3,
+      "stem": "table_s12_pair_loss_diagnostics",
+      "table_id": "TABLE",
+      "title": "Table S12. Pair-level confirmation loss diagnostics"
+    },
+    {
+      "columns": [
+        "issue",
+        "stage_detected",
+        "original_disposition",
+        "retained_evidence",
+        "retrospective_resolution",
+        "fields_accepted",
+        "fields_excluded",
+        "effect_on_analysis",
+        "disclosure_wording",
+        "fully_clean_preregistered_confirmation_authorized"
+      ],
+      "note": "Human authorship is accepted; the collection cannot be represented as a fully clean preregistered confirmation.",
+      "row_count": 4,
+      "stem": "table_s13_protocol_deviations",
+      "table_id": "TABLE",
+      "title": "Table S13. Human provenance and protocol-deviation register"
+    },
+    {
+      "columns": [
+        "component",
+        "script",
+        "environment_or_runtime",
+        "dependency_version",
+        "input_contract",
+        "input_sha256",
+        "output_artifact",
+        "output_sha256",
+        "deterministic_seed",
+        "automated_test",
+        "verification_status"
+      ],
+      "note": "The source-manifest builder verifies each frozen input hash before manuscript displays are generated.",
+      "row_count": 26,
+      "stem": "table_s14_reproducibility",
+      "table_id": "TABLE",
+      "title": "Table S14. Reproducibility environment and artifact integrity"
+    },
+    {
+      "columns": [
+        "analysis",
+        "planning_status",
+        "information_access_timing",
+        "primary_inference_eligible",
+        "result_status",
+        "inclusion_or_exclusion_reason"
+      ],
+      "note": "Only the frozen independent supported-pair comparison is eligible for the v2 primary external-inference statement.",
+      "row_count": 6,
+      "stem": "table_s15_sensitivity_registry",
+      "table_id": "TABLE",
+      "title": "Table S15. Sensitivity and alternative-analysis registry"
+    },
+    {
+      "columns": [
+        "manuscript_section",
+        "display_item",
+        "reported_number",
+        "exact_field_or_aggregation",
+        "source_id",
+        "source_path",
+        "sha256",
+        "generation_command",
+        "verification_status"
+      ],
+      "note": "This internal submission audit connects headline numbers to hash-bound frozen artifacts.",
+      "row_count": 5,
+      "stem": "table_s16_number_source_trace",
+      "table_id": "TABLE",
+      "title": "Table S16. Manuscript number-to-source trace"
+    }
+  ],
+  "task15l_parameters_recomputed": false
+}

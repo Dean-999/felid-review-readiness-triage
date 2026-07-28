@@ -1,0 +1,76 @@
+{
+  "contract_version": "pferi_v2_formal_review_instrument_contract_v1",
+  "status": "four_reviewer_count_confirmed_pending_restricted_roster_and_interface_audit",
+  "confirmed_distinct_reviewer_count": 4,
+  "source_formal_manifest_sha256": "8c8407e155d92b0bc51d2300b365f4ab30f96bc70404f47217dba377ef0bdabf",
+  "review_unit": "one frozen canonical unordered pair displayed as two neutrally rendered images",
+  "reviewer_question": "Do these two images contain enough comparable visible evidence for a responsible individual-level comparison?",
+  "identity_assignment_requested": false,
+  "decision_values": [
+    "review_ready",
+    "not_review_ready",
+    "uncertain"
+  ],
+  "reason_code_values": [
+    "none_review_ready",
+    "low_evidence",
+    "non_comparable",
+    "both_low_evidence_and_non_comparable",
+    "other"
+  ],
+  "confidence_values": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "reason_rule": "none_review_ready is permitted only with review_ready; not_review_ready and uncertain require one or more non-none reason codes.",
+  "technical_problem_rule": "A technical problem is not a semantic outcome. The task remains unresolved and must be repaired or re-presented under an immutable incident record.",
+  "first_pass_rule": "Every formal pair receives two independent first-pass judgements from two different registered people.",
+  "first_pass_disagreement_rule": "Any exact disagreement among the three decision values triggers third-person adjudication.",
+  "adjudication_rule": "The adjudicator did not first-pass that pair, sees the same neutral images, receives no prior response, and supplies a fresh blinded decision. That adjudication decision is the final three-category decision for the disagreed pair; all raw decisions remain immutable.",
+  "minimum_distinct_people": 3,
+  "recommended_distinct_people": 4,
+  "reviewer_visible_packet_columns": [
+    "review_packet_id",
+    "left_asset_token",
+    "right_asset_token",
+    "instrument_version",
+    "review_form_schema_version"
+  ],
+  "raw_response_columns": [
+    "review_packet_id",
+    "raw_reviewer_response_id",
+    "review_decision",
+    "reason_codes",
+    "confidence",
+    "optional_note",
+    "submitted_at_utc",
+    "technical_problem_flag"
+  ],
+  "rendering_rule": "Apply EXIF orientation, decode to RGB, preserve the full oriented pixel dimensions, write lossless PNG with metadata removed, and perform no crop, resize, enhancement, denoising, sharpening, or content edit.",
+  "asset_token_scope": "opaque token is scoped to reviewer code and source image; tokens differ across reviewer packages",
+  "first_pass_interface_prohibitions": [
+    "canonical pair or image identifiers",
+    "source filenames or paths",
+    "descriptor names, scores, ranks, or memberships",
+    "PF-ERI or automatic feature measurements",
+    "sampling stage, stratum, cell, or inclusion probability",
+    "identity truth or identity inference",
+    "peer or prior responses",
+    "search, sort, filter, bulk download, or hidden metadata controls"
+  ],
+  "release_gates": [
+    "actual opaque codes map to distinct accountable people in a restricted roster",
+    "training and conflict attestations pass",
+    "every pair has two distinct first-pass people",
+    "every pair has at least one eligible third person",
+    "static field and asset audit passes",
+    "independent non-reviewer real-browser leakage audit passes"
+  ],
+  "authorization": {
+    "assignment_planning_authorized": true,
+    "candidate_packet_build_authorized": true,
+    "packet_release_authorized": false,
+    "outcome_collection_authorized": false
+  }
+}

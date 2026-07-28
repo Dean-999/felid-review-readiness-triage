@@ -1,0 +1,71 @@
+{
+  "contract_version": "pferi_v2_feature_preprocessing_contract_v1",
+  "status": "FROZEN_BEFORE_MODEL_FITTING",
+  "source_model_registry_version": "pferi_v2_model_route_candidate_registry_v1",
+  "permitted_outcome_column": "review_ready_label",
+  "fit_scope": "fit a new transformer inside every inner-training fold and every outer-training fold; fit once on all development rows only after final hyperparameters are frozen",
+  "feature_blocks": {
+    "descriptor": {
+      "continuous": [
+        "megadescriptor_within_role_percentile",
+        "dinov2_within_role_percentile"
+      ],
+      "categorical": [
+        "descriptor_support_category"
+      ]
+    },
+    "independent_quality": {
+      "continuous": [
+        "endpoint_native_pixel_quality_percentile_min",
+        "endpoint_sharpness_quality_percentile_min",
+        "endpoint_exposure_quality_percentile_min"
+      ],
+      "categorical": [
+        "endpoint_quality_measurement_failure",
+        "endpoint_frozen_quality_stress"
+      ]
+    },
+    "pair_evidence": {
+      "continuous": [
+        "local_match_coverage_fraction"
+      ],
+      "categorical": [
+        "local_match_measurement_failure"
+      ]
+    }
+  },
+  "continuous_policy": {
+    "coercion": "numeric conversion; non-finite values become missing",
+    "imputation": "training-fold median",
+    "all_missing_training_feature": "hard failure",
+    "missing_indicator": "always emit one explicit binary missing indicator per continuous feature",
+    "scaling": "subtract imputed training-fold mean and divide by imputed training-fold population standard deviation",
+    "constant_scale": "replace a non-finite or <1e-12 standard deviation with 1.0"
+  },
+  "categorical_policy": {
+    "canonicalization": "booleans map to true/false; other values use stripped string representation",
+    "missing_token": "__MISSING__",
+    "unknown_token": "__UNKNOWN__",
+    "reference": "lexicographically first observed non-special training level; if no non-special level exists, drop no level",
+    "encoding": "one-hot encode all observed non-reference levels and always emit __MISSING__ and __UNKNOWN__ columns",
+    "unseen_validation_level": "map to __UNKNOWN__"
+  },
+  "output_policy": {
+    "intercept": "model fitting adds one unpenalized intercept; transformer emits no intercept",
+    "column_order": "registered block order, then continuous standardized value and missing indicator, then categorical encoded levels in lexicographic order with missing and unknown last",
+    "finite_output_required": true,
+    "P3_P5_invariant": "P5 design columns equal P3 design columns followed only by pair_evidence columns"
+  },
+  "prohibited": [
+    "global preprocessing before folds",
+    "outcome-target encoding",
+    "outcome-dependent imputation",
+    "SMOTE",
+    "over-sampling",
+    "under-sampling",
+    "balanced class weights",
+    "encoding a failed local measurement as zero evidence",
+    "using diagnostic_only fields as predictors"
+  ],
+  "claim_boundary": "This contract fixes feature lineage and preprocessing behavior. It fits no predictive model, estimates no performance, and does not authorize calibration or confirmation outcome access."
+}

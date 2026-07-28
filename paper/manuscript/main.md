@@ -1,6 +1,6 @@
 # Similarity Is Not Admissibility: Pair-Level Evidence Admission for Wildlife Re-Identification Candidate Review
 
-> **Historical v1 manuscript under submission lock.** This draft contains exploratory analyses that do not satisfy the PF-ERI v2 confirmation contract. It is retained for provenance and cannot be submitted, cited as a final result, or updated with v2 language until v2 raw logs, manifests, and confirmatory analyses are frozen.
+> **Historical v1 manuscript under submission lock.** This draft contains exploratory analyses that do not satisfy the PF-ERI v2 confirmation contract. It is retained for provenance and cannot be submitted or cited as a final v2 result. The controlled v2 integration in `paper/manuscript/pferi_v2_claim_integration.md` records Task17's negative primary confirmation result: P5 did not meet the frozen independent confirmation criterion against P3.
 
 Author list: [to be completed]
 

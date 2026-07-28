@@ -34,36 +34,23 @@ class ExclusionSource:
 DEFAULT_SOURCES = (
     ExclusionSource(
         "measurement_feasibility_pilot",
-        ROOT / "outputs/pferi_v2/measurement_feasibility_pilot/restricted_pilot_manifest.csv",
+        ROOT / "work/pferi_v2/gpu/measurement_feasibility/restricted_pilot_manifest.csv",
     ),
     ExclusionSource(
         "reviewer_interface_dry_run",
         ROOT
-        / "work/pferi_v2/measurement_feasibility/reviewer_interface_dry_run"
-        / "2026-07-14_v2_blinded_interface_dry_run_v1/restricted/restricted_linkage.csv",
-    ),
-    ExclusionSource(
-        "reviewer_interface_dry_run",
-        ROOT
-        / "work/pferi_v2/measurement_feasibility/reviewer_interface_dry_run"
-        / "2026-07-14_v2_blinded_interface_dry_run_v2/restricted/restricted_linkage.csv",
-    ),
-    ExclusionSource(
-        "reviewer_interface_dry_run",
-        ROOT
-        / "work/pferi_v2/measurement_feasibility/reviewer_interface_dry_run"
-        / "2026-07-14_v2_blinded_interface_dry_run_v3/restricted/restricted_linkage.csv",
+        / "work/pferi_v2/review/interface_dry_run/restricted/restricted_linkage.csv",
     ),
     ExclusionSource(
         "timed_operational_rehearsal_v1_retired",
         ROOT
-        / "outputs/pferi_v2/dual_sample_confirmation"
+        / "archive/pferi_v2/task_runs/dual_sample_confirmation"
         / "timed_operational_rehearsal_v1_retired_pair_ids.csv",
     ),
     ExclusionSource(
         "timed_operational_rehearsal_v2",
         ROOT
-        / "outputs/pferi_v2/dual_sample_confirmation"
+        / "archive/pferi_v2/task_runs/dual_sample_confirmation"
         / "2026-07-15_timed_operational_rehearsal_v2/restricted/restricted_linkage.csv",
     ),
 )
@@ -186,7 +173,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument(
         "--canonical-pairs",
         type=Path,
-        default=ROOT / "outputs/pferi_v2/dual_descriptor_queue/canonical_pairs.csv",
+        default=ROOT / "work/pferi_v2/pipeline/dual_descriptor_queue/canonical_pairs.csv",
     )
     parser.add_argument("--output-csv", type=Path, required=True)
     parser.add_argument("--audit-json", type=Path, required=True)

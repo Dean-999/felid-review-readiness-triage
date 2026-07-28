@@ -65,7 +65,7 @@ permit access to outcome data.
 - Historical result tables and audits live under `archive/pferi_v1/outputs/`.
   They are not v2 evidence unless an active contract names a compact frozen input
   explicitly.
-- Current v2 generated results live only under `outputs/pferi_v2/`.
+- Current v2 generated results live only under `archive/pferi_v2/task_runs/`.
 - Reconstructable execution packages live under `work/pferi_v2/`; transfer ZIPs
   live under `artifacts/transfers/pferi_v2/`. Use the dry-run-first cleanup and
   materialization scripts for lifecycle operations.

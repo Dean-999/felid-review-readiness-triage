@@ -2,7 +2,7 @@
 
 Status: execution complete; accepted as `measurement_ready_with_reduced_feature_set` at the automatic-quality branch level.
 
-The local CPU reference environment was tested with the locked Mask R-CNN coverage extractor and found unable to maintain stable memory across the 305-image batch. This is an environment limitation, not a missing-value result and not evidence against the feature. No partial output table was retained. The completed CUDA result is archived at `outputs/pferi_v2/measurement_feasibility_pilot/automatic_quality_runs/2026-07-14_gpu_cuda_protocol_v1/`.
+The local CPU reference environment was tested with the locked Mask R-CNN coverage extractor and found unable to maintain stable memory across the 305-image batch. This is an environment limitation, not a missing-value result and not evidence against the feature. No partial output table was retained. The completed CUDA result is archived at `work/pferi_v2/gpu/measurement_feasibility/automatic_quality/`.
 
 The restricted package contains exactly the 305 unique images used by the 160-pair outcome-free pilot. Its audit is PASS with zero SHA256 failures. Upload the ZIP, `restricted_quality_execution_manifest.csv`, and `run_v2_pilot_quality_measurements.py` to a Colab or Kaggle GPU environment. Extract the ZIP without changing files, then run the script with `--image-root` pointing to `v2_descriptor_execution_package/images`, `--allow-weight-download`, and the same three input manifests. The script re-verifies every extracted file against the manifest before decoding.
 

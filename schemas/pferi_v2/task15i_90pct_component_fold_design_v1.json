@@ -1,0 +1,18 @@
+{
+  "registry_version": "pferi_v2_component_disjoint_fold_design_v1",
+  "status": "FROZEN_BEFORE_NEW_DEVELOPMENT_OUTCOME_USE",
+  "allocation_seed": "PF-ERI-v2-Task15I-90pct-20260726",
+  "outcome_policy": "PROHIBITED",
+  "independent_unit": "transitive connected component of the frozen Task15I independent endpoint-image candidate graph",
+  "outer_fold_count": 5,
+  "inner_fold_count": 4,
+  "outer_design": "assign complete endpoint components to five validation folds",
+  "inner_design": "within each outer-training set, reassign complete endpoint components to four inner validation folds",
+  "assignment_algorithm": "deterministic largest-component-first greedy minimization followed by deterministic improving component moves",
+  "balance_columns": ["development_sampling_cell_id", "descriptor_support_category", "development_evidence_state", "best_rank_band", "local_match_measurement_failure", "endpoint_quality_measurement_failure"],
+  "inclusion_probability_bins": 5,
+  "objective_weights": {"pair_count": 10.0, "component_count": 0.5, "each_balance_column_total": 2.0, "inclusion_probability_bin_total": 1.0},
+  "acceptance": {"expected_development_pair_count": 1600, "zero_endpoint_leakage": true, "exact_pair_coverage": true, "deterministic_reproduction": true, "minimum_fold_pair_count_ratio_to_ideal": 0.5, "maximum_fold_pair_count_ratio_to_ideal": 1.5, "all_descriptor_support_levels_in_each_outer_validation_fold": true},
+  "rare_level_policy": "Do not split endpoint components or read outcomes to manufacture balance. Record structurally infeasible sparse support as a warning.",
+  "claim_boundary": "A passing fold audit establishes graph-disjoint prelabel resampling geometry only. It does not estimate model performance or authorize calibration or confirmation outcome access."
+}

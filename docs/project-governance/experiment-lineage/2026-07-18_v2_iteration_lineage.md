@@ -2,7 +2,7 @@
 
 This record preserves the meaning and raw SHA-256 values of superseded machine
 artifacts removed from the active v2 tree on 18 July 2026. Current scientific
-results remain under `outputs/pferi_v2`; delivery media remain under
+results remain under `archive/pferi_v2/task_runs`; delivery media remain under
 `artifacts/transfers/pferi_v2`.
 
 ## Structural-oracle reliability

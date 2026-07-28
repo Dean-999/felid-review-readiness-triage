@@ -1,0 +1,142 @@
+{
+  "contract_version": "pferi_v2_post_allocation_sampling_derivation_contract_v1",
+  "status": "accepted_pre_outcome_owner_approved_20260720",
+  "prepared_date": "2026-07-20",
+  "accepted_date": "2026-07-20",
+  "outcome_access": "none",
+  "parent_sampling_contract": "pferi_v2_four_stage_stratified_sampling_contract_v1",
+  "claim_boundary": "This operational supplement removes implementation ambiguity from the already accepted outcome-free sampling design. It does not change sample sizes, analytical roles, scientific endpoints, the official seed, image allocation, or matcher measurements, and it does not authorize pair selection or outcome collection until owner acceptance and a passing capacity audit.",
+  "immutable_inputs": {
+    "four_stage_sampling_contract_sha256": "d58f7f8ed58fb42836a49591cda829fa27daf687a2830be7f6c028be36b1803e",
+    "official_seed_record_sha256": "741fa0e95a9b727902475481ee3ac9b7f841af220c9c65e554c3ab82cfca942b",
+    "official_image_role_allocation_sha256": "59c4273e97ff84d17c416247208831a68de5751d3f2c60579362476f24d7761b",
+    "within_role_pair_frame_sha256": "f2f9e238787176c4d93e93d139ccb7b58889a65f71a5dd734f4319fa872eeb7b",
+    "restricted_pair_execution_linkage_sha256": "2aa0bce712daf9b3f7f9485754af19136bbaea52f1c3fa7dc42e1e6b5c9019ff",
+    "candidate_memberships_sha256": "78042bbe5adecae39c7d20d2bce0642d478c6a98694ce34db7e68ec12975640a",
+    "automatic_quality_measurements_sha256": "466461a27ea19b8627c29950cb0fd6ec3c99a7aad973b41f90c11e4a436dc733",
+    "image_allocation_strata_preflight_sha256": "1bb2d3cf06b15f2215f7c3273da67b2a41e9ec25d297de6bc66ceca1157961f6",
+    "final_execution_export_sha256": "b7825aceb21777eb6b1c199cd2db1d67deebd2babd2cb49797caf15fb3ea95e2",
+    "merged_canonical_measurements_sha256": "4d742704962d6ad54bd7562a5437af457b66c91d7b7d949575ac781db7f713d2",
+    "full_frame_validation_sha256": "452601571b13ff5af260862fadae5fd7cf7a914891921ef2dc0c93862357cda7"
+  },
+  "join_contract": {
+    "row_unit": "one eligible canonical unordered pair",
+    "required_pair_count": 28295,
+    "execution_to_canonical_join": "restricted_pair_execution_linkage.pair_execution_id is one-to-one with merged canonical_measurements.pair_execution_id and one-to-one with within_role_pair_frame.canonical_pair_id",
+    "required_image_count": 3000,
+    "endpoint_requirement": "both endpoint image IDs must occur exactly once in the official image-role allocation and automatic quality table",
+    "duplicate_policy": "any duplicate join key, missing row, unexpected row, role disagreement, endpoint disagreement, or hash mismatch is a fatal pre-sampling failure"
+  },
+  "numeric_parsing": {
+    "decimal_input": "parse finite base-10 decimal text without locale conversion",
+    "nonfinite_policy": "NaN, positive infinity, and negative infinity are invalid",
+    "comparison_precision": "use parsed numeric values without rounding before ranking; preserve original serialized values in the audit frame"
+  },
+  "percentile_rule": {
+    "name": "within_frame_midrank_empirical_percentile",
+    "formula": "p(x) = (count(v < x) + 0.5 * count(v = x)) / N",
+    "range": "strictly greater than 0 and strictly less than 1 for nonempty frames",
+    "tie_policy": "equal numeric values receive the same percentile and are never split by pair or image ID",
+    "bottom_quintile": "p(x) <= 0.20",
+    "top_quintile": "p(x) >= 0.80",
+    "empty_frame_policy": "fatal error",
+    "singleton_frame_policy": "p(x) = 0.5"
+  },
+  "descriptor_derivation": {
+    "canonical_descriptor_score": "for each canonical pair and descriptor, take the maximum descriptor_similarity across all retained directions and memberships",
+    "percentile_frame": "pairs carrying that descriptor within the same frozen image-allocation role",
+    "higher_score_direction": "higher percentile means higher descriptor similarity",
+    "dual_descriptor_disagreement": "absolute difference between the two within-descriptor, within-role percentiles",
+    "cross_descriptor_raw_score_comparison": "prohibited"
+  },
+  "image_quality_derivation": {
+    "image_percentile_frame": "all 3000 frozen images",
+    "native_pixel_quality_direction": "higher is better",
+    "sharpness_quality_direction": "higher is better",
+    "exposure_clipping_quality_direction": "lower clipping fraction is better; rank negative exposure_clipping_fraction so lower quality percentiles indicate worse clipping",
+    "pair_endpoint_summary": "minimum of the two endpoint quality percentiles for each retained metric",
+    "measurement_failure": "true if either endpoint lacks any required valid retained image-quality measurement"
+  },
+  "local_correspondence_derivation": {
+    "measurement_failure": "canonical failure_code is not none or local_match_coverage_fraction is absent or nonfinite",
+    "valid_zero_policy": "a finite local_match_coverage_fraction equal to zero with failure_code none is a valid observed zero, not missing and not measurement failure",
+    "percentile_frame": "valid canonical local-match coverage values within the same frozen image-allocation role",
+    "higher_coverage_direction": "higher percentile means greater local correspondence"
+  },
+  "development_evidence_state": {
+    "precedence": [
+      "measurement_failure",
+      "evidence_stress",
+      "ordinary"
+    ],
+    "measurement_failure": "any required endpoint image-quality failure or canonical local-correspondence measurement failure",
+    "evidence_stress": "among otherwise valid pairs, at least one endpoint quality summary is in its bottom quintile, or local-correspondence coverage is in its within-role bottom quintile, or a dual-descriptor pair has descriptor-percentile disagreement in the within-role top quintile",
+    "ordinary": "all remaining valid pairs"
+  },
+  "mechanism_challenge_state": {
+    "precedence": [
+      "automatic_measurement_failure",
+      "image_quality_stress",
+      "local_correspondence_bottom_quintile",
+      "descriptor_exclusive",
+      "dual_descriptor_percentile_disagreement_top_quintile",
+      "ordinary_reference"
+    ],
+    "automatic_measurement_failure": "any required endpoint image-quality failure or canonical local-correspondence measurement failure",
+    "image_quality_stress": "either endpoint has frozen image quality_state quality_stress_bottom_quintile",
+    "local_correspondence_bottom_quintile": "valid canonical coverage has within-confirmation-role percentile <= 0.20",
+    "descriptor_exclusive": "descriptor support is megadescriptor_only or dinov2_only",
+    "dual_descriptor_percentile_disagreement_top_quintile": "both descriptors are present and their absolute within-role percentile difference has percentile >= 0.80 among dual-descriptor pairs in the eligible post-deployment mechanism frame",
+    "ordinary_reference": "all remaining pairs"
+  },
+  "seed_derivation": {
+    "official_seed_hex": "af9a4f6fa244186aaed25511ef7c481ca22bb8371c13cbf715853dc6f47f0032",
+    "key_bytes": "decode the 64 lowercase hexadecimal characters as exactly 32 bytes",
+    "algorithm": "HMAC-SHA256",
+    "message_serialization": "UTF-8 JSON array with ensure_ascii=true and separators comma and colon, with no whitespace or trailing newline",
+    "message_fields_in_order": [
+      "contract_version",
+      "analytical_role",
+      "sampling_stage",
+      "cell_id",
+      "ordering_unit_id"
+    ],
+    "ordering_unit_id": "use canonical_pair_id for within-cell pair ordering and the empty string for cell-level integer-allocation tie-breaking",
+    "ordering": "ascending hexadecimal HMAC digest, then ascending canonical_pair_id only for a theoretical digest collision",
+    "permitted_sampling_stages": [
+      "development_within_cell_order",
+      "calibration_within_cell_order",
+      "deployment_within_cell_order",
+      "mechanism_within_cell_order",
+      "allocation_tie_break"
+    ],
+    "prng": "none; cryptographic hash ordering is the deterministic seeded permutation",
+    "reroll": "prohibited"
+  },
+  "sampling_scope_guards": {
+    "region_source_used_as_sampling_stratum": false,
+    "directional_local_match_asymmetry_used_as_sampling_stratum": false,
+    "identity_or_outcome_used": false,
+    "post_outcome_replacement": false,
+    "post_selection_degree_optimization": false,
+    "measurement_failure_exclusion": false
+  },
+  "required_outputs_before_selection": [
+    "restricted outcome-free master derivation frame",
+    "input and output checksum manifest",
+    "join cardinality audit",
+    "percentile and tie audit",
+    "role-by-cell capacity table",
+    "planned allocation quota table",
+    "post-allocation capacity audit with PASS or INSUFFICIENT_FRAME_CAPACITY"
+  ],
+  "authorization": {
+    "owner_acceptance_required": false,
+    "outcome_free_derivation_frame_authorized": true,
+    "capacity_audit_authorized": true,
+    "capacity_audit_required": true,
+    "formal_pair_selection_authorized": false,
+    "reviewer_packet_authorized": false,
+    "outcome_collection_authorized": false
+  }
+}

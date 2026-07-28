@@ -1,0 +1,50 @@
+{
+  "contract_version": "pferi_v2_task17_confirmation_outcome_analysis_contract_v1",
+  "purpose": "Run the one-shot primary confirmation analysis for the Task15M supported-pair subset using locked Task15J models, Task15L calibration, and accepted human outcomes.",
+  "sources": {
+    "task15m_contract": "schemas/pferi_v2/task15m_independent_confirmation_contract_v1.json",
+    "task15n_execution_freeze": "outputs/pferi_v2/models/confirmation/execution_freeze/task15n_confirmation_execution_result_freeze.json",
+    "supported_pair_manifest": "outputs/pferi_v2/models/confirmation/execution_results/supported_pair_manifest.csv",
+    "calibrated_predictions": "outputs/pferi_v2/models/confirmation/execution_results/frozen_model_calibrated_predictions.csv",
+    "legacy_linkage": "archive/pferi_v2/task_runs/model_development/2026-07-27_task15m_independent_confirmation_design_freeze_v1/restricted/legacy_confirmation_linkage.csv",
+    "formal_sampling_manifest": "archive/pferi_v2/task_runs/dual_sample_confirmation/2026-07-20_formal_pair_sampling_v1/restricted_formal_pair_sampling_manifest.csv",
+    "final_adjudicated_outcomes": "outputs/pferi_v2/review/adjudicated_outcomes/final_adjudicated_outcomes.csv",
+    "final_outcome_audit": "outputs/pferi_v2/review/adjudicated_outcomes/final_outcome_audit.json",
+    "sealed_outcome_commitments": "archive/pferi_v2/task_runs/dual_sample_confirmation/2026-07-22_stage_isolated_analysis_inputs_v1/sealed_outcome_commitments.json"
+  },
+  "frozen_sha256": {
+    "task15m_contract": "c32536de506743ba0bd5d177647a3c016c94108af6fdb60ea8dd21490f6015d3",
+    "task15n_execution_freeze": "184f6b8f0bc97811d97dd68aa85dd3a010f4be158cba1581b347e21f05429e74",
+    "supported_pair_manifest": "ee9bad383a0913663d4fb3910c009256a9069d4da4576458e396db342affabfa",
+    "calibrated_predictions": "e2ef4aaa1f57114c94618abefd4609fb847d6f907afcaf554a80094a0db24734",
+    "legacy_linkage": "18baaaad9dc0043772d51e8fd377f9f704a045b59dfa4b1159ea9a4793202fd1",
+    "formal_sampling_manifest": "8c8407e155d92b0bc51d2300b365f4ab30f96bc70404f47217dba377ef0bdabf",
+    "final_adjudicated_outcomes": "d46ae34b056333e54d21e720fc06e22293f69854cb32b4c8bd2907920ba6000f",
+    "final_outcome_audit": "3f4d07891b00060091cf4c4586eae5833150792b1d2d7d2f666b79d026cd70bb",
+    "sealed_outcome_commitments": "309da8acf20c037bf0abab36cce85a864b17d2005f183d571440f8b7e1ccfe56"
+  },
+  "eligibility": {
+    "formal_sampling_stage": "deployment_confirmation",
+    "supported_pair_count": 252,
+    "candidate_pair_count": 889,
+    "unsupported_pair_count": 637,
+    "outcome_commitment_sha256": "337baba5b17af58fab3642256405e0d6284803da28e2af71b8e1e1a1d53931c4",
+    "outcome_label_column": "not_ready_or_uncertain_label"
+  },
+  "primary_analysis": {
+    "estimand": "Hajek-normalized inverse-probability-weighted Brier(P3_calibrated) minus Brier(P5_calibrated)",
+    "positive_direction": "positive favors P5",
+    "interval": "two-sided 95% dyadic cluster-robust sandwich interval using original physical image IDs from the formal outcome records",
+    "minimum_practical_increment": 0.005,
+    "success_rule": "lower_95 > 0.005",
+    "z_critical": 1.959963984540054
+  },
+  "prohibited_actions": [
+    "refit Task15J P3 or P5",
+    "change Task15J preprocessing or lambda",
+    "recalculate Task15L calibration parameters",
+    "replace or add pairs after outcome access",
+    "include the 637 unsupported pairs in the primary analysis",
+    "reuse the superseded wrong-source confirmation analysis"
+  ]
+}

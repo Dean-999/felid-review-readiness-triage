@@ -2,7 +2,7 @@
 
 Status: ready for external execution.
 
-The v2 descriptor queue must be generated afresh, not imported from Phase18 or any other historical embedding output. Use the restricted execution manifest at `outputs/pferi_v2/restricted_descriptor_execution_manifest.csv`. It includes only opaque v2 image identifiers, image paths relative to the project root, and content hashes. Do not expose this file, source images, scores, ranks, or queues to outcome reviewers.
+The v2 descriptor queue must be generated afresh, not imported from Phase18 or any other historical embedding output. Use the restricted execution manifest at `work/pferi_v2/pipeline/descriptor_manifests/restricted_descriptor_execution_manifest.csv`. It includes only opaque v2 image identifiers, image paths relative to the project root, and content hashes. Do not expose this file, source images, scores, ranks, or queues to outcome reviewers.
 
 In Colab or Kaggle, copy the frozen CzechLynx image directory and this manifest into the working storage, preserving the image-relative paths or remapping them with a documented image root. Install fixed versions of `torch`, `torchvision`, `timm`, `transformers`, `pillow`, and `numpy`. Run one fixed MegaDescriptor model and one fixed DINOv2 model without fine-tuning. For each run, record the model identifier, exact package versions, GPU type, input-manifest SHA-256, image root, preprocessing configuration, batch size, random seeds, successful and failed image counts, output checksum, and wall time.
 

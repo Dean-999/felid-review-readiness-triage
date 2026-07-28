@@ -14,7 +14,7 @@ The output is not reviewer-facing and is not a confirmation manifest. Its pair i
 
 ## Completed Selection and Boundary
 
-The fresh, dual-descriptor v2 reservoir contains 85,182 canonical pairs. With seed `pferi-v2-pilot-seed-001`, the builder selected 160 eligible unique canonical pairs, recorded at `outputs/pferi_v2/measurement_feasibility_pilot/restricted_pilot_manifest.csv`, with a PASS audit beside it. The selected pairs are stratified across descriptor membership and retrieval-rank bands; all available context was `day_or_unknown`, so no artificial infrared stratum was created. No pilot measurement or outcome label has been accessed. The historical identity-bearing pair table remains prohibited and was not used.
+The fresh, dual-descriptor v2 reservoir contains 85,182 canonical pairs. With seed `pferi-v2-pilot-seed-001`, the builder selected 160 eligible unique canonical pairs, recorded at `work/pferi_v2/gpu/measurement_feasibility/restricted_pilot_manifest.csv`, with a PASS audit beside it. The selected pairs are stratified across descriptor membership and retrieval-rank bands; all available context was `day_or_unknown`, so no artificial infrared stratum was created. No pilot measurement or outcome label has been accessed. The historical identity-bearing pair table remains prohibited and was not used.
 
 ## Validation
 

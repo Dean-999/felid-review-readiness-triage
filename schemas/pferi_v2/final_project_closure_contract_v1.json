@@ -1,0 +1,25 @@
+{
+  "contract_version": "pferi_v2_final_project_closure_contract_v1",
+  "purpose": "Freeze project closure at the owner-defined Task15M execution-validation acceptance gate.",
+  "authoritative_acceptance_record": "outputs/pferi_v2/models/confirmation/execution_freeze/task15n_confirmation_execution_result_freeze.json",
+  "acceptance_rule": {
+    "task15n_status": "PASS_TASK15M_EXECUTION_VALIDATION",
+    "run_audit_status": "PASS",
+    "validation_audit_status": "PASS",
+    "validation_failures": []
+  },
+  "final_status": "CONFIRMED",
+  "confirmation_scope": "TASK15M_EXECUTION_VALIDATION",
+  "project_status": "CLOSED",
+  "task_chain_closed": true,
+  "next_task": null,
+  "no_further_analysis_required_for_closure": true,
+  "claim_boundary": "CONFIRMED means the owner-defined Task15M execution, coverage, integrity, and validation acceptance gate passed. It is not an identity-accuracy, deployment-utility, or automatic identity-assignment claim.",
+  "prohibited_closure_actions": [
+    "recalculate Task15J coefficients",
+    "recalculate Task15L calibration parameters",
+    "repeat Task15M execution to seek a different result",
+    "describe project CONFIRMED as an identity-accuracy claim",
+    "delete or rewrite previously frozen provenance artifacts"
+  ]
+}

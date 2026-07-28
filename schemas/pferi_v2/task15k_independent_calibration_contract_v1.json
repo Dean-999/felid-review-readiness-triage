@@ -1,0 +1,51 @@
+{
+  "contract_version": "pferi_v2_task15k_independent_calibration_contract_v1",
+  "purpose": "Freeze an outcome-free, descriptor-compatible independent calibration candidate set and its feature-measurement control package for the Task15J P3/P5 model bundle.",
+  "upstream_model_requirement": {
+    "development_freeze_status": "QUALIFIED_P5_DEVELOPMENT_MODEL_FROZEN_CALIBRATION_AUTHORIZED",
+    "active_control_model_id": "P3",
+    "full_model_id": "P5",
+    "fixed_lambda": 100.0
+  },
+  "legacy_calibration_disposition": {
+    "status": "INCOMPATIBLE_DESCRIPTOR_TAXONOMY",
+    "permitted_legacy_inputs": ["outcome_free_locked_features/calibration_features.csv"],
+    "prohibited": [
+      "reading calibration outcomes",
+      "mapping legacy descriptor category both to a Task15I category",
+      "using legacy calibration labels with the Task15J P3/P5 model bundle"
+    ]
+  },
+  "independent_candidate_design": {
+    "formal_sampling_stage": "calibration",
+    "selection_seed": 77,
+    "selection_algorithm": "fixed_seed_vertex_disjoint_four_edge_trees_ranked_by_reciprocity_then_rank",
+    "component_count": 112,
+    "pairs_per_component": 4,
+    "pair_count": 448,
+    "exclude_task15i_development_endpoints": true,
+    "descriptor_categories": ["both_agreement", "both_reciprocal"],
+    "minimum_endpoint_image_count": 560
+  },
+  "measurement_and_scoring": {
+    "quality_measurement": "Task15I frozen OpenCV/Pillow method; source-referenced full-reservoir quality percentiles",
+    "local_match_measurement": "Task15I frozen SIFT ratio-test and RANSAC homography coverage method",
+    "frozen_prediction_models": ["P3", "P5"],
+    "local_measurement_failure_is_not_zero_evidence": true,
+    "must_validate_image_hashes": true,
+    "must_validate_selected_manifest_hash": true,
+    "calibration_outcomes_permitted": false
+  },
+  "future_calibration_analysis": {
+    "allowed": "Fit intercept and slope separately for P3 and P5 on logit(raw_probability) after the scoring inputs, analysis contract, assignments, and blinded review packages are frozen.",
+    "prohibited": [
+      "refitting coefficients",
+      "changing preprocessing",
+      "changing lambda",
+      "reselecting P3 or P5",
+      "setting an action threshold before a utility policy is frozen"
+    ]
+  },
+  "locked_stages": ["deployment_confirmation", "mechanism_confirmation"],
+  "claim_boundary": "This contract creates an outcome-free calibration candidate and measurement route. It neither opens calibration outcomes nor establishes model calibration, pair correctness, identity accuracy, deployment performance, confirmation, or project completion."
+}

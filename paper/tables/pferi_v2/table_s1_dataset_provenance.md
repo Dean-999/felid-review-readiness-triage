@@ -1,0 +1,9 @@
+# Table S1. Dataset provenance, licenses, and access restrictions
+
+This display does not grant image-publication rights; rights must be verified before representative photographs are used.
+
+| dataset_or_reservoir | species | source_institution | license | image_or_pair_count | identity_availability | geographic_sensitivity | publication_permission | repository_access_class | manuscript_role |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Independent redevelopment reservoir | Felid image pairs | Controlled project sources | Source-specific; imagery not redistributed here | 1,600 pairs | Not used as PF-ERI endpoint | Controlled | Verify per source before image publication | Restricted imagery; derived tables | Development |
+| Calibration partition | Felid image pairs | Controlled project sources | Source-specific | 448 pairs | Not used as endpoint | Controlled | Derived statistics only unless cleared | Restricted | Calibration |
+| Deployment-confirmation queue | Felid image pairs | Controlled project sources | Source-specific | 815 images; 889 candidate pairs | Internal linkage not reported as accuracy | Controlled | Derived statistics only unless cleared | Restricted images; auditable derived artifacts | External execution and outcome comparison |

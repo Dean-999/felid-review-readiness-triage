@@ -1,6 +1,6 @@
 # Task 04: Timed Outcome-Free Operational Rehearsal
 
-Status: complete — v1 retired after failed return audit; v2 assignment-enforced return passed.  
+Status: complete — v1 retired after failed return audit; v2 assignment-enforced return passed.
 Workstream: 04 — Dual-Sample Confirmatory Design.
 
 ## Aim
@@ -18,7 +18,7 @@ The original v1 return was retired: although it contained three participants and
 The v2 package uses a distinct set of 24 permanently excluded pilot pairs, enforced by `timed_operational_rehearsal_v1_retired_pair_ids.csv`. The coordinator starts the full v2 package with the restricted allocation manifest available only on the coordinator machine:
 
 ```bash
-cd outputs/pferi_v2/dual_sample_confirmation/2026-07-15_timed_operational_rehearsal_v2
+cd archive/pferi_v2/task_runs/dual_sample_confirmation/2026-07-15_timed_operational_rehearsal_v2
 PF_ERI_V2_ASSIGNMENT_FILE=restricted/participant_task_allocation.csv \
 PF_ERI_V2_OPERATIONAL_LOG_DIR=operational_logs \
 python -m streamlit run reviewer_view/app.py
@@ -30,9 +30,9 @@ After all sessions, the coordinator runs:
 
 ```bash
 python scripts/audit_v2_timed_operational_rehearsal.py \
-  --rehearsal-dir outputs/pferi_v2/dual_sample_confirmation/2026-07-15_timed_operational_rehearsal_v2 \
+  --rehearsal-dir archive/pferi_v2/task_runs/dual_sample_confirmation/2026-07-15_timed_operational_rehearsal_v2 \
   --contract schemas/pferi_v2/timed_operational_rehearsal_contract_v2.json \
-  --audit-json outputs/pferi_v2/dual_sample_confirmation/2026-07-15_timed_operational_rehearsal_v2/operational_return_audit.json
+  --audit-json archive/pferi_v2/task_runs/dual_sample_confirmation/2026-07-15_timed_operational_rehearsal_v2/operational_return_audit.json
 ```
 
 The auditor rejects wrong headers, semantic response fields, duplicate packets within participant, invalid timing values, insufficient participants, insufficient completions, missing adjudication rehearsal, and any `(participant, packet, role)` absent from the restricted allocation manifest.

@@ -109,6 +109,6 @@
     "exact inclusion-probability and sample-degree audit"
   ],
   "official_seed": "af9a4f6fa244186aaed25511ef7c481ca22bb8371c13cbf715853dc6f47f0032",
-  "official_seed_record": "outputs/pferi_v2/information_partitioning/2026-07-16_official_image_allocation_v1/official_sampling_seed_record.json",
-  "official_image_role_allocation": "outputs/pferi_v2/information_partitioning/2026-07-16_official_image_allocation_v1/official_image_role_allocation.csv"
+  "official_seed_record": "archive/pferi_v2/task_runs/partition/image_allocation/official_sampling_seed_record.json",
+  "official_image_role_allocation": "archive/pferi_v2/task_runs/partition/image_allocation/official_image_role_allocation.csv"
 }

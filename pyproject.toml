@@ -1,0 +1,38 @@
+[project]
+name = "felid-review-readiness-triage"
+version = "0.1.0"
+description = "Auditable evidence-admission workflow for wildlife Re-ID review."
+requires-python = ">=3.11"
+dependencies = [
+  "matplotlib>=3.8,<4",
+  "numpy>=1.26,<3",
+  "opencv-python-headless==4.10.0.84",
+  "pandas>=2.1,<3",
+  "pillow>=10,<12",
+  "pingouin>=0.5,<1",
+  "requests>=2.31,<3",
+  "scikit-learn>=1.3,<2",
+  "scipy>=1.11,<2",
+  "streamlit>=1.36,<2",
+]
+
+[dependency-groups]
+dev = [
+  "pre-commit>=4,<5",
+  "pytest>=8,<9",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"
+markers = [
+  "local_evidence: requires non-versioned local archives, work outputs, or restricted evidence.",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

@@ -124,7 +124,7 @@ PATH_MAPPINGS: tuple[tuple[str, str], ...] = (
         "artifacts/transfers/pferi_v2/PF_ERI_V2_FULL_FRAME_LOCAL_MATCH_CONTROL.zip",
     ),
     ("outputs/final_freeze", "data/frozen/pferi_v2"),
-    ("outputs/v2_candidate_reservoir", "outputs/pferi_v2"),
+    ("outputs/v2_candidate_reservoir", "archive/pferi_v2/task_runs"),
     ("outputs/.ua", ".ua/outputs-analysis"),
     (
         "outputs/PF-ERI_full_project_adversarial_hv_report.pdf",

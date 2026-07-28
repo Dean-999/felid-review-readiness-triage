@@ -59,7 +59,7 @@
 ### Task 3: Remove proven duplicate and superseded artifacts
 
 **Files:**
-- Delete: `outputs/pferi_v2/fresh_descriptor_runs/megadescriptor_l_384/embedding_manifest.csv`
+- Delete: `work/pferi_v2/gpu/descriptor_runs/megadescriptor_l_384/embedding_manifest.csv`
 - Delete: exact-copy Phase 14/15/16 package members identified by SHA-256 inventory.
 - Delete: exact-copy v2 work manifests while retaining the canonical package manifest.
 - Delete: `scripts/build_final_local_match_package_v2.py`

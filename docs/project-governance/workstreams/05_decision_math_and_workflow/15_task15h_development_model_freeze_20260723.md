@@ -1,0 +1,17 @@
+# Task 15H Development Model Freeze
+
+Status: `VALIDATED_NO_DEVELOPMENT_MODEL_QUALIFIED_CALIBRATION_LOCKED`
+
+Task 15H applied the frozen qualification-before-performance rule to the complete Tasks 15E, 15F, and 15G development record. The immutable source manifests, upstream validation audits, component-disjoint folds, fold-training preprocessing contract, candidate registry, and authoritative external Task 15G reconciliation all passed verification. The Task 15H record itself is therefore valid. This validation means that the record accurately represents the evidence and decision rules; it does not mean that a model qualified.
+
+The engineering gates passed. The five outer and four inner folds had zero endpoint leakage, no locked-stage outcome was accessed, preprocessing remained fold-training-only, P3 and P5 preserved exact feature nesting, all required out-of-fold probabilities were finite and within the unit interval, and the registered complexity budget was respected. The outcome-free design simulation's square-root inverse-probability weighting choice also remained unchanged.
+
+The qualification result is negative. P3 and P5 selected lambda 100 in four outer folds and lambda 0.1 in the remaining fold. Task 15E had already frozen this 1000-fold swing as a violation of the intended stable-regularization qualification. P5 reduced design-weighted Brier by only 0.00004117 relative to P3, and its binding Task 15E disposition was `NOT_QUALIFIED`.
+
+The observed-development calibration criterion cannot be declared passed. P3's weighted calibration intercept and slope were 0.173959 and 0.876249, while P5's were 0.149912 and 0.892751. No numeric observed-development acceptance threshold for these quantities was frozen before Task 15E outcomes were opened. The outcome-free simulation threshold concerned worst-scenario median slope error after independent synthetic calibration; applying it now to the observed out-of-fold models would create a post-result rule. Task 15H therefore records the observed-development calibration gate as unresolved.
+
+P3 is not promoted as a fallback. Its registry status made it eligible to serve as the active control, but the registry did not state that it would automatically become the final development model if P5 failed. P3 also shared the failed regularization-stability pattern. A post-result fallback would remove the registered full-versus-active-control comparison and would create a new decision rule after development outcomes had been examined. S1-S5 and E1-E3 remain confirmation-ineligible and cannot replace P3 or P5 based on descriptive performance.
+
+The validated freeze is stored at `archive/pferi_v2/task_runs/model_development/2026-07-23_task15h_development_model_freeze_v1/`. It contains `development_model_freeze_record.json`, `qualification_audit.json`, a scientific report, the exact builder snapshot, and a complete SHA256 manifest. The record freezes no development model and explicitly sets `calibration_authorized=false`.
+
+Calibration, deployment confirmation, and mechanism confirmation remain locked. The next permissible action is a governance decision on redesign or termination without inspecting any locked-stage outcome. Any future model route requires a prospectively fixed remedy and scientifically independent information; Tasks 15E-15G may not be rerun, retuned, or reinterpreted to turn this nonqualification record into a passing model freeze.

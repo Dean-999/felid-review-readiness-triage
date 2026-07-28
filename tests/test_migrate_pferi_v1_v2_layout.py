@@ -20,7 +20,7 @@ class PFERILayoutMigrationTests(unittest.TestCase):
         )
         self.assertEqual(
             migration.relocate_path("outputs/v2_candidate_reservoir/dual_sample_confirmation/result.csv"),
-            "outputs/pferi_v2/dual_sample_confirmation/result.csv",
+            "archive/pferi_v2/task_runs/dual_sample_confirmation/result.csv",
         )
 
     def test_specific_execution_package_mapping_wins_over_v2_result_root(self) -> None:
@@ -55,7 +55,7 @@ class PFERILayoutMigrationTests(unittest.TestCase):
             self.assertEqual(len(plan), 3)
             self.assertIn("data/frozen/pferi_v2/bobcat-wild/a.jpg", destinations)
             self.assertIn("archive/pferi_v1/outputs/modeling-validation/result.csv", destinations)
-            self.assertIn("outputs/pferi_v2/result.json", destinations)
+            self.assertIn("archive/pferi_v2/task_runs/result.json", destinations)
             self.assertNotIn("outputs/README.md", {move.source.relative_to(root).as_posix() for move in plan})
 
     def test_rewrite_text_uses_longest_mapping_and_leaves_version_tokens_alone(self) -> None:

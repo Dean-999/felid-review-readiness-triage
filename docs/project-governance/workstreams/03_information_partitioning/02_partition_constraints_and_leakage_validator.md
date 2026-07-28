@@ -1,6 +1,6 @@
 # Task 02: Partition Constraints and Leakage Validator
 
-Status: complete — executable contract and synthetic validation PASS.  
+Status: complete — executable contract and synthetic validation PASS.
 Workstream: 03 — Development, Calibration, and Confirmation Partitioning.
 
 ## Scientific objective
@@ -37,7 +37,7 @@ The executable contract is `schemas/pferi_v2/partition_constraint_contract_v1.js
 
 ```bash
 python scripts/validate_v2_partition_constraints.py \
-  --canonical-pairs outputs/pferi_v2/dual_descriptor_queue/canonical_pairs.csv \
+  --canonical-pairs work/pferi_v2/pipeline/dual_descriptor_queue/canonical_pairs.csv \
   --image-partitions PATH/partition_images.csv \
   --pair-partitions PATH/partition_pairs.csv \
   --audit-json PATH/partition_constraint_audit.json \

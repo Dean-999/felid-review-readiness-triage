@@ -1,0 +1,266 @@
+{
+  "registry_version": "pferi_v2_model_route_candidate_registry_v1",
+  "status": "CANDIDATE_ROUTE_FREEZE",
+  "scientific_target": "Estimate P(review_ready | frozen outcome-free pair measurements) as a calibrated probability.",
+  "information_boundary": {
+    "open_stage": "development",
+    "permitted_label_column": "review_ready_label",
+    "locked_stages": [
+      "calibration",
+      "deployment_confirmation",
+      "mechanism_confirmation"
+    ],
+    "forbidden_uses": [
+      "locked-stage label access",
+      "identity prediction",
+      "population prevalence estimation from the enriched development sample",
+      "confirmation-driven feature or model selection"
+    ]
+  },
+  "feature_blocks": {
+    "intercept": {
+      "columns": [],
+      "role": "reference"
+    },
+    "descriptor": {
+      "columns": [
+        "megadescriptor_within_role_percentile",
+        "dinov2_within_role_percentile",
+        "descriptor_support_category"
+      ],
+      "role": "upstream retrieval evidence"
+    },
+    "independent_quality": {
+      "columns": [
+        "endpoint_native_pixel_quality_percentile_min",
+        "endpoint_sharpness_quality_percentile_min",
+        "endpoint_exposure_quality_percentile_min",
+        "endpoint_quality_measurement_failure",
+        "endpoint_frozen_quality_stress"
+      ],
+      "role": "independent image-quality control"
+    },
+    "pair_evidence": {
+      "columns": [
+        "local_match_coverage_fraction",
+        "local_match_measurement_failure"
+      ],
+      "role": "incremental automatic local-correspondence evidence"
+    },
+    "diagnostic_only": {
+      "columns": [
+        "megadescriptor_similarity",
+        "dinov2_similarity",
+        "dual_descriptor_percentile_disagreement",
+        "dual_descriptor_disagreement_within_role_percentile",
+        "local_match_within_role_percentile",
+        "best_rank_band",
+        "retrieval_stratum_id",
+        "development_evidence_state",
+        "development_sampling_cell_id",
+        "sampling_cell_id"
+      ],
+      "role": "audit, simulation, stratification, or prespecified sensitivity only"
+    }
+  },
+  "preprocessing_policies": {
+    "common_fold_train_v1": {
+      "continuous_missing": "fold-train median plus explicit missing indicator",
+      "continuous_scaling": "fold-train mean and standard deviation",
+      "categorical_encoding": "fold-train one-hot with explicit missing and unknown levels",
+      "structural_failure": "explicit failure indicator; never encode a failed measurement as zero evidence",
+      "fit_scope": "fit separately inside every inner and outer training fold",
+      "prohibited": [
+        "global preprocessing before folds",
+        "outcome-target encoding",
+        "SMOTE",
+        "over-sampling",
+        "under-sampling",
+        "balanced class weights"
+      ]
+    }
+  },
+  "models": [
+    {
+      "model_id": "P0",
+      "role": "reference",
+      "family": "intercept_only_logistic",
+      "feature_blocks": ["intercept"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": false
+    },
+    {
+      "model_id": "P1",
+      "role": "descriptor_reference",
+      "family": "l2_logistic",
+      "feature_blocks": ["descriptor"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": false
+    },
+    {
+      "model_id": "P2",
+      "role": "quality_reference",
+      "family": "l2_logistic",
+      "feature_blocks": ["independent_quality"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": false
+    },
+    {
+      "model_id": "P3",
+      "role": "active_control",
+      "family": "l2_logistic",
+      "feature_blocks": ["descriptor", "independent_quality"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": true
+    },
+    {
+      "model_id": "P4",
+      "role": "construct_alignment_diagnostic",
+      "family": "l2_logistic",
+      "feature_blocks": ["pair_evidence"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": false
+    },
+    {
+      "model_id": "P5",
+      "role": "full_primary",
+      "family": "l2_logistic",
+      "feature_blocks": ["descriptor", "independent_quality", "pair_evidence"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": true
+    },
+    {
+      "model_id": "S1",
+      "role": "prespecified_nonlinear_active_control",
+      "family": "restricted_penalized_logistic_gam",
+      "feature_blocks": ["descriptor", "independent_quality"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": false
+    },
+    {
+      "model_id": "S2",
+      "role": "prespecified_nonlinear_full",
+      "family": "restricted_penalized_logistic_gam",
+      "feature_blocks": ["descriptor", "independent_quality", "pair_evidence"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": false
+    },
+    {
+      "model_id": "S3",
+      "role": "parameter_uncertainty_sensitivity",
+      "family": "weak_prior_bayesian_logistic",
+      "feature_blocks": ["descriptor", "independent_quality", "pair_evidence"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": false
+    },
+    {
+      "model_id": "S4",
+      "role": "shared_image_dependence_sensitivity",
+      "family": "crossed_image_random_effect_bayesian_logistic",
+      "feature_blocks": ["descriptor", "independent_quality", "pair_evidence"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": false
+    },
+    {
+      "model_id": "S5",
+      "role": "separation_triggered_sensitivity",
+      "family": "firth_flic_logistic",
+      "feature_blocks": ["descriptor", "independent_quality", "pair_evidence"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": false
+    },
+    {
+      "model_id": "E1",
+      "role": "exploratory_performance_bound",
+      "family": "explainable_boosting_machine",
+      "feature_blocks": ["descriptor", "independent_quality", "pair_evidence"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": false
+    },
+    {
+      "model_id": "E2",
+      "role": "exploratory_performance_bound",
+      "family": "shallow_catboost",
+      "feature_blocks": ["descriptor", "independent_quality", "pair_evidence"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": false
+    },
+    {
+      "model_id": "E3",
+      "role": "exploratory_performance_bound",
+      "family": "fixed_version_tabpfn",
+      "feature_blocks": ["descriptor", "independent_quality", "pair_evidence"],
+      "preprocessing_policy": "common_fold_train_v1",
+      "confirmation_eligible": false
+    }
+  ],
+  "complexity_budgets": {
+    "l2_logistic_lambda_grid": [0.01, 0.03, 0.1, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0],
+    "l2_selection_rule": "design-aware inner-fold Brier with one-standard-error preference for stronger shrinkage",
+    "restricted_gam": {
+      "maximum_basis_dimension_per_continuous_term": 4,
+      "maximum_prespecified_interactions": 1,
+      "automatic_interaction_search": false
+    },
+    "ebm": {
+      "automatic_interaction_search": false,
+      "maximum_prespecified_interactions": 1
+    },
+    "catboost": {
+      "maximum_depth": 4,
+      "maximum_hyperparameter_configurations": 12
+    },
+    "tabpfn": {
+      "version_and_weight_hash_required_before_execution": true,
+      "fine_tuning": false
+    }
+  },
+  "global_training_rules": {
+    "class_rebalancing": "none",
+    "outer_split": "five-fold endpoint-component-disjoint",
+    "inner_split": "four-fold endpoint-component-disjoint within each outer training set",
+    "primary_tuning_score": "design-aware Brier score",
+    "development_inference": "descriptive model selection and stability only; no confirmatory p-value",
+    "weighting_strategies_to_resolve_by_design_simulation": [
+      "unweighted likelihood with design-weighted validation",
+      "Hajek-normalized IPW pseudo-likelihood with design-weighted validation",
+      "prespecified stabilized-weight sensitivity"
+    ]
+  },
+  "primary_comparison": {
+    "full_model_id": "P5",
+    "active_control_model_id": "P3",
+    "only_incremental_feature_block": "pair_evidence",
+    "paired_loss": "Brier(active_control) - Brier(full_model)",
+    "confirmation_status": "reserved for one-shot deployment confirmation"
+  },
+  "qualification_before_performance": [
+    "zero endpoint leakage across folds",
+    "zero locked-stage input access",
+    "fold-train-only preprocessing",
+    "finite probabilities in [0,1]",
+    "stable regularization or shape selection",
+    "acceptable calibration intercept and slope",
+    "complexity budget respected",
+    "P3 and P5 differ only by pair_evidence"
+  ],
+  "reported_development_metrics": [
+    "Brier score",
+    "log loss",
+    "calibration intercept",
+    "calibration slope",
+    "AUROC",
+    "AUPRC",
+    "component-level paired Brier regret",
+    "regularization or shape stability"
+  ],
+  "excluded_primary_routes": [
+    "GNN",
+    "stacking",
+    "unrestricted deep tabular network",
+    "broad boosting search",
+    "SMOTE or class rebalancing",
+    "row-random cross-validation"
+  ],
+  "next_gate": "Outcome-free design simulation and deterministic component-balanced nested-fold construction must pass before registered development model comparison."
+}

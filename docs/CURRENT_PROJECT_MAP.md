@@ -40,7 +40,7 @@ reviewer reliability.
 
 ```text
 data/frozen/pferi_v2
-  -> outputs/pferi_v2
+  -> archive/pferi_v2/task_runs
   -> canonical v2 pair and measurement contracts
   -> fresh dual-descriptor reservoir
   -> outcome-free feasibility gates
@@ -76,7 +76,7 @@ available from Git history.
 `data/frozen/pferi_v2/` is authoritative input storage. Its three populated
 manifests match 6,000 Bobcat-urban, 3,000 Bobcat-wild, and 3,000 CzechLynx image
 files. Current result tables, audits and response logs live under
-`outputs/pferi_v2/`. Reconstructable execution and reviewer packages live under
+`archive/pferi_v2/task_runs/`. Reconstructable execution and reviewer packages live under
 `work/pferi_v2/`; transport archives live under `artifacts/transfers/pferi_v2/`.
 PF-ERI v1 result bytes are preserved under `archive/pferi_v1/` and are never an
 active v2 result root.

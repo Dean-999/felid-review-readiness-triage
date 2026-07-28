@@ -8,10 +8,10 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_MANIFEST = ROOT / "outputs/pferi_v2/restricted_descriptor_execution_manifest.csv"
+DEFAULT_MANIFEST = ROOT / "work/pferi_v2/pipeline/descriptor_manifests/restricted_descriptor_execution_manifest.csv"
 DEFAULT_PACKAGE = ROOT / "work/pferi_v2/descriptor_execution_package"
-DEFAULT_ZIP = ROOT / "outputs/pferi_v2/v2_czechlynx_fresh_descriptor_images.zip"
-DEFAULT_AUDIT = ROOT / "outputs/pferi_v2/v2_descriptor_package_audit.json"
+DEFAULT_ZIP = ROOT / "archive/pferi_v2/task_runs/v2_czechlynx_fresh_descriptor_images.zip"
+DEFAULT_AUDIT = ROOT / "work/pferi_v2/pipeline/descriptor_manifests/v2_descriptor_package_audit.json"
 
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()

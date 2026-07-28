@@ -1,0 +1,145 @@
+{
+  "registry_version": "pferi_v2_model_design_dgp_registry_v1",
+  "status": "FROZEN_SYNTHETIC_DESIGN",
+  "simulation_seed": 2026072201,
+  "replicates_per_scenario": 40,
+  "real_outcome_policy": "PROHIBITED",
+  "target_population": "all outcome-free development-role pairs after official zero-crossing image allocation",
+  "training_sample": "the 445 formally sampled development pairs, joined to the outcome-free master derivation frame",
+  "candidate_routes": [
+    {
+      "route_id": "ridge_unweighted",
+      "model_family": "ridge_logistic",
+      "training_weight_strategy": "unweighted"
+    },
+    {
+      "route_id": "ridge_hajek_ipw",
+      "model_family": "ridge_logistic",
+      "training_weight_strategy": "hajek_ipw"
+    },
+    {
+      "route_id": "ridge_sqrt_ipw_sensitivity",
+      "model_family": "ridge_logistic",
+      "training_weight_strategy": "sqrt_ipw"
+    },
+    {
+      "route_id": "restricted_spline_unweighted",
+      "model_family": "restricted_spline_logistic",
+      "training_weight_strategy": "unweighted"
+    },
+    {
+      "route_id": "restricted_spline_hajek_ipw",
+      "model_family": "restricted_spline_logistic",
+      "training_weight_strategy": "hajek_ipw"
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "null_evidence_increment",
+      "mechanism": "linear_additive",
+      "target_prevalence": 0.65,
+      "evidence_scale": 0.0,
+      "shared_image_sd": 0.0,
+      "tests": ["false evidence promotion", "base-rate calibration"]
+    },
+    {
+      "scenario_id": "weak_linear_increment",
+      "mechanism": "linear_additive",
+      "target_prevalence": 0.65,
+      "evidence_scale": 0.25,
+      "shared_image_sd": 0.0,
+      "tests": ["weak incremental signal", "shrinkage bias"]
+    },
+    {
+      "scenario_id": "moderate_linear_increment",
+      "mechanism": "linear_additive",
+      "target_prevalence": 0.65,
+      "evidence_scale": 0.6,
+      "shared_image_sd": 0.0,
+      "tests": ["recoverable incremental signal"]
+    },
+    {
+      "scenario_id": "smooth_nonlinear_increment",
+      "mechanism": "smooth_nonlinear",
+      "target_prevalence": 0.65,
+      "evidence_scale": 0.8,
+      "shared_image_sd": 0.0,
+      "tests": ["linear misspecification", "restricted nonlinear advantage"]
+    },
+    {
+      "scenario_id": "descriptor_evidence_redundancy",
+      "mechanism": "redundant_evidence",
+      "target_prevalence": 0.65,
+      "evidence_scale": 0.15,
+      "shared_image_sd": 0.0,
+      "tests": ["multicollinearity", "spurious incremental attribution"]
+    },
+    {
+      "scenario_id": "mechanism_interaction",
+      "mechanism": "quality_evidence_interaction",
+      "target_prevalence": 0.65,
+      "evidence_scale": 0.7,
+      "shared_image_sd": 0.0,
+      "tests": ["prespecified interaction", "additivity failure"]
+    },
+    {
+      "scenario_id": "quasi_separation",
+      "mechanism": "quasi_separation",
+      "target_prevalence": 0.5,
+      "evidence_scale": 1.0,
+      "shared_image_sd": 0.0,
+      "tests": ["separation", "extreme probability instability"]
+    },
+    {
+      "scenario_id": "informative_matcher_failure",
+      "mechanism": "informative_matcher_failure",
+      "target_prevalence": 0.65,
+      "evidence_scale": 0.5,
+      "shared_image_sd": 0.0,
+      "tests": ["missing-not-at-random proxy", "failure-state handling"]
+    },
+    {
+      "scenario_id": "shared_image_random_effect",
+      "mechanism": "linear_additive",
+      "target_prevalence": 0.65,
+      "evidence_scale": 0.5,
+      "shared_image_sd": 0.75,
+      "tests": ["dyadic dependence", "pseudoreplication"]
+    },
+    {
+      "scenario_id": "sampling_cell_calibration_shift",
+      "mechanism": "sampling_cell_shift",
+      "target_prevalence": 0.8,
+      "evidence_scale": 0.4,
+      "shared_image_sd": 0.0,
+      "tests": ["enriched-sample calibration shift", "weighting robustness"]
+    }
+  ],
+  "qualification_rule": {
+    "selection_order": "qualification before minimax performance",
+    "primary_weighting_selection_pool": [
+      "ridge_unweighted",
+      "ridge_hajek_ipw",
+      "ridge_sqrt_ipw_sensitivity"
+    ],
+    "nonlinear_routes_cannot_replace_the_frozen_primary_family": true,
+    "maximum_fit_failure_rate": 0.05,
+    "maximum_worst_scenario_median_absolute_calibration_slope_error": 0.35,
+    "maximum_null_false_promotion_rate": 0.1,
+    "false_promotion_threshold_brier": 0.005,
+    "minimax_metric": "maximum across scenarios of median full-model Brier regret",
+    "tie_rule": "prefer ridge over restricted spline, then prefer unweighted over weighted fitting"
+  },
+  "reported_metrics": [
+    "full-model Brier regret",
+    "active-control Brier regret",
+    "log-loss regret",
+    "calibration intercept",
+    "calibration slope",
+    "estimated paired Brier increment",
+    "oracle paired Brier increment",
+    "false evidence promotion",
+    "fit failure"
+  ],
+  "claim_boundary": "Simulation ranks design strategies under declared synthetic mechanisms. It is not observed PF-ERI performance, does not estimate the true effect, and cannot unlock calibration or confirmation."
+}

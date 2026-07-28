@@ -1,0 +1,32 @@
+{
+  "contract_version": "pferi_v2_task15m_independent_confirmation_contract_v1",
+  "purpose": "Freeze an outcome-free external confirmation measurement design for the calibrated Task15J P3/P5 models.",
+  "upstream_requirements": {
+    "task15j_status": "QUALIFIED_P5_DEVELOPMENT_MODEL_FROZEN_CALIBRATION_AUTHORIZED",
+    "task15l_status": "PASS",
+    "models": ["P3", "P5"],
+    "calibration_transform": "logit(calibrated_probability) = task15l_intercept + task15l_slope * logit(raw_probability)"
+  },
+  "confirmation_candidate": {
+    "source_stage": "historical_deployment_confirmation",
+    "pair_count": 889,
+    "analysis_unit": "canonical pair",
+    "dependency_unit": "physical endpoint image",
+    "required_descriptor_categories": ["both_agreement", "both_reciprocal"],
+    "source_labels_may_be_read_at_design_freeze": false
+  },
+  "measurement_and_scoring": {
+    "required": ["current dual-descriptor inference", "quality measurement", "SIFT/RANSAC local-match measurement", "frozen P3/P5 raw scoring", "fixed Task15L probability calibration"],
+    "prohibited": ["refitting P3 or P5", "changing preprocessing", "changing lambda", "reselecting P3 or P5", "changing the confirmation pair set after measurement"],
+    "unsupported_descriptor_disposition": "Pairs outside the frozen P3/P5 descriptor taxonomy are reported and excluded before any outcome label is opened."
+  },
+  "primary_confirmation_analysis": {
+    "estimand": "Brier(P3_calibrated)-Brier(P5_calibrated)",
+    "positive_direction": "positive favors P5",
+    "minimum_practical_increment": 0.005,
+    "interval": "two-sided 95% dyadic cluster-robust sandwich interval using physical image IDs as dyad members",
+    "success_rule": "The lower endpoint of the frozen dyadic cluster-robust interval is greater than 0.005.",
+    "no_model_reselection": true
+  },
+  "claim_boundary": "This contract authorizes measurement design only. It does not open confirmation labels or establish P5 superiority, external performance, deployment utility, identity accuracy, or project completion."
+}

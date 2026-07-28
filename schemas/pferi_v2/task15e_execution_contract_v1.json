@@ -1,0 +1,73 @@
+{
+  "contract_version": "pferi_v2_task15e_execution_contract_v1",
+  "status": "FROZEN_BEFORE_TASK15E_MODEL_FITTING",
+  "scope": {
+    "stage": "development",
+    "expected_pair_count": 445,
+    "permitted_outcome": "review_ready_label",
+    "locked_stages": ["calibration", "deployment_confirmation", "mechanism_confirmation"],
+    "forbidden": ["locked-stage access", "row-random cross-validation", "class rebalancing", "confirmatory p-values"]
+  },
+  "models": {
+    "P0": {"family": "intercept_only_logistic", "feature_blocks": []},
+    "P1": {"family": "l2_logistic", "feature_blocks": ["descriptor"]},
+    "P2": {"family": "l2_logistic", "feature_blocks": ["independent_quality"]},
+    "P3": {"family": "l2_logistic", "feature_blocks": ["descriptor", "independent_quality"]},
+    "P4": {"family": "l2_logistic", "feature_blocks": ["pair_evidence"]},
+    "P5": {"family": "l2_logistic", "feature_blocks": ["descriptor", "independent_quality", "pair_evidence"]},
+    "S1": {"family": "restricted_penalized_logistic_gam", "feature_blocks": ["descriptor", "independent_quality"]},
+    "S2": {"family": "restricted_penalized_logistic_gam", "feature_blocks": ["descriptor", "independent_quality", "pair_evidence"]}
+  },
+  "nested_validation": {
+    "outer_folds": 5,
+    "inner_folds": 4,
+    "split_unit": "endpoint-connected component",
+    "lambda_grid": [0.01, 0.03, 0.1, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0],
+    "selection_score": "Hajek-normalized full-IPW Brier on each inner validation fold",
+    "selection_rule": "largest lambda whose mean fold score is no greater than the minimum mean plus the standard error at the minimum",
+    "outer_prediction_rule": "one honest out-of-fold probability per pair and model"
+  },
+  "weighting": {
+    "training": "sqrt inverse inclusion probability normalized to mean one within each training fold",
+    "validation_and_reporting": "inverse inclusion probability Hajek-normalized to mean one in the evaluated set",
+    "class_weights": "none"
+  },
+  "optimizer": {
+    "implementation": "scipy.optimize.minimize L-BFGS-B",
+    "intercept_penalized": false,
+    "maximum_iterations": 2000,
+    "gradient_tolerance": 1e-8,
+    "probability_clip": [1e-12, 0.999999999999]
+  },
+  "restricted_gam": {
+    "continuous_basis": "quadratic B-spline",
+    "degree": 2,
+    "interior_knots": "one fold-training median on the standardized continuous feature",
+    "boundary_knots": "fold-training minimum and maximum",
+    "maximum_basis_dimension_per_continuous_term": 4,
+    "categorical_terms": "unchanged frozen one-hot columns",
+    "missing_indicators": "unchanged frozen explicit indicators",
+    "interactions": "none",
+    "constant_term_policy": "emit four zero basis columns and record the degeneracy",
+    "basis_scaling": "fold-training mean and population standard deviation; scale one if constant"
+  },
+  "required_metrics": ["Brier", "log_loss", "calibration_intercept", "calibration_slope", "AUROC", "AUPRC", "component_paired_Brier_regret", "lambda_stability"],
+  "primary_development_comparison": {
+    "active_control": "P3",
+    "full_model": "P5",
+    "delta": "Brier(P3)-Brier(P5)",
+    "interpretation": "descriptive development evidence only"
+  },
+  "hard_failures": [
+    "input hash mismatch",
+    "not exactly 445 unique development pairs",
+    "locked-stage artifact present",
+    "fold assignment mismatch or component leakage",
+    "one-class training fold",
+    "P3 columns are not an exact prefix of P5 columns",
+    "optimizer failure or non-finite coefficient",
+    "missing, duplicate, non-finite, or out-of-range OOF probability",
+    "result validation failure"
+  ],
+  "runtime": {"target": "ModelScope CPU", "python": "3.11", "gpu_required": false, "network_required_after_dependency_install": false}
+}
