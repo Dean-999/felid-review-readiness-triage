@@ -10,6 +10,8 @@ The historical v1 400-row material remains in the repository for provenance, fea
 
 `PROJECT_RULES.md` is the binding project contract. `docs/CURRENT_PROJECT_MAP.md` gives the current state and navigation. Workbook04 is the active work area; its design is locked, the official image allocation is frozen, and pair sampling/outcome packets remain blocked pending within-role automatic measurements and post-allocation gates. The operational protocol, pre-specified analysis plan, and reviewer instructions are in `paper/protocols/`. Superseded implementations are recorded in `docs/project-governance/SUPERSEDED_IMPLEMENTATIONS.md`.
 
+Repository contribution and data-handling rules are in `CONTRIBUTING.md`, `SECURITY.md`, and `docs/project-governance/structure/github_repository_governance.md`.
+
 ## Experiment iteration rule
 
 An experiment or workbook task keeps one canonical design document. When the first attempt fails, the next attempt copies forward the complete original design and revises that same file; it must not create a parallel `v2`, `retry`, `new`, or `final` design document merely to represent another attempt. Git history preserves the previous revision.
